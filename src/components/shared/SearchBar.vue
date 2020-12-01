@@ -1,7 +1,8 @@
 <template>
   <div class="search-bar">
-<input type="search" name="" id="">
+<!-- <input type="search" name="" id="" placeholder="search"> -->
   </div>
+  
 </template>
 
 <script>
@@ -13,6 +14,6 @@ name:"SearchBar"
 <style>
 .search-bar{
     border: 1px solid black;
-    height: 2vh ;
+
 }
 </style>

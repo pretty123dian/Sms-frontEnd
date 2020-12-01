@@ -1,18 +1,19 @@
 <template>
-<div>
-        <div class="chart-one lg:ml-4 sm:ml-4">
+  <div class=" col-start-3 col-end-10 ">
 
-        </div>
-        
-        <div class="chart-two lg:ml-4 sm:ml-4">
-            
-        </div>
+    <div class="grid grid-cols-1 sm:mr-5">
+      <navbar/>
+        <statistical-visual/>
+    </div>
     </div>
 </template>
 
 <script>
+import StatisticalVisual from '../main/StatisticalVisual.vue'
+import Navbar from './Navbar.vue'
 export default {
-name:"StatisticalVisual"
+  components: { StatisticalVisual, Navbar },
+name:"MainBody"
 }
 </script>
 

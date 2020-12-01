@@ -20,8 +20,8 @@ export default {
 </script>
 
 <style src="./assets/tailwind.css">
-#app{
-  background-color: #fafaff !important;
+*{
+    /* font-family: 'Poppins',sans-serif; */
 }
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 
