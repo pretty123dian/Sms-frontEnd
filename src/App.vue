@@ -1,15 +1,20 @@
 <template>
   <div id="app">
-    <Home/>
+    <!-- <Home/> -->
+  <!-- <Sidebar/> -->
+  <Dashboard/>
   </div>
 </template>
 
 <script>
-import Home from './pages/Home';
+// import Home from './pages/Home';
+// import Sidebar from './components/shared/Sidebar';
+import Dashboard from './pages/Dashboard';
 export default {
   name: "App",
   components: {
-    Home
+    // Home,
+    Dashboard
 }
 }
 </script>
