@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-12 gap-2">
+  <div class="grid grid-cols-12 gap-2 dashboard">
       <Sidebar/>
       <statistical-visual/>
       <right-sidebar/>
@@ -22,5 +22,7 @@ StatisticalVisual
 </script>
 
 <style>
-
+.dashboard{
+   background-color: #fafaff !important;
+}
 </style>
