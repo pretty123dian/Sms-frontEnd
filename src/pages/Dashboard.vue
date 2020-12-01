@@ -31,5 +31,7 @@ MainBody
 <style>
 .dashboard{
    background-color: #fafaff !important;
+   font-family: "Poppins",sans-serif;
+   font-size: 13px;
 }
 </style>
