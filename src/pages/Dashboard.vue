@@ -3,7 +3,7 @@
       <Sidebar/>
       <!-- <search-bar/> -->
       <!-- <statistical-visual/> -->
-
+   <!-- <router-view/> -->
       <main-body/>
       <right-sidebar/>
   </div>

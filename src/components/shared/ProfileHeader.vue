@@ -5,8 +5,8 @@
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           class="bell-notify"
         >
           <path fill="none" d="M0 0h24v24H0z" />
@@ -16,7 +16,7 @@
           />
         </svg>
         <div
-          class="absolute top-0 right-0 h-3 w-3 mr-3 border-2 border-white rounded-full bg-red-400 z-2"
+          class="absolute top-0 right-0 h-3 w-3 mr-4 border-2 border-white rounded-full bg-red-400 z-2"
         ></div>
       </div>
     </div>

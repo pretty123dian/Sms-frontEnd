@@ -2,19 +2,20 @@
   <div id="app">
     <!-- <Home/> -->
   <!-- <Sidebar/> -->
-  <Dashboard/>
+  <router-view/>
+  <!-- <Dashboard/> -->
   </div>
 </template>
 
 <script>
 // import Home from './pages/Home';
 // import Sidebar from './components/shared/Sidebar';
-import Dashboard from './pages/Dashboard';
+// import Dashboard from './pages/Dashboard';
 export default {
   name: "App",
   components: {
     // Home,
-    Dashboard
+    // Dashboard
 }
 }
 </script>
