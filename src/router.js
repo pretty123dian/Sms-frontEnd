@@ -5,6 +5,7 @@ import Vue from 'vue'
 // import components here
 import Lessons from './components/lessons/LessonsTable';
 import Students from './components/students/StudentsTable.vue';
+import AddStudent from './components/students/AddStudent.vue';
 import Instructors from './components/instructors/InstructorTable.vue';
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
@@ -31,11 +32,17 @@ const router = new VueRouter({
                 path: '/view/lessons',
                 name: 'Lessons',
                 component: Lessons
+                
             },
             {
                 path: '/view/students',
                 name: 'Students',
                 component: Students
+            },
+            {
+                path: '/add-student',
+                name: 'Students',
+                component: AddStudent
             },
             {
                 path:'/view/instructors',

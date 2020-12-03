@@ -25,7 +25,7 @@ components:{
 
 <style>
 .home{
-   background-color: #fafaff !important;
+   /* background-color: #fafaff !important; */
    font-family: "Poppins",sans-serif;
    font-size: 14px;
 }

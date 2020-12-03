@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-2 gap 2 mt-2">
-    <div class="md:col-start-1 md:col-end-2 ">
-      <div class="relative w-10 h-10">
+  <div :class="[this.$route.name=='Dashboard'?'grid grid-cols-2 gap-2 mt-3':'grid grid-cols-2 gap-2']">
+    <div class="md:col-start-8 md:col-end-10 ">
+      <div class="relative w-10 h-10 mt-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -20,15 +20,15 @@
         ></div>
       </div>
     </div>
-    <div class="col-start-10 col-end-10 grid grid-cols-2 gap-2 md:pr-10">
-      <div class="col-start-1 col-end-2">
+    <div class="col-start-10 col-end-13 grid grid-cols-2 gap-2 md:pr-10">
+      <div class="col-start-1 col-end-3">
         <img
           class="rounded-full border border-gray-100 shadow-sm w-10 h-10"
           src="https://randomuser.me/api/portraits/women/81.jpg"
           alt="user image"
         />
       </div>
-      <div class="col-start-2 col-end-10">
+      <div class="col-start-3 col-end-13">
         <b>Admin Code</b> <br />
         <span class="text-xs">Admin</span>
       </div>

@@ -4,8 +4,17 @@
       <!-- <search-bar/> -->
       <!-- <statistical-visual/> -->
    <!-- <router-view/> -->
-      <main-body/>
-      <right-sidebar/>
+   
+      <template v-if="this.$route.name!='Dashboard'">
+        
+    <main-body class="col-end-13"/>
+        <!-- <profile-header class="top-0 sticky col-start-10 col-end-12"/> -->
+      </template>
+      <template v-else>
+  <main-body/>
+<right-sidebar/>
+      </template>
+      
   </div>
 </template>
 
@@ -13,16 +22,16 @@
 import Sidebar from '../components/shared/Sidebar';
 import RightSidebar from '../components/shared/RightSidebar';
 import MainBody from '../components/shared/MainBody.vue';
+// import ProfileHeader from '../components/shared/ProfileHeader';
 // import StatisticalVisual from '../components/main/StatisticalVisual.vue';
 // import SearchBar from '../components/shared/SearchBar.vue';
 export default {
 name: "Dashboard",
 components:{
 Sidebar,
+// ProfileHeader,
 RightSidebar,
 MainBody
-// StatisticalVisual,
-// SearchBar
     
 }
 }

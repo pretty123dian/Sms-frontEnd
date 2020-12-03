@@ -25,12 +25,13 @@
         value="hellowrold"
       />
     </div>
-
+<router-link to="/dashboard">
     <button
       class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
     >
       Login
     </button>
+    </router-link>
   </div>
 </template>
 

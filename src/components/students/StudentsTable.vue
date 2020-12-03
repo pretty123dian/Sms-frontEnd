@@ -36,9 +36,11 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
+          <router-link to="/add-student">
           <vs-button color="#574AE2" class="rounded-full add-stud-btn">
             Add student
           </vs-button>
+          </router-link>
         </div>
       </div>
       <div class="center bg-white">
