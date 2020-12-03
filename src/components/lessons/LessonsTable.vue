@@ -1,7 +1,7 @@
 <template>
   <div>
-         <div class="chart-one lg:ml-4 sm:ml-4 ">
-           <div class="center">
+         <div class="lg:ml-4 sm:ml-4 ">
+           <div class="center bg-white">
              <vs-table>
                <template #thead>
                  <vs-tr>
