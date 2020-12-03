@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="home">
     <div class="flex">
       <Banner />
       <Login />
@@ -24,5 +24,9 @@ components:{
 </script>
 
 <style>
-
+.home{
+   background-color: #fafaff !important;
+   font-family: "Poppins",sans-serif;
+   font-size: 14px;
+}
 </style>

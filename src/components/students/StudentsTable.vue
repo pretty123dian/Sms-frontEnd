@@ -6,8 +6,9 @@
                <template #thead>
                  <vs-tr>
                    <vs-th>#</vs-th>
-                   <vs-th>Title</vs-th>
-                   <vs-th>Description</vs-th>
+                   <vs-th>Names</vs-th>
+                   <vs-th>Promotion</vs-th>
+                   <vs-th>Age</vs-th>
                    <vs-th>Action</vs-th>
                  </vs-tr>
                </template>
@@ -15,17 +16,20 @@
                <template #tbody>
                   <vs-tr
                   :key="i"
-                  v-for="(tr,i) in lessons"
+                  v-for="(tr,i) in students"
                   :data ="tr"
                   >
                     <vs-td>
                       {{tr.id}}
                     </vs-td>
                     <vs-td>
-                      {{tr.title}}
+                      {{tr.names}}
                     </vs-td>
                     <vs-td>
-                      {{tr.description}}
+                      {{tr.promotion}}
+                    </vs-td>
+                    <vs-td>
+                      {{tr.age}}
                     </vs-td>
                     <vs-td>
                       {{tr.action}}
@@ -40,31 +44,35 @@
 
 <script>
 export default {
-name:"LessonsTable",
+name:"StudentsTable",
 data:()=>({
-  lessons:[
-    {
-      "id":1,
-      "title":"Mathematics",
-      "description":"This is the course of mathematics which deals with analysis,...",
-      "action":"ok"
-    },
+  students:[
+        {
+        "id":1,
+        "names":"Gersh lento",
+        "promotion":"This is the course of mathematics which deals with analysis,...",
+        "age":12,
+        "action":"ok"
+        },
       {
       "id":2,
-      "title":"Mathematics",
-      "description":"This is the course of mathematics which deals with analysis,...",
+      "names":"Lento lento",
+      "promotion":"This is the course of mathematics which deals with analysis,...",
+      "age":12,
       "action":"ok"
     },
       {
       "id":3,
-      "title":"Mathematics",
-      "description":"This is the course of mathematics which deals with analysis,...",
+      "names":"Gervais Ishimwe",
+      "promotion":"This is the course of mathematics which deals with analysis,...",
+      "age":12,
       "action":"ok"
     },
       {
       "id":4,
-      "title":"Mathematics",
-      "description":"This is the course of mathematics which deals with analysis,...",
+      "names":"Mathematics",
+      "promotion":"This is the course of mathematics which deals with analysis,...",
+      "age":12,
       "action":"ok"
     }
   ]
