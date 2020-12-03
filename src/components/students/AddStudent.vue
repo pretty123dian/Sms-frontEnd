@@ -45,9 +45,9 @@
             <!-- <label for="year_one" class="inline-flex items-center years mr-2 mt-5"> -->
             <div class="mt-5">
               <input
-                type="checkbox"
+                type="radio"
                 class="form-checkbox text-indigo-900"
-                name="year"
+                name="gender"
                 id="year_one"
                 checked
               />
@@ -55,9 +55,9 @@
               <!-- </label> -->
 
               <input
-                type="checkbox"
+                type="radio"
                 class="form-checkbox text-indigo-900"
-                name="year"
+                name="gender"
                 id="year_one"
                 checked
               />
