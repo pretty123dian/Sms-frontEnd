@@ -76,11 +76,12 @@
                   class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
                 />
               </div>
-              <div class="col-span-6 lg:col-span-1 md:col-span-6 mt-5">
+              <div :class="i==0?'col-span-6 lg:col-span-1 md:col-span-6 mt-5':'col-span-6 lg:col-span-1 md:col-span-6 mt-1'">
                 <router-link to="">
                   <vs-button
                     color="#574AE2"
-                    class="rounded-full py-3 px-6 add-stud-btn rounded-full"
+                    :class="i==0?'rounded-full py-3 px-6 add-stud-btn rounded-full':'rounded-full py-1 px-6 add-stud-btn rounded-full'"
+
                     @click="inputs[i] == '+' ? expand(i) : remove(i)"
                   >
                     {{ inputs[i] }}
