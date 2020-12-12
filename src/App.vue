@@ -1,25 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <div id="app">
+    <!-- <Home/> -->
+  <!-- <Sidebar/> -->
+  <router-view/>
+  <!-- <Dashboard/> -->
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// import Home from './pages/Home';
+// import Sidebar from './components/shared/Sidebar';
+// import Dashboard from './pages/Dashboard';
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
+    // Home,
+    // Dashboard
+}
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style src="./assets/tailwind.css">
+*{
+    /* font-family: 'Poppins',sans-serif; */
 }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+
 </style>

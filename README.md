@@ -1,4 +1,4 @@
-# sms_frontend
+# smsfront
 
 ## Project setup
 ```
