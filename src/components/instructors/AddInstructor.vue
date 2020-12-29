@@ -8,7 +8,7 @@
               <div class="block">
                 <label class="block">
                   <span class="text-dark-700 font-bold" v-if="i == 0"
-                    >Register students</span
+                    >Register instructors</span
                   >
                   <select
                     class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
@@ -23,15 +23,15 @@
             </div>
 
             <div class="col-start-4 col-end-10" v-if="i == 0">
-              <router-link to="/view/students">
+              <router-link to="/view/instructors">
                 <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-                  View students
+                  View instructors
                 </vs-button>
               </router-link>
             </div>
           </div>
           <div class="center">
-            <div class="size-example grid grid-cols-5 gap-5">
+            <div class="size-example grid grid-cols-6 gap-5">
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Firstname</label>
                 <input
@@ -70,18 +70,34 @@
               </div>
 
               <div class="col-span-6 lg:col-span-1 md:col-span-6">
-                <label for="" class="mr-4" v-if="i == 0">Date of birth</label>
+                <label for="" class="mr-4" v-if="i == 0">Phone number</label>
                 <input
-                  type="date"
+                  type="number"
                   class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
                 />
               </div>
-              <div :class="i==0?'col-span-6 lg:col-span-1 md:col-span-6 mt-5':'col-span-6 lg:col-span-1 md:col-span-6 mt-1'">
+              <div class="col-span-6 lg:col-span-1 md:col-span-6">
+                <label for="" class="mr-4" v-if="i == 0">National ID</label>
+                <input
+                  type="number"
+                  class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
+                />
+              </div>
+              <div
+                :class="
+                  i == 0
+                    ? 'col-span-6 lg:col-span-1 md:col-span-6 mt-5'
+                    : 'col-span-6 lg:col-span-1 md:col-span-6 mt-1'
+                "
+              >
                 <router-link to="">
                   <vs-button
                     color="#574AE2"
-                    :class="i==0?'rounded-full py-3 px-6 add-stud-btn rounded-full':'rounded-full py-1 px-6 add-stud-btn rounded-full'"
-
+                    :class="
+                      i == 0
+                        ? 'rounded-full py-3 px-6 add-stud-btn rounded-full'
+                        : 'rounded-full py-1 px-6 add-stud-btn rounded-full'
+                    "
                     @click="inputs[i] == '+' ? expand(i) : remove(i)"
                   >
                     {{ inputs[i] }}
@@ -95,9 +111,7 @@
     </div>
     <vs-button
       color="#574AE2"
-      class="rounded-full  py-3 px-10 save-stud-btn rounded-full 
-      focus:outline-none
-      "
+      class="rounded-full py-3 px-10 save-stud-btn rounded-full focus:outline-none"
     >
       Save
     </vs-button>
@@ -106,7 +120,7 @@
 
 <script>
 export default {
-  name: "AddStudent",
+  name: "AddInstructor",
   data: () => ({
     inputs: ["+"],
     userData: [],
@@ -152,7 +166,7 @@ export default {
 option {
   padding: 5% !important;
 }
-.save-stud-btn{
+.save-stud-btn {
   width: 15%;
   margin-left: 40% !important;
 }

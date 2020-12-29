@@ -6,7 +6,10 @@ import Vue from 'vue'
 import Lessons from './components/lessons/LessonsTable';
 import Students from './components/students/StudentsTable.vue';
 import AddStudent from './components/students/AddStudent.vue';
+
 import Instructors from './components/instructors/InstructorTable.vue';
+import AddInstructor from './components/instructors/AddInstructor.vue';
+
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
 // import MainBody from './components/shared/MainBody.vue'
@@ -40,7 +43,7 @@ const router = new VueRouter({
                 component: Students
             },
             {
-                path: '/add-student',
+                path: '/register/student',
                 name: 'Students',
                 component: AddStudent
             },
@@ -48,6 +51,11 @@ const router = new VueRouter({
                 path:'/view/instructors',
                 name:'Instructors',
                 component: Instructors
+            },
+            {
+                path:'/register/instructor',
+                name:'Instructors',
+                component: AddInstructor
             }
 
         ]
