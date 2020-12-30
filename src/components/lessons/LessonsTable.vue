@@ -4,6 +4,7 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
+                <h3 class="text-sm font-bold mb-5">View lessons</h3>
             <label for="year_one" class="inline-flex items-center years">
               <input
                 type="checkbox"
@@ -36,9 +37,15 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
+          <router-link
+          to="/register/lesson"
+          >
+
+          
           <vs-button color="#574AE2" class="rounded-full add-stud-btn">
             Add lesson
           </vs-button>
+          </router-link>
         </div>
       </div>
       <div class="center bg-white">

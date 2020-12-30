@@ -4,6 +4,7 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
+              <h3 class="text-sm font-bold mb-5">View instructors</h3>
             <label for="year_one" class="inline-flex items-center years">
               <input
                 type="checkbox"
@@ -44,7 +45,7 @@
         </div>
       </div>
       <div class="center bg-white">
-                <vs-table>
+               <vs-table stripe :data="instructors" class="p-4">
                <template #thead>
                  <vs-tr>
                    <vs-th>#</vs-th>
@@ -58,7 +59,7 @@
                <template #tbody>
                   <vs-tr
                   :key="i"
-                  v-for="(tr,i) in students"
+                  v-for="(tr,i) in instructors"
                   :data ="tr"
                   >
                     <vs-td>
@@ -88,7 +89,7 @@
 export default {
 name:"InstructorsTable",
 data:()=>({
-  students:[
+  instructors:[
         {
         "id":1,
         "names":"Bosco abc",

@@ -43,4 +43,8 @@ MainBody
    font-family: "Poppins",sans-serif;
    font-size: 13px;
 }
+.text-purple{
+  color: #574ae2;
+}
+
 </style>
