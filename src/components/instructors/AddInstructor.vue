@@ -44,30 +44,27 @@
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
-              <div class="col-span-5 lg:col-span-1 md:col-span-5">
+             
+                <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Gender</label> <br />
                 <!-- <label for="year_one" class="inline-flex items-center years mr-2 mt-5"> -->
                 <div :class="i == 0 ? 'mt-5' : ''">
-                  <input
-                    type="radio"
-                    class="form-checkbox text-indigo-900"
-                    v-model="input[0].gender"
-                    id="male"
-                    checked
-                  />
-                  <label class="ml-1 mr-5">Male</label>
-                  <!-- </label> -->
-
-                  <input
-                    type="radio"
-                    class="form-checkbox text-indigo-900"
-                    v-model="input[0].gender"
-                    id="female"
-                    checked
-                  />
-                  <label class="ml-1">Female</label>
+                  <span v-for="(sex, index) in gender" :key="index">
+                    <input
+                      type="radio"
+                      class="form-checkbox text-indigo-900"
+                      :name="genderN + i"
+                      :key="index"
+                      :id="sex + index + i"
+                    />
+                    <label
+                      :for="sex + index + i"
+                      class="ml-1 mr-5 cursor-pointer"
+                      >{{ sex }}</label
+                    >
+                  </span>
                 </div>
-              </div>
+              </div> 
 
               <div class="col-span-6 lg:col-span-1 md:col-span-6">
                 <label for="" class="mr-4" v-if="i == 0">Phone number</label>
@@ -107,6 +104,8 @@
             </div>
           </div>
         </div>
+        <br />
+        <hr />
       </div>
     </div>
     <vs-button
@@ -124,6 +123,8 @@ export default {
   data: () => ({
     inputs: ["+"],
     userData: [],
+    genderN: "gender",
+    gender: ["Male", "Female"],
   }),
   watch: {
     route() {
@@ -159,12 +160,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form-select {
   width: 30%;
 }
 option {
   padding: 5% !important;
+}
+input:focus {
+  background-color: #f8f8f8;
 }
 .save-stud-btn {
   width: 15%;

@@ -15,22 +15,26 @@
     <div class="mt-10">
       <div class="flex">
         <p>Enter password</p>
-        <p class="fog ml-20">Forgot password?</p>
+        
       </div>
 
       <br />
       <input
         type="password"
         class="border rounded-full py-3 px-6"
-        value="hellowrold"
+        placeholder="*********"
       />
+      <div class="w-full">
+       <a href="#" class="mt-5 fog float-right">Forgot password?</a>
+       </div>
     </div>
-<router-link to="/dashboard">
-    <button
-      class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
-    >
-      Login
-    </button>
+   
+    <router-link to="/dashboard">
+      <button
+        class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
+      >
+        Login
+      </button>
     </router-link>
   </div>
 </template>
@@ -60,6 +64,9 @@ button {
 input {
   color: #25282b;
   font-weight: 100;
+}
+input:focus {
+  background-color: #f8f8f8;
 }
 .main {
   margin-left: 150px;
