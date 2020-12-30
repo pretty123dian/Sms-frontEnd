@@ -5,7 +5,6 @@ import router from './router';
 import Vuesax from 'vuesax';
 //tailwind
 import "tailwindcss/tailwind.css"
-
 import "vuesax/dist/vuesax.css"
 
 Vue.config.productionTip = false

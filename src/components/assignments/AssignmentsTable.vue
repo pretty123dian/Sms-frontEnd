@@ -10,12 +10,10 @@
               <select
                 class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
               >
-              <option value="" selected>Select year</option>
-              <template v-for="(year, index) in years">
-                    <option :value="year"  :key="index">{{year}}</option>
-              </template>
-                
-              
+                <option value="" selected>Select year</option>
+                <template v-for="(year, index) in years">
+                  <option :value="year" :key="index">{{ year }}</option>
+                </template>
               </select>
             </label>
             <!-- select the year box ends here -->
@@ -67,12 +65,43 @@
         </vs-table>
       </div>
     </div>
+    <div class="centerx">
+      <vs-button @click="popupActivo2 = true" color="primary" type="filled"
+        >Open Popup</vs-button
+      >
+      <vs-popup
+        classContent="popup-example"
+        title="Lorem ipsum dolor sit amet"
+        :active.sync="popupActivo2"
+      >
+        <vs-input class="inputx" placeholder="Placeholder" v-model="value1" />
+        <vs-input
+          disabled
+          class="inputx"
+          placeholder="Disabled"
+          v-model="value2"
+        />
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut
+        </p>
+        <vs-select label="Figuras" v-model="select1">
+          <vs-select-item
+            :key="index"
+            :value="item.value"
+            :text="item.text"
+            v-for="(item, index) in options1"
+          />
+        </vs-select>
+      </vs-popup>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "StudentsTable",
+  name: "AssignmentsTable",
   data: () => ({
     students: [
       {
@@ -100,7 +129,17 @@ export default {
         action: "View",
       },
     ],
-    years: [2018,2019,2020,2021]
+    years: [2018, 2019, 2020, 2021],
+    select1: 3,
+    options1: [
+      { text: "IT", value: 0 },
+      { text: "Blade Runner", value: 2 },
+      { text: "Thor Ragnarok", value: 3 },
+    ],
+    value1: "",
+    value2: "",
+    popupActivo2: false,
+    popupActivo3: false, 
   }),
 };
 </script>
@@ -120,10 +159,6 @@ label > input[type="checkbox"]:checked + * {
   background: #fff !important;
 }
 
-.vs-table__tr:hover {
-  /* background-color: #E9E8FF;
-  border: 1px solid black; */
-}
 tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
