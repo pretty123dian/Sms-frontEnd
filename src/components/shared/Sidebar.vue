@@ -1,7 +1,9 @@
 <template>
   <div class="sidebar col-start-1 col-end-3">
-    <div class="col-start-1 col-end-2 sms-logo sm:m-2">IMG / LOGO AREA</div>
-    <div class="home-links md:ml-3 md:mt-4 md:mr-3">
+    <div class="col-start-1 col-end-2 sms-logo sm:m-2 flex">
+      <img class="lg:w-20" src="../../assets/rca_logo.png" alt="">
+    </div>
+    <div class="home-links md:ml-3 md:mr-3">
       <router-link
         :class="[this.$route.name == 'Dashboard' ? 'active' : '']"
         to="/dashboard"
@@ -114,10 +116,14 @@ export default {
   fill: #000000;
 }
 .sms-logo {
-  border: 1px solid rgb(172, 172, 172);
-  height: 20vh;
-  text-align: center;
-  padding-top: 25%;
+  /* border: 1px solid rgb(172, 172, 172); */
+  height: 15vh;
+  justify-content: center;
+}
+.sms-logo img{
+  position: relative;
+  top: 0;
+  height: 15vh;
 }
 .home-links a {
   display: flex;
