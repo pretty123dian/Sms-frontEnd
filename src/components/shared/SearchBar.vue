@@ -1,6 +1,6 @@
 <template>
   <div class="p-2 pl-4 search-bar relative">
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 gap-4 flex items-center">
       <div class="col-start-1 col-end-5">
         <form method="">
           <div class="relative text-gray-600 focus-within:text-gray-400">
@@ -32,7 +32,7 @@
           </div>
         </form>
       </div>
-      <div class="col-start-6 col-end-12">
+      <div class="col-start-6 col-end-12 top-0">
         <vs-button color="#574AE2" class="">
           +
         </vs-button>
