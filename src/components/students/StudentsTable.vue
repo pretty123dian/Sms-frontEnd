@@ -4,6 +4,7 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
+                <h3 class="text-sm font-bold mb-5">View students</h3>
             <label for="year_one" class="inline-flex items-center years">
               <input
                 type="checkbox"

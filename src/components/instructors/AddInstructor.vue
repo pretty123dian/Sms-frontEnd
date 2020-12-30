@@ -1,15 +1,18 @@
 <template>
+
   <div class="mb-10 bg-white mt-5">
     <div class="mb-10">
+    
       <div v-for="(input, i) in inputs" :key="i">
         <div class="lg:ml-4 ml-4">
           <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
             <div class="col-start-1 col-end-6 lg:col-start-1 lg:col-end-2">
+              
               <div class="block">
+                 
                 <label class="block">
-                  <span class="text-dark-700 font-bold" v-if="i == 0"
-                    >Register instructors</span
-                  >
+                 
+                  
                   <select
                     class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
                   >
