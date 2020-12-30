@@ -4,14 +4,28 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-          <h3 class="text-sm font-bold">View assignments</h3>
+            <h3 class="text-sm font-bold mb-5">View assignments</h3>
+            <!-- select the year here -->
+            <label class="block">
+              <select
+                class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
+              >
+              <option value="" selected>Select year</option>
+              <template v-for="(year, index) in years">
+                    <option :value="year"  :key="index">{{year}}</option>
+              </template>
+                
+              
+              </select>
+            </label>
+            <!-- select the year box ends here -->
           </div>
         </div>
         <div class="col-start-4 col-end-10">
           <router-link to="/register/student">
-          <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-            Add assignment
-          </vs-button>
+            <vs-button color="#574AE2" class="rounded-full add-stud-btn">
+              Add assignment
+            </vs-button>
           </router-link>
         </div>
       </div>
@@ -42,14 +56,11 @@
               <vs-td>
                 {{ tr.assignmentType }}
               </vs-td>
+              <vs-td> {{ tr.maximumMarks }} % </vs-td>
               <vs-td>
-                {{ tr.maximumMarks }} %
-              </vs-td>
-              <vs-td>
-                  <span class="text-purple cursor-pointer">
-                        {{ tr.action }}
-                  </span>
-              
+                <span class="text-purple cursor-pointer">
+                  {{ tr.action }}
+                </span>
               </vs-td>
             </vs-tr>
           </template>
@@ -72,14 +83,15 @@ export default {
         maximumMarks: 100,
         action: "View",
       },
-    {
+      {
         id: 2,
         lesson: "Java",
         semester: "Term 1",
         assignmentType: "Exam",
         maximumMarks: 100,
         action: "View",
-      }, {
+      },
+      {
         id: 3,
         lesson: "DSA",
         semester: "Term 1",
@@ -87,8 +99,8 @@ export default {
         maximumMarks: 100,
         action: "View",
       },
-    
     ],
+    years: [2018,2019,2020,2021]
   }),
 };
 </script>
