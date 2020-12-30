@@ -1,34 +1,24 @@
 <template>
   <div class="main mt-20">
-    <h1>Login to SMS</h1>
-
-    <div class="mt-10">
-      <p class="mb-4">Enter passcode</p>
-
-      <input
-        type="text"
-        placeholder="RCA016702I"
-        class="border rounded-full py-2 px-6"
-      />
-    </div>
-
+    <h1>Recover password</h1>
     <div class="mt-10">
       <div class="flex">
-        <p>Enter password</p>
-        
+        <p>Enter email</p>
       </div>
 
       <br />
       <input
-        type="password"
+        type="email"
         class="border rounded-full py-3 px-6"
-        placeholder="*********"
+        placeholder="..@sms.xyz"
       />
       <div class="w-full">
-        <router-link to="/forgotpassword">
-           <span href="#" class="mt-5 fog float-right">Forgot password?</span>
-        </router-link>
-      
+          <router-link
+          to="/"
+          >
+    <span class="mt-5 fog float-right">Login to SMS here</span>
+          </router-link>
+   
        </div>
     </div>
    
@@ -36,7 +26,7 @@
       <button
         class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
       >
-        Login
+       Recover password
       </button>
     </router-link>
   </div>
@@ -44,7 +34,7 @@
 
 <script>
 export default {
-  name: "Login",
+  name: "ForgotPassword",
   props: {
     msg: String,
   },
@@ -78,10 +68,10 @@ input:focus {
 .fog {
   color: #574ae2;
 }
-.fog:hover{
-  text-decoration: underline;
-}
 h1 {
   font-size: 20px;
+}
+.fog:hover{
+  text-decoration: underline;
 }
 </style>

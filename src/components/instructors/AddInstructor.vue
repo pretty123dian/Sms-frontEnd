@@ -39,13 +39,20 @@
                 />
               </div>
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
+                <label for="" class="mr-4" v-if="i == 0">Middle name</label>
+                <input
+                  type="text"
+                  class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
+                />
+              </div>
+              <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Lastname</label>
                 <input
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
-             
-                <div class="col-span-5 lg:col-span-1 md:col-span-5">
+
+              <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Gender</label> <br />
                 <!-- <label for="year_one" class="inline-flex items-center years mr-2 mt-5"> -->
                 <div :class="i == 0 ? 'mt-5' : ''">
@@ -64,13 +71,19 @@
                     >
                   </span>
                 </div>
-              </div> 
-
+              </div>
+              <div class="col-span-5 lg:col-span-1 md:col-span-5">
+                <label for="" class="mr-4" v-if="i == 0">Email</label>
+                <input
+                  type="email"
+                  class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
+                />
+              </div>
               <div class="col-span-6 lg:col-span-1 md:col-span-6">
                 <label for="" class="mr-4" v-if="i == 0">Phone number</label>
                 <input
                   type="number"
-                  class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
+                  class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white w-3/4"
                 />
               </div>
               <div class="col-span-6 lg:col-span-1 md:col-span-6">

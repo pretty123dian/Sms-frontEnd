@@ -1,5 +1,6 @@
 
 import Home from './pages/Home.vue';
+
 import VueRouter from 'vue-router';
 import Vue from 'vue'
 // import components here
@@ -12,14 +13,23 @@ import AddInstructor from './components/instructors/AddInstructor.vue';
 
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
+import ForgotPassword from './components/ForgotPassword.vue';
 // import MainBody from './components/shared/MainBody.vue'
 Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [{
         path: '/',
-        component: Home
+        component: Home,
+        children:[
+            {
+                path:'/forgotpassword',
+                name:'ForgotPassword',
+                component:ForgotPassword
+            }
+        ]
     },
+
     {
 
         path: '/dashboard',
