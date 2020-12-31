@@ -20,82 +20,117 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link to="/register/student">
+          <router-link to="/register/assignment">
             <vs-button color="#574AE2" class="rounded-full add-stud-btn">
               Add assignment
             </vs-button>
           </router-link>
         </div>
       </div>
-      <div class="center bg-white">
-        <vs-table stripe :data="students" class="p-4">
-          <template #thead class="bg-white">
-            <vs-tr>
-              <vs-th>#</vs-th>
-              <vs-th>Lesson</vs-th>
-              <vs-th>Semester</vs-th>
-              <vs-th>Assignment type</vs-th>
-              <vs-th>Maximum marks</vs-th>
-              <vs-th>Actions</vs-th>
-            </vs-tr>
+      <div class="center bg-white p-5">
+        <table stripe :data="students" class="w-full">
+          <template class="bg-white">
+            <tr>
+              <th>#</th>
+              <th>Lesson</th>
+              <th>Semester</th>
+              <th>Assignment type</th>
+              <th>Maximum marks</th>
+              <th>Actions</th>
+            </tr>
           </template>
 
-          <template #tbody>
-            <vs-tr :key="i" v-for="(tr, i) in students" :data="tr">
-              <vs-td>
+          <template>
+            <tr :key="i" v-for="(tr, i) in students" :data="tr">
+              <td>
                 {{ tr.id }}
-              </vs-td>
-              <vs-td>
+              </td>
+              <td>
                 {{ tr.lesson }}
-              </vs-td>
-              <vs-td>
+              </td>
+              <td>
                 {{ tr.semester }}
-              </vs-td>
-              <vs-td>
+              </td>
+              <td>
                 {{ tr.assignmentType }}
-              </vs-td>
-              <vs-td> {{ tr.maximumMarks }} % </vs-td>
-              <vs-td>
-                <span class="text-purple cursor-pointer">
+              </td>
+              <td>{{ tr.maximumMarks }} %</td>
+              <td>
+                <span
+                  class="text-purple cursor-pointer"
+                  @click="popupActivo2 = true"
+                >
                   {{ tr.action }}
                 </span>
-              </vs-td>
-            </vs-tr>
+              </td>
+            </tr>
           </template>
-        </vs-table>
+        </table>
       </div>
     </div>
+
+    <!-- view the assignment here -->
     <div class="centerx">
-      <vs-button @click="popupActivo2 = true" color="primary" type="filled"
+      <!-- <vs-button @click="popupActivo2 = true" color="primary" type="filled"
         >Open Popup</vs-button
-      >
+      > -->
       <vs-popup
         classContent="popup-example"
-        title="Lorem ipsum dolor sit amet"
+        title="Assignment"
         :active.sync="popupActivo2"
+        class="assignment__popup"
       >
-        <vs-input class="inputx" placeholder="Placeholder" v-model="value1" />
-        <vs-input
-          disabled
-          class="inputx"
-          placeholder="Disabled"
-          v-model="value2"
-        />
+        <div class="grid w-full">
+          <div class="col-12">
+            <ul>
+              <li>Lesson</li>
+              <li class="font-bold">Mathematics</li>
+            </ul>
+          </div>
+          <div class="col-12">
+            <ul>
+              <li>Semester</li>
+              <li class="font-bold">Term 1</li>
+            </ul>
+          </div>
+          <div class="col-12">
+            <ul>
+              <li>Assignment type</li>
+              <li class="font-bold">Exam</li>
+            </ul>
+          </div>
+          <div class="col-12">
+            <ul>
+              <li>Maximum marks</li>
+              <li class="font-bold">100%</li>
+            </ul>
+          </div>
+          <div class="col-12">
+            <ul>
+              <li>Assignment file</li>
+              <li class="font-bold flex text-purple">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="svg file"
+                  width="18"
+                  height="18"
+                >
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path
+                    d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM8 7h8v2H8V7zm0 4h8v2H8v-2zm0 4h8v2H8v-2z"
+                  />
+                </svg>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut
-        </p>
-        <vs-select label="Figuras" v-model="select1">
-          <vs-select-item
-            :key="index"
-            :value="item.value"
-            :text="item.text"
-            v-for="(item, index) in options1"
-          />
-        </vs-select>
+                mathematics_cat.pdf
+              </li>
+            </ul>
+          </div>
+        </div>
       </vs-popup>
     </div>
+
+    <!-- assignment popup ends here -->
   </div>
 </template>
 
@@ -139,28 +174,47 @@ export default {
     value1: "",
     value2: "",
     popupActivo2: false,
-    popupActivo3: false, 
+    popupActivo3: false,
   }),
 };
 </script>
 
-<style>
+<style scoped>
 label > input[type="checkbox"]:checked + *::before {
   background-color: #574ae2;
 }
 label > input[type="checkbox"]:checked + * {
   color: #574ae2;
 }
+.vs-popup--title h3 {
+    -webkit-transition: all .23s ease .1s;
+    transition: all .23s ease .1s;
+    padding: 8px;
+    padding-left: 12px;
+    font-size: 1.2rem;
+    font-family: 'Poppins' !important;
+}
+ul li{
+  
+   font-family: "Poppins",sans-serif;
+}
 
 .add-stud-btn:focus {
   outline: none;
 }
-.vs-table__thead .vs-table__th {
+.table__thead .table__th {
   background: #fff !important;
 }
 
 tr {
   border-bottom: 1px solid #dfdfdf !important;
+}
+ul li{
+  padding: 1.5%;
+}
+.file{
+  fill: #574ae2;
+  margin-right: 1%;
 }
 </style>
 

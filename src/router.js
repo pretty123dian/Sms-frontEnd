@@ -14,10 +14,15 @@ import Instructors from './components/instructors/InstructorTable.vue';
 import AddInstructor from './components/instructors/AddInstructor.vue';
 
 import Assignments from './components/assignments/AssignmentsTable.vue'
+import AddAssignment from './components/assignments/AddAssignment.vue';
+
+import Notes from './components/notes/NotesTable.vue'
+import AddNotes from './components/notes/AddNotes.vue'
 
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
 import ForgotPassword from './components/ForgotPassword.vue';
+
 // import MainBody from './components/shared/MainBody.vue'
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -81,6 +86,21 @@ const router = new VueRouter({
                 path:'/view/assignments',
                 name:'Assignments',
                 component: Assignments
+            },
+            {
+                path:'/register/assignment',
+                name:'Assignments',
+                component:AddAssignment
+            },
+            {
+                path:'/view/notes',
+                name:'Notes',
+                component:Notes
+            },
+            {
+                path:'/register/notes',
+                name:'Notes',
+                component:AddNotes
             }
 
         ]

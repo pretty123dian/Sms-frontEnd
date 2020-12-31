@@ -38,6 +38,7 @@ MainBody
 </script>
 
 <style>
+
 .dashboard{
    background-color: #fafaff !important;
    font-family: "Poppins",sans-serif;
@@ -46,5 +47,7 @@ MainBody
 .text-purple{
   color: #574ae2;
 }
-
+tr td{
+  padding: 1% 0%;
+}
 </style>
