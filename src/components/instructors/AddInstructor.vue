@@ -1,18 +1,12 @@
 <template>
-
   <div class="mb-10 bg-white mt-5">
     <div class="mb-10">
-    
       <div v-for="(input, i) in inputs" :key="i">
         <div class="lg:ml-4 ml-4">
           <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
             <div class="col-start-1 col-end-6 lg:col-start-1 lg:col-end-2">
-              
               <div class="block">
-                 
                 <label class="block">
-                 
-                  
                   <select
                     class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
                   >
@@ -38,6 +32,7 @@
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Firstname</label>
                 <input
+                  type="text"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -51,6 +46,7 @@
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Lastname</label>
                 <input
+                  type="text"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -184,7 +180,7 @@ option {
   padding: 5% !important;
 }
 input:focus {
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
 }
 .save-stud-btn {
   width: 15%;

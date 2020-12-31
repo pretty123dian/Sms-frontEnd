@@ -189,6 +189,7 @@ label > input[type="checkbox"]:checked + *::before {
 label > input[type="checkbox"]:checked + * {
   color: #574ae2;
 }
+
 .vs-popup--title h3 {
     -webkit-transition: all .23s ease .1s;
     transition: all .23s ease .1s;

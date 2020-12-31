@@ -47,6 +47,10 @@ MainBody
 .text-purple{
   color: #574ae2;
 }
+input[type=text]:focus,input[type=email]:focus, input[type=date]:focus, input[type=number]:focus, select:focus{
+  border: 2px solid #574ae2;
+  border-radius: 4px !important;
+}
 tr td{
   padding: 1% 0%;
 }
