@@ -166,7 +166,7 @@ export default {
   /* border:1px solid black; */
   border-radius: 20px;
 }
-.home-links > .active .svg .path {
+.home-links > .active .svg  {
   fill: #574ae2;
   font-weight: bold;
 }
@@ -174,7 +174,7 @@ export default {
   background-color: #e9e8ff;
   color: #574ae2;
 }
-.home-links > a:hover .svg .path {
+.home-links > a:hover .svg {
   fill: #574ae2;
   font-weight: bold;
 }

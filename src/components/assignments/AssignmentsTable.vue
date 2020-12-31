@@ -77,9 +77,12 @@
       <vs-popup
         classContent="popup-example"
         title="Assignment"
+        button-close-hidden = false
         :active.sync="popupActivo2"
         class="assignment__popup"
+        style="font-family:'Poppins'"
       >
+      
         <div class="grid w-full">
           <div class="col-12">
             <ul>
