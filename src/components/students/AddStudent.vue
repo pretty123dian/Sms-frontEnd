@@ -175,7 +175,7 @@ option {
   padding: 5% !important;
 }
 input:focus {
-  /* background-color: #f8f8f8; */
+  background-color: #f8f8f8;
 }
 .save-stud-btn {
   width: 15%;
