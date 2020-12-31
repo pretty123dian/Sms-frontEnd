@@ -33,7 +33,7 @@
         </form>
       </div>
       <div class="col-start-6 col-end-12 top-0">
-        <vs-button color="#574AE2" class="w-1/2">
+        <vs-button color="#574AE2" class="focus:outline-none w-1/2">
           +
         </vs-button>
       </div>

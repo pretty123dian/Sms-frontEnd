@@ -63,6 +63,13 @@
         </table>
       </div>
     </div>
+
+<!-- view notes info popup here -->
+
+
+
+<!-- view notes info popup here -->
+
   </div>
 </template>
 

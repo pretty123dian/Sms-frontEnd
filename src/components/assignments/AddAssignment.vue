@@ -46,6 +46,10 @@
             class="form-input p-3 mt-2 mr-4 border w-3/4 border-#E1E1E1-600 rounded"
           />
         </div>
+        <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
+         <vs-button color="#574AE2" class="focus:outline-none">Create assignment</vs-button>
+        </div>
+
         </form>
       </div>
     </div>
