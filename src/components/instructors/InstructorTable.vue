@@ -44,42 +44,42 @@
           </router-link>
         </div>
       </div>
-      <div class="center bg-white">
-               <vs-table stripe :data="instructors" class="p-4">
-               <template #thead>
-                 <vs-tr>
-                   <vs-th>#</vs-th>
-                   <vs-th>Names</vs-th>
-                   <vs-th>Promotion</vs-th>
-                   <vs-th>Age</vs-th>
-                   <vs-th>Action</vs-th>
-                 </vs-tr>
+      <div class="center bg-white p-5">
+               <table stripe :data="instructors" class="w-full">
+               <template>
+                 <tr>
+                   <th>#</th>
+                   <th>Names</th>
+                   <th>Promotion</th>
+                   <th>Age</th>
+                   <th>Action</th>
+                 </tr>
                </template>
 
-               <template #tbody>
-                  <vs-tr
+               <template>
+                  <tr
                   :key="i"
                   v-for="(tr,i) in instructors"
                   :data ="tr"
                   >
-                    <vs-td>
+                    <td>
                       {{tr.id}}
-                    </vs-td>
-                    <vs-td>
+                    </td>
+                    <td>
                       {{tr.names}}
-                    </vs-td>
-                    <vs-td>
+                    </td>
+                    <td>
                       {{tr.promotion}}
-                    </vs-td>
-                    <vs-td>
+                    </td>
+                    <td>
                       {{tr.age}}
-                    </vs-td>
-                    <vs-td>
+                    </td>
+                    <td>
                       {{tr.action}}
-                    </vs-td>
-                  </vs-tr>
+                    </td>
+                  </tr>
                </template>
-             </vs-table>
+             </table>
            </div>
         </div>
   </div>
@@ -134,11 +134,11 @@ label > input[type="checkbox"]:checked + * {
 .add-stud-btn:focus {
   outline: none;
 }
-.vs-table__thead .vs-table__th {
+.table__thead .table__th {
   background: #fff !important;
 }
 
-.vs-table__tr:hover {
+.table__tr:hover {
   /* background-color: #E9E8FF;
   border: 1px solid black; */
 }

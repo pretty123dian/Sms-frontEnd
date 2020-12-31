@@ -48,34 +48,34 @@
           </router-link>
         </div>
       </div>
-      <div class="center bg-white">
-        <vs-table stripe :data="students" class="p-4">
-          <template #thead class="bg-white">
-            <vs-tr>
-              <vs-th>#</vs-th>
-              <vs-th>Title</vs-th>
-              <vs-th>Description</vs-th>
-              <vs-th colspan="3">Action</vs-th>
-            </vs-tr>
+      <div class="center bg-white p-5">
+        <table stripe :data="students" class="w-full">
+          <template class="bg-white">
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th colspan="3">Action</th>
+            </tr>
           </template>
 
-          <template #tbody>
-            <vs-tr :key="i" v-for="(tr, i) in lessons" :data="tr">
-              <vs-td>
+          <template >
+            <tr :key="i" v-for="(tr, i) in lessons" :data="tr">
+              <td>
                 {{ tr.id }}
-              </vs-td>
-              <vs-td>
+              </td>
+              <td>
                 {{ tr.title }}
-              </vs-td>
-              <vs-td>
+              </td>
+              <td>
                 {{ tr.description }}
-              </vs-td>
-              <vs-td v-html="tr.action[0]"> </vs-td>
-              <vs-td v-html="tr.action[1]"> </vs-td>
-              <vs-td v-html="tr.action[2]"> </vs-td>
-            </vs-tr>
+              </td>
+              <td v-html="tr.action[0]"> </td>
+              <td v-html="tr.action[1]"> </td>
+              <td v-html="tr.action[2]"> </td>
+            </tr>
           </template>
-        </vs-table>
+        </table>
       </div>
     </div>
   </div>
@@ -190,11 +190,11 @@ label > input[type="checkbox"]:checked + * {
 .add-stud-btn:focus {
   outline: none;
 }
-.vs-table__thead .vs-table__th {
+.table__thead .table__th {
   background: #fff !important;
 }
 
-.vs-table__tr:hover {
+.table__tr:hover {
   /* background-color: #E9E8FF;
   border: 1px solid black; */
 }

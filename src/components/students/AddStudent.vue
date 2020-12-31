@@ -99,8 +99,8 @@
                     color="#574AE2"
                     :class="
                       i == 0
-                        ? 'rounded-full py-3 px-6 add-stud-btn rounded-full'
-                        : 'rounded-full py-1 px-6 add-stud-btn rounded-full'
+                        ? 'rounded-full py-3 px-6 add-stud-btn rounded-full w-1/5'
+                        : 'rounded-full py-1 px-6 add-stud-btn rounded-full w-1/5'
                     "
                     @click="inputs[i] == '+' ? expand(i) : remove(i)"
                   >
