@@ -4,7 +4,7 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-                <h3 class="text-sm font-bold mb-5">View lessons</h3>
+            <h3 class="text-sm font-bold mb-5">View lessons</h3>
             <label for="year_one" class="inline-flex items-center years">
               <input
                 type="checkbox"
@@ -37,14 +37,10 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link
-          to="/register/lesson"
-          >
-
-          
-          <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-            Add lesson
-          </vs-button>
+          <router-link to="/register/lesson">
+            <vs-button color="#574AE2" class="rounded-full add-stud-btn">
+              Add lesson
+            </vs-button>
           </router-link>
         </div>
       </div>
@@ -59,7 +55,7 @@
             </tr>
           </template>
 
-          <template >
+          <template>
             <tr :key="i" v-for="(tr, i) in lessons" :data="tr">
               <td>
                 {{ tr.id }}
@@ -70,9 +66,9 @@
               <td>
                 {{ tr.description }}
               </td>
-              <td v-html="tr.action[0]"> </td>
-              <td v-html="tr.action[1]"> </td>
-              <td v-html="tr.action[2]"> </td>
+              <td v-html="tr.action[0]"></td>
+              <td v-html="tr.action[1]"></td>
+              <td v-html="tr.action[2]"></td>
             </tr>
           </template>
         </table>
@@ -201,9 +197,9 @@ label > input[type="checkbox"]:checked + * {
 tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
-svg:hover{
-  cursor:pointer;
-  fill:indigo
+svg:hover {
+  cursor: pointer;
+  fill: indigo;
 }
 </style>
 
