@@ -56,7 +56,7 @@
                 <input type="file" name="notes__file" id="notes__file" hidden>
           </div>
          
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12 border">
+          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
             <vs-button color="#574AE2" class="focus:outline-none lg:w-2/4 sm:w-full"
               >Add notes</vs-button
             >
