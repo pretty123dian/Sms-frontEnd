@@ -92,6 +92,11 @@ textarea:focus
   border: 2px solid #574ae2;
   border-radius: 4px !important;
 }
+.notes__upload_file:hover{
+     border: 2px solid #574ae2;
+     border-style: dashed;
+     cursor: pointer;
+}
 .label-focus {
   color: #574ae2 !important;
 }
