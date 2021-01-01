@@ -48,10 +48,12 @@
               :class="[labels_focus.label3 ? 'label-focus' : '']"
               >Notes file</label
             >
+            <label for="notes__file">
              <div class="w-3/4  border-dashed border-2 bg-white flex items-center notes__upload_file mt-3 text-center">
-        <span class="m-auto">Drop file here or browse to upload </span>
+              <span class="m-auto">Drop file here or browse to upload </span>
             </div>
-          
+            </label>
+                <input type="file" name="notes__file" id="notes__file" hidden>
           </div>
          
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
@@ -96,6 +98,8 @@ textarea:focus
      border: 2px solid #574ae2;
      border-style: dashed;
      cursor: pointer;
+     border-radius: 3%;
+     background-color: #574ae21c;
 }
 .label-focus {
   color: #574ae2 !important;
