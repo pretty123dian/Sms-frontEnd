@@ -19,6 +19,8 @@ import AddAssignment from './components/assignments/AddAssignment.vue';
 import Notes from './components/notes/NotesTable.vue'
 import AddNotes from './components/notes/AddNotes.vue'
 
+import Categories from './components/categories/CategoriesTable.vue'
+
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
 import ForgotPassword from './components/ForgotPassword.vue';
@@ -101,6 +103,11 @@ const router = new VueRouter({
                 path:'/register/notes',
                 name:'Notes',
                 component:AddNotes
+            },
+            {
+                path:'/view/categories',
+                name:'Categories',
+                component:Categories
             }
 
         ]
