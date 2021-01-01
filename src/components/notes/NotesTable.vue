@@ -86,27 +86,17 @@
               <li class="font-bold">Mathematics</li>
             </ul>
           </div>
-          <div class="col-12">
+            <div class="col-12">
             <ul>
-              <li>Semester</li>
-              <li class="font-bold">Term 1</li>
+              <li>Description</li>
+              <li class="font-bold">Lorem ipsum dolor, sit amet consectetur adipisicing e</li>
             </ul>
           </div>
+         
+          
           <div class="col-12">
             <ul>
-              <li>Assignment type</li>
-              <li class="font-bold">Exam</li>
-            </ul>
-          </div>
-          <div class="col-12">
-            <ul>
-              <li>Maximum marks</li>
-              <li class="font-bold">100%</li>
-            </ul>
-          </div>
-          <div class="col-12">
-            <ul>
-              <li>Assignment file</li>
+              <li>Notes file</li>
               <li class="font-bold flex text-purple">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

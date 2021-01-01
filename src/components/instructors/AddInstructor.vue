@@ -171,7 +171,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .form-select {
   width: 30%;
