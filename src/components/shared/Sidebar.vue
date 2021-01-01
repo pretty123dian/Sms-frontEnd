@@ -98,7 +98,7 @@
       </router-link>
 
 
-      <router-link to="/view/notes" :class="[this.$route.name==='Notes'?'active':'']">
+      <router-link to="/view/categories" :class="[this.$route.name==='Categories'?'active':'']">
 
 <svg width="18" height="18" class="svg" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0)">
