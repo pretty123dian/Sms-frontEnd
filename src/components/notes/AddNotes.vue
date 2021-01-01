@@ -40,7 +40,7 @@
               
             </textarea>
           </div>
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
+          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4  w-3/4">
               
             <label
               for=""
@@ -48,9 +48,8 @@
               :class="[labels_focus.label3 ? 'label-focus' : '']"
               >Notes file</label
             >
-            <br />
-             <div class="card border bg-white flex items-center m-auto notes__upload_file">
-                Lorem ipsum dolor, sit amet consectetur
+             <div class="w-3/4  border-dashed border-2 bg-white flex items-center notes__upload_file mt-3 text-center">
+        <span class="m-auto">Drop file here or browse to upload </span>
             </div>
           
           </div>
