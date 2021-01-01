@@ -57,7 +57,7 @@
           </div>
          
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
-            <vs-button color="#574AE2" class="focus:outline-none"
+            <vs-button color="#574AE2" class="focus:outline-none w-2/4 p-5"
               >Add notes</vs-button
             >
           </div>
