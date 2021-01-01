@@ -18,7 +18,7 @@
               @focus="labels_focus.label1 = !labels_focus.label1"
               @blur="labels_focus.label1 = !labels_focus.label1"
               id="name"
-              class="form-input p-3 mt-2 mr-4 border :w-3/4  sm:w-full  border-#E1E1E1-600 rounded"
+              class="form-input p-3 mt-2 mr-4 border lg:w-3/4  sm:w-full  border-#E1E1E1-600 rounded"
             />
           </div>
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
@@ -34,7 +34,7 @@
               @blur="labels_focus.label2 = !labels_focus.label2"
               name=""
               id=""
-              class="form-input p-3 mt-2 mr-4 border :w-3/4  sm:w-full  border-#E1E1E1-600 rounded"
+              class="form-input p-3 mt-2 mr-4 border lg:w-3/4  sm:w-full  border-#E1E1E1-600 rounded"
             >
               <option value="">Select semester</option>
               <template v-for="(semester, index) in semesters">
@@ -55,7 +55,7 @@
               @blur="labels_focus.label3 = !labels_focus.label3"
               name=""
               id=""
-              class="form-input p-3 mt-2 mr-4 border :w-3/4  sm:w-full  border-#E1E1E1-600 rounded"
+              class="form-input p-3 mt-2 mr-4 border lg:w-3/4  sm:w-full  border-#E1E1E1-600 rounded"
             >
               <option value="">Select type</option>
               <template v-for="(type, index) in assignmentTypes">
@@ -74,11 +74,11 @@
             <input
               @focus="labels_focus.label4 = !labels_focus.label4"
               @blur="labels_focus.label4 = !labels_focus.label4"
-              class="form-input p-3 mt-2 mr-4 border :w-3/4  sm:w-full  border-#E1E1E1-600 rounded"
+              class="form-input p-3 mt-2 mr-4 border lg:w-3/4  sm:w-full  border-#E1E1E1-600 rounded"
             />
           </div>
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
-         <vs-button color="#574AE2" class="focus:outline-none w-2/4 sm:w-full"
+         <vs-button color="#574AE2" class="focus:outline-none lg:w-2/4 sm:w-full"
               >Create assignment</vs-button
             >
           </div>
