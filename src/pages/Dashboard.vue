@@ -51,7 +51,7 @@ MainBody
   border: 2px solid #574ae2;
   border-radius: 4px !important;
 } */
-tr td{
-  padding: 1% 0%;
+tr td, tr th{
+  padding: 1% 1%;
 }
 </style>

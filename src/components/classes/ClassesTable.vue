@@ -4,14 +4,14 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-              <h3 class="text-sm font-bold mb-5">View user categories</h3>
+              <h3 class="text-sm font-bold mb-5">View classes</h3>
            
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link to="/register/category">
+          <router-link to="/register/class">
           <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-            Add category
+            Add new class
           </vs-button>
           </router-link>
         </div>
@@ -20,7 +20,7 @@
                <table stripe :data="categories" class="w-full">
                <template>
                  <tr>
-                   <th>Category name</th>
+                   <th>Class name</th>
                    <th>Description</th>
                    <th>Action</th>
                  </tr>
@@ -51,22 +51,22 @@
 
 <script>
 export default {
-name:"CategoriesTable",
+name:"ClassesTable",
 data:()=>({
   categories:[
         {
-        "names":"Student",
+        "names":"A",
         "description":"This is the course of mathematics which deals with analysis,...",
 
         "action":"ok"
         },
       {
-      "names":"Instructor",
+      "names":"B",
       "description":"This is the course of mathematics which deals with analysis,...",
       "action":"ok"
     },
       {
-      "names":"Admin",
+      "names":"C",
       "description":"This is the course of mathematics which deals with analysis,...",
       "action":"ok"
     }
