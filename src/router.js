@@ -23,6 +23,7 @@ import Categories from './components/categories/CategoriesTable.vue'
 import AddCategories from './components/categories/AddCategories.vue'
 
 import Classes from './components/rcaclasses/ClassesTable.vue'
+import AddClass from './components/rcaclasses/AddClass.vue'
 
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
@@ -120,6 +121,11 @@ const router = new VueRouter({
                 path:'/view/classes',
                 name:'Classes',
                 component:Classes
+            },
+            {
+                path:'/register/class',
+                name:'Classes',
+                component:AddClass
             }
 
         ]
