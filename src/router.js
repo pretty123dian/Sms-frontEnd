@@ -25,6 +25,9 @@ import AddCategories from './components/categories/AddCategories.vue'
 import Classes from './components/rcaclasses/ClassesTable.vue'
 import AddClass from './components/rcaclasses/AddClass.vue'
 
+import ClassesPromotion from './components/classpromotions/ClassPromotiions.vue'
+import AddClassPromotion from './components/classpromotions/AddClassPromotion.vue'
+
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
 import ForgotPassword from './components/ForgotPassword.vue';
@@ -126,6 +129,16 @@ const router = new VueRouter({
                 path:'/register/class',
                 name:'Classes',
                 component:AddClass
+            },
+            {
+                path:'/view/classpromotions',
+                name:'Promotions',
+                component: ClassesPromotion
+            },
+            {
+                path:'/register/classpromotion',
+                name:'Promotions',
+                component: AddClassPromotion
             }
 
         ]
