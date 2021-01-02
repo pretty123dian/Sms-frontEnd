@@ -188,7 +188,9 @@
     Class promotion
       </router-link>
 
-<router-link to="/view/semesters">
+<router-link to="/view/semesters"
+    :class="[this.$route.name === 'Semesters' ? 'active' : '']"
+>
 
 <svg class="svg__timetable" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path class="svg__path" d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -203,7 +205,9 @@
 </router-link>
 
 
-      <router-link to="/view/timetable">
+      <router-link to="/view/timetable"
+          :class="[this.$route.name === 'Timetable' ? 'active' : '']"
+      >
         
 <svg width="18" height="18"   class="svg__timetable"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path class="svg__path"  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -3,6 +3,7 @@ import App from './App.vue'
 // import router
 import router from './router';
 import Vuesax from 'vuesax';
+
 //tailwind
 import "tailwindcss/tailwind.css"
 import "vuesax/dist/vuesax.css"

@@ -3,6 +3,7 @@ import Home from './pages/Home.vue';
 
 import VueRouter from 'vue-router';
 import Vue from 'vue'
+// import NProgress from 'nprogress';
 // import components here
 import Lessons from './components/lessons/LessonsTable';
 import AddLesson from './components/lessons/AddLesson.vue'
@@ -148,4 +149,14 @@ const router = new VueRouter({
     ]
 
 })
+
+// router.beforeResolve((to, from, next) => {
+//     if (to.name || to.path) {
+//       NProgress.start()
+//     }
+//     next()
+//   })
+//   router.afterEach(() => {
+//     NProgress.done()
+//   })
 export default router;
