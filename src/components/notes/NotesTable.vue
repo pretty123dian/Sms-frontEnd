@@ -171,6 +171,13 @@ export default {
     popupActivo2: false,
     popupActivo3: false,
   }),
+   computed:{
+    searchSimilar(){
+       let filter = new RegExp(this.search,'i');
+       let foundText = this.categories.filter(el=>el.names.match(filter))
+          return foundText;    
+    }
+  }
 };
 </script>
 
