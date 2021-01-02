@@ -33,7 +33,7 @@
       </div>
       <div class="center bg-white p-5">
         <table stripe :data="students" class="w-full">
-            <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search class" />
+            <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search notes" />
           <template class="bg-white">
             <tr>
               <th>#</th>
@@ -193,6 +193,9 @@ ul li{
 }
 tr {
   border-bottom: 1px solid #dfdfdf !important;
+}
+input:focus{
+  border: 1px solid #574ae2;
 }
 .file{
   fill: #574ae2;
