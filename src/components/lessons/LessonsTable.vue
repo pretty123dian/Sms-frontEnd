@@ -87,6 +87,7 @@
 export default {
   name: "LessonsTable",
   data: () => ({
+    search:'',
     lessons: [
       {
         id: 1,
