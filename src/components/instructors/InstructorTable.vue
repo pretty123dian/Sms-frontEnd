@@ -92,6 +92,7 @@
 export default {
 name:"InstructorsTable",
 data:()=>({
+  search:'',
   instructors:[
         {
         "id":1,
