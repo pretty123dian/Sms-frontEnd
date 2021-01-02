@@ -136,28 +136,28 @@ export default {
         notes: "mathematics_notes.pdf",
         description:
           "This is the course of mathematics which deals with analysis,...",
-        action:"View file"
+        action:"View"
       },
       {
         id: 2,
         notes: "mathematics_notes.pdf",
         description:
           "This is the course of mathematics which deals with analysis,...",
-        action:"View file"
+        action:"View"
       },
       {
         id: 3,
         notes: "mathematics_notes.pdf",
         description:
           "This is the course of mathematics which deals with analysis,...",
-        action:"View file"
+        action:"View"
       },
       {
         id: 4,
         notes: "mathematics_notes.pdf",
         description:
           "This is the course of mathematics which deals with analysis,...",
-        action:"View file"
+        action:"View"
       },
     ],
      select1: 3,
