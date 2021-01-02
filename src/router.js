@@ -20,6 +20,9 @@ import Notes from './components/notes/NotesTable.vue'
 import AddNotes from './components/notes/AddNotes.vue'
 
 import Categories from './components/categories/CategoriesTable.vue'
+import AddCategories from './components/categories/AddCategories.vue'
+
+import Classes from './components/classes/ClassesTable.vue'
 
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
@@ -108,6 +111,15 @@ const router = new VueRouter({
                 path:'/view/categories',
                 name:'Categories',
                 component:Categories
+            },{
+                path:'/register/category',
+                name:'Categories',
+                component:AddCategories
+            },
+            {
+                path:'/view/classes',
+                name:'Classes',
+                component:Classes
             }
 
         ]
