@@ -49,7 +49,9 @@
         </div>
       </div>
       <div class="center bg-white p-5">
-        <table stripe :data="students" class="w-full">
+        <table stripe :data="lessons" class="w-full">
+            <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search lesson" />
+        
           <template class="bg-white">
             <tr>
               <th>#</th>
@@ -60,7 +62,7 @@
           </template>
 
           <template >
-            <tr :key="i" v-for="(tr, i) in lessons" :data="tr">
+            <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <td>
                 {{ tr.id }}
               </td>
