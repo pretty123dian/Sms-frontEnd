@@ -63,7 +63,7 @@
 
           <template>
             <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
-              <td class="w-1/8">
+              <td class="w-1/6">
                 {{ tr.id }}
               </td>
               <td>
