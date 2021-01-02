@@ -4,7 +4,7 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-                <h3 class="text-sm font-bold mb-5">View lessons</h3>
+            <h3 class="text-sm font-bold mb-5">View lessons</h3>
             <label for="year_one" class="inline-flex items-center years">
               <input
                 type="checkbox"
@@ -37,20 +37,26 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link
-          to="/register/lesson"
+          <vs-button
+            color="#574AE2"
+            class="rounded-full add-stud-btn"
+            @click="showModal = true"
           >
-
-          
-          <vs-button color="#574AE2" class="rounded-full add-stud-btn">
             Add lesson
           </vs-button>
-          </router-link>
         </div>
       </div>
       <div class="center bg-white p-5">
         <table stripe :data="students" class="w-full">
           <template class="bg-white">
+            <transition name="fade" appear>
+              <div
+                v-if="showModal"
+                class="absolute popup w-10/12 h-screen overflow-hidden"
+              >
+                <AddLesson v-on:close="doIt()" />
+              </div>
+            </transition>
             <tr>
               <th>#</th>
               <th>Title</th>
@@ -59,7 +65,7 @@
             </tr>
           </template>
 
-          <template >
+          <template>
             <tr :key="i" v-for="(tr, i) in lessons" :data="tr">
               <td>
                 {{ tr.id }}
@@ -70,9 +76,9 @@
               <td>
                 {{ tr.description }}
               </td>
-              <td v-html="tr.action[0]"> </td>
-              <td v-html="tr.action[1]"> </td>
-              <td v-html="tr.action[2]"> </td>
+              <td v-html="tr.action[0]"></td>
+              <td v-html="tr.action[1]"></td>
+              <td v-html="tr.action[2]"></td>
             </tr>
           </template>
         </table>
@@ -82,9 +88,20 @@
 </template>
 
 <script>
+import AddLesson from "./AddLesson";
 export default {
   name: "LessonsTable",
+  methods: {
+    doIt() {
+      this.showModal = false;
+      console.log("yhyh");
+    },
+  },
+  components: {
+    AddLesson,
+  },
   data: () => ({
+    showModal: false,
     lessons: [
       {
         id: 1,
@@ -201,9 +218,14 @@ label > input[type="checkbox"]:checked + * {
 tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
-svg:hover{
-  cursor:pointer;
-  fill:indigo
+svg:hover {
+  cursor: pointer;
+  fill: indigo;
+}
+
+.popup {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 </style>
 
