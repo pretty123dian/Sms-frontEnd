@@ -35,7 +35,10 @@
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             >
-            <option value="">Select academic year</option>
+            <option value="">Select academic year</option> 
+            <template v-for="(year,index) in academicYears">
+            <option value="year" :key="index">{{year}}</option>
+            </template>
             </select>
           </div>
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
@@ -78,14 +81,14 @@
 export default {
   name: "AddClassPromotion",
   data: () => ({
+    
     labels_focus: {
       label1: false,
       label2: false,
       label3: false,
       label4: false,
     },
-    semesters: ["Term 1", "Term 2", "Term 3"],
-    assignmentTypes: ["Exam", "CAT"],
+    academicYears: ["2020", "2021"],
   }),
 };
 </script>
