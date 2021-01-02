@@ -120,10 +120,17 @@ data:()=>({
     }
   ]
   }),
+      computed:{
+    searchSimilar(){
+       let filter = new RegExp(this.search,'i');
+       let foundText = this.instructors.filter(el=>el.names.match(filter))
+          return foundText;    
+    }
+  }
 };
 </script>
 
-<style>
+<style scoped>
 label > input[type="checkbox"]:checked + *::before {
   background-color: #574ae2;
 }
@@ -141,6 +148,9 @@ label > input[type="checkbox"]:checked + * {
 .table__tr:hover {
   /* background-color: #E9E8FF;
   border: 1px solid black; */
+}
+input:focus{
+  border: 1px solid #574ae2;
 }
 tr {
   border-bottom: 1px solid #dfdfdf !important;

@@ -33,7 +33,9 @@
       </div>
       <div class="center bg-white p-5">
         <table stripe :data="students" class="w-full">
+          <template>
             <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search notes" />
+            </template>
           <template class="bg-white">
             <tr>
               <th>#</th>
