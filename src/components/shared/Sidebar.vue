@@ -186,11 +186,26 @@
     Class promotion
       </router-link>
 
-      <router-link to="view/timetable">
+<router-link to="/view/semesters">
+
+<svg class="svg__timetable" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="svg__path" d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="svg__path" d="M16 2V6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="svg__path" d="M8 2V6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="svg__path" d="M3 10H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+
+  Semester
+</router-link>
+
+
+      <router-link to="/view/timetable">
         
 <svg width="18" height="18"   class="svg__timetable"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path class="svg__timetable__path" d="M12 6V12L16 14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="svg__path"  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="svg__path" d="M12 6V12L16 14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 Timetable
       </router-link>
@@ -224,7 +239,8 @@ export default {
 <style>
 .sidebar {
   /* border:1px solid black; */
-  height: 100vh;
+  height: 98vh;
+  overflow-y: auto;
   top: 0;
   position: sticky;
   background-color: #fff;
@@ -276,8 +292,11 @@ export default {
   background-color: #e9e8ff;
   color: #574ae2;
 }
-.home-links > a:hover .svg, .home-links > a:hover .svg__timetable__path{
+.home-links > a:hover .svg{
   fill: #574ae2;
   font-weight: bold;
 }
+ .home-links > a:hover .svg__path{
+stroke: #574ae2;
+ }
 </style>
