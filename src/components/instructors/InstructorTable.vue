@@ -4,7 +4,7 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-              <h3 class="text-sm font-bold mb-5">View instructors</h3>
+            <h3 class="text-sm font-bold mb-5">View instructors</h3>
             <label for="year_one" class="inline-flex items-center years">
               <input
                 type="checkbox"
@@ -38,99 +38,104 @@
         </div>
         <div class="col-start-4 col-end-10">
           <router-link to="/register/instructor">
-          <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-            Add instructor
-          </vs-button>
+            <vs-button color="#574AE2" class="rounded-full add-stud-btn">
+              Add instructor
+            </vs-button>
           </router-link>
         </div>
       </div>
       <div class="center bg-white p-5">
-               <table stripe :data="instructors" class="w-full">
-                  <template>
-            <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search instructor" />
-            </template>
-               <template>
-                 <tr>
-                   <th>#</th>
-                   <th>Names</th>
-                   <th>Promotion</th>
-                   <th>Age</th>
-                   <th>Action</th>
-                 </tr>
-               </template>
+        <table stripe :data="instructors" class="w-full">
+          <template>
+            <input
+              class="form-input p-2 border rounded"
+              v-model="search"
+              border
+              placeholder="Search instructor"
+            />
+          </template>
+          <template>
+            <tr>
+              <th>#</th>
+              <th>Names</th>
+              <th>Promotion</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </template>
 
-               <template>
-                  <tr
-                  :key="i"
-                  v-for="(tr,i) in searchSimilar"
-                  :data ="tr"
-                  >
-                    <td>
-                      {{tr.id}}
-                    </td>
-                    <td>
-                      {{tr.names}}
-                    </td>
-                    <td>
-                      {{tr.promotion}}
-                    </td>
-                    <td>
-                      {{tr.age}}
-                    </td>
-                    <td>
-                      {{tr.action}}
-                    </td>
-                  </tr>
-               </template>
-             </table>
-           </div>
-        </div>
+          <template>
+            <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
+              <td>
+                {{ tr.id }}
+              </td>
+              <td>
+                {{ tr.names }}
+              </td>
+              <td>
+                {{ tr.promotion }}
+              </td>
+              <td>
+                {{ tr.age }}
+              </td>
+              <td>
+                {{ tr.action }}
+              </td>
+            </tr>
+          </template>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-name:"InstructorsTable",
-data:()=>({
-  search:'',
-  instructors:[
-        {
-        "id":1,
-        "names":"Bosco abc",
-        "promotion":"This is the course of mathematics which deals with analysis,...",
-        "age":12,
-        "action":"ok"
-        },
+  name: "InstructorsTable",
+  data: () => ({
+    search: "",
+    instructors: [
       {
-      "id":2,
-      "names":"Lento Prof",
-      "promotion":"This is the course of mathematics which deals with analysis,...",
-      "age":12,
-      "action":"ok"
-    },
+        id: 1,
+        names: "Bosco abc",
+        promotion:
+          "This is the course of mathematics which deals with analysis,...",
+        age: 12,
+        action: "ok",
+      },
       {
-      "id":3,
-      "names":"Gabriel Xyz",
-      "promotion":"This is the course of mathematics which deals with analysis,...",
-      "age":12,
-      "action":"ok"
-    },
+        id: 2,
+        names: "Lento Prof",
+        promotion:
+          "This is the course of mathematics which deals with analysis,...",
+        age: 12,
+        action: "ok",
+      },
       {
-      "id":4,
-      "names":"Thomas Tim",
-      "promotion":"This is the course of mathematics which deals with analysis,...",
-      "age":12,
-      "action":"ok"
-    }
-  ]
+        id: 3,
+        names: "Gabriel Xyz",
+        promotion:
+          "This is the course of mathematics which deals with analysis,...",
+        age: 12,
+        action: "ok",
+      },
+      {
+        id: 4,
+        names: "Thomas Tim",
+        promotion:
+          "This is the course of mathematics which deals with analysis,...",
+        age: 12,
+        action: "ok",
+      },
+    ],
   }),
-      computed:{
-    searchSimilar(){
-       let filter = new RegExp(this.search,'i');
-       let foundText = this.instructors.filter(el=>el.names.match(filter))
-          return foundText;    
-    }
-  }
+  computed: {
+    searchSimilar() {
+      let filter = new RegExp(this.search, "i");
+      let foundText = this.instructors.filter((el) => el.names.match(filter));
+      return foundText;
+    },
+  },
 };
 </script>
 
@@ -153,7 +158,7 @@ label > input[type="checkbox"]:checked + * {
   /* background-color: #E9E8FF;
   border: 1px solid black; */
 }
-input:focus{
+input:focus {
   border: 1px solid #574ae2;
 }
 tr {
