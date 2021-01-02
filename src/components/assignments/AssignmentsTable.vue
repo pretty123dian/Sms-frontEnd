@@ -29,6 +29,9 @@
       </div>
       <div class="center bg-white p-5">
         <table stripe :data="students" class="w-full">
+           <template>
+            <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search assignment" />
+            </template>
           <template class="bg-white">
             <tr>
               <th>#</th>
@@ -42,7 +45,7 @@
 
           <template>
             <tr :key="i" v-for="(tr, i) in students" :data="tr">
-              <td>
+              <td class="w-1/6">
                 {{ tr.id }}
               </td>
               <td>
