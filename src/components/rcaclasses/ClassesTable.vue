@@ -111,7 +111,7 @@ label > input[type="checkbox"]:checked + * {
   border: 1px solid black; */
 }
 input:focus{
-  
+  border: 1px solid #574ae2;
 }
 tr {
   border-bottom: 1px solid #dfdfdf !important;
