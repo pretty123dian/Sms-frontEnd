@@ -96,6 +96,7 @@
 export default {
   name: "StudentsTable",
   data: () => ({
+    search:'',
     students: [
       {
         id: 1,
