@@ -143,6 +143,7 @@
 export default {
   name: "AssignmentsTable",
   data: () => ({
+    search:'',
     assignments: [
       {
         id: 1,
