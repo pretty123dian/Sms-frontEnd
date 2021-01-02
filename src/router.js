@@ -22,7 +22,7 @@ import AddNotes from './components/notes/AddNotes.vue'
 import Categories from './components/categories/CategoriesTable.vue'
 import AddCategories from './components/categories/AddCategories.vue'
 
-import Classes from './components/classes/ClassesTable.vue'
+import Classes from './components/rcaclasses/ClassesTable.vue'
 
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'

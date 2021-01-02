@@ -17,33 +17,33 @@
         </div>
       </div>
       <div class="center bg-white p-5">
-               <table stripe :data="categories" class="w-full">
+               <vs-table stripe search :data="categories" class="w-full" >
                <template>
-                 <tr>
-                   <th>Class name</th>
-                   <th>Description</th>
-                   <th>Action</th>
-                 </tr>
+                 <vs-tr>
+                   <vs-th>Class name</vs-th>
+                   <vs-th>Description</vs-th>
+                   <vs-th>Action</vs-th>
+                 </vs-tr>
                </template>
 
                <template>
-                  <tr
+                  <vs-tr
                   :key="i"
                   v-for="(tr,i) in categories"
                   :data ="tr"
                   >
-                    <td>
+                    <vs-td>
                       {{tr.names}}
-                    </td>
-                    <td>
+                    </vs-td>
+                    <vs-td>
                       {{tr.description}}
-                    </td>
-                    <td>
+                    </vs-td>
+                    <vs-td>
                       {{tr.action}}
-                    </td>
-                  </tr>
+                    </vs-td>
+                  </vs-tr>
                </template>
-             </table>
+             </vs-table>
            </div>
         </div>
   </div>
