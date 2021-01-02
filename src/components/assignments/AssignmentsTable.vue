@@ -77,12 +77,11 @@
       <vs-popup
         classContent="popup-example"
         title="Assignment"
-        button-close-hidden = false
+        button-close-hidden="false"
         :active.sync="popupActivo2"
         class="assignment__popup"
-        style="font-family:'Poppins'"
+        style="font-family: 'Poppins'"
       >
-      
         <div class="grid w-full">
           <div class="col-12">
             <ul>
@@ -191,16 +190,15 @@ label > input[type="checkbox"]:checked + * {
 }
 
 .vs-popup--title h3 {
-    -webkit-transition: all .23s ease .1s;
-    transition: all .23s ease .1s;
-    padding: 8px;
-    padding-left: 12px;
-    font-size: 1.2rem;
-    font-family: 'Poppins' !important;
+  -webkit-transition: all 0.23s ease 0.1s;
+  transition: all 0.23s ease 0.1s;
+  padding: 8px;
+  padding-left: 12px;
+  font-size: 1.2rem;
+  font-family: "Poppins" !important;
 }
-ul li{
-  
-   font-family: "Poppins",sans-serif;
+ul li {
+  font-family: "Poppins", sans-serif;
 }
 
 .add-stud-btn:focus {
@@ -213,10 +211,13 @@ ul li{
 tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
-ul li{
+input:focus {
+  border: 1px solid #574ae2;
+}
+ul li {
   padding: 1.5%;
 }
-.file{
+.file {
   fill: #574ae2;
   margin-right: 1%;
 }
