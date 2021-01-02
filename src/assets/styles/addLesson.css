@@ -1,0 +1,21 @@
+.popup{
+    height: 35em;
+    width:40em;
+    position: sticky;
+   }
+   
+   input, textarea{
+       border: solid black 1px;
+   }
+   .close {
+       margin-left: 37em;
+       margin-top: 2em;
+       outline:none;
+     }
+
+.close:focus{
+    outline: none;
+}
+.add:focus{
+    outline: none;
+}

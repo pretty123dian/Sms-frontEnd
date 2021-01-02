@@ -37,16 +37,26 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link to="/register/lesson">
-            <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-              Add lesson
-            </vs-button>
-          </router-link>
+          <vs-button
+            color="#574AE2"
+            class="rounded-full add-stud-btn"
+            @click="showModal = true"
+          >
+            Add lesson
+          </vs-button>
         </div>
       </div>
       <div class="center bg-white p-5">
         <table stripe :data="students" class="w-full">
           <template class="bg-white">
+            <transition name="fade" appear>
+              <div
+                v-if="showModal"
+                class="absolute popup w-10/12 h-screen overflow-hidden"
+              >
+                <AddLesson v-on:close="doIt()" />
+              </div>
+            </transition>
             <tr>
               <th>#</th>
               <th>Title</th>
@@ -78,9 +88,20 @@
 </template>
 
 <script>
+import AddLesson from "./AddLesson";
 export default {
   name: "LessonsTable",
+  methods: {
+    doIt() {
+      this.showModal = false;
+      console.log("yhyh");
+    },
+  },
+  components: {
+    AddLesson,
+  },
   data: () => ({
+    showModal: false,
     lessons: [
       {
         id: 1,
@@ -200,6 +221,11 @@ tr {
 svg:hover {
   cursor: pointer;
   fill: indigo;
+}
+
+.popup {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 </style>
 
