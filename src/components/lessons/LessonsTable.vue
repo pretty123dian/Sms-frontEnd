@@ -176,6 +176,13 @@ export default {
       },
     ],
   }),
+    computed:{
+    searchSimilar(){
+       let filter = new RegExp(this.search,'i');
+       let foundText = this.lessons.filter(el=>el.title.match(filter))
+          return foundText;    
+    }
+  }
 };
 </script>
 
