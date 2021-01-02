@@ -44,7 +44,7 @@
           </template>
 
           <template>
-            <tr :key="i" v-for="(tr, i) in students" :data="tr">
+            <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <td class="w-1/6">
                 {{ tr.id }}
               </td>
@@ -143,7 +143,7 @@
 export default {
   name: "AssignmentsTable",
   data: () => ({
-    students: [
+    assignments: [
       {
         id: 1,
         lesson: "Mathematics",
