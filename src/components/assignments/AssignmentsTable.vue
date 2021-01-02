@@ -181,6 +181,14 @@ export default {
     popupActivo2: false,
     popupActivo3: false,
   }),
+     computed:{
+    searchSimilar(){
+       let filter = new RegExp(this.search,'i');
+       let foundText = this.assignments.filter(el=>el.lesson.match(filter))
+          return foundText;    
+    }
+  }
+
 };
 </script>
 
