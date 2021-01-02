@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link to="/register/class">
+          <router-link to="/register/classpromotion">
           <vs-button color="#574AE2" class="rounded-full add-stud-btn">
             Add new promotion
           </vs-button>

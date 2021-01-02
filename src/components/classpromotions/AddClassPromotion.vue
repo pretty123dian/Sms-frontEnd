@@ -6,7 +6,7 @@
       </div>
       <div class="w-full mt-5">
         <form action="">
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 lesson_name">
+          <div class="col-span-5 lg:col-span-1 md:col-span-5">
             <label
               for="name"
                   class="mr-4 name"
@@ -21,7 +21,7 @@
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             />
           </div>
-              <div class="col-span-5 lg:col-span-1 md:col-span-5 lesson_name">
+              <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-3">
             <label
               for="name"
                   class="mr-4 name"
