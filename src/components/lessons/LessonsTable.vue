@@ -156,7 +156,7 @@ export default {
       },
       {
         id: 4,
-        title: "Mathematics",
+        title: "English",
         description:
           "This is the course of mathematics which deals with analysis,...",
         action: [
@@ -210,6 +210,9 @@ label > input[type="checkbox"]:checked + * {
 }
 tr {
   border-bottom: 1px solid #dfdfdf !important;
+}
+input:focus{
+  border: 1px solid #574ae2;
 }
 svg:hover{
   cursor:pointer;
