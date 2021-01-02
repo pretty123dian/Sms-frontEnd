@@ -19,7 +19,7 @@
       <div class="center bg-white p-5">
                <table stripe :data="categories" class="w-full" >
                   <template>
-          <vs-input v-model="search" border placeholder="Search class" />
+          <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search class" />
         </template>
                <template>
                  <vs-tr>
@@ -91,7 +91,7 @@ data:()=>({
 };
 </script>
 
-<style>
+<style scoped>
 label > input[type="checkbox"]:checked + *::before {
   background-color: #574ae2;
 }
@@ -109,6 +109,9 @@ label > input[type="checkbox"]:checked + * {
 .table__tr:hover {
   /* background-color: #E9E8FF;
   border: 1px solid black; */
+}
+input:focus{
+  
 }
 tr {
   border-bottom: 1px solid #dfdfdf !important;
