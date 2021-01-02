@@ -17,21 +17,25 @@
         </div>
       </div>
       <div class="center bg-white p-5">
-               <vs-table stripe search :data="categories" class="w-full" >
+               <table stripe :data="categories" class="w-full" >
+                  <template>
+          <vs-input v-model="search" border placeholder="Search class" />
+        </template>
                <template>
                  <vs-tr>
-                   <vs-th>Class name</vs-th>
-                   <vs-th>Description</vs-th>
-                   <vs-th>Action</vs-th>
+                   <vs-th sort>Class name</vs-th>
+                   <vs-th  sort-key="description">Description</vs-th>
+                   <vs-th >Action</vs-th>
                  </vs-tr>
                </template>
 
                <template>
                   <vs-tr
                   :key="i"
-                  v-for="(tr,i) in categories"
+                  v-for="(tr,i) in searchSimilar"
                   :data ="tr"
-                  >
+                 
+                  > 
                     <vs-td>
                       {{tr.names}}
                     </vs-td>
@@ -41,9 +45,11 @@
                     <vs-td>
                       {{tr.action}}
                     </vs-td>
+                   
                   </vs-tr>
                </template>
-             </vs-table>
+               
+             </table>
            </div>
         </div>
   </div>
@@ -53,6 +59,8 @@
 export default {
 name:"ClassesTable",
 data:()=>({
+  search:'',
+  status:'afds',
   categories:[
         {
         "names":"A",
@@ -72,6 +80,14 @@ data:()=>({
     }
   ]
   }),
+
+  computed:{
+    searchSimilar(){
+       let filter = new RegExp(this.search,'i');
+       let foundText = this.categories.filter(el=>el.names.match(filter))
+          return foundText;    
+    }
+  }
 };
 </script>
 
