@@ -44,7 +44,7 @@
           </template>
 
           <template >
-            <tr :key="i" v-for="(tr, i) in notes" :data="tr">
+            <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <td>
                 {{ tr.id }}
               </td>
@@ -129,6 +129,7 @@
 export default {
   name: "LessonsTable",
   data: () => ({
+    search:'',
     courses:['Mathematics','Java','DSA','SAD'],
     notes: [
       {
@@ -174,7 +175,7 @@ export default {
    computed:{
     searchSimilar(){
        let filter = new RegExp(this.search,'i');
-       let foundText = this.categories.filter(el=>el.names.match(filter))
+       let foundText = this.notes.filter(el=>el.notes.match(filter))
           return foundText;    
     }
   }
