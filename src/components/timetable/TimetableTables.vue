@@ -70,27 +70,27 @@ data:()=>({
   search:'',
   status:'afds',
   timetables:[
-        {
-        title:"Time table for year 1",
-        promotion:'Year 1',
-        filename:"time_table_year1.pdf",
-        academic_year:2020,
-        action:"ok"
-        },
-      {
-      title:"Time table for year 1",
-      promotion:'Year 1',
-      filename:"  time_table_year1.pdf",
-      academic_year:2020,
-      action:"ok"
-    },
-      {
-      title:"Time table for year 2",
-      promotion:'Year 1',
-      filename:"  time_table_year1.pdf",
-      academic_year:2020,
-      action:"ok"
-    }
+    //     {
+    //     title:"Time table for year 1",
+    //     promotion:'Year 1',
+    //     filename:"time_table_year1.pdf",
+    //     academic_year:2020,
+    //     action:"ok"
+    //     },
+    //   {
+    //   title:"Time table for year 1",
+    //   promotion:'Year 1',
+    //   filename:"  time_table_year1.pdf",
+    //   academic_year:2020,
+    //   action:"ok"
+    // },
+    //   {
+    //   title:"Time table for year 2",
+    //   promotion:'Year 1',
+    //   filename:"  time_table_year1.pdf",
+    //   academic_year:2020,
+    //   action:"ok"
+    // }
   ]
   }),
 
