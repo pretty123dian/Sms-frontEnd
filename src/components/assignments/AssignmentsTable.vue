@@ -144,41 +144,9 @@ export default {
   name: "AssignmentsTable",
   data: () => ({
     search:'',
-    assignments: [
-      {
-        id: 1,
-        lesson: "Mathematics",
-        semester: "Term 1",
-        assignmentType: "Exam",
-        maximumMarks: 100,
-        action: "View",
-      },
-      {
-        id: 2,
-        lesson: "Java",
-        semester: "Term 1",
-        assignmentType: "Exam",
-        maximumMarks: 100,
-        action: "View",
-      },
-      {
-        id: 3,
-        lesson: "DSA",
-        semester: "Term 1",
-        assignmentType: "Exam",
-        maximumMarks: 100,
-        action: "View",
-      },
-    ],
+    assignments: [],
     years: [2018, 2019, 2020, 2021],
-    select1: 3,
-    options1: [
-      { text: "IT", value: 0 },
-      { text: "Blade Runner", value: 2 },
-      { text: "Thor Ragnarok", value: 3 },
-    ],
-    value1: "",
-    value2: "",
+  
     popupActivo2: false,
     popupActivo3: false,
   }),
@@ -188,7 +156,17 @@ export default {
        let foundText = this.assignments.filter(el=>el.lesson.match(filter))
           return foundText;    
     }
+  },
+beforeMount(){
+  this.assignments = [];
+  this.getRows();
+},
+
+methods: {
+  async getRows(){
+
   }
+}
 
 };
 </script>
