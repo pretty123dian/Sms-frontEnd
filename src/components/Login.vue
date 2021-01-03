@@ -74,6 +74,12 @@ export default {
          this.isEmptyPassword = false
           this.password_title='Fill in password'
       }
+      else if(this.passcode=='' && this.password==''){
+           this.isEmpty = false
+        this.passcode_title='Fill in passcode'
+        this.isEmptyPassword = false
+          this.password_title='Fill in password'
+      }
       else
         alert('ok')
     }
