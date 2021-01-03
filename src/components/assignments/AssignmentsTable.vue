@@ -171,7 +171,13 @@ methods: {
         const assignmentObj = {};
         assignmentObj.lesson_promotion = assignment.lesson_promotion;
         assignmentObj.semester = assignment.lesson;
-
+        assignment.assignments.forEach(inAssign=>{
+          assignmentObj.name = inAssign.name;
+          assignmentObj.isExam = inAssign.is_exam;
+          assignmentObj.is_ignored = inAssign.is_ignored;
+          assignmentObj.max_marks = inAssign.maximum_marks;
+        })
+        assignmentObj.action = "view"
         this.assignments.push(assignmentObj);
       })
       console.log("Assignment: ", this.assignments);
