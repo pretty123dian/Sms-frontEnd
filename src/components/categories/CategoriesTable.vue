@@ -67,12 +67,16 @@ export default {
   methods:{
     async getRows(){
       const response = await Services.getCategories();
+      console.log("Response: ",response);
       response.data.data.docs.forEach(category=>{
         const categoriesObj = {};
         categoriesObj.name = category.name;
         categoriesObj.description = category.description;
-        categoriesObj.user = category.roles.name;
-        categoriesObj.role = category.roles.description;
+        category.roles.forEach(role=>{
+        categoriesObj.user = role.name;
+        categoriesObj.role = role.description;
+        })
+        
         categoriesObj.action = 'ok'
 
         this.categories.push(categoriesObj);
