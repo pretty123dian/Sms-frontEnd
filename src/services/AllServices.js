@@ -18,6 +18,6 @@ export default{
         return Api().get(`api/school-classes`);
     },
     getCategories(){
-        return Api().get(`api//user-categories`);
+        return Api().get(`api/user-categories`);
     }
 }

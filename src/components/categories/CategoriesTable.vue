@@ -58,7 +58,15 @@ export default {
 
   methods:{
     async getRows(){
-      const response = Services.getCategories();
+      const response = await Services.getCategories();
+      response.data.data.docs.forEach(category=>{
+        const categoriesObj = {};
+        categoriesObj.name = category.name;
+        categoriesObj.description = category.description;
+
+        this.categories.push(categoriesObj);
+      });
+      console.log("Categories: ", this.categories);
     }
   }
 
