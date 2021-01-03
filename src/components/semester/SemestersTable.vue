@@ -86,14 +86,14 @@ data:()=>({
       const response = await Services.getSemesters(1,10);
       response.data.data.docs.forEach(semester=>{
         const semesterObj = {};
-        semesterObj.names = semester.semester;
+        semesterObj.name = semester.semester;
         semesterObj.year = semester.academic_year;
         semesterObj.status = semester.status;
         semesterObj.action = 'ok';
         this.semesters.push(semesterObj);
         
       });
-      console.log(this.semesters)
+      console.log("Semester:",this.semesters)
     }
   }
 };
