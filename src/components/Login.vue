@@ -15,7 +15,7 @@
 
     <div class="mt-10">
       <div class="flex">
-        <p>{{password_title}}</p>
+       <p :class="[isEmptyPassword==true?'':'label_error']">{{password_title}}</p>
         
       </div>
 
@@ -23,7 +23,7 @@
       <input
         type="password"
         v-model="password"
-        class="border rounded-full py-3 px-6"
+           :class="[isEmptyPassword==true?'border rounded-full py-2 px-6':'error rounded-full py-2 px-6']"
         placeholder="*********"
       />
       <div class="w-full">
