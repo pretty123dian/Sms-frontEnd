@@ -3,13 +3,13 @@
     <h1>Login to SMS</h1>
 <form action="">
     <div class="mt-10">
-      <p class="mb-4">Passcode</p>
+      <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{passcode}</p>
 
       <input
         type="text"
         v-model="passcode"
         placeholder="RCA016702I"
-        class="border rounded-full py-2 px-6"
+        :class="[isEmpty==true?'border rounded-full py-2 px-6':'error rounded-full py-2 px-6']"
       />
     </div>
 
@@ -36,7 +36,7 @@
    
     <!-- <router-link to="/dashboard"> -->
       <button
-      type="submit"
+      @click="validateAllfields()"
         class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
       >
         Login
@@ -53,14 +53,38 @@ export default {
   props: {
     msg: String,
   },
-  data:()=>{
-    
+  data:()=>({
+    passcode:'Passcode',
+    error:'',
+    isEmpty: true,
+  passcode:'',
+      password: '',
+     
+  }),
+  methods:{
+    validateAllfields(){
+      if(this.passcode==''){
+        // alert('no passcode')
+        this.isEmpty = false
+      }
+      else if(this.password==''){
+        alert('no password')
+      }
+      else
+        alert('ok')
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.error{
+ border: 2px solid #EE0004;
+}
+.label_error{
+  color: #EE0004;
+}
 input,
 button {
   width: 350px;
