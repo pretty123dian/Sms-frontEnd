@@ -39,9 +39,9 @@ export default {
   props: {
     msg: String,
   },
-  data:()=>{
-    
-  }
+  data:()=>({
+    email_title:'Email address',
+  })
 };
 </script>
 
