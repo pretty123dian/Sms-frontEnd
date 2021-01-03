@@ -56,11 +56,12 @@
 </template>
 
 <script>
+import Services from '@/services/AllServices';
 export default {
 name:"ClassesTable",
 data:()=>({
   search:'',
-  status:'afds',
+  status:'',
   classes:[]
   }),
 
@@ -78,6 +79,15 @@ data:()=>({
   methods:{
     async getRows(){
       const response = Services.getClasses();
+      response.data.data.docs.forEach(cls=>{
+        const classObj ={};
+        classObj.name = cls.name;
+        classObj.status = cls.status;
+        classObj.created_at = cls.createdAt;
+        this.classes.push(classObj);
+      
+      });
+      console.log("Classes: ", this.classes);
     }
   }
 };
