@@ -30,7 +30,7 @@
               <vs-th sort>Title</vs-th>
               <vs-th>Filename</vs-th>
               <vs-th>Promotion</vs-th>
-              <vs-th>Academic year</vs-th>
+              <vs-th>Status</vs-th>
               <vs-th>Action</vs-th>
             </vs-tr>
           </template>
@@ -47,7 +47,7 @@
                 {{ tr.promotion }}
               </vs-td>
               <vs-td>
-                {{ tr.academic_year }}
+                {{ tr.status }}
               </vs-td>
               <vs-td>
                 {{ tr.action }}
@@ -94,11 +94,11 @@ export default {
         if(schoolPromotion.name){
           timetableStore.promotion = schoolPromotion?.name;
         }
-       else{
+       else
           timetableStore.promotion = 'No promotion'
-       }
+       
         timetableStore.filename = timetable.file_name;
-        timetableStore.academic_year = timetable.link;
+        timetableStore.status = timetable.status;
         timetableStore.action = "ok";
         this.timetables.push(timetableStore);
       });

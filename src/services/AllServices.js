@@ -5,7 +5,7 @@ export default{
     },
 
     getPromotion(promotion_id){
-        return Api().get(`api/school-promotion-classes/${promotion_id}`);
+        return Api().get(`api/school-promotions/${promotion_id}`);
     }
   
 }
