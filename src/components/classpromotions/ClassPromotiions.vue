@@ -24,8 +24,9 @@
                <template>
                  <vs-tr>
                    <vs-th sort>Name</vs-th>
-                   <vs-th  sort-key=description>Description</vs-th>
+                   <vs-th  sort-key=description>Class</vs-th>
                 <vs-th> Academic year</vs-th>
+                <vs-th>Status</vs-th>
                    <vs-th >Action</vs-th>
                  </vs-tr>
                </template>
@@ -38,13 +39,16 @@
                  
                   > 
                     <vs-td>
-                      {{tr.names}}
+                      {{tr.name}}
                     </vs-td>
                     <vs-td>
-                      {{tr.description}}
+                      {{tr.class}}
                     </vs-td>
                     <vs-td>
                       {{tr.academic_year}}
+                    </vs-td>
+                    <vs-td>
+                      {{tr.status}}
                     </vs-td>
                     <vs-td>
                       {{tr.action}}
@@ -66,19 +70,20 @@ name:"ClassesPromotionTable",
 data:()=>({
   search:'',
   status:'',
-  categories:[]
+  classPromotions:[]
   }),
 
   computed:{
     searchSimilar(){
        let filter = new RegExp(this.search,'i');
-       let foundText = this.categories.filter(el=>el.names.match(filter))
+       let foundText = this.classPromotions.filter(el=>el.name.match(filter))
           return foundText;    
     }
   },
 
   beforeMount(){
-    this.categories=[];
+    this.classPromotions=[];
+    this.getRows();
   },
 
   methods:{
@@ -94,7 +99,9 @@ data:()=>({
         promoObj.academic_year = promo.academic_year;
         promoObj.status = promo.status;
         promoObj.action = 'ok'
+        this.classPromotions.push(promoObj);
       })
+      console.log('Class promotions: ', this.classPromotions);
     }
   }
 };
