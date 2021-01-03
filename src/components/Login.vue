@@ -1,7 +1,7 @@
 <template>
   <div class="main mt-20">
     <h1>Login to SMS</h1>
-
+<form action="">
     <div class="mt-10">
       <p class="mb-4">Passcode</p>
 
@@ -34,13 +34,16 @@
        </div>
     </div>
    
-    <router-link to="/dashboard">
+    <!-- <router-link to="/dashboard"> -->
       <button
+      type="submit"
         class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
       >
         Login
       </button>
-    </router-link>
+    <!-- </router-link> -->
+
+    </form>
   </div>
 </template>
 
@@ -50,6 +53,9 @@ export default {
   props: {
     msg: String,
   },
+  data:()=>{
+    
+  }
 };
 </script>
 
