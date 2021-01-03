@@ -90,7 +90,7 @@ data:()=>({
     // fetch all class promotions
     async getRows(){
 
-      const response = await Services.getClassPromotions();
+      const response = await Services.getClassPromotion();
 
       response.data.data.docs.forEach(promo=>{
         const promoObj = {};
