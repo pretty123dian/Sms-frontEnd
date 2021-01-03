@@ -65,7 +65,13 @@ export default {
   }),
   methods:{
     validateAllfields(){
-      if(this.passcode==''){
+        if(this.passcode=='' && this.password==''){
+           this.isEmpty = false
+        this.passcode_title='Fill in passcode'
+        this.isEmptyPassword = false
+          this.password_title='Fill in password'
+      }
+     else if(this.passcode==''){
         // alert('no passcode')
         this.isEmpty = false
         this.passcode_title='Fill in passcode'
@@ -74,12 +80,22 @@ export default {
          this.isEmptyPassword = false
           this.password_title='Fill in password'
       }
-      else if(this.passcode=='' && this.password==''){
-           this.isEmpty = false
-        this.passcode_title='Fill in passcode'
-        this.isEmptyPassword = false
+      else if(this.passcode!='' && this.password!=''){
+           this.isEmpty = true
+        this.passcode_title='Passcode'
+        this.isEmptyPassword = true
+          this.password_title='Password'
+      }
+     else if(this.passcode==''){
+        // alert('no passcode')
+           this.isEmpty = true
+       this.passcode_title='Passcode'
+      }
+      else if(this.password==''){
+         this.isEmptyPassword = false
           this.password_title='Fill in password'
       }
+     
       else
         alert('ok')
     }
