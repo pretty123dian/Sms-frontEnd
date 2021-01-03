@@ -7,6 +7,7 @@
 
       <input
         type="text"
+        v-model="passcode"
         placeholder="RCA016702I"
         class="border rounded-full py-2 px-6"
       />
@@ -21,6 +22,7 @@
       <br />
       <input
         type="password"
+        v-model="password"
         class="border rounded-full py-3 px-6"
         placeholder="*********"
       />
