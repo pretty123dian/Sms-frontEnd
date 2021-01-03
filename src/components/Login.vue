@@ -3,7 +3,7 @@
     <h1>Login to SMS</h1>
 <form action="">
     <div class="mt-10">
-      <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{passcode}</p>
+      <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{passcode_title}</p>
 
       <input
         type="text"
@@ -54,7 +54,7 @@ export default {
     msg: String,
   },
   data:()=>({
-    passcode:'Passcode',
+    passcode_title:'Passcode',
     error:'',
     isEmpty: true,
   passcode:'',
@@ -66,6 +66,7 @@ export default {
       if(this.passcode==''){
         // alert('no passcode')
         this.isEmpty = false
+        this.passcode_title='Fill in passcode'
       }
       else if(this.password==''){
         alert('no password')
