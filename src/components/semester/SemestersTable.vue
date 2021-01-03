@@ -37,7 +37,7 @@
                   :data ="tr"
                  
                   > 
-                    <vs-td>
+                    <vs-td class="w-1/6">
                       {{tr.name}}
                     </vs-td>
                     <vs-td>
@@ -72,7 +72,7 @@ data:()=>({
   computed:{
     searchSimilar(){
        let filter = new RegExp(this.search,'i');
-       let foundText = this.semesters.filter(el=>el.name.match(filter))
+       let foundText = this.semesters.filter(el=>el.status.match(filter))
           return foundText;    
     }
   },
