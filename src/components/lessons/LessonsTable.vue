@@ -109,7 +109,8 @@ this.getRows();
         const response = await Services.getLessons();
         console.log("Response: ", response);
         response.data.data.docs.forEach(lesson=>{
-          alert(lesson)
+         const lessonObj = {};
+         
         })
     } 
   }
