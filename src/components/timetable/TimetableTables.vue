@@ -28,7 +28,7 @@
           <template>
             <vs-tr>
               <vs-th sort>Title</vs-th>
-              <vs-th>Filename</vs-th>
+              <vs-th>File</vs-th>
               <vs-th>Promotion</vs-th>
               <vs-th>Status</vs-th>
               <vs-th>Action</vs-th>
