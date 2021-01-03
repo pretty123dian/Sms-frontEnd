@@ -2,7 +2,8 @@
   <div class="main mt-20">
     <h1>Login to SMS</h1>
 <!-- <form action=""> -->
-    <div class="mt-10">
+  <div class="mt-5 error_log">{{login_error}}</div>
+    <div class="mt-5">
       <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{passcode_title}}</p>
 
       <input
@@ -54,6 +55,7 @@ export default {
     msg: String,
   },
   data:()=>({
+    login_error:'Incorrect passcode or password',
     passcode_title:'Passcode',
     password_title:'Password',
     isEmptyPassword:true,
