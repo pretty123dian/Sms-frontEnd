@@ -67,7 +67,6 @@ export default {
   methods:{
     async getRows(){
       const response = await Services.getCategories();
-      console.log("Response: ",response);
       response.data.data.docs.forEach(category=>{
         const categoriesObj = {};
         categoriesObj.name = category.name;
@@ -81,7 +80,7 @@ export default {
 
         this.categories.push(categoriesObj);
       });
-      console.log("Categories: ", this.categories);
+      // console.log("Categories: ", this.categories);
     }
   }
 
