@@ -78,7 +78,7 @@ data:()=>({
   },
   methods:{
     async getRows(){
-      const response = Services.getClasses();
+      const response = await Services.getClasses();
       response.data.data.docs.forEach(cls=>{
         const classObj ={};
         classObj.name = cls.name;
