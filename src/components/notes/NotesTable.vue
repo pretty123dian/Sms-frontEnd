@@ -51,7 +51,7 @@
                 {{ tr.id }}
               </td>
               <td>
-                {{ tr.notes }}
+                {{ tr.name }}
               </td>
               <td>
                 {{ tr.description }}
@@ -150,7 +150,7 @@ export default {
    computed:{
     searchSimilar(){
        let filter = new RegExp(this.search,'i');
-       let foundText = this.notes.filter(el=>el.notes.match(filter))
+       let foundText = this.notes.filter(el=>el.name.match(filter))
           return foundText;    
     }
   },
@@ -165,8 +165,15 @@ export default {
       const response = await Services.getNotes();
       response.data.data.docs.forEach(note=>{
         const notesObj = {};
-        notesObj.name = note.name;
-      })
+        notesObj.name = note.file_name;
+        notesObj.description = note.file_description;
+        notesObj.link = note.link;
+        notesObj.publishedAt = note.registered_at;
+        notesObj.lesson_promo = note.lesson_promotion;
+        notesObj.action = 'view'
+        this.notes.push(notesObj);
+      });
+      console.log("Notes: ",this.notes);
     }
   }
 };
