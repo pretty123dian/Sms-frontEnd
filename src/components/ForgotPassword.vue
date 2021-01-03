@@ -39,6 +39,9 @@ export default {
   props: {
     msg: String,
   },
+  data:()=>{
+    
+  }
 };
 </script>
 
