@@ -2,7 +2,7 @@
   <div class="main mt-20">
     <h1>Login to SMS</h1>
 <!-- <form action=""> -->
-  <div class="mt-5 error_log">{{login_error}}</div>
+  <div class="mt-5 error_log p-2 rounded">{{login_error}}</div>
     <div class="mt-5">
       <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{passcode_title}}</p>
 
@@ -107,7 +107,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.error_log{
+  background-color: #EE0004;
+  color: #ffffff;
+  text-align: center;
+}
 .error{
  border: 2px solid #EE0004;
 }
