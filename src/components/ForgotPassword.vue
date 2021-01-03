@@ -3,7 +3,7 @@
     <h1>Recover password</h1>
     <div class="mt-10">
       <div class="flex">
-  <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{email_title}}</p>
+  <p :class="[isEmpty==true?'':'label_error']">{{email_title}}</p>
       </div>
 
       <br />
