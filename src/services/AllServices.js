@@ -19,5 +19,8 @@ export default{
     },
     getCategories(){
         return Api().get(`api/user-categories`);
+    },
+    getNotes(){
+        return Api().get(`api/course-upload`);
     }
 }

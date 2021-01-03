@@ -133,36 +133,7 @@ export default {
   data: () => ({
     search:'',
     courses:['Mathematics','Java','DSA','SAD'],
-    notes: [
-      {
-        id: 1,
-        notes: "mathematics_notes.pdf",
-        description:
-          "This is the course of mathematics which deals with analysis,...",
-        action:"View"
-      },
-      {
-        id: 2,
-        notes: "mathematics_notes.pdf",
-        description:
-          "This is the course of mathematics which deals with analysis,...",
-        action:"View"
-      },
-      {
-        id: 3,
-        notes: "mathematics_notes.pdf",
-        description:
-          "This is the course of mathematics which deals with analysis,...",
-        action:"View"
-      },
-      {
-        id: 4,
-        notes: "mathematics_notes.pdf",
-        description:
-          "This is the course of mathematics which deals with analysis,...",
-        action:"View"
-      },
-    ],
+    notes: [],
      select1: 3,
     options1: [
       { text: "IT", value: 0 },
@@ -179,6 +150,21 @@ export default {
        let filter = new RegExp(this.search,'i');
        let foundText = this.notes.filter(el=>el.notes.match(filter))
           return foundText;    
+    }
+  },
+
+  beforeMount(){
+    this.notes = [];
+    this.getRows();
+  },
+
+  methods:{
+    async getRows(){
+      const response = await Services.getNotes();
+      response.data.data.docs.forEach(note=>{
+        const notesObj = {};
+        notesObj.name = note.name;
+      })
     }
   }
 };
