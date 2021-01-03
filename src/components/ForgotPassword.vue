@@ -3,14 +3,14 @@
     <h1>Recover password</h1>
     <div class="mt-10">
       <div class="flex">
-        <p>Email address</p>
+  <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{email_title}}</p>
       </div>
 
       <br />
       <input
         type="email"
         v-model="email"
-        class="border rounded-full py-3 px-6"
+       :class="[isEmpty==true?'border rounded-full py-2 px-6':'error rounded-full py-2 px-6']"
         placeholder=""
       />
       <div class="w-full">
