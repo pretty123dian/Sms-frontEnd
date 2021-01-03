@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import Services from '@/services/AllServices';
 export default {
   name: "CategoriesTable",
   data: () => ({
@@ -54,7 +55,13 @@ export default {
     this.categories=[];
     this.getRows();
   },
-  
+
+  methods:{
+    async getRows(){
+      const response = Services.getCategories();
+    }
+  }
+
 };
 </script>
 
