@@ -23,9 +23,9 @@
         </template>
                <template>
                  <vs-tr>
-                   <vs-th sort>Semester name</vs-th>
-                   <vs-th  sort-key=description>Description</vs-th>
-                   <vs-th>Academic year</vs-th>
+                   <vs-th sort>Semester</vs-th>
+                   <vs-th  sort-key=description>Academic year</vs-th>
+                   <vs-th>Status</vs-th>
                    <vs-th >Action</vs-th>
                  </vs-tr>
                </template>
@@ -38,13 +38,13 @@
                  
                   > 
                     <vs-td>
-                      {{tr.names}}
+                      {{tr.name}}
                     </vs-td>
                     <vs-td>
-                      {{tr.description}}
+                      {{tr.year}}
                     </vs-td>
                     <vs-td>
-                        {{tr.academic_year}}
+                        {{tr.status}}
                     </vs-td>
                     <vs-td>
                       {{tr.action}}
@@ -60,38 +60,40 @@
 </template>
 
 <script>
+import Services from '@/services/AllServices';
 export default {
-name:"ClassesTable",
+name:"SemestersTable",
 data:()=>({
   search:'',
-  status:'afds',
-  semesters:[
-        {
-        names:"Term one",
-        description:"This is the course of mathematics which deals with analysis,...",
-        academic_year:2020,
-        action:"ok"
-        },
-      {
-      names:"Term two",
-      description:"This is the course of mathematics which deals with analysis,...",
-      academic_year:2020,
-      action:"ok"
-    },
-      {
-      names:"Term three",
-      description:"This is the course of mathematics which deals with analysis,...",
-      academic_year:2020,
-      action:"ok"
-    }
-  ]
+  status:'',
+  semesters:[]
   }),
 
   computed:{
     searchSimilar(){
        let filter = new RegExp(this.search,'i');
-       let foundText = this.semesters.filter(el=>el.names.match(filter))
+       let foundText = this.semesters.filter(el=>el.name.match(filter))
           return foundText;    
+    }
+  },
+
+  beforeMount(){
+    this.semesters=[];
+    this.getRows();
+  },
+  methods:{
+  async  getRows(){
+      const response = await Services.getSemesters(1,10);
+      response.data.data.docs.forEach(semester=>{
+        const semesterObj = {};
+        semesterObj.names = semester.semester;
+        semesterObj.year = semester.academic_year;
+        semesterObj.status = semester.status;
+        semesterObj.action = 'ok';
+        this.semesters.push(semesterObj);
+        
+      });
+      console.log(this.semesters)
     }
   }
 };
