@@ -55,7 +55,7 @@ export default {
        if(this.email==''){
         // alert('no passcode')
         this.isEmpty = false
-        this.passcode_title='Fill in email address'
+        this.email_title='Fill in email address'
       }
      
       else{
