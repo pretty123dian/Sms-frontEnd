@@ -128,7 +128,9 @@
 </template>
 
 <script>
+import Services from '@/services/AllServices';
 export default {
+
   name: "LessonsTable",
   data: () => ({
     search:'',
