@@ -9,6 +9,7 @@
       <br />
       <input
         type="email"
+        v-model="email"
         class="border rounded-full py-3 px-6"
         placeholder=""
       />
