@@ -64,7 +64,9 @@
 </template>
 
 <script>
+import Services from '@/services/AllServices';
 export default {
+
 name:"Timetable",
 data:()=>({
   search:'',
@@ -100,7 +102,16 @@ data:()=>({
        let foundText = this.timetables.filter(el=>el.title.match(filter))
           return foundText;    
     }
+  },
+  
+  methods:{
+    // fetch all timetables 
+
+    async getRows(){
+      const respTimetables = await 
+    }
   }
+
 };
 </script>
 
