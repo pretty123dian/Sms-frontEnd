@@ -3,7 +3,7 @@
     <h1>Login to SMS</h1>
 <!-- <form action=""> -->
   <div v-if="!isEmptyPassword&&!isEmpty" class="mt-5 error_log p-2 rounded">{{login_error}}</div>
-    <div :class="['mt-5']">
+    <div :class="[!isEmptyPassword&&!isEmpty?'mt-5':'mt-10']">
       <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{passcode_title}}</p>
 
       <input
