@@ -13,5 +13,8 @@ export default{
     },
     getClassPromotion(){
         return Api().get(`api/school-promotion-classes`);
+    },
+    getClasses(){
+        return Api().get(`api/school-classes`);
     }
 }
