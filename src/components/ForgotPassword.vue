@@ -23,13 +23,19 @@
        </div>
     </div>
    
-    <router-link to="/dashboard">
+    <!-- <router-link to="/dashboard">
       <button
         class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
       >
        Recover password
       </button>
-    </router-link>
+    </router-link> -->
+     <button
+      @click="validateAllfields()"
+        class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
+      >
+        Recover password
+      </button>
   </div>
 </template>
 
