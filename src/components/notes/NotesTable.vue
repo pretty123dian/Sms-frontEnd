@@ -48,7 +48,7 @@
           <template >
             <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <td class="w-1/6">
-                {{ tr.id }}
+                {{i+1}}
               </td>
               <td>
                 {{ tr.name }}
@@ -131,7 +131,7 @@
 import Services from '@/services/AllServices';
 export default {
 
-  name: "LessonsTable",
+  name: "Notestable",
   data: () => ({
     search:'',
     courses:['Mathematics','Java','DSA','SAD'],
