@@ -30,10 +30,10 @@ export default{
         return Api().get(`api/lessons`);
     },
 
-    getLessonById(promotion_id){
+    getLessonPromotionById(promotion_id){
         return Api().get(`api/lessons-promotion/${promotion_id}`);
     },
-    getLessonPromotionById(lesson_id){
+    getLessonById(lesson_id){
         return Api().get(`api/lessons/${lesson_id}`)
     }
 }

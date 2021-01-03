@@ -173,9 +173,10 @@ export default {
         notesObj.link = note.link;
         notesObj.publishedAt = note.registered_at;
 
-        const lessonId = await Services.getLessonById(note.lesson_promotion);
-        console.log(lessonId);
-        notesObj.lesson_promo = lessonId.data.data.docs.promotion;
+        // const lessonId = await Services.getLessonPromotionById(note.lesson_promotion);
+        // console.log(lessonId);
+      notesObj.lesson_promo = note.lesson_promotion;
+        // notesObj.lesson_promo = lessonId.data.data.docs.promotion;
 
         notesObj.action = "view";
         this.notes.push(notesObj);
