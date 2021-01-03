@@ -48,27 +48,13 @@
 export default {
   name: "CategoriesTable",
   data: () => ({
-    categories: [
-      {
-        names: "Student",
-        desription:
-          "This is the course of mathematics which deals with analysis,...",
-        action: "ok",
-      },
-      {
-        names: "Instructor",
-        description:
-          "This is the course of mathematics which deals with analysis,...",
-        action: "ok",
-      },
-      {
-        names: "Admin",
-        description:
-          "This is the course of mathematics which deals with analysis,...",
-        action: "ok",
-      },
-    ],
+    categories: [],
   }),
+  beforeMount(){
+    this.categories=[];
+    this.getRows();
+  },
+  
 };
 </script>
 
