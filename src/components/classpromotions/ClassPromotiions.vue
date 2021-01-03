@@ -91,7 +91,7 @@ data:()=>({
     async getRows(){
 
       const response = await Services.getClassPromotion();
-
+  console.log(response)
       response.data.data.docs.forEach(promo=>{
         const promoObj = {};
         promoObj.name = promo.promotion;
@@ -101,7 +101,7 @@ data:()=>({
         promoObj.action = 'ok'
         this.classPromotions.push(promoObj);
       })
-      console.log('Class promotions: ', this.classPromotions);
+      // console.log('Class promotions: ', this.classPromotions);
     }
   }
 };

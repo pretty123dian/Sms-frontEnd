@@ -12,6 +12,6 @@ export default{
         return Api().get(`api/semester?page=${n_of_pages}&limit=${pages_limit}`);
     },
     getClassPromotion(){
-        return Api().get(`api/api/school-promotion-classes`);
+        return Api().get(`api/school-promotion-classes`);
     }
 }
