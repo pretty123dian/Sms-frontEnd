@@ -140,6 +140,7 @@
 </template>
 
 <script>
+import Services from '@/services/AllServices';
 export default {
   name: "AssignmentsTable",
   data: () => ({
@@ -164,6 +165,16 @@ beforeMount(){
 
 methods: {
   async getRows(){
+      const response = await Services.getAssignments(1,10); //number of pages and limit are hardcoded here
+      console.log("Response: ", response);
+      response.data.data.docs.forEach(assignment=>{
+        const assignmentObj = {};
+        assignmentObj.lesson_promotion = assignment.lesson_promotion;
+        assignmentObj.semester = assignment.lesson;
+
+        this.assignments.push(assignmentObj);
+      })
+      console.log("Assignment: ", this.assignments);
 
   }
 }
