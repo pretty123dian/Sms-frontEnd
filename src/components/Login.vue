@@ -1,7 +1,7 @@
 <template>
   <div class="main mt-20">
     <h1>Login to SMS</h1>
-<form action="">
+<!-- <form action=""> -->
     <div class="mt-10">
       <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{passcode_title}}</p>
 
@@ -43,7 +43,7 @@
       </button>
     <!-- </router-link> -->
 
-    </form>
+    <!-- </form> -->
   </div>
 </template>
 
