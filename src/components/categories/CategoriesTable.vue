@@ -21,6 +21,8 @@
             <tr>
               <th>Category name</th>
               <th>Description</th>
+              <th>User</th>
+              <th>Role</th>
               <th>Action</th>
             </tr>
           </template>
@@ -28,10 +30,16 @@
           <template>
             <tr :key="i" v-for="(tr, i) in categories" :data="tr">
               <td>
-                {{ tr.names }}
+                {{ tr.name }}
               </td>
               <td>
                 {{ tr.description }}
+              </td>
+               <td>
+                {{ tr.user }}
+              </td>
+               <td>
+                {{ tr.role }}
               </td>
               <td>
                 {{ tr.action }}
@@ -63,6 +71,9 @@ export default {
         const categoriesObj = {};
         categoriesObj.name = category.name;
         categoriesObj.description = category.description;
+        categoriesObj.user = category.roles.name;
+        categoriesObj.role = category.roles.description;
+        categoriesObj.action = 'ok'
 
         this.categories.push(categoriesObj);
       });
