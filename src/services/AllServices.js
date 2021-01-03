@@ -28,5 +28,9 @@ export default{
     },
     getLessons(){
         return Api().get(`api/lessons`);
+    },
+
+    getLessonById(lesson_id){
+        return Api().get(`api/lessons/${lesson_id}`);
     }
 }
