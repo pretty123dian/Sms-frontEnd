@@ -41,6 +41,7 @@
               <th>#</th>
               <th>Notes</th>
               <th>Description</th>
+              <th>Published at</th>
               <th colspan="3">Action</th>
             </tr>
           </template>
@@ -55,6 +56,9 @@
               </td>
               <td>
                 {{ tr.description }}
+              </td>
+              <td>
+                {{tr.publishedAt}}
               </td>
               <td>
                   <span class="text-purple cursor-pointer" @click="popupActivo2=true">
