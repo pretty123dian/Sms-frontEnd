@@ -16,5 +16,8 @@ export default{
     },
     getClasses(){
         return Api().get(`api/school-classes`);
+    },
+    getCategories(){
+        return Api().get(`api//user-categories`);
     }
 }
