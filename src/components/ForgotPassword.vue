@@ -41,7 +41,24 @@ export default {
   },
   data:()=>({
     email_title:'Email address',
-  })
+     isEmpty: true,
+     email:''
+  }),
+  methods:{
+    validateAllfields(){
+       if(this.email==''){
+        // alert('no passcode')
+        this.isEmpty = false
+        this.passcode_title='Fill in email address'
+      }
+     
+      else{
+        this.isEmpty = true
+        this.email_title='Email address'
+    
+      }
+    }
+  }
 };
 </script>
 
