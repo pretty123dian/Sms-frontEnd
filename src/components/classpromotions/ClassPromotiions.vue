@@ -60,31 +60,13 @@
 </template>
 
 <script>
+import Services from '@/services/AllServices';
 export default {
-name:"ClassesTable",
+name:"ClassesPromotionTable",
 data:()=>({
   search:'',
-  status:'afds',
-  categories:[
-        {
-        names:"A",
-        description:"This is the course of mathematics which deals with analysis,...",
-        academic_year:2020,
-        action:"ok"
-        },
-      {
-      names:"B",
-      description:"This is the course of mathematics which deals with analysis,...",
-      academic_year:2020,
-      action:"ok"
-    },
-      {
-      names:"C",
-      description:"This is the course of mathematics which deals with analysis,...",
-      academic_year:2020,
-      action:"ok"
-    }
-  ]
+  status:'',
+  categories:[]
   }),
 
   computed:{
@@ -92,6 +74,27 @@ data:()=>({
        let filter = new RegExp(this.search,'i');
        let foundText = this.categories.filter(el=>el.names.match(filter))
           return foundText;    
+    }
+  },
+
+  beforeMount(){
+    this.categories=[];
+  },
+
+  methods:{
+    // fetch all class promotions
+    async getRows(){
+
+      const response = await Services.getClassPromotions();
+
+      response.data.data.docs.forEach(promo=>{
+        const promoObj = {};
+        promoObj.name = promo.promotion;
+        promoObj.class = promo.class;
+        promoObj.academic_year = promo.academic_year;
+        promoObj.status = promo.status;
+        promoObj.action = 'ok'
+      })
     }
   }
 };
