@@ -2,14 +2,14 @@
   <div class="main mt-20">
     <h1>Login to SMS</h1>
 <!-- <form action=""> -->
-  <div class="mt-5 error_log p-2 rounded">{{login_error}}</div>
-    <div class="mt-5">
+  <div v-if="!isEmptyPassword&&!isEmpty" class="mt-5 error_log p-2 rounded">{{login_error}}</div>
+    <div :class="['mt-5']">
       <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{passcode_title}}</p>
 
       <input
         type="text"
         v-model="passcode"
-        placeholder="RCA016702I"
+        placeholder=""
         :class="[isEmpty==true?'border rounded-full py-2 px-6':'error rounded-full py-2 px-6']"
       />
     </div>
@@ -25,7 +25,7 @@
         type="password"
         v-model="password"
            :class="[isEmptyPassword==true?'border rounded-full py-2 px-6':'error rounded-full py-2 px-6']"
-        placeholder="*********"
+        placeholder=""
       />
       <div class="w-full">
         <router-link to="/forgotpassword">
