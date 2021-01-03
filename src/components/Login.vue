@@ -3,7 +3,7 @@
     <h1>Login to SMS</h1>
 
     <div class="mt-10">
-      <p class="mb-4">Enter passcode</p>
+      <p class="mb-4">Passcode</p>
 
       <input
         type="text"
@@ -14,7 +14,7 @@
 
     <div class="mt-10">
       <div class="flex">
-        <p>Enter password</p>
+        <p>Password</p>
         
       </div>
 

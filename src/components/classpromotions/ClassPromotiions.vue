@@ -19,12 +19,12 @@
       <div class="center bg-white p-5">
                <table stripe :data="categories" class="w-full" >
                   <template>
-          <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search class" />
+          <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search promotion" />
         </template>
                <template>
                  <vs-tr>
                    <vs-th sort>Name</vs-th>
-                   <vs-th  sort-key="description">Description</vs-th>
+                   <vs-th  sort-key=description>Description</vs-th>
                 <vs-th> Academic year</vs-th>
                    <vs-th >Action</vs-th>
                  </vs-tr>
@@ -42,6 +42,9 @@
                     </vs-td>
                     <vs-td>
                       {{tr.description}}
+                    </vs-td>
+                    <vs-td>
+                      {{tr.academic_year}}
                     </vs-td>
                     <vs-td>
                       {{tr.action}}
@@ -64,20 +67,22 @@ data:()=>({
   status:'afds',
   categories:[
         {
-        "names":"A",
-        "description":"This is the course of mathematics which deals with analysis,...",
-
-        "action":"ok"
+        names:"A",
+        description:"This is the course of mathematics which deals with analysis,...",
+        academic_year:2020,
+        action:"ok"
         },
       {
-      "names":"B",
-      "description":"This is the course of mathematics which deals with analysis,...",
-      "action":"ok"
+      names:"B",
+      description:"This is the course of mathematics which deals with analysis,...",
+      academic_year:2020,
+      action:"ok"
     },
       {
-      "names":"C",
-      "description":"This is the course of mathematics which deals with analysis,...",
-      "action":"ok"
+      names:"C",
+      description:"This is the course of mathematics which deals with analysis,...",
+      academic_year:2020,
+      action:"ok"
     }
   ]
   }),

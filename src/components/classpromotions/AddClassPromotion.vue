@@ -26,7 +26,7 @@
               for="name"
                   class="mr-4 name"
               :class="[labels_focus.label1 ? 'label-focus' : '']"
-              >Promotion class name</label
+              >Academic year</label
             >
             <br />
             <select

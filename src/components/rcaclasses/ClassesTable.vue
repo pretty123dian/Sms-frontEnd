@@ -24,7 +24,7 @@
                <template>
                  <vs-tr>
                    <vs-th sort>Class name</vs-th>
-                   <vs-th  sort-key="description">Description</vs-th>
+                   <vs-th  sort-key=description>Description</vs-th>
                    <vs-th >Action</vs-th>
                  </vs-tr>
                </template>
@@ -63,20 +63,19 @@ data:()=>({
   status:'afds',
   categories:[
         {
-        "names":"A",
-        "description":"This is the course of mathematics which deals with analysis,...",
-
-        "action":"ok"
+        names:"A",
+        description:"This is the course of mathematics which deals with analysis,...",
+        action:"ok"
         },
       {
-      "names":"B",
-      "description":"This is the course of mathematics which deals with analysis,...",
-      "action":"ok"
+      names:"B",
+      description:"This is the course of mathematics which deals with analysis,...",
+      action:"ok"
     },
       {
-      "names":"C",
-      "description":"This is the course of mathematics which deals with analysis,...",
-      "action":"ok"
+      names:"C",
+      description:"This is the course of mathematics which deals with analysis,...",
+      action:"ok"
     }
   ]
   }),

@@ -3,14 +3,14 @@
     <h1>Recover password</h1>
     <div class="mt-10">
       <div class="flex">
-        <p>Enter email</p>
+        <p>Email address</p>
       </div>
 
       <br />
       <input
         type="email"
         class="border rounded-full py-3 px-6"
-        placeholder="..@sms.xyz"
+        placeholder=""
       />
       <div class="w-full">
           <router-link

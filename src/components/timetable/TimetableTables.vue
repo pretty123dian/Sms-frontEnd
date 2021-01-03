@@ -4,27 +4,28 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-              <h3 class="text-sm font-bold mb-5">View semesters</h3>
+              <h3 class="text-sm font-bold mb-5">View timetables</h3>
            
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link to="/register/semester">
+          <router-link to="/register/timetable">
           <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-            Add new semester
+            Add new timetable
           </vs-button>
           </router-link>
         </div>
       </div>
       <div class="center bg-white p-5">
-               <table stripe :data="categories" class="w-full" >
+               <table stripe :data="timetables" class="w-full" >
                   <template>
-          <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search semester" />
+          <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search timetable" />
         </template>
                <template>
                  <vs-tr>
-                   <vs-th sort>Semester name</vs-th>
-                   <vs-th  sort-key=description>Description</vs-th>
+                   <vs-th sort>Title</vs-th>
+                   <vs-th>Filename</vs-th>
+                   <vs-th>Promotion</vs-th>
                    <vs-th>Academic year</vs-th>
                    <vs-th >Action</vs-th>
                  </vs-tr>
@@ -38,10 +39,13 @@
                  
                   > 
                     <vs-td>
-                      {{tr.names}}
+                      {{tr.title}}
                     </vs-td>
                     <vs-td>
-                      {{tr.description}}
+                      {{tr.filename}}
+                    </vs-td>
+                    <vs-td>
+                        {{tr.promotion}}
                     </vs-td>
                     <vs-td>
                         {{tr.academic_year}}
@@ -61,26 +65,29 @@
 
 <script>
 export default {
-name:"ClassesTable",
+name:"Timetable",
 data:()=>({
   search:'',
   status:'afds',
-  semesters:[
+  timetables:[
         {
-        names:"Term one",
-        description:"This is the course of mathematics which deals with analysis,...",
+        title:"Time table for year 1",
+        promotion:'Year 1',
+        filename:"time_table_year1.pdf",
         academic_year:2020,
         action:"ok"
         },
       {
-      names:"Term two",
-      description:"This is the course of mathematics which deals with analysis,...",
+      title:"Time table for year 1",
+      promotion:'Year 1',
+      filename:"  time_table_year1.pdf",
       academic_year:2020,
       action:"ok"
     },
       {
-      names:"Term three",
-      description:"This is the course of mathematics which deals with analysis,...",
+      title:"Time table for year 2",
+      promotion:'Year 1',
+      filename:"  time_table_year1.pdf",
       academic_year:2020,
       action:"ok"
     }
@@ -90,7 +97,7 @@ data:()=>({
   computed:{
     searchSimilar(){
        let filter = new RegExp(this.search,'i');
-       let foundText = this.semesters.filter(el=>el.names.match(filter))
+       let foundText = this.timetables.filter(el=>el.title.match(filter))
           return foundText;    
     }
   }

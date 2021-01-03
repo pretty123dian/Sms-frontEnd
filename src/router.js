@@ -29,6 +29,12 @@ import AddClass from './components/rcaclasses/AddClass.vue'
 import ClassesPromotion from './components/classpromotions/ClassPromotiions.vue'
 import AddClassPromotion from './components/classpromotions/AddClassPromotion.vue'
 
+import AddSemester from './components/semester/AddSemester.vue';
+import Semesters from './components/semester/SemestersTable.vue';
+
+import Timetables from './components/timetable/TimetableTables.vue';
+import AddTimeTable from './components/timetable/AddTimeTable.vue';
+
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
 import ForgotPassword from './components/ForgotPassword.vue';
@@ -140,6 +146,26 @@ const router = new VueRouter({
                 path:'/register/classpromotion',
                 name:'Promotions',
                 component: AddClassPromotion
+            },
+            {
+                path:'/view/semesters',
+                name:'Semesters',
+                component: Semesters
+            },
+            {
+                path:'/register/semester',
+                name:'Semesters',
+                component: AddSemester
+            },
+            {
+                path:'/view/timetable',
+                name:'Timetable',
+                component: Timetables
+            },
+            {
+                path:'/register/timetable',
+                name:'Timtable',
+                component: AddTimeTable
             }
 
         ]

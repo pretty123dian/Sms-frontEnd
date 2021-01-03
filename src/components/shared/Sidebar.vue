@@ -201,7 +201,7 @@
 
 
 
-  Semester
+  Semesters
 </router-link>
 
 
@@ -213,7 +213,7 @@
 <path class="svg__path"  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path class="svg__path" d="M12 6V12L16 14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-Timetable
+Timetables
       </router-link>
 
 
@@ -304,6 +304,12 @@ export default {
   fill: #574ae2;
   font-weight: bold;
 }
+
+.home-links > .active .svg__path {
+  stroke: #574ae2;
+  font-weight: bold;
+}
+
 .svg__timetable{
   stroke: #574ae2;
 }

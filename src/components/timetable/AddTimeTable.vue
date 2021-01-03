@@ -2,7 +2,7 @@
   <div class="flex grid grid-cols-2 gap-4">
     <div class="w-4/5 p-5">
       <div class="title">
-        <span class="font-bold text-sm">Add notes</span>
+        <span class="font-bold text-sm">Add Timetable</span>
       </div>
       <div class="w-full mt-5">
         <form action="">
@@ -11,7 +11,7 @@
               for="name"
               class="mr-4 name"
               :class="[labels_focus.label1 ? 'label-focus' : '']"
-              >Lesson name</label
+              >Timetable name</label
             >
             <br />
             <input
@@ -21,24 +21,25 @@
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             />
           </div>
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
+          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-3">
             <label
-              for=""
-              class="mr-4"
+              for="name"
+                  class="mr-4 name"
               :class="[labels_focus.label2 ? 'label-focus' : '']"
-              >Description</label
+              >Class promotion</label
             >
             <br />
-            <textarea
+            <select
               @focus="labels_focus.label2 = !labels_focus.label2"
               @blur="labels_focus.label2 = !labels_focus.label2"
-              name=""
-              id=""
-              rows="5"
-              class="form-input p-3 mt-2 mr-4 border lg:w-3/4 sm:w-full border-#E1E1E1-600 rounded"
+              id="name"
+              class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             >
-              
-            </textarea>
+            <option value="">Select promotion</option> 
+            <template v-for="(promotion,index) in promotions">
+            <option value="year" :key="index">{{promotion}}</option>
+            </template>
+            </select>
           </div>
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4  lg:w-3/4  sm:w-full ">
               
@@ -46,12 +47,12 @@
               for=""
               class="mr-4"
               :class="[labels_focus.label3 ? 'label-focus' : '']"
-              >Notes file</label
+              >Timetable file</label
             >
             <label for="notes__file">
              <div class="lg:w-3/4  sm:w-full  border-dashed border-2 bg-white flex items-center notes__upload_file mt-3 text-center">
-               <span class="m-auto">Drop file here or <a href="#" class="text-purple hover:underline">browse </a> to upload </span>
-           </div>
+              <span class="m-auto">Drop file here or <a href="#" class="text-purple underline">browse </a> to upload </span>
+            </div>
             </label>
                 <input type="file" name="notes__file" id="notes__file" hidden>
           </div>
@@ -80,8 +81,7 @@ export default {
       label3: false,
       label4: false,
     },
-    semesters: ["Term 1", "Term 2", "Term 3"],
-    assignmentTypes: ["Exam", "CAT"],
+    promotions: ["Year 1", "Year 2", "Year 3"]
   }),
 };
 </script>
