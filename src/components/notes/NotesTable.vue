@@ -41,7 +41,9 @@
               <th>#</th>
               <th>Notes</th>
               <th>Description</th>
+                  <th>Lesson</th>
               <th>Published at</th>
+          
               <th colspan="3">Action</th>
             </tr>
           </template>
@@ -56,6 +58,9 @@
               </td>
               <td>
                 {{ tr.description }}
+              </td>
+              <td>
+                {{tr.lesson_promo}}
               </td>
               <td>
                 {{tr.publishedAt}}
