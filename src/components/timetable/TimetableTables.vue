@@ -36,7 +36,7 @@
           </template>
 
           <template>
-            <vs-tr :key="i" v-for="(tr, i) in timetables" :data="tr">
+            <vs-tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <vs-td>
                 {{ tr.title }}
               </vs-td>
@@ -89,8 +89,14 @@ export default {
       // if(responses.status===200){
       response.data.data.docs.forEach((timetable) => {
         const timetableStore = {};
+        const schoolPromotion = Services.getPromotion(timetable.promotion);
         timetableStore.title = timetable.title;
-        timetableStore.promotion = timetable.promotion;
+        if(schoolPromotion.name){
+          timetableStore.promotion = schoolPromotion?.name;
+        }
+       else{
+          timetableStore.promotion = 'No promotion'
+       }
         timetableStore.filename = timetable.file_name;
         timetableStore.academic_year = timetable.link;
         timetableStore.action = "ok";
