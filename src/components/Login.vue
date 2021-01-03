@@ -15,7 +15,7 @@
 
     <div class="mt-10">
       <div class="flex">
-        <p>Password</p>
+        <p>{{password_title}}</p>
         
       </div>
 
@@ -55,6 +55,8 @@ export default {
   },
   data:()=>({
     passcode_title:'Passcode',
+    password_title:'Password',
+    isEmptyPassword:true,
     error:'',
     isEmpty: true,
   passcode:'',
@@ -69,7 +71,8 @@ export default {
         this.passcode_title='Fill in passcode'
       }
       else if(this.password==''){
-        alert('no password')
+         this.isEmptyPassword = false
+          this.password_title='Fill in password'
       }
       else
         alert('ok')
