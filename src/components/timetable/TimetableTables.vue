@@ -48,7 +48,7 @@
                         {{tr.promotion}}
                     </vs-td>
                     <vs-td>
-                        {{tr.academic_year}}
+                        {{tr.link}}
                     </vs-td>
                     <vs-td>
                       {{tr.action}}
@@ -108,7 +108,18 @@ data:()=>({
     // fetch all timetables 
 
     async getRows(){
-      const respTimetables = await 
+      const responses = await Services.getTimeTable();
+      if(responses.status===200){
+          responses.map(timetable=>{
+            const timetableStore = {};
+            timetableStore.title = timetable.title
+            timetableStore.promotion = timetable.promotion
+            timetableStore.filename = timetable.file_name
+            timetableStore.link = timetable.link
+            timetableStore.action = 'ok'
+            this.timetables.push(timetableStore)
+          })
+      }
     }
   }
 
