@@ -55,6 +55,14 @@
 <script>
 export default {
   name: "SearchBar",
+  data:()=>({
+    addDropdown:false
+  }),
+  methods:{
+    setDropdown(){
+      return this.addDropdown = !this.addDropdown;
+    }
+  }
 };
 </script>
 
