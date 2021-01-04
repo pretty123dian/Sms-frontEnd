@@ -72,10 +72,19 @@ export default {
         name:'Add lesson',
         link:'/register/lesson'
       },
+       {
+        name:'Add semester',
+        link:'/register/semester'
+      },
         {
         name:'Upload notes',
         link:'/register/notes'
-      }
+      },
+      {
+        name:'Upload timetable',
+        link:'/register/timetable'
+      },
+     
     ]
   }),
   computed(){
