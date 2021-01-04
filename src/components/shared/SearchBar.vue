@@ -39,9 +39,14 @@
         </vs-button>
         
       </div>
-      <div class="card bg-white p-2 w-1/2 search__preview_more">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias dolore perspiciatis doloribus, nemo fuga laboriosam enim non vero, unde ipsum, quia et. Consectetur quaerat, ad voluptate porro soluta illum adipisci!
-        </div>
+      <div v-if="addDropdown===true" class="card bg-white p-2 w-1/3 rounded search__preview_more">
+       <ul>
+         <li>Add student</li>
+         <li>Add instructor</li>
+         <li></li>
+         <li></li>
+       </ul>
+         </div>
         </div>
     </div>
   </div>
