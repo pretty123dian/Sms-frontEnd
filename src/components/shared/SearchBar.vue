@@ -1,5 +1,7 @@
 <template>
-  <div class="p-2 pl-4 search-bar relative">
+  <!-- <div class="p-2 pl-4 search-bar relative"> -->
+       <div :class="[ this.$route.name!='Dashboard'?'p-2 pl-4 search-bar relative':'p-2 pl-4 search-bar relative search_bar_dashboard']">
+
     <div class="grid grid-cols-2 gap-4 flex items-center">
       <div class="col-start-1 col-end-5">
         <form method="">
@@ -65,12 +67,26 @@ export default {
       {
         name:'Add instructor',
         link:'/register/instructor'
+      },
+        {
+        name:'Add lesson',
+        link:'/register/lesson'
+      },
+        {
+        name:'Upload notes',
+        link:'/register/notes'
       }
     ]
   }),
   methods:{
     setDropdown(){
-      this.drop_icon = '-'
+      if(this.drop_icon !='-'){
+        this.drop_icon = '-'
+      }
+      else
+        this.drop_icon = '+'
+       
+      
       return this.addDropdown = !this.addDropdown;
     }
   }
@@ -78,6 +94,9 @@ export default {
 </script>
 
 <style scoped>
+.search_bar_dashboard{
+  width: 150%;
+}
 .search__preview_more{
     position: absolute;
     margin-top: 1%;
