@@ -72,7 +72,7 @@ export default {
     dropdownStore: [
       {
         name: "Profile settings",
-        link: "/dashboard",
+        link: "/profile-settings",
       },
       {
         name: "Logout",
