@@ -5,10 +5,10 @@
         <span class="font-bold text-sm">Profile settings</span>
       </div>
       <div class="w-full mt-5">
-       
+       <router-link to="/">Account</router-link>
       </div>
     </div>
-    <div class="w-1/2 mt-4 bg-white  float-left">
+    <div class="w-1/2 mt-4 bg-white  float-left p-4">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, tempora? Porro consectetur voluptas explicabo! Nam, quas sapiente molestiae pariatur cumque animi repudiandae perferendis, dolores libero quasi, et harum quos cum.
     </div>
   </div>
@@ -31,6 +31,11 @@ export default {
 </script>
 
 <style scoped>
+
+.home-links a:hover {
+  background-color: #e9e8ff;
+  color: #574ae2;
+}a
 input:focus,
 select:focus,
 textarea:focus
