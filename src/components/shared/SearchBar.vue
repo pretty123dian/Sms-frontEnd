@@ -34,15 +34,16 @@
       </div>
       <div class="col-start-6 col-end-12 top-0">
       <div class="col-start-6 col-end-12 top-0">
-        <vs-button color="#574AE2" class="focus:outline-none w-1/2" @click="setDropdown" @blur="setDropdown">
+        <vs-button color="#574AE2" class="focus:outline-none w-1/2" @click="setDropdown">
           +
         </vs-button>
         
       </div>
       <div v-if="addDropdown===true" class="card bg-white p-2 lg:w-1/3 md:w-full rounded search__preview_more shadow">
        <ul class="lg:px-2 lg:py-2">
-         <li> Add student</li>
-         <li>Add instructor</li>
+         <template v-for="(link,index) in dropdownStore">
+            <li :key="index"><router-link :to="link.link">{{link.name}}</router-link></li>
+         </template>
        </ul>
          </div>
         </div>
@@ -56,7 +57,14 @@ export default {
   data:()=>({
     addDropdown:false,
     dropdownStore: [
-      {}
+      {
+        name:'Add student',
+        link:'/register/student'
+      },
+      {
+        name:'Add instructor',
+        link:'/register/instructor'
+      }
     ]
   }),
   methods:{
@@ -79,4 +87,5 @@ export default {
 ul li{
   padding: 3%;
 }
+
 </style>
