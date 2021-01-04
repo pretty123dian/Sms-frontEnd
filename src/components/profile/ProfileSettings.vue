@@ -7,6 +7,7 @@
       <div class="w-full mt-5 profile_links">
         
        <router-link to="/" class="active">Account</router-link>
+       <router-link to="udpate/password">Change password</router-link>
       </div>
     </div>
     <div class="w-1/2 mt-12 bg-white  float-left p-4">
@@ -44,11 +45,11 @@ export default {
   display: flex;
 
   margin-top: 5%;
-  padding: 5% 5% 5% 15%;
+  padding: 5% 0% 5% 10%;
   border-radius: 20px;
 }
 .profile_links > .active {
-  padding: 5% 5% 5% 15%;
+  padding: 5% 0% 5% 10%;
   background-color: #e9e8ff;
   color: #574ae2;
   /* border:1px solid black; */
