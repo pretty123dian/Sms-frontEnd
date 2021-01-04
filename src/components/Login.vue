@@ -1,7 +1,11 @@
 <template>
   <div class="main mt-20">
     <h1>Login to SMS</h1>
-<!-- <form action=""> -->
+<form
+ref="form"
+@submit.prevent = "validate()"
+
+>
   <div v-if="!isEmptyPassword&&!isEmpty" class="mt-5 error_log p-2 rounded">{{login_error}}</div>
     <div :class="[!isEmptyPassword&&!isEmpty?'mt-5':'mt-10']">
       <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{passcode_title}}</p>
@@ -44,11 +48,13 @@
       </button>
     <!-- </router-link> -->
 
-    <!-- </form> -->
+    </form>
   </div>
 </template>
 
 <script>
+// import axios from 'axios'
+import Services from '@/services/AllServices'
 export default {
   name: "Login",
   props: {
@@ -61,7 +67,7 @@ export default {
     isEmptyPassword:true,
     error:'',
     isEmpty: true,
-  passcode:'',
+    passcode:'',
       password: '',
      
   }),
@@ -100,7 +106,20 @@ export default {
      
       else
         alert('ok')
+    },
+
+    async validate(){
+      if(this.$$refs.form.validate()){
+        let response = await Services.getCategory(this.passcode);
+        if(response.data){
+            console.log()
+        }
     }
+    }
+
+
+
+
   }
 };
 </script>

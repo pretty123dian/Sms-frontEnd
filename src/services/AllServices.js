@@ -20,6 +20,9 @@ export default{
     getCategories(){
         return Api().get(`api/user-categories`);
     },
+    getCategory(passcode,body){
+        return Api().get(`api/user-categories/${passcode}`,body);
+    },
     getNotes(){
         return Api().get(`api/course-upload`);
     },
