@@ -28,21 +28,84 @@
           alt="user image"
         />
       </div>
-      <div class="col-start-3 col-end-13">
+      <div class="col-start-3 col-end-13" @click="setDropdown">
         <b>Admin Code</b> <br />
         <span class="text-xs">Admin</span>
       </div>
+
+      
+
+
     </div>
+     <div v-if="addDropdown===true" class="card bg-white p-2 lg:w-1/3 md:w-full rounded search__preview_more shadow">
+       <ul class="lg:px-2 lg:py-2">
+         <template v-for="(link,index) in dropdownStore">
+            <li :key="index"><router-link :to="link.link">{{link.name}}</router-link></li>
+         </template>
+       </ul>
+         </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "ProfileHeader",
+  data:()=>({
+    addDropdown:false,
+    drop_icon:'+',
+    dropdownStore: [
+      {
+        name:'Add student',
+        link:'/register/student'
+      },
+      {
+        name:'Add instructor',
+        link:'/register/instructor'
+      },
+        {
+        name:'Add lesson',
+        link:'/register/lesson'
+      },
+       {
+        name:'Add semester',
+        link:'/register/semester'
+      },
+        {
+        name:'Upload notes',
+        link:'/register/notes'
+      },
+      {
+        name:'Upload timetable',
+        link:'/register/timetable'
+      },
+     
+    ]
+  }),
+  computed(){
+     this.addDropdown= false
+  },
+  methods:{
+    setDropdown(){
+      if(this.drop_icon !='-'){
+        this.drop_icon = '-'
+      }
+      else
+        this.drop_icon = '+'
+       
+      
+      return this.addDropdown = !this.addDropdown;
+    }
+  }
 };
 </script>
 
-<style>
+<style scoped>
+.search__preview_more{
+    position: absolute;
+    margin-top: 3%;
+    align-items: center;
+    z-index: 500;
+}
 .bell-notify{
     fill: #000;
 }
