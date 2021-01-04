@@ -36,7 +36,11 @@
         <vs-button color="#574AE2" class="focus:outline-none w-1/2">
           +
         </vs-button>
+        
       </div>
+      <div class="card bg-white p-2 w-full search__preview_more">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias dolore perspiciatis doloribus, nemo fuga laboriosam enim non vero, unde ipsum, quia et. Consectetur quaerat, ad voluptate porro soluta illum adipisci!
+        </div>
     </div>
   </div>
 </template>
@@ -47,9 +51,9 @@ export default {
 };
 </script>
 
-<style>
-.search-bar {
-  /* border: 1px solid black; */
+<style scoped>
+.search__preview_more{
+  
 }
 .search-box {
   font-size: 12px !important;
