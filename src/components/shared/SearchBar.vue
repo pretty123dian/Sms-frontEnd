@@ -78,6 +78,9 @@ export default {
       }
     ]
   }),
+  computed(){
+     this.addDropdown= false
+  },
   methods:{
     setDropdown(){
       if(this.drop_icon !='-'){
@@ -107,9 +110,12 @@ export default {
 }
 ul li{
   padding: 3%;
-  font-size: 12px;
+  font-size: 13px;
 }
 ul li:hover{
+  color: #574ae2;
+}
+.active{
   color: #574ae2;
 }
 </style>
