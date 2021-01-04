@@ -33,9 +33,9 @@
         </form>
       </div>
       <div class="col-start-6 col-end-12 top-0">
-      <div class="col-start-6 col-end-12 top-0">
+      <div class="">
         <vs-button color="#574AE2" class="focus:outline-none w-1/2" @click="setDropdown">
-          +
+          {{drop_icon}}
         </vs-button>
         
       </div>
@@ -56,6 +56,7 @@ export default {
   name: "SearchBar",
   data:()=>({
     addDropdown:false,
+    drop_icon:'+',
     dropdownStore: [
       {
         name:'Add student',
@@ -69,6 +70,7 @@ export default {
   }),
   methods:{
     setDropdown(){
+      this.drop_icon = '-'
       return this.addDropdown = !this.addDropdown;
     }
   }
@@ -86,6 +88,9 @@ export default {
 }
 ul li{
   padding: 3%;
+  font-size: 12px;
 }
-
+ul li:hover{
+  color: #574ae2;
+}
 </style>
