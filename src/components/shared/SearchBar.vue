@@ -34,17 +34,15 @@
       </div>
       <div class="col-start-6 col-end-12 top-0">
       <div class="col-start-6 col-end-12 top-0">
-        <vs-button color="#574AE2" class="focus:outline-none w-1/2">
+        <vs-button color="#574AE2" class="focus:outline-none w-1/2" @click="setDropdown" @blur="setDropdown">
           +
         </vs-button>
         
       </div>
-      <div v-if="addDropdown===true" class="card bg-white p-2 w-1/3 rounded search__preview_more">
-       <ul>
-         <li>Add student</li>
+      <div v-if="addDropdown===true" class="card bg-white p-2 lg:w-1/3 md:w-full rounded search__preview_more shadow">
+       <ul class="lg:px-2 lg:py-2">
+         <li> Add student</li>
          <li>Add instructor</li>
-         <li></li>
-         <li></li>
        </ul>
          </div>
         </div>
@@ -56,7 +54,10 @@
 export default {
   name: "SearchBar",
   data:()=>({
-    addDropdown:false
+    addDropdown:false,
+    dropdownStore: [
+      {}
+    ]
   }),
   methods:{
     setDropdown(){
@@ -74,5 +75,8 @@ export default {
 }
 .search-box {
   font-size: 12px !important;
+}
+ul li{
+  padding: 3%;
 }
 </style>
