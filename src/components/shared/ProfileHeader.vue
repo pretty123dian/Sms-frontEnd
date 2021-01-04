@@ -20,16 +20,18 @@
         ></div>
       </div>
     </div>
-    <div class="col-start-10 col-end-13 grid grid-cols-2 gap-2 md:pr-10">
+    <div class="col-start-10 col-end-13 md:pr-10">
+    <div class="grid grid-cols-2 gap-2 md:pr-10 cursor-pointer border">
       <div class="col-start-1 col-end-3">
         <img
           class="rounded-full border border-gray-100 shadow-sm w-10 h-10"
           src="https://randomuser.me/api/portraits/women/81.jpg"
           alt="user image"
+           @click="setDropdown"
         />
       </div>
       <div class="col-start-3 col-end-13" @click="setDropdown">
-        <b>Admin Code</b> <br />
+        <b>Admin Code Lento</b> <br />
         <span class="text-xs">Admin</span>
       </div>
 
@@ -37,12 +39,13 @@
 
 
     </div>
-     <div v-if="addDropdown===true" class="card bg-white p-2 lg:w-1/3 md:w-full rounded search__preview_more shadow">
+     <div v-if="addDropdown===true" class="card bg-white p-2 lg:w-1/6 md:w-full rounded user__preview_more shadow">
        <ul class="lg:px-2 lg:py-2">
          <template v-for="(link,index) in dropdownStore">
             <li :key="index"><router-link :to="link.link">{{link.name}}</router-link></li>
          </template>
        </ul>
+         </div>
          </div>
   </div>
 </template>
@@ -55,29 +58,14 @@ export default {
     drop_icon:'+',
     dropdownStore: [
       {
-        name:'Add student',
-        link:'/register/student'
+        name:'Profile settings',
+        link:'/dashboard'
       },
       {
-        name:'Add instructor',
-        link:'/register/instructor'
+        name:'Logout',
+        link:'/'
       },
-        {
-        name:'Add lesson',
-        link:'/register/lesson'
-      },
-       {
-        name:'Add semester',
-        link:'/register/semester'
-      },
-        {
-        name:'Upload notes',
-        link:'/register/notes'
-      },
-      {
-        name:'Upload timetable',
-        link:'/register/timetable'
-      },
+        
      
     ]
   }),
@@ -100,11 +88,19 @@ export default {
 </script>
 
 <style scoped>
-.search__preview_more{
+.user__preview_more{
     position: absolute;
-    margin-top: 3%;
+    margin-top: 0.5%;
     align-items: center;
     z-index: 500;
+    width: 15%;
+}
+ul li{
+  padding: 3%;
+  font-size: 13px;
+}
+ul li:hover{
+  color: #574AE2;
 }
 .bell-notify{
     fill: #000;
