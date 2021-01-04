@@ -79,7 +79,7 @@
 
 <script>
 export default {
-  name: "AddNotes",
+  name: "ProfileSettings",
   data: () => ({
     
     labels_focus: {

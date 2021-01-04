@@ -35,6 +35,8 @@ import Semesters from './components/semester/SemestersTable.vue';
 import Timetables from './components/timetable/TimetableTables.vue';
 import AddTimeTable from './components/timetable/AddTimeTable.vue';
 
+import ProfileSettings from './components/profile/ProfileSettings.vue';
+
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
 import ForgotPassword from './components/ForgotPassword.vue';
@@ -166,6 +168,11 @@ const router = new VueRouter({
                 path:'/register/timetable',
                 name:'Timtable',
                 component: AddTimeTable
+            },
+            {
+                path:'/profile-settings',
+                name:'ProfileSettings',
+                component: ProfileSettings
             }
 
         ]
