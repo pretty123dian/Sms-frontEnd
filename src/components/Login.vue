@@ -8,11 +8,11 @@ ref="form"
 >
   <div v-if="!isEmptyPassword&&!isEmpty" class="mt-5 error_log p-2 rounded">{{login_error}}</div>
     <div :class="[!isEmptyPassword&&!isEmpty?'mt-5':'mt-10']">
-      <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{passcode_title}}</p>
+      <p :class="[isEmpty==true?'mb-4':'mb-4 label_error']">{{username_title}}</p>
 
       <input
         type="text"
-        v-model="passcode"
+        v-model="username"
         placeholder=""
         :class="[isEmpty==true?'border rounded-full py-2 px-6':'error rounded-full py-2 px-6']"
       />
@@ -61,43 +61,43 @@ export default {
     msg: String,
   },
   data:()=>({
-    login_error:'Incorrect passcode or password',
-    passcode_title:'Passcode',
+    login_error:'Incorrect username or password',
+    username_title:'username',
     password_title:'Password',
     isEmptyPassword:true,
     error:'',
     isEmpty: true,
-    passcode:'',
+    username:'',
       password: '',
      
   }),
   methods:{
     validateAllfields(){
-        if(this.passcode=='' && this.password==''){
+        if(this.username=='' && this.password==''){
            this.isEmpty = false
-        this.passcode_title='Fill in passcode'
+        this.username_title='Fill in username'
         this.isEmptyPassword = false
           this.password_title='Fill in password'
       }
-     else if(this.passcode==''){
-        // alert('no passcode')
+     else if(this.username==''){
+        // alert('no username')
         this.isEmpty = false
-        this.passcode_title='Fill in passcode'
+        this.username_title='Fill in username'
       }
       else if(this.password==''){
          this.isEmptyPassword = false
           this.password_title='Fill in password'
       }
-      else if(this.passcode!='' && this.password!=''){
+      else if(this.username!='' && this.password!=''){
            this.isEmpty = true
-        this.passcode_title='Passcode'
+        this.username_title='username'
         this.isEmptyPassword = true
           this.password_title='Password'
       }
-     else if(this.passcode!=''){
-        // alert('no passcode')
+     else if(this.username!=''){
+        // alert('no username')
            this.isEmpty = true
-       this.passcode_title='Passcode'
+       this.username_title='username'
       }
       else if(this.password!=''){
        this.isEmptyPassword = true
@@ -110,10 +110,10 @@ export default {
 
     async validate(){
       if(this.$$refs.form.validate()){
-        let response = await Services.getCategory(this.passcode);
-        if(response.data){
-            console.log()
-        }
+        let response = await Services.login({username:this.username,password:this.password});
+        // if(true){
+          console.log(response)
+        // }
     }
     }
 

@@ -20,8 +20,8 @@ export default{
     getCategories(){
         return Api().get(`api/user-categories`);
     },
-    getCategory(passcode,body){
-        return Api().get(`api/user-categories/${passcode}`,body);
+    getCategory(passcode){
+        return Api().get(`api/user-categories/${passcode}`);
     },
     getNotes(){
         return Api().get(`api/course-upload`);
@@ -38,5 +38,12 @@ export default{
     },
     getLessonById(lesson_id){
         return Api().get(`api/lessons/${lesson_id}`)
+    },
+
+
+
+
+    login(body){
+        return Api().post(`api/users/auth`,body)
     }
 }
