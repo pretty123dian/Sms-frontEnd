@@ -11,7 +11,10 @@
       </div>
     </div>
     <div class="w-1/2 mt-12 bg-white  float-left p-4">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, tempora? Porro consectetur voluptas explicabo! Nam, quas sapiente molestiae pariatur cumque animi repudiandae perferendis, dolores libero quasi, et harum quos cum.
+    <div class="title font-bold text-lg mb-5">Account</div>
+     <div class="row">
+       <div class="title">Profile picture</div>
+     </div>
     </div>
   </div>
 </template>
