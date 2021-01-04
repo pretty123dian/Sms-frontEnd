@@ -87,12 +87,12 @@ export default {
     async getRows() {
       const response = await Services.getTimeTable();
       // if(responses.status===200){
-      response.data.data.docs.forEach((timetable) => {
+      response.data.data.docs.forEach(async(timetable) => {
         const timetableStore = {};
-        const schoolPromotion = Services.getPromotion(timetable.promotion);
+        const schoolPromotion = await Services.getPromotion(timetable.promotion);
         timetableStore.title = timetable.title;
-        if(schoolPromotion.name){
-          timetableStore.promotion = schoolPromotion?.name;
+        if(schoolPromotion.data.data.name){
+          timetableStore.promotion =schoolPromotion.data.data.name;
         }
        else
           timetableStore.promotion = 'No promotion'

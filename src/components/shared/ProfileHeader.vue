@@ -27,9 +27,6 @@
     </div>
 
 
-
-
-
     <div class="col-start-10 col-end-13 grid grid-cols-2 gap-2 md:pr-10">
       <div class="col-start-1 col-end-3 flex">
         <div class="col-start-1 col-end-3 px-2 cursor-pointer">
