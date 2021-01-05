@@ -49,7 +49,7 @@
         <ul class="lg:px-1 lg:py-2">
           <template v-for="(link, index) in dropdownStore">
             <li :key="index">
-              <router-link :to="link.link">{{ link.name }}</router-link>
+              <router-link :@click="link.link">{{ link.name }}</router-link>
             </li>
           </template>
         </ul>
@@ -76,7 +76,7 @@ export default {
       },
       {
         name: "Logout",
-        link: "/",
+        link: "logout",
       },
     ],
   }),
