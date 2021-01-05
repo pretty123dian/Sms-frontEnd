@@ -225,7 +225,7 @@ Profile settings
 
 </router-link>
 
-      <router-link to="/">
+      <span class="flex gap-2 ml-1 cursor-pointer" @click="logout">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -239,7 +239,7 @@ Profile settings
           />
         </svg>
         Logout
-      </router-link>
+      </span>
     </div>
   </div>
 </template>
@@ -290,7 +290,7 @@ export default {
   top: 0;
   height: 15vh;
 }
-.home-links a {
+.home-links a,.home-links span {
   display: flex;
   margin-top: 5%;
   padding: 5% 5%;
@@ -321,11 +321,11 @@ export default {
 .svg__timetable{
   stroke: #574ae2;
 }
-.home-links a:hover {
+.home-links a:hover, .home-links span:hover {
   background-color: #e9e8ff;
   color: #574ae2;
 }
-.home-links > a:hover .svg{
+.home-links > a:hover .svg, .home-links > span:hover .svg{
   fill: #574ae2;
   font-weight: bold;
 }
