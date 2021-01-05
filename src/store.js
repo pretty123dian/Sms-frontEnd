@@ -12,7 +12,13 @@ export default new Vuex.Store({
     },
     mutations:{
         setUser(state,user){
-
+            state.user = user;
+            state.isLoggedIn = true;
+        }
+    },
+    actions:{
+        setUser({commit},user){
+            commit('setUser',user)
         }
     }
 }) 
