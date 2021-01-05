@@ -11,6 +11,7 @@
       </div>
     </div>
     <div class="w-1/2 mt-12 bg-white  float-left p-4">
+    <form action="">
     <div class="title font-bold text-lg mb-5">Account</div>
      <div class="row">
        <div class="title mb-2 font-bold">Profile picture</div>
@@ -20,10 +21,28 @@
        <hr>
        <div class="title my-2 font-bold">Personal info</div>
         <div class="row border">
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti animi dolorem nam quia. Ipsa assumenda, quia ipsum nihil velit necessitatibus. Magni, animi nemo? Doloribus possimus dignissimos, cum ullam cupiditate reprehenderit.
-       </div>
+
+         <div class="col-span-5 lg:col-span-1 md:col-span-5">
+            <label
+              for="name"
+                  class="mr-4 name"
+              :class="[labels_focus.label1 ? 'label-focus' : '']"
+              >Username</label
+            >
+            <br />
+            <input
+              @focus="labels_focus.label1 = !labels_focus.label1"
+              @blur="labels_focus.label1 = !labels_focus.label1"
+              id="name"
+              class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
+            />
+          </div>
+        
+            </div>
      </div>
+     </form>
     </div>
+    
   </div>
 </template>
 
