@@ -56,7 +56,7 @@
                 @focus="labels_focus.label1 = !labels_focus.label1"
                 @blur="labels_focus.label1 = !labels_focus.label1"
                 id="name"
-                class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
+                class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
             </div>
             <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
@@ -72,7 +72,7 @@
                 @blur="labels_focus.label2 = !labels_focus.label2"
                 :value="this.$store.state.user.email"
                 id="name"
-                class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
+                class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
             </div>
             <br />
