@@ -11,11 +11,11 @@
         >
       </div>
     </div>
-    <div class="w-2/5 mt-12 bg-white float-left p-10 mb-5">
+    <div class="w-1/2 mt-12 bg-white float-left p-10 mb-5">
       <form action="" class="">
         <div class="title font-bold text-lg mb-5">Password</div>
-        <div class="">
-          <div class="">
+        <div>
+          <div>
             <label
               for="name"
               class="mr-4 name"
