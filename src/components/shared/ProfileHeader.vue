@@ -88,7 +88,7 @@ export default {
   margin-top: 3%;
   align-items: center;
   z-index: 500;
-  width: 13%;
+  width: 12%;
 }
 ul li {
   padding: 3%;
