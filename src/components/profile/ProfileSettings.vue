@@ -52,10 +52,11 @@
               >
               <br />
               <input
+                :value="this.$store.state.user.username"
                 @focus="labels_focus.label1 = !labels_focus.label1"
                 @blur="labels_focus.label1 = !labels_focus.label1"
                 id="name"
-                class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
+                class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
             </div>
             <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
@@ -69,14 +70,15 @@
               <input
                 @focus="labels_focus.label2 = !labels_focus.label2"
                 @blur="labels_focus.label2 = !labels_focus.label2"
+                :value="this.$store.state.user.email"
                 id="name"
-                class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
+                class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
             </div>
             <br />
             <vs-button
               color="#574AE2"
-              class="focus:outline-none lg:w-2/4 sm:w-full"
+              class="focus:outline-none lg:w-2/4 mt-5 sm:w-full"
               >Save changes</vs-button
             >
           </div>
@@ -149,7 +151,10 @@ export default {
   /* border:1px solid black; */
   border-radius: 20px;
 }
-
+input{
+  background-color: #eae8ff;
+  /* color:#ffffff; */
+}
 input:focus,
 select:focus,
 textarea:focus {

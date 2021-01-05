@@ -225,11 +225,11 @@ Profile settings
 
 </router-link>
 
-      <router-link to="/">
+      <span class="flex lg:gap-2 md:gap-1 cursor-pointer" @click="logout">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          class="svg"
+          class="svg ml-1"
           width="18"
           height="18"
         >
@@ -239,7 +239,7 @@ Profile settings
           />
         </svg>
         Logout
-      </router-link>
+      </span>
     </div>
   </div>
 </template>
@@ -249,6 +249,12 @@ Profile settings
 export default {
   name: "Sidebar",
   mounted() {},
+  methods:{
+    logout(){
+      this.$session.destroy();
+      this.$router.push('/');
+    }
+  }
 };
 </script>
 <style>
@@ -290,7 +296,7 @@ export default {
   top: 0;
   height: 15vh;
 }
-.home-links a {
+.home-links a,.home-links span {
   display: flex;
   margin-top: 5%;
   padding: 5% 5%;
@@ -321,11 +327,11 @@ export default {
 .svg__timetable{
   stroke: #574ae2;
 }
-.home-links a:hover {
+.home-links a:hover, .home-links span:hover {
   background-color: #e9e8ff;
   color: #574ae2;
 }
-.home-links > a:hover .svg{
+.home-links > a:hover .svg, .home-links > span:hover .svg{
   fill: #574ae2;
   font-weight: bold;
 }

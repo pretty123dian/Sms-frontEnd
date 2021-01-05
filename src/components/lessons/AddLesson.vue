@@ -70,7 +70,6 @@ export default {
 };
 </script>
 
-<style src="../../assets/styles/addLesson.css">
+<style src="../../assets/styles/addLesson.css" scoped>
 @import "compass/css3";
 </style>
-
