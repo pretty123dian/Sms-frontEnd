@@ -52,6 +52,7 @@
               >
               <br />
               <input
+                :value="this.$store.state.user.username"
                 @focus="labels_focus.label1 = !labels_focus.label1"
                 @blur="labels_focus.label1 = !labels_focus.label1"
                 id="name"
