@@ -124,6 +124,7 @@ export default {
   border-radius: 20px;
 }
 
+
 input:focus,
 select:focus,
 textarea:focus {
