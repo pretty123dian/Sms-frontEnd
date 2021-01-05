@@ -78,7 +78,7 @@
             <br />
             <vs-button
               color="#574AE2"
-              class="focus:outline-none lg:w-2/4 sm:w-full"
+              class="focus:outline-none lg:w-2/4 mt-5 sm:w-full"
               >Save changes</vs-button
             >
           </div>
