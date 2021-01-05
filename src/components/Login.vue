@@ -119,10 +119,11 @@ export default {
       console.log("Token: ", response.data.data);
       // if(response.data){
       if (response.data.data) {
-         this.$session.start();
+        
         this.isIncorrect = false;
+         this.$session.start();
          this.$session.set('jwt',response.data.data);
-        this.$router.push({ name: "Dashboard" });
+         this.$router.push({ name: "Dashboard" });
       } else {
         this.isIncorrect = true;
       }
