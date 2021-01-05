@@ -52,7 +52,7 @@
         @click="validateAllfields()"
         class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
       >
-        Login
+        {{login_status}}
       </button>
       <!-- </router-link> -->
     </form>
@@ -68,6 +68,7 @@ export default {
     msg: String,
   },
   data: () => ({
+    login_status:'Login',
     login_error: "Incorrect username or password",
     username_title: "Username",
     password_title: "Password",
