@@ -37,10 +37,11 @@ MainBody
     
 },
 beforeCreate: function(){
-  if(!this.session.exists()){
+  if(!this.$session.exists()){
     this.$router.push('/');
   }
   else{
+  //  console.log('Code',this.$session.get('jwt'));
     this.$store.dispatch('setUser',decode(this.$session.get('jwt')));
     this.$store.state.isLoggedIn = true;
   }
@@ -51,7 +52,7 @@ beforeMount(){
 methods:{
     authorise(){
       if(this.$store.state.isLoggedIn){
-        this.$router.go(-1)
+        // this.$router.go(-1)
       }
     }
 }

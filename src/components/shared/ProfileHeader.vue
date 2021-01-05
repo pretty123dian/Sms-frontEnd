@@ -38,7 +38,7 @@
           />
         </div>
         <div class="col-start-3 col-end-13 cursor-pointer" @click="setDropdown">
-          <b>Admin Code Lento</b> <br />
+          <b>{{this.$store.state.user.surname}}{{' '}}{{this.$store.state.user.othernames}}</b> <br />
           <span class="text-xs">Admin</span>
         </div>
       </div>
