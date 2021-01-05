@@ -68,16 +68,24 @@
           </template>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
           <template>
             <tr :key="i" v-for="(tr, i) in lessons" :data="tr">
               <td>
                 {{ tr.id }}
 =======
+=======
+
+>>>>>>> 3b2d69fb982f6a1b15f4ad2144bffe1689b1de07
           <template >
             <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <td class="w-1/6">
                 {{i+1}}
+<<<<<<< HEAD
 >>>>>>> 9998d5a01104acdce016ebcc975f98bda9944526
+=======
+
+>>>>>>> 3b2d69fb982f6a1b15f4ad2144bffe1689b1de07
               </td>
               <td>
                 {{ tr.name }}
@@ -98,10 +106,17 @@
 
 <script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 import AddLesson from "./AddLesson";
 =======
 import Services from '@/services/AllServices'
 >>>>>>> 9998d5a01104acdce016ebcc975f98bda9944526
+=======
+import Services from '@/services/AllServices'
+
+import AddLesson from "./AddLesson";
+
+>>>>>>> 3b2d69fb982f6a1b15f4ad2144bffe1689b1de07
 export default {
   name: "LessonsTable",
   methods: {
@@ -115,6 +130,10 @@ export default {
   },
   data: () => ({
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b2d69fb982f6a1b15f4ad2144bffe1689b1de07
     showModal: false,
     lessons: [
       {
@@ -123,9 +142,12 @@ export default {
         description:
           "This is the course of mathematics which deals with analysis,...",
         action: [
+<<<<<<< HEAD
 =======
     action: [
 >>>>>>> 9998d5a01104acdce016ebcc975f98bda9944526
+=======
+>>>>>>> 3b2d69fb982f6a1b15f4ad2144bffe1689b1de07
           `<svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 26.998 27">
   <path id="Icon_material-update" data-name="Icon material-update" d="M31.5,15.18H21.33l4.11-4.23a10.558,10.558,0,0,0-14.82-.15,10.313,10.313,0,0,0,0,14.685,10.529,10.529,0,0,0,14.82,0A9.77,9.77,0,0,0,28.5,18.15h3a14.011,14.011,0,0,1-3.96,9.435,13.581,13.581,0,0,1-19.08,0,13.26,13.26,0,0,1-.03-18.87,13.481,13.481,0,0,1,18.975,0L31.5,4.5ZM18.75,12v6.375L24,21.495,22.92,23.31,16.5,19.5V12Z" transform="translate(-4.502 -4.5)" fill="#574ae2"/>
 </svg>`,
@@ -200,6 +222,7 @@ tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 svg:hover {
   cursor: pointer;
   fill: indigo;
@@ -209,13 +232,25 @@ svg:hover {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.3);
 =======
+=======
+
+>>>>>>> 3b2d69fb982f6a1b15f4ad2144bffe1689b1de07
 input:focus{
-  border: 1px solid #574ae2;
+ /* border: 1px solid #574ae2; */
 }
 svg:hover{
   cursor:pointer;
   fill:indigo
+<<<<<<< HEAD
 >>>>>>> 9998d5a01104acdce016ebcc975f98bda9944526
+=======
+}
+
+.popup {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+
+>>>>>>> 3b2d69fb982f6a1b15f4ad2144bffe1689b1de07
 }
 </style>
 
