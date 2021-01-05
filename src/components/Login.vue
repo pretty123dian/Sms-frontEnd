@@ -109,12 +109,15 @@ export default {
     },
 
     async validate(){
-      if(this.$$refs.form.validate()){
+      // if(this.$refs.form.validate()){
         let response = await Services.login({username:this.username,password:this.password});
         // if(true){
-          console.log(response)
+          console.log('Token: ',response.data.data)
+          if(response.data.data){
+            this.$router.push({name: 'Dashboard'})
+          }
         // }
-    }
+    // }
     }
 
 
