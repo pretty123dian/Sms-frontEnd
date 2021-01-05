@@ -16,8 +16,8 @@
           placeholder=""
           :class="[
             isEmpty == true
-              ? 'border rounded-full py-2 px-6'
-              : 'error rounded-full py-2 px-6',
+              ? 'border rounded-sm py-3 px-6'
+              : 'error rounded-sm py-3 px-6',
           ]"
         />
       </div>
@@ -35,8 +35,8 @@
           v-model="password"
           :class="[
             isEmptyPassword == true
-              ? 'border rounded-full py-2 px-6'
-              : 'error rounded-full py-2 px-6',
+              ? 'border rounded-sm py-3 px-6'
+              : 'error rounded-sm py-3 px-6',
           ]"
           placeholder=""
         />
@@ -50,7 +50,7 @@
       <!-- <router-link to="/dashboard"> -->
       <button
         @click="validateAllfields()"
-        :class="[request_click===true?'button_on_loaging border rounded-full py-3 px-6 mt-8 text-white mt-16 login__button flex':'border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex',username===''||password===''?'bt__disabled':'']"
+        :class="[request_click===true?'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 login__button flex':'border rounded-md py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex',username===''||password===''?'bt__disabled':'']"
       
        
      
