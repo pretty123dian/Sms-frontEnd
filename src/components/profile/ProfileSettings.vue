@@ -70,6 +70,7 @@
               <input
                 @focus="labels_focus.label2 = !labels_focus.label2"
                 @blur="labels_focus.label2 = !labels_focus.label2"
+                :value="this.$store.state.user.email"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -150,7 +151,10 @@ export default {
   /* border:1px solid black; */
   border-radius: 20px;
 }
-
+input{
+  background-color: #eae8ff;
+  /* color:#ffffff; */
+}
 input:focus,
 select:focus,
 textarea:focus {
