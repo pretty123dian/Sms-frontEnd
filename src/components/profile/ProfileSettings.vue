@@ -6,14 +6,22 @@
       </div>
       <div class="w-full mt-5 profile_links">
         
-       <router-link to="/" class="active">Account</router-link>
+       <router-link to="/profile-settings" class="active">Account</router-link>
        <router-link to="udpate/password">Change password</router-link>
       </div>
     </div>
     <div class="w-1/2 mt-12 bg-white  float-left p-4">
     <div class="title font-bold text-lg mb-5">Account</div>
      <div class="row">
-       <div class="title">Profile picture</div>
+       <div class="title mb-2 font-bold">Profile picture</div>
+       <div class="row border">
+         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti animi dolorem nam quia. Ipsa assumenda, quia ipsum nihil velit necessitatibus. Magni, animi nemo? Doloribus possimus dignissimos, cum ullam cupiditate reprehenderit.
+       </div>
+       <hr>
+       <div class="title my-2 font-bold">Personal info</div>
+        <div class="row border">
+         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti animi dolorem nam quia. Ipsa assumenda, quia ipsum nihil velit necessitatibus. Magni, animi nemo? Doloribus possimus dignissimos, cum ullam cupiditate reprehenderit.
+       </div>
      </div>
     </div>
   </div>
