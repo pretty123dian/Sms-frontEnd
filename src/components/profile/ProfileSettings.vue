@@ -25,7 +25,7 @@
                 </button>
 
                 <button
-                  class="profile__btn focus:outline-none w-full lg:px-4 md:px-1 py-2 rounded"
+                  class="profile_remove_btn focus:outline-none w-full lg:px-4 md:px-1 py-2 rounded"
                 >
                   Remove
                 </button>
@@ -106,7 +106,18 @@ export default {
 .profile__btn {
   background-color: #ffffff;
   color: #574ae2;
-  border: 2px solid #574ae2;
+  border: 1px solid #574ae2;
+  font-size: 12px;
+}
+.profile_remove_btn{
+   background-color: #ffffff;
+  color: #EE0004;
+  border: 1px solid #EE0004;
+  font-size: 12px;
+}
+.profile_remove_btn:hover{
+  background-color: #EE0004;
+  color: #ffffff;
 }
 .profile__btn:hover {
   background-color: #574ae2;
