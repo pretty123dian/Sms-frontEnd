@@ -26,7 +26,7 @@
 
       <div class="mt-10">
         <div class="flex">
-          <label :class="[isEmptyPassword == true ? '' : 'label_error']">
+          <label :class="[isEmptyPassword == true ? '' : 'label_error', labels_focus.label2?'label-focus':'']">
             {{ password_title }}
           </label>
         </div>
@@ -35,6 +35,7 @@
         <input
           type="password"
           v-model="password"
+          @focus="labels_focus.label2 = !labels_focus.label2"
           :class="[
             isEmptyPassword == true
               ? 'border rounded-sm py-3 px-6'
@@ -81,6 +82,10 @@ export default {
     msg: String,
   },
   data: () => ({
+    labels_focus: {
+      label1: false,
+      label2: false
+    },
     login_status:'Login',
     request_click:false,
     login_error: "Incorrect username or password",
@@ -168,6 +173,9 @@ export default {
   width: 7%;
   text-align: center;
 
+}
+.label-focus {
+  color: #574ae2 !important;
 }
 .bt__disabled{
   cursor: not-allowed;
