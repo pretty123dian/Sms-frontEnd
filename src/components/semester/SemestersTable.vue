@@ -4,14 +4,14 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-              <h3 class="text-sm font-bold mb-5">View classes</h3>
+              <h3 class="text-sm font-bold mb-5">View semesters</h3>
            
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link to="/register/class">
+          <router-link to="/register/semester">
           <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-            Add new class
+            Add new semester
           </vs-button>
           </router-link>
         </div>
@@ -19,12 +19,13 @@
       <div class="center bg-white p-5">
                <table stripe :data="categories" class="w-full" >
                   <template>
-          <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search class" />
+          <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search semester" />
         </template>
                <template>
                  <vs-tr>
-                   <vs-th sort>Class name</vs-th>
-                   <vs-th  sort-key=description>Description</vs-th>
+                   <vs-th sort>Semester</vs-th>
+                   <vs-th  sort-key=description>Academic year</vs-th>
+                   <vs-th>Status</vs-th>
                    <vs-th >Action</vs-th>
                  </vs-tr>
                </template>
@@ -36,11 +37,14 @@
                   :data ="tr"
                  
                   > 
-                    <vs-td>
-                      {{tr.names}}
+                    <vs-td class="w-1/6">
+                      {{tr.name}}
                     </vs-td>
                     <vs-td>
-                      {{tr.description}}
+                      {{tr.year}}
+                    </vs-td>
+                    <vs-td>
+                        {{tr.status}}
                     </vs-td>
                     <vs-td>
                       {{tr.action}}
@@ -58,36 +62,38 @@
 <script>
 import Services from '@/services/AllServices';
 export default {
-name:"ClassesTable",
+name:"SemestersTable",
 data:()=>({
   search:'',
   status:'',
-  classes:[]
+  semesters:[]
   }),
 
   computed:{
     searchSimilar(){
        let filter = new RegExp(this.search,'i');
-       let foundText = this.classes.filter(el=>el.name.match(filter))
+       let foundText = this.semesters.filter(el=>el.status.match(filter))
           return foundText;    
     }
   },
+
   beforeMount(){
-    this.classes = [];
+    this.semesters=[];
     this.getRows();
   },
   methods:{
-    async getRows(){
-      const response = await Services.getClasses();
-      response.data.data.docs.forEach(cls=>{
-        const classObj ={};
-        classObj.name = cls.name;
-        classObj.status = cls.status;
-        classObj.created_at = cls.createdAt;
-        this.classes.push(classObj);
-      
+  async  getRows(){
+      const response = await Services.getSemesters(1,10);
+      response.data.data.docs.forEach(semester=>{
+        const semesterObj = {};
+        semesterObj.name = semester.semester;
+        semesterObj.year = semester.academic_year;
+        semesterObj.status = semester.status;
+        semesterObj.action = 'ok';
+        this.semesters.push(semesterObj);
+        
       });
-      console.log("Classes: ", this.classes);
+      console.log("Semester:",this.semesters)
     }
   }
 };

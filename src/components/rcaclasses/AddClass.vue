@@ -2,16 +2,16 @@
   <div class="flex grid grid-cols-2 gap-4">
     <div class="w-4/5 p-5">
       <div class="title">
-        <span class="font-bold text-sm">Add notes</span>
+        <span class="font-bold text-sm">Add class</span>
       </div>
       <div class="w-full mt-5">
         <form action="">
           <div class="col-span-5 lg:col-span-1 md:col-span-5 lesson_name">
             <label
               for="name"
-              class="mr-4 name"
+                  class="mr-4 name"
               :class="[labels_focus.label1 ? 'label-focus' : '']"
-              >Lesson name</label
+              >School class name</label
             >
             <br />
             <input
@@ -40,25 +40,11 @@
               
             </textarea>
           </div>
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4  lg:w-3/4  sm:w-full ">
-              
-            <label
-              for=""
-              class="mr-4"
-              :class="[labels_focus.label3 ? 'label-focus' : '']"
-              >Notes file</label
-            >
-            <label for="notes__file">
-             <div class="lg:w-3/4  sm:w-full  border-dashed border-2 bg-white flex items-center notes__upload_file mt-3 text-center">
-               <span class="m-auto">Drop file here or <a href="#" class="text-purple hover:underline">browse </a> to upload </span>
-           </div>
-            </label>
-                <input type="file" name="notes__file" id="notes__file" hidden>
-          </div>
+       
          
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
             <vs-button color="#574AE2" class="focus:outline-none lg:w-2/4 sm:w-full"
-              >Add notes</vs-button
+              >Add class</vs-button
             >
           </div>
         </form>

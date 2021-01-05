@@ -1,7 +1,7 @@
 <template>
   <div class="text-center ">
     <footer class="">
-      <h1 class="mt-5">Copyright @ 2020</h1>
+      <h1 class="mt-5">Copyright @ <span>{{year}}</span></h1>
     </footer>
   </div>
 </template>
@@ -12,6 +12,9 @@ export default {
   props: {
     msg: String,
   },
+  data:()=>({
+    year: new Date().getYear()+1900
+  })
 };
 </script>
 
