@@ -20,9 +20,9 @@
            </div>
              <div class="w-full lg:ml-10 profile__img_change">
          <div class="w-full flex gap-4">
-               <button  class="profile_remove_btn focus:outline-none w-full  lg:px-4 md:px-1 py-2 rounded">Change</button>
+               <button  class="profile__btn focus:outline-none w-full  lg:px-4 md:px-1 py-2 rounded">Change</button>
                
-               <button   class="profile_remove_btn focus:outline-none w-full lg:px-4 md:px-1 py-2 rounded">Remove</button>
+               <button   class="profile__btn focus:outline-none w-full lg:px-4 md:px-1 py-2 rounded">Remove</button>
                </div>
               </div>
            
@@ -97,7 +97,7 @@ export default {
   align-items: center;
   text-align: center;
 }
-.profile_remove_btn{
+.profile__btn{
   background-color: #ffffff;
   color: #574ae2;
   border: 2px solid #574ae2;
