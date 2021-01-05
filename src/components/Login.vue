@@ -50,7 +50,7 @@
       <!-- <router-link to="/dashboard"> -->
       <button
         @click="validateAllfields()"
-        :class="[request_click===true?'button_on_loaging border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex':'border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex']"
+        :class="[request_click===true?'button_on_loaging border rounded-full py-3 px-6 mt-8 text-white mt-16 login__button flex':'border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex']"
      
       >
 
@@ -204,7 +204,7 @@ button {
   background-color: #574ae2;
 }
 .button_on_loaging{
-  background-color: #574ae291;
+  background-color: #574ae2be;
 }
 *:focus {
   outline: 0 !important;
