@@ -102,6 +102,10 @@ export default {
   color: #574ae2;
   border: 2px solid #574ae2;
 }
+.profile__btn:hover{
+  background-color: #574ae2;
+  color: #ffffff;
+}
 .profile_links a:hover {
   background-color: #e9e8ff;
   color: #574ae2;
