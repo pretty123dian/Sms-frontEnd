@@ -9,5 +9,10 @@ export default new Vuex.Store({
         sidebar: null,
         user:null,
         isLoggedIn:false
+    },
+    mutations:{
+        setUser(state,user){
+
+        }
     }
 }) 
