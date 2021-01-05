@@ -50,9 +50,18 @@
       <!-- <router-link to="/dashboard"> -->
       <button
         @click="validateAllfields()"
-        class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
+        :class="[request_click===true?'button_on_loaging border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex':'border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex']"
+     
       >
+
+      
+        <template v-if="request_click==false">
         {{login_status}}
+        </template>
+        <template v-else >
+            <img src="../assets/gif2.gif">
+        </template>
+           
       </button>
       <!-- </router-link> -->
     </form>
@@ -69,6 +78,7 @@ export default {
   },
   data: () => ({
     login_status:'Login',
+    request_click:false,
     login_error: "Incorrect username or password",
     username_title: "Username",
     password_title: "Password",
@@ -111,6 +121,7 @@ export default {
     },
 
     async validate() {
+      this.request_click = true
       // if(this.$refs.form.validate()){
       let response = await Services.login({
         username: this.username,
@@ -127,6 +138,7 @@ export default {
          this.$router.push({ name: "Dashboard" });
       } else {
         this.isIncorrect = true;
+        this.request_click = false
       }
       // }
       console.log(this.$session.get("jwt"));
@@ -139,6 +151,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.login__button {
+  
+  justify-content: center;
+}
+.login__button img{
+  width: 7%;
+  text-align: center;
+
+}
 .error_log {
   background-color: #ee0004;
   color: #ffffff;
@@ -181,6 +202,9 @@ button {
 }
 button {
   background-color: #574ae2;
+}
+.button_on_loaging{
+  background-color: #574ae291;
 }
 *:focus {
   outline: 0 !important;
