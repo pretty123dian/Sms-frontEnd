@@ -47,18 +47,11 @@
         class="card bg-white p-2 lg:w-1/6 md:w-full rounded user__preview_more shadow"
       >
         <ul class="lg:px-1 lg:py-2">
-          <template v-for="(link, index) in dropdownStore">
-            <li :key="index">
-              <router-link :@click="link.link">{{ link.name }}</router-link>
-            </li>
-          </template>
+            <li> <router-link to="/profile-settings">Profile settings</router-link> </li>
+            <li @click="logout">Logout</li>
         </ul>
       </div>
     </div>
-
-
-
-
 
   </div>
 </template>
@@ -68,17 +61,7 @@ export default {
   name: "ProfileHeader",
   data: () => ({
     addDropdown: false,
-    drop_icon: "+",
-    dropdownStore: [
-      {
-        name: "Profile settings",
-        link: "/profile-settings",
-      },
-      {
-        name: "Logout",
-        link: "logout",
-      },
-    ],
+    drop_icon: "+"
   }),
   computed() {
     this.addDropdown = false;
@@ -91,6 +74,10 @@ export default {
 
       return (this.addDropdown = !this.addDropdown);
     },
+    logout(){
+      this.$session.destroy();
+      this.$router.push('/');
+    }
   },
 };
 </script>
@@ -109,6 +96,7 @@ ul li {
 }
 ul li:hover {
   color: #574ae2;
+  cursor: pointer;
 }
 .bell-notify {
   fill: #000;
