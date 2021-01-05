@@ -89,7 +89,7 @@ export default {
 <style scoped>
 
 .profile__img{
-  border: 1px solid gray;
+  border: 1px solid rgb(224, 224, 224);
   height: 25vh;
   border-radius: 50%;
 }
