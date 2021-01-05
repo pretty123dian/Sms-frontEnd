@@ -10,7 +10,7 @@
       <input
         type="email"
         v-model="email"
-       :class="[isEmpty==true?'border rounded-full py-2 px-6':'error rounded-full py-2 px-6']"
+       :class="[isEmpty==true?'border rounded-sm py-3 px-6':'error rounded-sm py-3 px-6']"
         placeholder=""
       />
       <div class="w-full">
@@ -32,7 +32,7 @@
     </router-link> -->
      <button
       @click="validateAllfields()"
-        class="border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16"
+        class="border rounded-md py-3 px-6 mt-8 text-white  mt-16 login__button"
       >
         Recover password
       </button>
@@ -70,7 +70,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.login__button{
+  border: none;
+}
+.login__button:hover{
+  box-shadow:6px 5px 6px #574ae257;
+}
 
 .error{
  border: 2px solid #EE0004;

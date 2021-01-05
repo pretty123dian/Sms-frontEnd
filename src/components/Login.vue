@@ -50,7 +50,7 @@
       <!-- <router-link to="/dashboard"> -->
       <button
         @click="validateAllfields()"
-        :class="[request_click===true?'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 login__button flex':'border rounded-md py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex',username===''||password===''?'bt__disabled':'']"
+        :class="[request_click===true?'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 login__button flex':'border rounded-md py-3 px-6 mt-8 text-white  mt-16 login__button flex',username===''||password===''?'bt__disabled':'']"
       
        
      
@@ -156,6 +156,10 @@ export default {
 .login__button {
   
   justify-content: center;
+  border: none;
+}
+.login__button:hover{
+  box-shadow:6px 5px 6px #574ae257;
 }
 .login__button img{
   width: 7%;
@@ -210,7 +214,7 @@ button {
   background-color: #574ae2;
 }
 .button_on_loaging{
-  background-color: #574ae2be;
+  background-color: #1400f3a8
 }
 *:focus {
   outline: 0 !important;
