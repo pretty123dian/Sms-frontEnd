@@ -25,6 +25,8 @@ import MainBody from '../components/shared/MainBody.vue';
 // import ProfileHeader from '../components/shared/ProfileHeader';
 // import StatisticalVisual from '../components/main/StatisticalVisual.vue';
 // import SearchBar from '../components/shared/SearchBar.vue';
+import {decode} from '@/services/TokenDecoder';
+
 export default {
 name: "Dashboard",
 components:{
@@ -33,7 +35,27 @@ Sidebar,
 RightSidebar,
 MainBody
     
+},
+beforeCreate: function(){
+  if(!this.session.exists()){
+    this.$router.push('/');
+  }
+  else{
+    this.$store.dispatch('setUser',decode(this.$session.get('jwt')));
+    this.$store.state.isLoggedIn = true;
+  }
+},
+beforeMount(){
+  this.authorise();
+},
+methods:{
+    authorise(){
+      if(this.$store.state.isLoggedIn){
+        this.$router.go(-1)
+      }
+    }
 }
+
 }
 </script>
 
