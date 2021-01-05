@@ -157,6 +157,7 @@ export default {
   
   justify-content: center;
   border: none;
+  height: 7vh;
 }
 .login__button:hover{
   box-shadow:6px 5px 6px #574ae257;
