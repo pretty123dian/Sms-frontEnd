@@ -7,7 +7,9 @@
       </div>
       <div :class="[!isEmptyPassword && !isEmpty ? 'mt-5' : 'mt-10']">
       <div class="flex">
-        <label :class="[isEmpty == true ? 'mb-4' : 'mb-4 label_error']">
+        <label :class="[isEmpty == true ? 'mb-4' : 'mb-4 label_error',
+        labels_focus.label1?'label-focus':''
+        ]">
           {{ username_title }}
         </label>
         </div>
@@ -21,6 +23,9 @@
               ? 'border rounded-sm py-3 px-6'
               : 'error rounded-sm py-3 px-6',
           ]"
+             @focus="labels_focus.label1 = !labels_focus.label1"
+          @blur="labels_focus.label1 = !labels_focus.label1"
+        
         />
       </div>
 
@@ -36,6 +41,7 @@
           type="password"
           v-model="password"
           @focus="labels_focus.label2 = !labels_focus.label2"
+          @blur="labels_focus.label2 = !labels_focus.label2"
           :class="[
             isEmptyPassword == true
               ? 'border rounded-sm py-3 px-6'

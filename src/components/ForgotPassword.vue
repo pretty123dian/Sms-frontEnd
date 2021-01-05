@@ -3,7 +3,9 @@
     <h1>Recover password</h1>
     <div class="mt-10">
       <div class="flex">
-  <p :class="[isEmpty==true?'':'label_error']">{{email_title}}</p>
+  <label :class="[isEmpty==true?'':'label_error',
+  labels_focus.label1?'label-focus':''
+  ]">{{email_title}}</label>
       </div>
 
       <br />
@@ -12,6 +14,9 @@
         v-model="email"
        :class="[isEmpty==true?'border rounded-sm py-3 px-6':'error rounded-sm py-3 px-6']"
         placeholder=""
+          @focus="labels_focus.label1 = !labels_focus.label1"
+          @blur="labels_focus.label1 = !labels_focus.label1"
+        
       />
       <div class="w-full">
           <router-link
@@ -46,6 +51,9 @@ export default {
     msg: String,
   },
   data:()=>({
+    labels_focus:{
+      label1 : false
+    },
     email_title:'Email address',
      isEmpty: true,
      email:''
@@ -77,6 +85,9 @@ export default {
   box-shadow:6px 5px 6px #574ae257;
 }
 
+.label-focus {
+  color: #574ae2 !important;
+}
 .error{
  border: 2px solid #EE0004;
 }
