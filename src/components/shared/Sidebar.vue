@@ -225,11 +225,11 @@ Profile settings
 
 </router-link>
 
-      <span class="flex gap-2 ml-1 cursor-pointer" @click="logout">
+      <span class="flex lg:gap-2 md:gap-1 cursor-pointer" @click="logout">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          class="svg"
+          class="svg ml-1"
           width="18"
           height="18"
         >
@@ -249,6 +249,12 @@ Profile settings
 export default {
   name: "Sidebar",
   mounted() {},
+  methods:{
+    logout(){
+      this.$session.destroy();
+      this.$router.push('/');
+    }
+  }
 };
 </script>
 <style>
