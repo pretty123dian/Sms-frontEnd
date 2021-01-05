@@ -42,7 +42,7 @@
               <label
                 for="name"
                 class="mr-4 name"
-                :class="[labels_focus.label1 ? 'label-focus' : '']"
+                :class="[labels_focus.label2 ? 'label-focus' : '']"
                 >Email</label
               >
               <br />
@@ -53,6 +53,10 @@
                 class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
               />
             </div>
+            <br>
+               <vs-button color="#574AE2" class="focus:outline-none lg:w-2/4 sm:w-full"
+              >Save changes</vs-button
+            >
           </div>
         </div>
       </form>
