@@ -6,52 +6,66 @@
       </div>
       <div class="w-full mt-5 profile_links">
         <router-link to="/profile-settings">Account</router-link>
-        <router-link to="/profile-settings/updatepassword"  class="active">Change password</router-link>
+        <router-link to="/profile-settings/updatepassword" class="active"
+          >Change password</router-link
+        >
       </div>
     </div>
-    <div class="w-1/2 mt-12 bg-white float-left p-4 mb-5">
-      <form action="">
+    <div class="w-2/5 mt-12 bg-white float-left p-10 mb-5">
+      <form action="" class="">
         <div class="title font-bold text-lg mb-5">Password</div>
-        <div class="row">
-         
-            <div class="col-span-5 lg:col-span-1 md:col-span-5">
-              <label
-                for="name"
-                class="mr-4 name"
-                :class="[labels_focus.label1 ? 'label-focus' : '']"
-                >Username</label
-              >
-              <br />
-              <input
-                @focus="labels_focus.label1 = !labels_focus.label1"
-                @blur="labels_focus.label1 = !labels_focus.label1"
-                id="name"
-                class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
-              />
-            </div>
-            <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
-              <label
-                for="name"
-                class="mr-4 name"
-                :class="[labels_focus.label2 ? 'label-focus' : '']"
-                >Email</label
-              >
-              <br />
-              <input
-                @focus="labels_focus.label2 = !labels_focus.label2"
-                @blur="labels_focus.label2 = !labels_focus.label2"
-                id="name"
-                class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
-              />
-            </div>
-            <br />
-            <vs-button
-              color="#574AE2"
-              class="focus:outline-none lg:w-2/4 sm:w-full"
-              >Save changes</vs-button
+        <div class="">
+          <div class="">
+            <label
+              for="name"
+              class="mr-4 name"
+              :class="[labels_focus.label1 ? 'label-focus' : '']"
+              >Former password</label
             >
+            <br />
+            <input
+              @focus="labels_focus.label1 = !labels_focus.label1"
+              @blur="labels_focus.label1 = !labels_focus.label1"
+              id="name"
+              class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+            />
           </div>
-    
+          <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
+            <label
+              for="name"
+              class="mr-4 name"
+              :class="[labels_focus.label2 ? 'label-focus' : '']"
+              >New password</label
+            >
+            <br />
+            <input
+              @focus="labels_focus.label2 = !labels_focus.label2"
+              @blur="labels_focus.label2 = !labels_focus.label2"
+              id="name"
+              class="form-input p-3 mt-2 mr-4 border  md:w-full border-#E1E1E1-600 rounded"
+            />
+          </div>
+          <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
+            <label
+              for="name"
+              class="mr-4 name"
+              :class="[labels_focus.label3 ? 'label-focus' : '']"
+              >Confirm password</label
+            >
+            <br />
+            <input
+              @focus="labels_focus.label3 = !labels_focus.label3"
+              @blur="labels_focus.label3 = !labels_focus.label3"
+              id="name"
+              class="form-input p-3 mt-2 mr-4 border  md:w-full border-#E1E1E1-600 rounded"
+            />
+          </div>
+          <br />
+          <vs-button
+            color="#574AE2"
+            class="focus:outline-none lg:w-2/4 sm:w-full"
+            >Save changes</vs-button>
+        </div>
       </form>
     </div>
   </div>
