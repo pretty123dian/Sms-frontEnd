@@ -5,36 +5,15 @@
         <span class="font-bold text-sm">Profile settings</span>
       </div>
       <div class="w-full mt-5 profile_links">
-        <router-link to="/profile-settings" class="active">Account</router-link>
-        <router-link to="/profile-settings/updatepassword">Change password</router-link>
+        <router-link to="/profile-settings">Account</router-link>
+        <router-link to="/profile-settings/updatepassword"  class="active">Change password</router-link>
       </div>
     </div>
     <div class="w-1/2 mt-12 bg-white float-left p-4 mb-5">
       <form action="">
-        <div class="title font-bold text-lg mb-5">Account</div>
+        <div class="title font-bold text-lg mb-5">Password</div>
         <div class="row">
-          <div class="title mb-2 font-bold">Profile picture</div>
-          <div class="row grid flex grid-cols-3 mb-5 gap-1 items-center">
-            <div class="w-1/6 md:w-full profile__img"></div>
-            <div class="w-full lg:ml-10 profile__img_change">
-              <div class="w-full flex gap-4">
-                <button
-                  class="profile__btn focus:outline-none w-full lg:px-4 md:px-1 py-2 rounded"
-                >
-                  Change
-                </button>
-
-                <button
-                  class="profile__btn focus:outline-none w-full lg:px-4 md:px-1 py-2 rounded"
-                >
-                  Remove
-                </button>
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div class="title my-5 font-bold">Personal info</div>
-          <div class="row">
+         
             <div class="col-span-5 lg:col-span-1 md:col-span-5">
               <label
                 for="name"
@@ -72,7 +51,7 @@
               >Save changes</vs-button
             >
           </div>
-        </div>
+    
       </form>
     </div>
   </div>
@@ -80,7 +59,7 @@
 
 <script>
 export default {
-  name: "ProfileSettings",
+  name: "UpdatePassword",
   data: () => ({
     labels_focus: {
       label1: false,

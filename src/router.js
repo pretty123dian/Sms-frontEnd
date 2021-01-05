@@ -36,6 +36,7 @@ import Timetables from './components/timetable/TimetableTables.vue';
 import AddTimeTable from './components/timetable/AddTimeTable.vue';
 
 import ProfileSettings from './components/profile/ProfileSettings.vue';
+import UpdatePassword from './components/profile/UpdatePassword.vue';
 
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
@@ -173,6 +174,11 @@ const router = new VueRouter({
                 path:'/profile-settings',
                 name:'ProfileSettings',
                 component: ProfileSettings
+            },
+            {
+                path:'/profile-settings/updatepassword',
+                name:'ProfileSettings',
+                component: UpdatePassword
             }
 
         ]
