@@ -3,6 +3,7 @@ import Home from './pages/Home.vue';
 
 import VueRouter from 'vue-router';
 import Vue from 'vue'
+// import NProgress from 'nprogress';
 // import components here
 import Lessons from './components/lessons/LessonsTable';
 import AddLesson from './components/lessons/AddLesson.vue'
@@ -23,6 +24,19 @@ import Categories from './components/categories/CategoriesTable.vue'
 import AddCategories from './components/categories/AddCategories.vue'
 
 import Classes from './components/rcaclasses/ClassesTable.vue'
+import AddClass from './components/rcaclasses/AddClass.vue'
+
+import ClassesPromotion from './components/classpromotions/ClassPromotiions.vue'
+import AddClassPromotion from './components/classpromotions/AddClassPromotion.vue'
+
+import AddSemester from './components/semester/AddSemester.vue';
+import Semesters from './components/semester/SemestersTable.vue';
+
+import Timetables from './components/timetable/TimetableTables.vue';
+import AddTimeTable from './components/timetable/AddTimeTable.vue';
+
+import ProfileSettings from './components/profile/ProfileSettings.vue';
+import UpdatePassword from './components/profile/UpdatePassword.vue';
 
 import Dashboard from './pages/Dashboard.vue'
 import Statistics from './components/main/StatisticalVisual.vue'
@@ -47,7 +61,7 @@ const router = new VueRouter({
     {
 
         path: '/dashboard',
-        name: 'Lessons',
+        name: 'home',
         component: Dashboard,
         children: [
             {
@@ -120,6 +134,51 @@ const router = new VueRouter({
                 path:'/view/classes',
                 name:'Classes',
                 component:Classes
+            },
+            {
+                path:'/register/class',
+                name:'Classes',
+                component:AddClass
+            },
+            {
+                path:'/view/classpromotions',
+                name:'Promotions',
+                component: ClassesPromotion
+            },
+            {
+                path:'/register/classpromotion',
+                name:'Promotions',
+                component: AddClassPromotion
+            },
+            {
+                path:'/view/semesters',
+                name:'Semesters',
+                component: Semesters
+            },
+            {
+                path:'/register/semester',
+                name:'Semesters',
+                component: AddSemester
+            },
+            {
+                path:'/view/timetable',
+                name:'Timetable',
+                component: Timetables
+            },
+            {
+                path:'/register/timetable',
+                name:'Timtable',
+                component: AddTimeTable
+            },
+            {
+                path:'/profile-settings',
+                name:'ProfileSettings',
+                component: ProfileSettings
+            },
+            {
+                path:'/profile-settings/updatepassword',
+                name:'ProfileSettings',
+                component: UpdatePassword
             }
 
         ]
@@ -129,4 +188,14 @@ const router = new VueRouter({
     ]
 
 })
+
+// router.beforeResolve((to, from, next) => {
+//     if (to.name || to.path) {
+//       NProgress.start()
+//     }
+//     next()
+//   })
+//   router.afterEach(() => {
+//     NProgress.done()
+//   })
 export default router;

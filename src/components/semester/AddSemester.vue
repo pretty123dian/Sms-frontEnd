@@ -2,16 +2,16 @@
   <div class="flex grid grid-cols-2 gap-4">
     <div class="w-4/5 p-5">
       <div class="title">
-        <span class="font-bold text-sm">Add notes</span>
+        <span class="font-bold text-sm">Add new semester</span>
       </div>
       <div class="w-full mt-5">
         <form action="">
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 lesson_name">
+          <div class="col-span-5 lg:col-span-1 md:col-span-5">
             <label
               for="name"
-              class="mr-4 name"
+                  class="mr-4 name"
               :class="[labels_focus.label1 ? 'label-focus' : '']"
-              >Lesson name</label
+              >Semester name</label
             >
             <br />
             <input
@@ -20,6 +20,26 @@
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             />
+          </div>
+              <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-3">
+            <label
+              for="name"
+                  class="mr-4 name"
+              :class="[labels_focus.label1 ? 'label-focus' : '']"
+              >Academic year</label
+            >
+            <br />
+            <select
+              @focus="labels_focus.label1 = !labels_focus.label1"
+              @blur="labels_focus.label1 = !labels_focus.label1"
+              id="name"
+              class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
+            >
+            <option value="">Select academic year</option> 
+            <template v-for="(year,index) in academicYears">
+            <option value="year" :key="index">{{year}}</option>
+            </template>
+            </select>
           </div>
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
             <label
@@ -40,25 +60,12 @@
               
             </textarea>
           </div>
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4  lg:w-3/4  sm:w-full ">
-              
-            <label
-              for=""
-              class="mr-4"
-              :class="[labels_focus.label3 ? 'label-focus' : '']"
-              >Notes file</label
-            >
-            <label for="notes__file">
-             <div class="lg:w-3/4  sm:w-full  border-dashed border-2 bg-white flex items-center notes__upload_file mt-3 text-center">
-               <span class="m-auto">Drop file here or <a href="#" class="text-purple hover:underline">browse </a> to upload </span>
-           </div>
-            </label>
-                <input type="file" name="notes__file" id="notes__file" hidden>
-          </div>
+          
+       
          
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
             <vs-button color="#574AE2" class="focus:outline-none lg:w-2/4 sm:w-full"
-              >Add notes</vs-button
+              >Add semester</vs-button
             >
           </div>
         </form>
@@ -72,16 +79,16 @@
 
 <script>
 export default {
-  name: "AddAssignment",
+  name: "AddSemester",
   data: () => ({
+    
     labels_focus: {
       label1: false,
       label2: false,
       label3: false,
       label4: false,
     },
-    semesters: ["Term 1", "Term 2", "Term 3"],
-    assignmentTypes: ["Exam", "CAT"],
+    academicYears: ["2020", "2021"],
   }),
 };
 </script>

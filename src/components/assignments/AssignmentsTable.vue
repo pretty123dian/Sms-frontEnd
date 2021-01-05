@@ -29,6 +29,9 @@
       </div>
       <div class="center bg-white p-5">
         <table stripe :data="students" class="w-full">
+           <template>
+            <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search assignment" />
+            </template>
           <template class="bg-white">
             <tr>
               <th>#</th>
@@ -41,8 +44,8 @@
           </template>
 
           <template>
-            <tr :key="i" v-for="(tr, i) in students" :data="tr">
-              <td>
+            <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
+              <td class="w-1/6">
                 {{ tr.id }}
               </td>
               <td>
@@ -77,12 +80,11 @@
       <vs-popup
         classContent="popup-example"
         title="Assignment"
-        button-close-hidden = false
+        button-close-hidden="false"
         :active.sync="popupActivo2"
         class="assignment__popup"
-        style="font-family:'Poppins'"
+        style="font-family: 'Poppins'"
       >
-      
         <div class="grid w-full">
           <div class="col-12">
             <ul>
@@ -138,47 +140,51 @@
 </template>
 
 <script>
+import Services from '@/services/AllServices';
 export default {
   name: "AssignmentsTable",
   data: () => ({
-    students: [
-      {
-        id: 1,
-        lesson: "Mathematics",
-        semester: "Term 1",
-        assignmentType: "Exam",
-        maximumMarks: 100,
-        action: "View",
-      },
-      {
-        id: 2,
-        lesson: "Java",
-        semester: "Term 1",
-        assignmentType: "Exam",
-        maximumMarks: 100,
-        action: "View",
-      },
-      {
-        id: 3,
-        lesson: "DSA",
-        semester: "Term 1",
-        assignmentType: "Exam",
-        maximumMarks: 100,
-        action: "View",
-      },
-    ],
+    search:'',
+    assignments: [],
     years: [2018, 2019, 2020, 2021],
-    select1: 3,
-    options1: [
-      { text: "IT", value: 0 },
-      { text: "Blade Runner", value: 2 },
-      { text: "Thor Ragnarok", value: 3 },
-    ],
-    value1: "",
-    value2: "",
+  
     popupActivo2: false,
     popupActivo3: false,
   }),
+     computed:{
+    searchSimilar(){
+       let filter = new RegExp(this.search,'i');
+       let foundText = this.assignments.filter(el=>el.lesson.match(filter))
+          return foundText;    
+    }
+  },
+beforeMount(){
+  this.assignments = [];
+  this.getRows();
+},
+
+methods: {
+  async getRows(){
+      const response = await Services.getAssignments(1,10); //number of pages and limit are hardcoded here
+      console.log("Response: ", response);
+      response.data.data.docs.forEach(assignment=>{
+        const assignmentObj = {};
+        assignmentObj.lesson_promotion = assignment.lesson_promotion;
+        assignmentObj.semester = assignment.lesson;
+        assignment.assignments.forEach(inAssign=>{
+          assignmentObj.name = inAssign.name;
+          assignmentObj.isExam = inAssign.is_exam;
+          assignmentObj.is_ignored = inAssign.is_ignored;
+          assignmentObj.max_marks = inAssign.maximum_marks;
+        })
+        assignmentObj.action = "view"
+        this.assignments.push(assignmentObj);
+      })
+      console.log("Assignment: ", this.assignments);
+
+  }
+}
+
 };
 </script>
 
@@ -191,16 +197,15 @@ label > input[type="checkbox"]:checked + * {
 }
 
 .vs-popup--title h3 {
-    -webkit-transition: all .23s ease .1s;
-    transition: all .23s ease .1s;
-    padding: 8px;
-    padding-left: 12px;
-    font-size: 1.2rem;
-    font-family: 'Poppins' !important;
+  -webkit-transition: all 0.23s ease 0.1s;
+  transition: all 0.23s ease 0.1s;
+  padding: 8px;
+  padding-left: 12px;
+  font-size: 1.2rem;
+  font-family: "Poppins" !important;
 }
-ul li{
-  
-   font-family: "Poppins",sans-serif;
+ul li {
+  font-family: "Poppins", sans-serif;
 }
 
 .add-stud-btn:focus {
@@ -213,10 +218,13 @@ ul li{
 tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
-ul li{
+input:focus {
+  border: 1px solid #574ae2;
+}
+ul li {
   padding: 1.5%;
 }
-.file{
+.file {
   fill: #574ae2;
   margin-right: 1%;
 }

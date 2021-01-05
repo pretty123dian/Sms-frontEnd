@@ -4,7 +4,7 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-                <h3 class="text-sm font-bold mb-5">View students</h3>
+            <h3 class="text-sm font-bold mb-5">View students</h3>
             <label for="year_one" class="inline-flex items-center years">
               <input
                 type="checkbox"
@@ -38,14 +38,17 @@
         </div>
         <div class="col-start-4 col-end-10">
           <router-link to="/register/student">
-          <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-            Add student
-          </vs-button>
+            <vs-button color="#574AE2" class="rounded-full add-stud-btn">
+              Add student
+            </vs-button>
           </router-link>
         </div>
       </div>
       <div class="center bg-white p-5">
         <table stripe :data="students" class="w-full">
+            <template>
+            <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search student" />
+            </template>
           <template class="bg-white">
             <tr>
               <th>#</th>
@@ -58,9 +61,9 @@
             </tr>
           </template>
 
-          <template >
-            <tr :key="i" v-for="(tr, i) in students" :data="tr">
-              <td>
+          <template>
+            <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
+              <td class="w-1/6">
                 {{ tr.id }}
               </td>
               <td>
@@ -93,6 +96,7 @@
 export default {
   name: "StudentsTable",
   data: () => ({
+    search:'',
     students: [
       {
         id: 1,
@@ -132,10 +136,17 @@ export default {
       },
     ],
   }),
+      computed:{
+    searchSimilar(){
+       let filter = new RegExp(this.search,'i');
+       let foundText = this.students.filter(el=>el.names.match(filter))
+          return foundText;    
+    }
+  }
 };
 </script>
 
-<style>
+<style scoped>
 label > input[type="checkbox"]:checked + *::before {
   background-color: #574ae2;
 }
@@ -153,6 +164,9 @@ label > input[type="checkbox"]:checked + * {
 .table__tr:hover {
   /* background-color: #E9E8FF;
   border: 1px solid black; */
+}
+input:focus{
+  border: 1px solid#574ae2;
 }
 tr {
   border-bottom: 1px solid #dfdfdf !important;

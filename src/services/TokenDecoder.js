@@ -1,0 +1,7 @@
+const jwt = require('jsonwebtoken')
+
+function decodeToken (data) {
+    return jwt.decode(data)
+}
+// console.log(decodeToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiUkNBMzEzSEhVIiwiZnVsbE5hbWVzIjoiUGFwaXVzTml5aWdlbmEiLCJuYXRpb25hbElkIjoiMTEwMzQ3Mzk0ODYyODQzNCIsImdlbmRlciI6Im0iLCJjYXRlZ29yeSI6IkFkbWluIiwicGFzc3dvcmQiOiIkMmEkMTAkYVB4VEU5YzNZcDI1ZWdaOVRZczBzLm9BaFRPNHR2SEJCYVVwWXE5TWxHR25IWExnQmxrZVciLCJpc0FkbWluIjp0cnVlLCJwcm9maWxlIjoiNWU5ZTdhZDFhMmNjMDgwM2U0YmY0OTQ0IiwiaWF0IjoxNTg3NDQ4OTU3LCJleHAiOjE1ODc1MzUzNTd9.PhSdXdWhToLTJte3OUWUVWh4Cou6L25btFu5Grp9_Cw'))
+module.exports.decode = decodeToken
