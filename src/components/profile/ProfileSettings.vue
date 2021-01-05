@@ -9,7 +9,7 @@
         <router-link to="/profile-settings/updatepassword">Change password</router-link>
       </div>
     </div>
-    <div class="w-1/2 mt-12 bg-white float-left p-4 mb-5">
+    <div class="w-1/2 mt-12 bg-white float-left p-10 mb-5">
       <form action="">
         <div class="title font-bold text-lg mb-5">Account</div>
         <div class="row">
@@ -96,7 +96,7 @@ export default {
 <style scoped>
 .profile__img {
   border: 1px solid rgb(224, 224, 224);
-  height: 25vh;
+  height: 23vh;
   border-radius: 50%;
 }
 .profile_links {
