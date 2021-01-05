@@ -9,16 +9,23 @@
         <router-link to="udpate/password">Change password</router-link>
       </div>
     </div>
-    <div class="w-1/2 mt-12 bg-white float-left p-4">
+    <div class="w-1/2 mt-12 bg-white float-left p-4 mb-5">
       <form action="">
         <div class="title font-bold text-lg mb-5">Account</div>
         <div class="row">
           <div class="title mb-2 font-bold">Profile picture</div>
-          <div class="row mb-5">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            animi dolorem nam quia. Ipsa assumenda, quia ipsum nihil velit
-            necessitatibus. Magni, animi nemo? Doloribus possimus dignissimos,
-            cum ullam cupiditate reprehenderit.
+          <div class="row grid flex grid-cols-3 mb-5 gap-1 items-center">
+           <div class="w-1/6 md:w-full profile__img">
+             
+           </div>
+             <div class="w-full lg:ml-10 profile__img_change">
+         <div class="w-full flex gap-4">
+               <button  class="profile_remove_btn focus:outline-none w-full  lg:px-4 md:px-1 py-2 rounded">Change</button>
+               
+               <button   class="profile_remove_btn focus:outline-none w-full lg:px-4 md:px-1 py-2 rounded">Remove</button>
+               </div>
+              </div>
+           
           </div>
           <hr />
           <div class="title my-5 font-bold">Personal info</div>
@@ -80,9 +87,20 @@ export default {
 </script>
 
 <style scoped>
+
+.profile__img{
+  border: 1px solid gray;
+  height: 25vh;
+  border-radius: 50%;
+}
 .profile_links {
   align-items: center;
   text-align: center;
+}
+.profile_remove_btn{
+  background-color: #ffffff;
+  color: #574ae2;
+  border: 2px solid #574ae2;
 }
 .profile_links a:hover {
   background-color: #e9e8ff;
