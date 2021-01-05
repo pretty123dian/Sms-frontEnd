@@ -4,7 +4,7 @@
       <div class="grid grid-cols-2 gap-4 pt-4 mb-4">
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
-                <h3 class="text-sm font-bold mb-5">View lessons</h3>
+            <h3 class="text-sm font-bold mb-5">View lessons</h3>
             <label for="year_one" class="inline-flex items-center years">
               <input
                 type="checkbox"
@@ -37,15 +37,13 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link
-          to="/register/lesson"
+          <vs-button
+            color="#574AE2"
+            class="rounded-full add-stud-btn"
+            @click="showModal = true"
           >
-
-          
-          <vs-button color="#574AE2" class="rounded-full add-stud-btn">
             Add lesson
           </vs-button>
-          </router-link>
         </div>
       </div>
       <div class="center bg-white p-5">
@@ -53,6 +51,14 @@
             <input class="form-input p-2 border rounded" v-model="search" border placeholder="Search lesson" />
         
           <template class="bg-white">
+            <transition name="fade" appear>
+              <div
+                v-if="showModal"
+                class="absolute popup w-10/12 h-screen overflow-hidden"
+              >
+                <AddLesson v-on:close="doIt()" />
+              </div>
+            </transition>
             <tr>
               <th>#</th>
               <th>Title</th>
@@ -61,10 +67,12 @@
             </tr>
           </template>
 
+
           <template >
             <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <td class="w-1/6">
                 {{i+1}}
+
               </td>
               <td>
                 {{ tr.name }}
@@ -72,9 +80,9 @@
               <td>
                 {{ tr.description }}
               </td>
-              <td v-html="tr.action[0]"> </td>
-              <td v-html="tr.action[1]"> </td>
-              <td v-html="tr.action[2]"> </td>
+              <td v-html="tr.action[0]"></td>
+              <td v-html="tr.action[1]"></td>
+              <td v-html="tr.action[2]"></td>
             </tr>
           </template>
         </table>
@@ -85,10 +93,30 @@
 
 <script>
 import Services from '@/services/AllServices'
+
+import AddLesson from "./AddLesson";
+
 export default {
   name: "LessonsTable",
+  methods: {
+    doIt() {
+      this.showModal = false;
+      console.log("yhyh");
+    },
+  },
+  components: {
+    AddLesson,
+  },
   data: () => ({
-    action: [
+
+    showModal: false,
+    lessons: [
+      {
+        id: 1,
+        title: "Mathematics",
+        description:
+          "This is the course of mathematics which deals with analysis,...",
+        action: [
           `<svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 26.998 27">
   <path id="Icon_material-update" data-name="Icon material-update" d="M31.5,15.18H21.33l4.11-4.23a10.558,10.558,0,0,0-14.82-.15,10.313,10.313,0,0,0,0,14.685,10.529,10.529,0,0,0,14.82,0A9.77,9.77,0,0,0,28.5,18.15h3a14.011,14.011,0,0,1-3.96,9.435,13.581,13.581,0,0,1-19.08,0,13.26,13.26,0,0,1-.03-18.87,13.481,13.481,0,0,1,18.975,0L31.5,4.5ZM18.75,12v6.375L24,21.495,22.92,23.31,16.5,19.5V12Z" transform="translate(-4.502 -4.5)" fill="#574ae2"/>
 </svg>`,
@@ -162,12 +190,19 @@ label > input[type="checkbox"]:checked + * {
 tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
+
 input:focus{
-  border: 1px solid #574ae2;
+ /* border: 1px solid #574ae2; */
 }
 svg:hover{
   cursor:pointer;
   fill:indigo
+}
+
+.popup {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+
 }
 </style>
 
