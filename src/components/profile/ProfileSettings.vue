@@ -15,7 +15,15 @@
         <div class="row">
           <div class="title mb-2 font-bold">Profile picture</div>
           <div class="row grid flex grid-cols-3 mb-5 gap-1 items-center">
-            <div class="w-1/6 md:w-full profile__img"></div>
+            <div class="w-1/6 md:w-full profile__img">
+            
+              <img
+            class="rounded-full border border-gray-100 shadow-sm w-full profile__img"
+            src="https://randomuser.me/api/portraits/women/81.jpg"
+            alt="user image"
+            @click="setDropdown"
+          />
+            </div>
             <div class="w-full lg:ml-10 profile__img_change">
               <div class="w-full flex gap-4">
                 <button
