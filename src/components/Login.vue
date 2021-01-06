@@ -6,9 +6,13 @@
         {{ login_error }} <svg class="cursor-pointer" @click="isIncorrect=false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z" fill="rgba(255,156,148,1)"/></svg>
       </div>
       <div :class="[!isEmptyPassword && !isEmpty ? 'mt-5' : 'mt-10']">
-        <p :class="[isEmpty == true ? 'mb-4' : 'mb-4 label_error']">
+      <div class="flex">
+        <label :class="[isEmpty == true ? 'mb-4' : 'mb-4 label_error',
+        labels_focus.label1?'label-focus':''
+        ]">
           {{ username_title }}
-        </p>
+        </label>
+        </div>
 
         <input
           type="text"
@@ -16,27 +20,32 @@
           placeholder=""
           :class="[
             isEmpty == true
-              ? 'border rounded-full py-2 px-6'
-              : 'error rounded-full py-2 px-6',
+              ? 'border rounded-sm py-3 px-6'
+              : 'error rounded-sm py-3 px-6',
           ]"
+             @focus="labels_focus.label1 = !labels_focus.label1"
+          @blur="labels_focus.label1 = !labels_focus.label1"
+        
         />
       </div>
 
       <div class="mt-10">
         <div class="flex">
-          <p :class="[isEmptyPassword == true ? '' : 'label_error']">
+          <label :class="[isEmptyPassword == true ? '' : 'label_error', labels_focus.label2?'label-focus':'']">
             {{ password_title }}
-          </p>
+          </label>
         </div>
 
         <br />
         <input
           type="password"
           v-model="password"
+          @focus="labels_focus.label2 = !labels_focus.label2"
+          @blur="labels_focus.label2 = !labels_focus.label2"
           :class="[
             isEmptyPassword == true
-              ? 'border rounded-full py-2 px-6'
-              : 'error rounded-full py-2 px-6',
+              ? 'border rounded-sm py-3 px-6'
+              : 'error rounded-sm py-3 px-6',
           ]"
           placeholder=""
         />
@@ -50,7 +59,7 @@
       <!-- <router-link to="/dashboard"> -->
       <button
         @click="validateAllfields()"
-        :class="[request_click===true?'button_on_loaging border rounded-full py-3 px-6 mt-8 text-white mt-16 login__button flex':'border rounded-full py-3 px-6 mt-8 text-white hover:bg-blue-600 mt-16 login__button flex',username===''||password===''?'bt__disabled':'']"
+        :class="[request_click===true?'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 login__button flex':'border rounded-md py-3 px-6 mt-8 text-white  mt-16 login__button flex',username===''||password===''?'bt__disabled':'']"
       
        
      
@@ -79,6 +88,10 @@ export default {
     msg: String,
   },
   data: () => ({
+    labels_focus: {
+      label1: false,
+      label2: false
+    },
     login_status:'Login',
     request_click:false,
     login_error: "Incorrect username or password",
@@ -156,11 +169,19 @@ export default {
 .login__button {
   
   justify-content: center;
+  border: none;
+  height: 7vh;
+}
+.login__button:hover{
+  box-shadow:6px 5px 6px #574ae257;
 }
 .login__button img{
   width: 7%;
   text-align: center;
 
+}
+.label-focus {
+  color: #574ae2 !important;
 }
 .bt__disabled{
   cursor: not-allowed;
@@ -210,7 +231,7 @@ button {
   background-color: #574ae2;
 }
 .button_on_loaging{
-  background-color: #574ae2be;
+  background-color: #1400f3a8
 }
 *:focus {
   outline: 0 !important;

@@ -1,7 +1,7 @@
 <template>
   <div class="text-center ">
     <footer class="">
-      <h1 class="mt-5">Copyright @ <span>{{year}}</span></h1>
+      <h1 class="mt-5">RCA @<span>{{year}}</span></h1>
     </footer>
   </div>
 </template>
