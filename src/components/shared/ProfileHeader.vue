@@ -26,7 +26,6 @@
       </div>
     </div>
 
-
     <div class="col-start-10 col-end-13 grid grid-cols-2 gap-2 md:pr-10">
       <div class="col-start-1 col-end-3 flex">
         <div class="col-start-1 col-end-3 px-2 cursor-pointer">
@@ -38,7 +37,7 @@
           />
         </div>
         <div class="col-start-3 col-end-13 cursor-pointer" @click="setDropdown">
-          <b>{{this.$store.state.user.surname}}{{' '}}{{this.$store.state.user.othernames}}</b> <br />
+          <b>{{ user.surname }}{{ " " }}{{ user.othernames }}</b> <br />
           <span class="text-xs">Admin</span>
         </div>
       </div>
@@ -47,24 +46,29 @@
         class="card bg-white p-2 lg:w-1/6 md:w-full rounded user__preview_more shadow"
       >
         <ul class="lg:px-1 lg:py-2">
-            <li> <router-link to="/profile-settings">Profile settings</router-link> </li>
-            <li @click="logout">Logout</li>
+          <li>
+            <router-link to="/profile-settings">Profile settings</router-link>
+          </li>
+          <li @click="logout">Logout</li>
         </ul>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "ProfileHeader",
   data: () => ({
     addDropdown: false,
-    drop_icon: "+"
+    drop_icon: "+",
   }),
-  computed() {
-    this.addDropdown = false;
+  computed: {
+    ...mapState({
+      user: (state) => state.user,
+      userAll: (state) => state.userAll,
+    }),
   },
   methods: {
     setDropdown() {
@@ -74,10 +78,10 @@ export default {
 
       return (this.addDropdown = !this.addDropdown);
     },
-    logout(){
+    logout() {
       this.$session.destroy();
-      this.$router.push('/');
-    }
+      this.$router.push("/");
+    },
   },
 };
 </script>
