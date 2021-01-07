@@ -175,6 +175,8 @@ export default {
     request_click: false,
     button_status: "Add lesson",
     // showModal: false,
+    lesson__name: "",
+    lesson__description: "",
     lessons: [],
     action: [
       `<svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 26.998 27">
@@ -225,8 +227,8 @@ export default {
     },
     async insertLesson() {
       const response = await Services.addLesson({
-        name: this.name,
-        description: this.description,
+        name: this.lesson__name,
+        description: this.lesson__description,
       });
       console.log(response);
     },
