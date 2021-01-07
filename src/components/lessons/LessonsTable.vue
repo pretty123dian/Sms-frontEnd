@@ -259,7 +259,12 @@ export default {
       this.lessons.push(newLesson);
       (this.lesson__name = ""), (this.lesson__description = "");
       this.response_status += " Added successfully";
+
       this.request_click = false;
+      // function to empty the response status after a certain amount of the period
+      setTimeout(function () {
+        this.response_status = "";
+      }, 3000);
     },
   },
 };
