@@ -67,10 +67,10 @@
           <template>
             <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <td>
-                {{ tr.id }}
+                {{ i + 1 }}
               </td>
               <td>
-                {{ tr.names }}
+                {{ tr.full_names }}
               </td>
               <td>
                 {{ tr.promotion }}
@@ -90,66 +90,52 @@
 </template>
 
 <script>
-// import Services from '@/services/AllServices';
+import Services from "@/services/AllServices";
 export default {
   name: "InstructorsTable",
   data: () => ({
     search: "",
-    instructors: [
-      {
-        id: 1,
-        names: "Bosco abc",
-        promotion:
-          "This is the course of mathematics which deals with analysis,...",
-        age: 12,
-        action: "ok",
-      },
-      {
-        id: 2,
-        names: "Lento Prof",
-        promotion:
-          "This is the course of mathematics which deals with analysis,...",
-        age: 12,
-        action: "ok",
-      },
-      {
-        id: 3,
-        names: "Gabriel Xyz",
-        promotion:
-          "This is the course of mathematics which deals with analysis,...",
-        age: 12,
-        action: "ok",
-      },
-      {
-        id: 4,
-        names: "Thomas Tim",
-        promotion:
-          "This is the course of mathematics which deals with analysis,...",
-        age: 12,
-        action: "ok",
-      },
-    ],
+    instructors: [],
   }),
   computed: {
     searchSimilar() {
       let filter = new RegExp(this.search, "i");
-      let foundText = this.instructors.filter((el) => el.names.match(filter));
+      let foundText = this.instructors.filter((el) =>
+        el.full_names.match(filter)
+      );
       return foundText;
     },
   },
 
-  beforeMount(){
-    this.instructors =[];
+  beforeMount() {
+    this.instructors = [];
     this.getRows();
   },
 
-  methods:{
-    // async getRows(){
-    //   const response = await Services.getUsers();
-    //   response.
-    // }
-  }
+  methods: {
+    async getRows() {
+      const response = await Services.getUsers();
+      console.log("Users: ", response);
+      response.data.data.docs.forEach((user) => {
+        const userObj = {};
+        userObj.lastname = user.othernames;
+        userObj.firstname = user.surname;
+        userObj.full_names = userObj.lastname + " " + userObj.firstname;
+        userObj.email = user.email;
+        userObj.gender = user.gender;
+        userObj.phone = user.phone;
+        userObj.status = user.status;
+        userObj.national_id = user.national_id;
 
+        // response.data.data.docs.category.forEach((cat) => {
+        //   userObj.category = cat.name;
+        // });
+
+        this.instructors.push(userObj);
+        console.log("INSTRUCTORS OBJ: ", this.instructors);
+      });
+    },
+  },
 };
 </script>
 

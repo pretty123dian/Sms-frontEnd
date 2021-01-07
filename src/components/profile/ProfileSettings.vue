@@ -129,6 +129,7 @@
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
               </div>
+
               <div class="lg:w-50 md:w-full mt-5">
                 <label
                   for="name"
@@ -171,6 +172,14 @@ export default {
     },
     academicYears: ["2020", "2021"],
   }),
+  beforeMount(){
+      this.display();
+  },
+  methods:{
+    display(){
+      console.log('National ID: ',this.$store.state.user.national_id);
+    }
+  }
 };
 </script>
 

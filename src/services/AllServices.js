@@ -42,6 +42,9 @@ export default{
     getUsers(){
         return Api().get(`api/users`);
     },
+    getUserData(user_id){
+        return Api().get(`api/users/${user_id}`)
+    },
 
 
 
