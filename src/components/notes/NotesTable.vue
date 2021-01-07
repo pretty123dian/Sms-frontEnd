@@ -21,7 +21,7 @@
             <!-- filter and search here -->
             <div class="row flex gap-4">
               <select
-                class="form-select mt-1 p-2 block rounded-sm border border-#E1E1E1-700 bg-white"
+                class="form-select mt-1 p-2 block rounded border border-#E1E1E1-700 bg-white"
               >
                 <template v-for="(course, index) in courses">
                   <option :value="course" :key="index">{{ course }}</option>
