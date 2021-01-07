@@ -148,23 +148,19 @@ export default {
       const response = await Services.getUsers();
       console.log("Users: ", response);
       response.data.data.docs.forEach((user) => {
-        const userObj = {};
-        userObj.lastname = user.othernames;
-        userObj.firstname = user.surname;
-        userObj.full_names = userObj.lastname + " " + userObj.firstname;
-        userObj.email = user.email;
-        userObj.gender = user.gender;
-        userObj.phone = user.phone;
-        userObj.status = user.status;
-        userObj.national_id = user.national_id;
-        userObj.action = this.action;
-
-        // response.data.data.docs.category.forEach((cat) => {
-        //   userObj.category = cat.name;
-        // });
-
-        this.instructors.push(userObj);
-        console.log("INSTRUCTORS OBJ: ", this.instructors);
+        if (user.category && user.category.name == "CATEGORY2") {
+          const userObj = {};
+          userObj.lastname = user.othernames;
+          userObj.firstname = user.surname;
+          userObj.full_names = userObj.lastname + " " + userObj.firstname;
+          userObj.email = user.email;
+          userObj.gender = user.gender;
+          userObj.phone = user.phone;
+          userObj.status = user.status;
+          userObj.national_id = user.national_id;
+          userObj.action = this.action;
+          this.instructors.push(userObj);
+        }
       });
     },
   },
