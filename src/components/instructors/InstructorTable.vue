@@ -90,6 +90,7 @@
 </template>
 
 <script>
+// import Services from '@/services/AllServices';
 export default {
   name: "InstructorsTable",
   data: () => ({
@@ -141,7 +142,14 @@ export default {
     this.instructors =[];
     this.getRows();
   },
-  
+
+  methods:{
+    // async getRows(){
+    //   const response = await Services.getUsers();
+    //   response.
+    // }
+  }
+
 };
 </script>
 
