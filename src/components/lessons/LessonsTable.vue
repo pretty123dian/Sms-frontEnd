@@ -102,15 +102,15 @@
         class="assignment__popup"
         style="font-family: 'Poppins'"
       >
-        <div class="grid w-full">
-          <div class="inner ml-12 mt-1">
+        <div class="grid w-full px-10">
+          <div class="mt-1">
             <br />
             <form
               class="lesson__form"
               ref="form"
               @submit.prevent="insertLesson()"
             >
-              <div class="mb-5">
+              <div class="w-full mb-5">
                 <label
                   :class="[labels_focus.label1 === true ? 'label-focus' : '']"
                   >Lesson Name</label
@@ -120,7 +120,7 @@
                   type="text"
                   @focus="labels_focus.label1 = !labels_focus.label1"
                   @blur="labels_focus.label1 = !labels_focus.label1"
-                  class="outline-none border my-3 p-5 w-5/6 h-10 rounded"
+                  class="outline-none border my-3 px-5 py-6 w-full h-10 rounded"
                   v-model="lesson__name"
                 />
               </div>
@@ -134,20 +134,27 @@
                 <textarea
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  class="w-5/6 my-3 h-32 p-5 border resize-none outline-none rounded leading-loose"
+                  class="w-full my-3 h-32 p-5 border resize-none outline-none rounded leading-loose"
                   v-model="lesson__description"
                 ></textarea>
               </div>
 
-              <div class="my-10">
-                <vs-button color="#574AE2" class="add rounded-full w-5/6">
+              <div class="my-10 w-full">
+                <button
+                  :class="[
+                    request_click === true
+                      ? 'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 addlesson__btn flex'
+                      : 'border rounded-md py-3 px-6 mt-8 text-white  mt-16 addlesson__btn flex w-full',
+                    username === '' || password === '' ? 'bt__disabled' : '',
+                  ]"
+                >
                   <template v-if="request_click == false">
                     {{ button_status }}
                   </template>
                   <template v-else>
                     <img src="@/assets/gif2.gif" />
                   </template>
-                </vs-button>
+                </button>
               </div>
             </form>
           </div>
@@ -171,12 +178,13 @@ export default {
       label1: false,
       label2: false,
     },
+    lesson__name: "",
+    lesson__description: "",
     popupActivo2: false,
     request_click: false,
     button_status: "Add lesson",
     // showModal: false,
-    lesson__name: "",
-    lesson__description: "",
+
     lessons: [],
     action: [
       `<svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 26.998 27">
@@ -204,7 +212,9 @@ export default {
       return foundText;
     },
   },
-
+  mounted() {
+    console.log("Lesson", this.lesson__name);
+  },
   beforeMount() {
     this.lessons = [];
     this.getRows();
@@ -226,7 +236,8 @@ export default {
       console.log("Lessons: ", this.lessons);
     },
     async insertLesson() {
-      const response = await Services.addLesson({
+      this.request_click = true;
+      let response = await Services.addLesson({
         name: this.lesson__name,
         description: this.lesson__description,
       });
@@ -250,6 +261,26 @@ label > input[type="checkbox"]:checked + * {
 .label-focus {
   color: #574ae2 !important;
 }
+
+.addlesson__btn {
+  justify-content: center;
+  border: none;
+  height: 7vh;
+}
+.addlesson__btn:hover {
+  box-shadow: 6px 5px 6px #574ae257;
+}
+.addlesson__btn img {
+  width: 10%;
+  text-align: center;
+}
+button {
+  background-color: #574ae2;
+}
+.button_on_loaging {
+  background-color: #1400f3a8;
+}
+
 .add-stud-btn:focus {
   outline: none;
 }

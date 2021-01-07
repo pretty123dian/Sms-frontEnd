@@ -158,7 +158,7 @@ export default {
       } else alert("ok");
     },
 
-    async button_statusbutton_status() {
+    async validate() {
       this.request_click = true;
       // if(this.$refs.form.validate()){
       let response = await Services.login({
