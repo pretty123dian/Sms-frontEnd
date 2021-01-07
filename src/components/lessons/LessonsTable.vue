@@ -47,23 +47,23 @@
         </div>
       </div>
       <div class="center bg-white p-5">
-        <table stripe :data="lessons" class="w-full">
+        <div class="row flex gap-4">
+          <select class="form-input p-2 border rounded" v-model="filter" border>
+            <option value="" selected>Showing 10 rows</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
           <input
             class="form-input p-2 border rounded"
             v-model="search"
             border
             placeholder="Search lesson"
           />
-
+        </div>
+        <table stripe :data="lessons" class="w-full">
+          <br />
           <template class="bg-white">
-            <transition name="fade" appear>
-              <div
-                v-if="showModal"
-                class="absolute popup w-10/12 h-screen overflow-hidden"
-              >
-                <AddLesson v-on:close="doIt()" />
-              </div>
-            </transition>
             <tr>
               <th>#</th>
               <th>Title</th>
