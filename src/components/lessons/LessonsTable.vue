@@ -93,9 +93,7 @@
     </div>
 
     <div class="centerx">
-      <!-- <vs-button @click="popupActivo2 = true" color="primary" type="filled"
-        >Open Popup</vs-button
-      > -->
+      <!-- add lesson popup here -->
       <vs-popup
         classContent="popup-example"
         title="Add new lesson"
@@ -128,11 +126,7 @@
               </div>
 
               <div class="mt-4 ml-0">
-                <vs-button
-                  color="#574AE2"
-                  class="add rounded-full w-5/6"
-                  @click="addLesson(), changeVal()"
-                >
+                <vs-button color="#574AE2" class="add rounded-full w-5/6">
                   Add Lesson
                 </vs-button>
               </div>
@@ -140,6 +134,8 @@
           </div>
         </div>
       </vs-popup>
+
+      <!-- add lesson popup ends here -->
     </div>
   </div>
 </template>
@@ -147,14 +143,10 @@
 <script>
 import Services from "@/services/AllServices";
 
-import AddLesson from "./AddLesson";
-
 export default {
   name: "LessonsTable",
 
-  components: {
-    AddLesson,
-  },
+  components: {},
   data: () => ({
     popupActivo2: false,
     // showModal: false,
@@ -192,10 +184,6 @@ export default {
   },
 
   methods: {
-    doIt() {
-      this.showModal = false;
-      console.log("yhyh");
-    },
     async getRows() {
       const response = await Services.getLessons();
       console.log("Response: ", response);
