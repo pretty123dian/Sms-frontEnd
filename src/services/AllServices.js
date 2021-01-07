@@ -39,6 +39,9 @@ export default{
     getLessonById(lesson_id){
         return Api().get(`api/lessons/${lesson_id}`)
     },
+    getUsersByCategories(category_id){
+        return Api().get(`api/users/get/category/${category_id}`);
+    },
 
 
 

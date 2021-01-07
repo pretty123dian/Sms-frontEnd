@@ -136,6 +136,12 @@ export default {
       return foundText;
     },
   },
+
+  beforeMount(){
+    this.instructors =[];
+    this.getRows();
+  },
+  
 };
 </script>
 
