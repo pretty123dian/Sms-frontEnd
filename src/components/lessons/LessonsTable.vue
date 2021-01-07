@@ -54,7 +54,7 @@
             v-model="filter"
             border
           >
-            <option value="Showing 10 rows">Showing 10 rows</option>
+            <option value="10">Showing 10 rows</option>
             <option value="25">25</option>
             <option value="50">50</option>
             <option value="100">100</option>
@@ -193,7 +193,7 @@ export default {
     request_click: false,
     button_status: "Add lesson",
     response_status: "",
-    filter: "Showing 10 rows",
+    filter: 10,
     // showModal: false,
 
     lessons: [],
