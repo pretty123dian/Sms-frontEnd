@@ -36,8 +36,8 @@ export default {
     getAssignments(n_of_pages, pages_limit) {
         return Api().get(`api/assignment?page=${n_of_pages}&limit=${pages_limit}`)
     },
-    getLessons(limit) {
-        return Api().get(`api/lessons/?limit=${limit}`);
+    getLessons(pages, limit) {
+        return Api().get(`api/lessons/?page=${pages}&limit=${limit}`);
     },
 
     getLessonPromotionById(promotion_id) {

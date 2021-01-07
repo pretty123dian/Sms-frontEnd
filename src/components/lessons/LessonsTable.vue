@@ -226,10 +226,11 @@ export default {
 
   methods: {
     async getRows() {
-      const response = await Services.getLessons(20);
+      const response = await Services.getLessons(2, 50);
       console.log("Response: ", response);
       response.data.data.docs.forEach((lesson) => {
         const lessonObj = {};
+        lessonObj._id = lesson._id;
         lessonObj.name = lesson.name;
         lessonObj.description = lesson.description;
         lessonObj.status = lesson.status;
@@ -247,10 +248,17 @@ export default {
       });
       // console.log("lesson added: ", response);
 
-      response.data.data.forEach((res) => {
-        this.response_status = res.name + " " + "added successfully";
-      });
+      this.response_status = response.data.data.name;
+      const newLesson = {};
+      newLesson._id = response.data.data._id;
+      newLesson.name = response.data.data.name;
+      newLesson.description = response.data.data.description;
+      newLesson.status = response.data.data.status;
+      newLesson.action = this.action;
+
+      this.lessons.push(newLesson);
       (this.lesson__name = ""), (this.lesson__description = "");
+      this.response_status += " Added successfully";
       this.request_click = false;
     },
   },
