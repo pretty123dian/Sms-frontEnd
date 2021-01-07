@@ -106,21 +106,31 @@
           <div class="inner ml-12 mt-1">
             <br />
             <form action="" class="lesson__form">
-              <div class="first mb-10">
-                <p class="mb-2">Lesson Name</p>
+              <div class="mb-5">
+                <label
+                  :class="[labels_focus.label1 === true ? 'label-focus' : '']"
+                  >Lesson Name</label
+                >
 
                 <input
                   type="text"
-                  class="outline-none border p-5 w-5/6 h-10 rounded"
+                  @focus="labels_focus.label1 = !labels_focus.label1"
+                  @blur="labels_focus.label1 = !labels_focus.label1"
+                  class="outline-none border my-3 p-5 w-5/6 h-10 rounded"
                   v-model="lesson"
                 />
               </div>
 
-              <div class="sec">
-                <p class="mb-2">Lesson Description</p>
+              <div class="w-full">
+                <label
+                  :class="[labels_focus.label2 === true ? 'label-focus' : '']"
+                  >Lesson Description</label
+                >
 
                 <textarea
-                  class="w-5/6 h-32 p-5 border resize-none outline-none rounded leading-loose"
+                  @focus="labels_focus.label2 = !labels_focus.label2"
+                  @blur="labels_focus.label2 = !labels_focus.label2"
+                  class="w-5/6 my-3 h-32 p-5 border resize-none outline-none rounded leading-loose"
                   v-model="description"
                 ></textarea>
               </div>
@@ -148,6 +158,10 @@ export default {
 
   components: {},
   data: () => ({
+    labels_focus: {
+      label1: false,
+      label2: false,
+    },
     popupActivo2: false,
     // showModal: false,
     lessons: [],
@@ -213,7 +227,9 @@ label > input[type="checkbox"]:checked + *::before {
 label > input[type="checkbox"]:checked + * {
   color: #574ae2;
 }
-
+.label-focus {
+  color: #574ae2 !important;
+}
 .add-stud-btn:focus {
   outline: none;
 }
