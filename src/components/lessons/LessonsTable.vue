@@ -125,7 +125,7 @@
                 ></textarea>
               </div>
 
-              <div class="mt-4 ml-0">
+              <div class="my-10">
                 <vs-button color="#574AE2" class="add rounded-full w-5/6">
                   Add Lesson
                 </vs-button>
