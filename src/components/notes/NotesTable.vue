@@ -5,18 +5,6 @@
         <div class="col-start-1 col-end-4">
           <div class="block mt-3">
             <h3 class="text-sm font-bold mb-5">View notes</h3>
-            <!-- select the year here -->
-            <label class="block">
-              <select
-                class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
-              >
-                <option value="" selected>Select course</option>
-                <template v-for="(course, index) in courses">
-                  <option :value="course" :key="index">{{ course }}</option>
-                </template>
-              </select>
-            </label>
-            <!-- select the year box ends here -->
           </div>
         </div>
         <div class="col-start-4 col-end-10">
@@ -30,12 +18,28 @@
       <div class="center bg-white p-5">
         <table stripe :data="students" class="w-full">
           <template>
-            <input
-              class="form-input p-2 border rounded"
-              v-model="search"
-              border
-              placeholder="Search notes"
-            />
+            <!-- filter and search here -->
+            <div class="row flex gap-4">
+              <select
+                class="form-select mt-1 p-2 block rounded border border-#E1E1E1-700 bg-white"
+              >
+                <template v-for="(course, index) in courses">
+                  <option :value="course" :key="index">{{ course }}</option>
+                </template>
+              </select>
+              <input
+                class="form-input p-2 border rounded"
+                v-model="search"
+                border
+                placeholder="Search notes"
+              />
+            </div>
+            <!-- filter and search end here -->
+            <!-- row counter here -->
+            <div class="flex mt-5">
+              <span><b>Total: </b>{{ rowCounter }}</span>
+            </div>
+            <!-- row counter ends here -->
           </template>
           <template class="bg-white">
             <tr>
@@ -207,7 +211,8 @@ ul li {
 tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
-input:focus {
+input:focus,
+select:focus {
   border: 1px solid #574ae2;
 }
 .file {

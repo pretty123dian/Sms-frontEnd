@@ -55,7 +55,7 @@
               >
               <br />
               <input
-                :value="this.$store.state.user.username"
+                :value="user.username"
                 @focus="labels_focus.label1 = !labels_focus.label1"
                 @blur="labels_focus.label1 = !labels_focus.label1"
                 id="name"
@@ -73,7 +73,7 @@
               <input
                 @focus="labels_focus.label2 = !labels_focus.label2"
                 @blur="labels_focus.label2 = !labels_focus.label2"
-                :value="this.$store.state.user.email"
+                :value="user.email"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -90,7 +90,7 @@
                 <input
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="this.$store.state.user.surname"
+                  :value="user.surname"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -106,13 +106,13 @@
                 <input
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="this.$store.state.user.othernames"
+                  :value="user.othernames"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
               </div>
             </div>
-             <div class="row lg:grid lg:grid-cols-2 gap-4">
+            <div class="row lg:grid lg:grid-cols-2 gap-4">
               <div class="lg:w-50 md:w-full mt-5">
                 <label
                   for="name"
@@ -124,7 +124,7 @@
                 <input
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="this.$store.state.user.phone"
+                  :value="user.phone"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -141,7 +141,7 @@
                 <input
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="this.$store.state.user.national_id"
+                  :value="userAll.national_id"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -161,6 +161,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "ProfileSettings",
   data: () => ({
@@ -172,14 +173,20 @@ export default {
     },
     academicYears: ["2020", "2021"],
   }),
-  beforeMount(){
-      this.display();
+  beforeMount() {
+    this.display();
   },
-  methods:{
-    display(){
-      console.log('National ID: ',this.$store.state.user.national_id);
-    }
-  }
+  computed: {
+    ...mapState({
+      user: (state) => state.user,
+      userAll: (state) => state.userAll,
+    }),
+  },
+  methods: {
+    display() {
+      console.log("National ID: ", this.user.national_id);
+    },
+  },
 };
 </script>
 
