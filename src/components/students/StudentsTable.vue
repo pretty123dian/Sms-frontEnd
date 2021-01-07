@@ -51,7 +51,7 @@
               class="form-input p-2 border rounded"
               v-model="search"
               border
-              placeholder="Search instructor"
+              placeholder="Search student"
             />
           </template>
           <template>
