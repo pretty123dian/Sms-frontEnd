@@ -75,6 +75,40 @@
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
             </div>
+            <div class="row lg:grid lg:grid-cols-2 gap-4">
+                <div class="lg:w-50 md:w-full mt-5">
+              <label
+                for="name"
+                class="mr-4 name"
+                :class="[labels_focus.label2 ? 'label-focus' : '']"
+                >Firstname</label
+              >
+              <br />
+              <input
+                @focus="labels_focus.label2 = !labels_focus.label2"
+                @blur="labels_focus.label2 = !labels_focus.label2"
+                :value="this.$store.state.user.email"
+                id="name"
+                class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+              />
+            </div>
+              <div class="lg:w-50 md:w-full mt-5 ">
+              <label
+                for="name"
+                class="mr-4 name"
+                :class="[labels_focus.label2 ? 'label-focus' : '']"
+                >Lastname</label
+              >
+              <br />
+              <input
+                @focus="labels_focus.label2 = !labels_focus.label2"
+                @blur="labels_focus.label2 = !labels_focus.label2"
+                :value="this.$store.state.user.email"
+                id="name"
+                class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+              />
+            </div>
+            </div>
             <br />
             <vs-button
               color="#574AE2"
