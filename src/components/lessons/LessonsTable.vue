@@ -40,7 +40,7 @@
           <vs-button
             color="#574AE2"
             class="rounded-full add-stud-btn"
-            @click="popupActivo2 = true"
+            @click="[(popupActivo2 = true), (response_status = '')]"
           >
             Add lesson
           </vs-button>
@@ -240,7 +240,6 @@ export default {
       console.log("Lessons: ", this.lessons);
     },
     async insertLesson() {
-      this.response_status = "";
       this.request_click = true;
       let response = await Services.addLesson({
         name: this.lesson__name,
