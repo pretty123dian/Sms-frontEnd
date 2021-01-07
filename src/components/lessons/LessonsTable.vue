@@ -188,6 +188,7 @@ export default {
     popupActivo2: false,
     request_click: false,
     button_status: "Add lesson",
+    response_status: "",
     // showModal: false,
 
     lessons: [],
@@ -225,7 +226,7 @@ export default {
 
   methods: {
     async getRows() {
-      const response = await Services.getLessons();
+      const response = await Services.getLessons(20);
       console.log("Response: ", response);
       response.data.data.docs.forEach((lesson) => {
         const lessonObj = {};
@@ -244,7 +245,11 @@ export default {
         name: this.lesson__name,
         description: this.lesson__description,
       });
-      console.log("lesson added: ", response);
+      // console.log("lesson added: ", response);
+
+      response.data.data.forEach((res) => {
+        this.response_status = res.name + " " + "added successfully";
+      });
       (this.lesson__name = ""), (this.lesson__description = "");
       this.request_click = false;
     },
