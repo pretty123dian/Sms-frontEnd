@@ -47,6 +47,7 @@
         </div>
       </div>
       <div class="center bg-white p-5">
+        <!-- filter and search here -->
         <div class="row flex gap-4">
           <select
             class="form-input p-2 border rounded"
@@ -66,9 +67,12 @@
             placeholder="Search lesson"
           />
         </div>
+        <!-- filter and search end here -->
+        <!-- row counter here -->
         <div class="flex mt-5">
           <span><b>Total: </b>{{ rowCounter }}</span>
         </div>
+        <!-- row counter ends here -->
         <table stripe :data="lessons" class="w-full">
           <br />
           <template class="bg-white">
