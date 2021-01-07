@@ -31,7 +31,7 @@
                 class="form-input p-2 border rounded"
                 v-model="search"
                 border
-                placeholder="Search lesson"
+                placeholder="Search notes"
               />
             </div>
             <!-- filter and search end here -->
@@ -40,13 +40,6 @@
               <span><b>Total: </b>{{ rowCounter }}</span>
             </div>
             <!-- row counter ends here -->
-
-            <input
-              class="form-input p-2 border rounded"
-              v-model="search"
-              border
-              placeholder="Search notes"
-            />
           </template>
           <template class="bg-white">
             <tr>
