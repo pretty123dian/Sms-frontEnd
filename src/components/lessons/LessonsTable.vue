@@ -139,7 +139,12 @@
                 ></textarea>
               </div>
 
-              <div class="my-10 w-full">
+              <div class="my-2 w-full row">
+                <div class="flex w-full">
+                  <p class="lesson__add_success float-right m-auto">
+                    {{ response_status }}
+                  </p>
+                </div>
                 <button
                   :class="[
                     request_click === true
@@ -212,9 +217,7 @@ export default {
       return foundText;
     },
   },
-  mounted() {
-    console.log("Lesson", this.lesson__name);
-  },
+
   beforeMount() {
     this.lessons = [];
     this.getRows();
@@ -241,7 +244,9 @@ export default {
         name: this.lesson__name,
         description: this.lesson__description,
       });
-      console.log(response);
+      console.log("lesson added: ", response);
+      (this.lesson__name = ""), (this.lesson__description = "");
+      this.request_click = false;
     },
   },
 };
@@ -266,12 +271,16 @@ label > input[type="checkbox"]:checked + * {
   justify-content: center;
   border: none;
   height: 7vh;
+  width: 100%;
 }
 .addlesson__btn:hover {
   box-shadow: 6px 5px 6px #574ae257;
 }
+.addlesson__btn:focus {
+  outline: none;
+}
 .addlesson__btn img {
-  width: 10%;
+  width: 5%;
   text-align: center;
 }
 button {
@@ -283,6 +292,11 @@ button {
 
 .add-stud-btn:focus {
   outline: none;
+}
+
+div .lesson__add_success {
+  color: #2aa804;
+  text-align: center;
 }
 .table__thead .table__th {
   background: #fff !important;
