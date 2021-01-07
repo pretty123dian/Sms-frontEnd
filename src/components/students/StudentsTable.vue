@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="center bg-white p-5">
-        <table stripe :data="instructors" class="w-full">
+        <table stripe :data="students" class="w-full">
           <template>
             <input
               class="form-input p-2 border rounded"
@@ -106,10 +106,10 @@
 <script>
 import Services from "@/services/AllServices";
 export default {
-  name: "InstructorsTable",
+  name: "studentsTable",
   data: () => ({
     search: "",
-    instructors: [],
+    students: [],
     action: [
       `<svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 26.998 27">
           <path id="Icon_material-update" data-name="Icon material-update" d="M31.5,15.18H21.33l4.11-4.23a10.558,10.558,0,0,0-14.82-.15,10.313,10.313,0,0,0,0,14.685,10.529,10.529,0,0,0,14.82,0A9.77,9.77,0,0,0,28.5,18.15h3a14.011,14.011,0,0,1-3.96,9.435,13.581,13.581,0,0,1-19.08,0,13.26,13.26,0,0,1-.03-18.87,13.481,13.481,0,0,1,18.975,0L31.5,4.5ZM18.75,12v6.375L24,21.495,22.92,23.31,16.5,19.5V12Z" transform="translate(-4.502 -4.5)" fill="#574ae2"/>
@@ -131,15 +131,13 @@ export default {
   computed: {
     searchSimilar() {
       let filter = new RegExp(this.search, "i");
-      let foundText = this.instructors.filter((el) =>
-        el.full_names.match(filter)
-      );
+      let foundText = this.students.filter((el) => el.full_names.match(filter));
       return foundText;
     },
   },
 
   beforeMount() {
-    this.instructors = [];
+    this.students = [];
     this.getRows();
   },
 
@@ -148,7 +146,8 @@ export default {
       const response = await Services.getUsers();
       console.log("Users: ", response);
       response.data.data.docs.forEach((user) => {
-        if (user.category && user.category.name == "CATEGORY2") {
+        if (user.category && user.category.name == "CATEGORY 1") {
+          // category 1 -- students
           const userObj = {};
           userObj.lastname = user.othernames;
           userObj.firstname = user.surname;
@@ -159,7 +158,7 @@ export default {
           userObj.status = user.status;
           userObj.national_id = user.national_id;
           userObj.action = this.action;
-          this.instructors.push(userObj);
+          this.students.push(userObj);
         }
       });
     },

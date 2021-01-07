@@ -149,6 +149,7 @@ export default {
       console.log("Users: ", response);
       response.data.data.docs.forEach((user) => {
         if (user.category && user.category.name == "CATEGORY2") {
+          // category 2 --- instuctors
           const userObj = {};
           userObj.lastname = user.othernames;
           userObj.firstname = user.surname;
