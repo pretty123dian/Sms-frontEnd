@@ -2,16 +2,36 @@
   <div class="main mt-20">
     <h1>Login to SMS</h1>
     <form ref="form" @submit.prevent="validate()">
-      <div v-if="isIncorrect === true" class="mt-5 error_log py-2 px-2 gap-5  rounded flex">
-        {{ login_error }} <svg class="cursor-pointer" @click="isIncorrect=false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z" fill="rgba(255,156,148,1)"/></svg>
+      <div
+        v-if="isIncorrect === true"
+        class="mt-5 error_log py-2 px-2 gap-5 rounded flex"
+      >
+        {{ login_error }}
+        <svg
+          class="cursor-pointer"
+          @click="isIncorrect = false"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z"
+            fill="rgba(255,156,148,1)"
+          />
+        </svg>
       </div>
       <div :class="[!isEmptyPassword && !isEmpty ? 'mt-5' : 'mt-10']">
-      <div class="flex">
-        <label :class="[isEmpty == true ? 'mb-4' : 'mb-4 label_error',
-        labels_focus.label1?'label-focus':''
-        ]">
-          {{ username_title }}
-        </label>
+        <div class="flex">
+          <label
+            :class="[
+              isEmpty == true ? 'mb-4' : 'mb-4 label_error',
+              labels_focus.label1 ? 'label-focus' : '',
+            ]"
+          >
+            {{ username_title }}
+          </label>
         </div>
 
         <input
@@ -23,15 +43,19 @@
               ? 'border rounded-sm py-3 px-6'
               : 'error rounded-sm py-3 px-6',
           ]"
-             @focus="labels_focus.label1 = !labels_focus.label1"
+          @focus="labels_focus.label1 = !labels_focus.label1"
           @blur="labels_focus.label1 = !labels_focus.label1"
-        
         />
       </div>
 
       <div class="mt-10">
         <div class="flex">
-          <label :class="[isEmptyPassword == true ? '' : 'label_error', labels_focus.label2?'label-focus':'']">
+          <label
+            :class="[
+              isEmptyPassword == true ? '' : 'label_error',
+              labels_focus.label2 ? 'label-focus' : '',
+            ]"
+          >
             {{ password_title }}
           </label>
         </div>
@@ -59,20 +83,19 @@
       <!-- <router-link to="/dashboard"> -->
       <button
         @click="validateAllfields()"
-        :class="[request_click===true?'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 login__button flex':'border rounded-md py-3 px-6 mt-8 text-white  mt-16 login__button flex',username===''||password===''?'bt__disabled':'']"
-      
-       
-     
+        :class="[
+          request_click === true
+            ? 'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 login__button flex'
+            : 'border rounded-md py-3 px-6 mt-8 text-white  mt-16 login__button flex',
+          username === '' || password === '' ? 'bt__disabled' : '',
+        ]"
       >
-
-      
-        <template v-if="request_click==false">
-        {{login_status}}
+        <template v-if="request_click == false">
+          {{ login_status }}
         </template>
-        <template v-else >
-            <img src="../assets/gif2.gif">
+        <template v-else>
+          <img src="../assets/gif2.gif" />
         </template>
-           
       </button>
       <!-- </router-link> -->
     </form>
@@ -90,10 +113,10 @@ export default {
   data: () => ({
     labels_focus: {
       label1: false,
-      label2: false
+      label2: false,
     },
-    login_status:'Login',
-    request_click:false,
+    login_status: "Login",
+    request_click: false,
     login_error: "Incorrect username or password",
     username_title: "Username",
     password_title: "Password",
@@ -115,11 +138,11 @@ export default {
         // alert('no username')
         this.isEmpty = false;
         this.username_title = "Fill in username";
-         this.isIncorrect = false;
+        this.isIncorrect = false;
       } else if (this.password == "") {
         this.isEmptyPassword = false;
         this.password_title = "Fill in password";
-         this.isIncorrect = false;
+        this.isIncorrect = false;
       } else if (this.username != "" && this.password != "") {
         this.isEmpty = true;
         this.username_title = "Username";
@@ -135,8 +158,8 @@ export default {
       } else alert("ok");
     },
 
-    async validate() {
-      this.request_click = true
+    async button_statusbutton_status() {
+      this.request_click = true;
       // if(this.$refs.form.validate()){
       let response = await Services.login({
         username: this.username,
@@ -146,14 +169,13 @@ export default {
       console.log("Token: ", response.data.data);
       // if(response.data){
       if (response.data.data) {
-        
         this.isIncorrect = false;
-         this.$session.start();
-         this.$session.set('jwt',response.data.data);
-         this.$router.push({ name: "Dashboard" });
+        this.$session.start();
+        this.$session.set("jwt", response.data.data);
+        this.$router.push({ name: "Dashboard" });
       } else {
         this.isIncorrect = true;
-        this.request_click = false
+        this.request_click = false;
       }
       // }
       console.log(this.$session.get("jwt"));
@@ -167,23 +189,21 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .login__button {
-  
   justify-content: center;
   border: none;
   height: 7vh;
 }
-.login__button:hover{
-  box-shadow:6px 5px 6px #574ae257;
+.login__button:hover {
+  box-shadow: 6px 5px 6px #574ae257;
 }
-.login__button img{
+.login__button img {
   width: 7%;
   text-align: center;
-
 }
 .label-focus {
   color: #574ae2 !important;
 }
-.bt__disabled{
+.bt__disabled {
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -230,8 +250,8 @@ button {
 button {
   background-color: #574ae2;
 }
-.button_on_loaging{
-  background-color: #1400f3a8
+.button_on_loaging {
+  background-color: #1400f3a8;
 }
 *:focus {
   outline: 0 !important;

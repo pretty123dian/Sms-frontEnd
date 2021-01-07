@@ -105,7 +105,11 @@
         <div class="grid w-full">
           <div class="inner ml-12 mt-1">
             <br />
-            <form action="" class="lesson__form">
+            <form
+              class="lesson__form"
+              ref="form"
+              @submit.prevent="insertLesson()"
+            >
               <div class="mb-5">
                 <label
                   :class="[labels_focus.label1 === true ? 'label-focus' : '']"
@@ -117,7 +121,7 @@
                   @focus="labels_focus.label1 = !labels_focus.label1"
                   @blur="labels_focus.label1 = !labels_focus.label1"
                   class="outline-none border my-3 p-5 w-5/6 h-10 rounded"
-                  v-model="lesson"
+                  v-model="lesson__name"
                 />
               </div>
 
@@ -131,13 +135,18 @@
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
                   class="w-5/6 my-3 h-32 p-5 border resize-none outline-none rounded leading-loose"
-                  v-model="description"
+                  v-model="lesson__description"
                 ></textarea>
               </div>
 
               <div class="my-10">
                 <vs-button color="#574AE2" class="add rounded-full w-5/6">
-                  Add Lesson
+                  <template v-if="request_click == false">
+                    {{ button_status }}
+                  </template>
+                  <template v-else>
+                    <img src="@/assets/gif2.gif" />
+                  </template>
                 </vs-button>
               </div>
             </form>
@@ -163,6 +172,8 @@ export default {
       label2: false,
     },
     popupActivo2: false,
+    request_click: false,
+    button_status: "Add lesson",
     // showModal: false,
     lessons: [],
     action: [
@@ -211,6 +222,13 @@ export default {
         this.lessons.push(lessonObj);
       });
       console.log("Lessons: ", this.lessons);
+    },
+    async insertLesson() {
+      const response = await Services.addLesson({
+        name: this.name,
+        description: this.description,
+      });
+      console.log(response);
     },
   },
 };

@@ -1,5 +1,12 @@
 import Api from './api';
 export default {
+    login(body) {
+        return Api().post(`api/users/auth`, body)
+    },
+
+    // GETTING APIS START HERE
+
+
     getTimeTable() {
         return Api().get(`api/time-table`);
     },
@@ -48,11 +55,11 @@ export default {
 
 
     // GETTING APIS END HERE
+    addLesson(body) {
+        return Api().post(`api/lessons`, body);
+    }
 
     // POSTING APIS START HERE
 
-
-    login(body) {
-        return Api().post(`api/users/auth`, body)
-    }
 }
+
