@@ -6,7 +6,6 @@ import Vue from 'vue'
 // import NProgress from 'nprogress';
 // import components here
 import Lessons from './components/lessons/LessonsTable';
-import AddLesson from './components/lessons/AddLesson.vue'
 
 import Students from './components/students/StudentsTable.vue';
 import AddStudent from './components/students/AddStudent.vue';
@@ -49,11 +48,11 @@ const router = new VueRouter({
     routes: [{
         path: '/',
         component: Home,
-        children:[
+        children: [
             {
-                path:'/forgotpassword',
-                name:'ForgotPassword',
-                component:ForgotPassword
+                path: '/forgotpassword',
+                name: 'ForgotPassword',
+                component: ForgotPassword
             }
         ]
     },
@@ -73,111 +72,107 @@ const router = new VueRouter({
                 path: '/view/lessons',
                 name: 'Lessons',
                 component: Lessons
-                
+
             },
-             {
-                path: '/register/lesson',
-                name: 'Lessons',
-                component: AddLesson
-            },
+
             {
                 path: '/view/students',
                 name: 'Students',
                 component: Students
             },
-           
+
             {
                 path: '/register/student',
                 name: 'Students',
                 component: AddStudent
             },
             {
-                path:'/view/instructors',
-                name:'Instructors',
+                path: '/view/instructors',
+                name: 'Instructors',
                 component: Instructors
             },
             {
-                path:'/register/instructor',
-                name:'Instructors',
+                path: '/register/instructor',
+                name: 'Instructors',
                 component: AddInstructor
             },
             {
-                path:'/view/assignments',
-                name:'Assignments',
+                path: '/view/assignments',
+                name: 'Assignments',
                 component: Assignments
             },
             {
-                path:'/register/assignment',
-                name:'Assignments',
-                component:AddAssignment
+                path: '/register/assignment',
+                name: 'Assignments',
+                component: AddAssignment
             },
             {
-                path:'/view/notes',
-                name:'Notes',
-                component:Notes
+                path: '/view/notes',
+                name: 'Notes',
+                component: Notes
             },
             {
-                path:'/register/notes',
-                name:'Notes',
-                component:AddNotes
+                path: '/register/notes',
+                name: 'Notes',
+                component: AddNotes
             },
             {
-                path:'/view/categories',
-                name:'Categories',
-                component:Categories
-            },{
-                path:'/register/category',
-                name:'Categories',
-                component:AddCategories
+                path: '/view/categories',
+                name: 'Categories',
+                component: Categories
+            }, {
+                path: '/register/category',
+                name: 'Categories',
+                component: AddCategories
             },
             {
-                path:'/view/classes',
-                name:'Classes',
-                component:Classes
+                path: '/view/classes',
+                name: 'Classes',
+                component: Classes
             },
             {
-                path:'/register/class',
-                name:'Classes',
-                component:AddClass
+                path: '/register/class',
+                name: 'Classes',
+                component: AddClass
             },
             {
-                path:'/view/classpromotions',
-                name:'Promotions',
+                path: '/view/classpromotions',
+                name: 'Promotions',
                 component: ClassesPromotion
             },
             {
-                path:'/register/classpromotion',
-                name:'Promotions',
+                path: '/register/classpromotion',
+                name: 'Promotions',
                 component: AddClassPromotion
             },
             {
-                path:'/view/semesters',
-                name:'Semesters',
+                path: '/view/semesters',
+                name: 'Semesters',
                 component: Semesters
             },
             {
-                path:'/register/semester',
-                name:'Semesters',
+                path: '/register/semester',
+                name: 'Semesters',
                 component: AddSemester
             },
             {
-                path:'/view/timetable',
-                name:'Timetable',
+                path: '/view/timetable',
+                name: 'Timetable',
                 component: Timetables
             },
             {
-                path:'/register/timetable',
-                name:'Timtable',
+                path: '/register/timetable',
+                name: 'Timtable',
                 component: AddTimeTable
             },
             {
-                path:'/profile-settings',
-                name:'ProfileSettings',
+                path: '/profile-settings',
+                name: 'ProfileSettings',
                 component: ProfileSettings
             },
             {
-                path:'/profile-settings/updatepassword',
-                name:'ProfileSettings',
+                path: '/profile-settings/updatepassword',
+                name: 'ProfileSettings',
                 component: UpdatePassword
             }
 

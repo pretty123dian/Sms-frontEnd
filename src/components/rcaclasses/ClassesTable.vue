@@ -24,7 +24,7 @@
                <template>
                  <vs-tr>
                    <vs-th sort>Class name</vs-th>
-                   <vs-th  sort-key=description>Description</vs-th>
+                   <vs-th  sort-key=description>Status</vs-th>
                    <vs-th >Action</vs-th>
                  </vs-tr>
                </template>
@@ -37,10 +37,10 @@
                  
                   > 
                     <vs-td>
-                      {{tr.names}}
+                      {{tr.name}}
                     </vs-td>
                     <vs-td>
-                      {{tr.description}}
+                      {{tr.status}}
                     </vs-td>
                     <vs-td>
                       {{tr.action}}
@@ -62,6 +62,7 @@ name:"ClassesTable",
 data:()=>({
   search:'',
   status:'',
+  action:'Delete',
   classes:[]
   }),
 
@@ -79,11 +80,13 @@ data:()=>({
   methods:{
     async getRows(){
       const response = await Services.getClasses();
+      console.log(response)
       response.data.data.docs.forEach(cls=>{
         const classObj ={};
         classObj.name = cls.name;
         classObj.status = cls.status;
         classObj.created_at = cls.createdAt;
+        classObj.action = this.action;
         this.classes.push(classObj);
       
       });

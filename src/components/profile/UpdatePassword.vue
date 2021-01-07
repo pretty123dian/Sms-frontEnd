@@ -5,7 +5,7 @@
         <span class="font-bold text-sm">Profile settings</span>
       </div>
       <div class="w-full mt-5 profile_links">
-        <router-link to="/profile-settings">Account</router-link>
+        <router-link to="/profile-settings">Personal Info</router-link>
         <router-link to="/profile-settings/updatepassword" class="active"
           >Change password</router-link
         >

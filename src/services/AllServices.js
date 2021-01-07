@@ -1,49 +1,65 @@
 import Api from './api';
-export default{
-    getTimeTable(){
+export default {
+    login(body) {
+        return Api().post(`api/users/auth`, body)
+    },
+
+    // GETTING APIS START HERE
+
+
+    getTimeTable() {
         return Api().get(`api/time-table`);
     },
 
-    getPromotion(promotion_id){
+    getPromotion(promotion_id) {
         return Api().get(`api/school-promotions/${promotion_id}`);
     },
 
-    getSemesters(n_of_pages, pages_limit){
+    getSemesters(n_of_pages, pages_limit) {
         return Api().get(`api/semester?page=${n_of_pages}&limit=${pages_limit}`);
     },
-    getClassPromotion(){
+    getClassPromotion() {
         return Api().get(`api/school-promotion-classes`);
     },
-    getClasses(){
+    getClasses() {
         return Api().get(`api/school-classes`);
     },
-    getCategories(){
+    getCategories() {
         return Api().get(`api/user-categories`);
     },
-    getCategory(passcode){
+    getCategory(passcode) {
         return Api().get(`api/user-categories/${passcode}`);
     },
-    getNotes(){
+    getNotes() {
         return Api().get(`api/course-upload`);
     },
-    getAssignments(n_of_pages,pages_limit){
+    getAssignments(n_of_pages, pages_limit) {
         return Api().get(`api/assignment?page=${n_of_pages}&limit=${pages_limit}`)
     },
-    getLessons(){
-        return Api().get(`api/lessons`);
+    getLessons(pages, limit) {
+        return Api().get(`api/lessons/?page=${pages}&limit=${limit}`);
     },
 
-    getLessonPromotionById(promotion_id){
+    getLessonPromotionById(promotion_id) {
         return Api().get(`api/lessons-promotion/${promotion_id}`);
     },
-    getLessonById(lesson_id){
+    getLessonById(lesson_id) {
         return Api().get(`api/lessons/${lesson_id}`)
+    },
+    getUsers() {
+        return Api().get(`api/users`);
+    },
+    getUserData(user_id) {
+        return Api().get(`api/users/${user_id}`)
     },
 
 
-
-
-    login(body){
-        return Api().post(`api/users/auth`,body)
+    // GETTING APIS END HERE
+    addLesson(body) {
+        return Api().post(`api/lessons`, body);
     }
+
+    // POSTING APIS START HERE
+
 }
+

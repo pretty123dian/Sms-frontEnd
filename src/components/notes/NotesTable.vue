@@ -148,7 +148,7 @@ export default {
     courses: ["Mathematics", "Java", "DSA", "SAD"],
     notes: [],
     popupActivo2: false,
-    popupActivo3: false,
+    // popupActivo3: false,
   }),
   computed: {
     searchSimilar() {
@@ -174,8 +174,8 @@ export default {
         notesObj.publishedAt = note.registered_at;
 
         // const lessonId = await Services.getLessonPromotionById(note.lesson_promotion);
-        console.log(note.lesson_promotion);
-      // notesObj.lesson_promo = note.lesson_promotion;
+        // console.log(note.lesson_promotion);
+        // notesObj.lesson_promo = note.lesson_promotion;
         // notesObj.lesson_promo = lessonId.data.data.name;
 
         notesObj.action = "view";
