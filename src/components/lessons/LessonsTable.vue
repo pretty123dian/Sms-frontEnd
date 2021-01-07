@@ -148,9 +148,8 @@
                 <button
                   :class="[
                     request_click === true
-                      ? 'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 addlesson__btn flex'
-                      : 'border rounded-md py-3 px-6 mt-8 text-white  mt-16 addlesson__btn flex w-full',
-                    username === '' || password === '' ? 'bt__disabled' : '',
+                      ? 'button_on_loaging border rounded-md py-3 px-6 mt-4 text-white addlesson__btn flex'
+                      : 'border rounded-md py-3 px-6 mt-4 text-white addlesson__btn flex w-full',
                   ]"
                 >
                   <template v-if="request_click == false">
@@ -241,6 +240,7 @@ export default {
       console.log("Lessons: ", this.lessons);
     },
     async insertLesson() {
+      this.response_status = "";
       this.request_click = true;
       let response = await Services.addLesson({
         name: this.lesson__name,
@@ -248,7 +248,7 @@ export default {
       });
       // console.log("lesson added: ", response);
 
-      this.response_status = response.data.data.name;
+      this.response_status = '" ' + response.data.data.name + ' "';
       const newLesson = {};
       newLesson._id = response.data.data._id;
       newLesson.name = response.data.data.name;
@@ -258,13 +258,10 @@ export default {
 
       this.lessons.push(newLesson);
       (this.lesson__name = ""), (this.lesson__description = "");
-      this.response_status += " Added successfully";
+      this.response_status += " added successfully";
 
       this.request_click = false;
       // function to empty the response status after a certain amount of the period
-      setTimeout(function () {
-        this.response_status = "";
-      }, 3000);
     },
   },
 };
@@ -315,6 +312,7 @@ button {
 div .lesson__add_success {
   color: #2aa804;
   text-align: center;
+  font-size: 13px;
 }
 .table__thead .table__th {
   background: #fff !important;
