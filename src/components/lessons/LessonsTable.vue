@@ -48,8 +48,13 @@
       </div>
       <div class="center bg-white p-5">
         <div class="row flex gap-4">
-          <select class="form-input p-2 border rounded" v-model="filter" border>
-            <option value="" selected>Showing 10 rows</option>
+          <select
+            class="form-input p-2 border rounded"
+            @change="getRows(filter)"
+            v-model="filter"
+            border
+          >
+            <option value="Showing 10 rows">Showing 10 rows</option>
             <option value="25">25</option>
             <option value="50">50</option>
             <option value="100">100</option>
@@ -188,6 +193,7 @@ export default {
     request_click: false,
     button_status: "Add lesson",
     response_status: "",
+    filter: "Showing 10 rows",
     // showModal: false,
 
     lessons: [],
@@ -225,7 +231,8 @@ export default {
 
   methods: {
     async getRows() {
-      const response = await Services.getLessons(2, 50);
+      this.lessons = [];
+      const response = await Services.getLessons(1, this.filter);
       console.log("Response: ", response);
       response.data.data.docs.forEach((lesson) => {
         const lessonObj = {};
@@ -325,7 +332,8 @@ tr {
   border-bottom: 1px solid #dfdfdf !important;
 }
 
-input:focus {
+input:focus,
+select:focus {
   border: 1px solid #574ae2;
 }
 svg:hover {
