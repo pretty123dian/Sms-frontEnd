@@ -107,7 +107,7 @@
         <div class="grid w-full">
           <div class="inner ml-12 mt-1">
             <br />
-            <form action="">
+            <form action="" class="lesson__form">
               <div class="first mb-10">
                 <p class="mb-2">Lesson Name</p>
 
@@ -215,6 +215,10 @@ export default {
 </script>
 
 <style scoped>
+.lesson__form input:focus,
+.lesson__form textarea:focus {
+  border: 2px solid #574ae2;
+}
 label > input[type="checkbox"]:checked + *::before {
   background-color: #574ae2;
 }
