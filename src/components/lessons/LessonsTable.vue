@@ -98,48 +98,45 @@
       > -->
       <vs-popup
         classContent="popup-example"
-        title="Notes overview"
+        title="Add new lesson"
         button-close-hidden="false"
         :active.sync="popupActivo2"
         class="assignment__popup"
         style="font-family: 'Poppins'"
       >
         <div class="grid w-full">
-          <div class="col-12">
-            <ul>
-              <li>Lesson</li>
-              <li class="font-bold">Mathematics</li>
-            </ul>
-          </div>
-          <div class="col-12">
-            <ul>
-              <li>Description</li>
-              <li class="font-bold">
-                Lorem ipsum dolor, sit amet consectetur adipisicing e
-              </li>
-            </ul>
-          </div>
+          <div class="inner ml-12 mt-1">
+            <br />
+            <form action="">
+              <div class="first mb-10">
+                <p class="mb-2">Lesson Name</p>
 
-          <div class="col-12">
-            <ul>
-              <li>Notes file</li>
-              <li class="font-bold flex text-purple">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  class="svg file"
-                  width="18"
-                  height="18"
+                <input
+                  type="text"
+                  class="outline-none border p-5 w-5/6 h-10 rounded"
+                  v-model="lesson"
+                />
+              </div>
+
+              <div class="sec">
+                <p class="mb-2">Lesson Description</p>
+
+                <textarea
+                  class="w-5/6 h-32 p-5 border resize-none outline-none rounded leading-loose"
+                  v-model="description"
+                ></textarea>
+              </div>
+
+              <div class="mt-4 ml-0">
+                <vs-button
+                  color="#574AE2"
+                  class="add rounded-full w-5/6"
+                  @click="addLesson(), changeVal()"
                 >
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM8 7h8v2H8V7zm0 4h8v2H8v-2zm0 4h8v2H8v-2z"
-                  />
-                </svg>
-
-                mathematics_cat.pdf
-              </li>
-            </ul>
+                  Add Lesson
+                </vs-button>
+              </div>
+            </form>
           </div>
         </div>
       </vs-popup>
