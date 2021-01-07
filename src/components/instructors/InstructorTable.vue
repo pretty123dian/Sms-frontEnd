@@ -61,7 +61,6 @@
               <th>Gender</th>
               <th>Email</th>
               <th>Phone N</th>
-              <th>National ID</th>
 
               <th>Status</th>
               <th colspan="3">Action</th>
@@ -85,9 +84,7 @@
               <td>
                 {{ tr.phone }}
               </td>
-              <td>
-                {{ tr.national_id }}
-              </td>
+
               <td>
                 {{ tr.status }}
               </td>
@@ -158,7 +155,7 @@ export default {
           userObj.gender = user.gender;
           userObj.phone = user.phone;
           userObj.status = user.status;
-          userObj.national_id = user.national_id;
+          // userObj.national_id = user.national_id;
           userObj.action = this.action;
           this.instructors.push(userObj);
         }
