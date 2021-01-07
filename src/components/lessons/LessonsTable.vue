@@ -54,7 +54,7 @@
             v-model="filter"
             border
           >
-            <option value="10">Showing 10 rows</option>
+            <option value="10">Showing {{ filter }} rows</option>
             <option value="25">25</option>
             <option value="50">50</option>
             <option value="100">100</option>
@@ -65,6 +65,9 @@
             border
             placeholder="Search lesson"
           />
+        </div>
+        <div class="flex mt-5">
+          <span><b>Total: </b>{{ rowCounter }}</span>
         </div>
         <table stripe :data="lessons" class="w-full">
           <br />
@@ -193,6 +196,7 @@ export default {
     request_click: false,
     button_status: "Add lesson",
     response_status: "",
+    rowCounter: 0,
     filter: 10,
     // showModal: false,
 
@@ -232,6 +236,7 @@ export default {
   methods: {
     async getRows() {
       this.lessons = [];
+      this.rowCounter = 0;
       const response = await Services.getLessons(1, this.filter);
       console.log("Response: ", response);
       response.data.data.docs.forEach((lesson) => {
@@ -243,6 +248,7 @@ export default {
         lessonObj.action = this.action;
 
         this.lessons.push(lessonObj);
+        this.rowCounter++;
       });
       console.log("Lessons: ", this.lessons);
     },
