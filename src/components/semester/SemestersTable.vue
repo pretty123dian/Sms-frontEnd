@@ -20,11 +20,11 @@
         <div class="row flex gap-4">
           <select
             class="form-input p-2 border rounded"
-            @change="getRows(filter)"
+            @change="filterSimilar()"
             v-model="filter"
             border
           >
-            <option value="" selected>Select year</option>
+            <option value="">Select year</option>
             <template v-for="(year, index) in academic_years">
               <option :value="{ year }" :key="index">{{ year }}</option>
             </template>
@@ -33,7 +33,7 @@
             class="form-input p-2 border rounded"
             v-model="search"
             border
-            placeholder="Search lesson"
+            placeholder="Search semester"
           />
         </div>
         <!-- filter and search end here -->
@@ -43,14 +43,6 @@
         </div>
         <!-- row counter ends here -->
         <table stripe :data="categories" class="w-full">
-          <template>
-            <input
-              class="form-input p-2 border rounded"
-              v-model="search"
-              border
-              placeholder="Search semester"
-            />
-          </template>
           <template>
             <vs-tr>
               <vs-th sort>Semester</vs-th>
@@ -100,6 +92,11 @@ export default {
       let foundText = this.semesters.filter((el) => el.status.match(filter));
       return foundText;
     },
+    // filterSimilar() {
+    //   if (this.semesters.year == r) {
+    //     return this.semesters;
+    //   } else return [];
+    // },
   },
 
   beforeMount() {

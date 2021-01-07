@@ -37,9 +37,9 @@
           </div>
         </div>
         <div class="col-start-4 col-end-10">
-          <router-link to="/register/instructor">
+          <router-link to="/register/student">
             <vs-button color="#574AE2" class="rounded-full add-stud-btn">
-              Add instructor
+              Add student
             </vs-button>
           </router-link>
         </div>
