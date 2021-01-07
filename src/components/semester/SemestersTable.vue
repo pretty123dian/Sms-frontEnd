@@ -24,10 +24,10 @@
             v-model="filter"
             border
           >
-            <option value="10">Showing {{ filter }} rows</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
+            <option value="" selected>Select year</option>
+            <template v-for="(year, index) in academic_years">
+              <option :value="{ year }" :key="index">{{ year }}</option>
+            </template>
           </select>
           <input
             class="form-input p-2 border rounded"
@@ -90,6 +90,8 @@ export default {
     search: "",
     status: "",
     semesters: [],
+    academic_years: [2019, 2020, 2021, 2022, 2023],
+    filter: "",
   }),
 
   computed: {
