@@ -58,7 +58,7 @@
                 v-model="userAll.username"
                 @focus="labels_focus.label1 = !labels_focus.label1"
                 @blur="labels_focus.label1 = !labels_focus.label1"
-                @input="change"
+                @input="change('username', userAll.username)"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -195,8 +195,9 @@ export default {
     }),
   },
   methods: {
-    change(model, el) {
-      console.log("Clicked event: ", el.target.value);
+    change(event, ...el) {
+      console.log("Clicked event: ", event);
+      console.log(el[0]);
     },
   },
 };
