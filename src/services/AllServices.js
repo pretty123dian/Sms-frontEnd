@@ -70,8 +70,10 @@ export default {
 
     updateUser(user_id, body) {
         return Api().put(`api/users/${user_id}`, body);
+    },
+    updatePassword(user_id, body) {
+        return Api().post(`api/users/update/password/${user_id}`, body)
     }
-
 
     // UPDATING APIS END HERE
 
