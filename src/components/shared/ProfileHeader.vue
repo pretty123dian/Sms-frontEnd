@@ -37,7 +37,7 @@
           />
         </div>
         <div class="col-start-3 col-end-13 cursor-pointer" @click="setDropdown">
-          <b>{{ user.surname }}{{ " " }}{{ user.othernames }}</b> <br />
+          <b>{{ userAll.surname }}{{ " " }}{{ userAll.othernames }}</b> <br />
           <span class="text-xs">Admin</span>
         </div>
       </div>

@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="w-1/2 mt-12 bg-white float-left p-10 mb-5">
-      <form action="">
+      <form ref="form" @submit.prevent="updateThisUser()">
         <div class="title font-bold text-lg mb-5">Account</div>
         <div class="row">
           <div class="title mb-2 font-bold">Profile picture</div>
@@ -24,7 +24,6 @@
                 class="rounded-full border border-gray-100 shadow-sm w-full profile__img"
                 src="https://randomuser.me/api/portraits/women/81.jpg"
                 alt="user image"
-                @click="setDropdown"
               />
             </div>
             <div class="w-full lg:ml-10 profile__img_change">
@@ -55,9 +54,11 @@
               >
               <br />
               <input
-                :value="user.username"
+                v-model="userAll.username"
                 @focus="labels_focus.label1 = !labels_focus.label1"
                 @blur="labels_focus.label1 = !labels_focus.label1"
+                @input="change('username', userAll.username)"
+                type="text"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -73,7 +74,9 @@
               <input
                 @focus="labels_focus.label2 = !labels_focus.label2"
                 @blur="labels_focus.label2 = !labels_focus.label2"
-                :value="user.email"
+                v-model="userAll.email"
+                type="email"
+                @input="change('email', userAll.email)"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -83,14 +86,16 @@
                 <label
                   for="name"
                   class="mr-4 name"
-                  :class="[labels_focus.label2 ? 'label-focus' : '']"
+                  :class="[labels_focus.label3 ? 'label-focus' : '']"
                   >Firstname</label
                 >
                 <br />
                 <input
-                  @focus="labels_focus.label2 = !labels_focus.label2"
-                  @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="user.surname"
+                  @focus="labels_focus.label3 = !labels_focus.label3"
+                  @blur="labels_focus.label3 = !labels_focus.label3"
+                  v-model="userAll.surname"
+                  @input="change('surname', userAll.surname)"
+                  type="text"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -99,14 +104,15 @@
                 <label
                   for="name"
                   class="mr-4 name"
-                  :class="[labels_focus.label2 ? 'label-focus' : '']"
+                  :class="[labels_focus.label4 ? 'label-focus' : '']"
                   >Lastname</label
                 >
                 <br />
                 <input
-                  @focus="labels_focus.label2 = !labels_focus.label2"
-                  @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="user.othernames"
+                  @focus="labels_focus.label4 = !labels_focus.label4"
+                  @blur="labels_focus.label4 = !labels_focus.label4"
+                  v-model="userAll.othernames"
+                  @input="change('othernames', userAll.othernames)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -117,14 +123,16 @@
                 <label
                   for="name"
                   class="mr-4 name"
-                  :class="[labels_focus.label2 ? 'label-focus' : '']"
+                  :class="[labels_focus.label5 ? 'label-focus' : '']"
                   >Phone number</label
                 >
                 <br />
                 <input
-                  @focus="labels_focus.label2 = !labels_focus.label2"
-                  @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="user.phone"
+                  @focus="labels_focus.label5 = !labels_focus.label5"
+                  @blur="labels_focus.label5 = !labels_focus.label5"
+                  v-model="userAll.phone"
+                  type="number"
+                  @input="change('phone', userAll.phone)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -134,25 +142,36 @@
                 <label
                   for="name"
                   class="mr-4 name"
-                  :class="[labels_focus.label2 ? 'label-focus' : '']"
+                  :class="[labels_focus.label6 ? 'label-focus' : '']"
                   >National ID</label
                 >
                 <br />
                 <input
-                  @focus="labels_focus.label2 = !labels_focus.label2"
-                  @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="userAll.national_id"
+                  @focus="labels_focus.label6 = !labels_focus.label6"
+                  @blur="labels_focus.label6 = !labels_focus.label6"
+                  v-model="userAll.national_id"
+                  @input="change('national_id', userAll.national_id)"
+                  type="number"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
               </div>
             </div>
             <br />
-            <vs-button
-              color="#574AE2"
-              class="focus:outline-none lg:w-2/4 mt-5 sm:w-full"
-              >Save changes</vs-button
+            <button
+              :class="[
+                request_click === true
+                  ? 'button_on_loaging border rounded-md py-3 px-6 mt-4 text-white add__btn flex'
+                  : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
+              ]"
             >
+              <template v-if="request_click == false">
+                {{ button_status }}
+              </template>
+              <template v-else>
+                <img src="@/assets/gif2.gif" />
+              </template>
+            </button>
           </div>
         </div>
       </form>
@@ -161,7 +180,9 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapMutations, mapState } from "vuex";
+// accesing the API store
+import Services from "@/services/AllServices";
 export default {
   name: "ProfileSettings",
   data: () => ({
@@ -170,12 +191,20 @@ export default {
       label2: false,
       label3: false,
       label4: false,
+      label5: false,
+      label6: false,
     },
     academicYears: ["2020", "2021"],
+    button_status: "Save changes",
+    request_click: false,
+    username: "",
+    surname: "",
+    othernames: "",
+    email: "",
+    phone: "",
+    national_id: "",
   }),
-  beforeMount() {
-    this.display();
-  },
+  beforeMount() {},
   computed: {
     ...mapState({
       user: (state) => state.user,
@@ -183,14 +212,95 @@ export default {
     }),
   },
   methods: {
-    display() {
-      console.log("National ID: ", this.user.national_id);
+    ...mapMutations(["setUserAllData"]),
+    change(event, ...el) {
+      console.log("Clicked event: ", event);
+      console.log(el[0]);
+      const currentField = event;
+      console.log(currentField);
+      switch (currentField) {
+        case "username":
+          this.username = el[0];
+          break;
+        case "email":
+          this.email = el[0];
+          break;
+        case "phone":
+          this.phone = el[0];
+          break;
+        case "national_id":
+          this.national_id = el[0];
+          break;
+        case "surname":
+          this.surname = el[0];
+          break;
+        case "othernames":
+          this.othernames = el[0];
+          break;
+
+        default:
+          console.log("Error");
+          break;
+      }
+    },
+
+    async updateThisUser() {
+      this.request_click = true;
+
+      // checking if the fields are assigned twith certain new values
+      this.username = this.username == "" ? this.user.username : this.username;
+      this.surname = this.surname == "" ? this.user.surname : this.surname;
+      this.othernames =
+        this.othernames == "" ? this.user.othernames : this.othernames;
+      this.email = this.email == "" ? this.user.email : this.email;
+      this.phone = this.phone == "" ? this.user.phone : this.phone;
+      this.national_id =
+        this.national_id == "" ? this.user.national_id : this.national_id;
+      const response = await Services.updateUser(this.user.id, {
+        username: this.username,
+        surname: this.surname,
+        othernames: this.othernames,
+        email: this.email,
+        phone: this.phone,
+        national_id: this.national_id,
+        gender: this.user.gender,
+        category: this.userAll.category._id,
+      });
+
+      console.log(response);
+      console.log(this.userAll.category._id);
+      this.request_click = false;
+      this.setUserAllData(response.data.data);
+      console.log(this.userAll);
     },
   },
 };
 </script>
 
 <style scoped>
+.add__btn {
+  justify-content: center;
+  border: none;
+  height: 7vh;
+  width: 100%;
+}
+.add__btn:hover {
+  box-shadow: 6px 5px 6px #574ae257;
+}
+.add__btn:focus {
+  outline: none;
+}
+.add__btn img {
+  width: 5%;
+  text-align: center;
+}
+button {
+  background-color: #574ae2;
+}
+.button_on_loaging {
+  background-color: #1400f3a8;
+}
+
 .profile__img {
   border: 1px solid rgb(224, 224, 224);
   height: 23vh;

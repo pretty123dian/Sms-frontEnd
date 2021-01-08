@@ -162,7 +162,7 @@ const router = new VueRouter({
             },
             {
                 path: '/register/timetable',
-                name: 'Timtable',
+                name: 'Timetable',
                 component: AddTimeTable
             },
             {
