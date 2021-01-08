@@ -239,6 +239,7 @@ export default {
     async updateThisUser() {
       this.request_click = true;
 
+      // checking if the fields are assigned twith certain new values
       this.username = this.username == "" ? this.user.username : this.username;
       this.surname = this.surname == "" ? this.user.surname : this.surname;
       this.othernames =
