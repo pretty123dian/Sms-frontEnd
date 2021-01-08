@@ -255,6 +255,8 @@ export default {
         email: this.email,
         phone: this.phone,
         national_id: this.national_id,
+        gender: this.user.gender,
+        category: this.userAll.category._id,
       });
 
       console.log(response);
