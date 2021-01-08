@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="w-1/2 mt-12 bg-white float-left p-10 mb-5">
-      <form action="">
+      <form ref="form" @submit.prevent="updateThisUser()">
         <div class="title font-bold text-lg mb-5">Account</div>
         <div class="row">
           <div class="title mb-2 font-bold">Profile picture</div>
@@ -24,7 +24,6 @@
                 class="rounded-full border border-gray-100 shadow-sm w-full profile__img"
                 src="https://randomuser.me/api/portraits/women/81.jpg"
                 alt="user image"
-                @click="setDropdown"
               />
             </div>
             <div class="w-full lg:ml-10 profile__img_change">
@@ -154,11 +153,20 @@
               </div>
             </div>
             <br />
-            <vs-button
-              color="#574AE2"
-              class="focus:outline-none lg:w-2/4 mt-5 sm:w-full"
-              >Save changes</vs-button
+            <button
+              :class="[
+                request_click === true
+                  ? 'button_on_loaging border rounded-md py-3 px-6 mt-4 text-white add__btn flex'
+                  : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
+              ]"
             >
+              <template v-if="request_click == false">
+                {{ button_status }}
+              </template>
+              <template v-else>
+                <img src="@/assets/gif2.gif" />
+              </template>
+            </button>
           </div>
         </div>
       </form>
@@ -168,6 +176,8 @@
 
 <script>
 import { mapState } from "vuex";
+// accesing the API store
+import Services from "@/services/AllServices";
 export default {
   name: "ProfileSettings",
   data: () => ({
@@ -178,6 +188,8 @@ export default {
       label4: false,
     },
     academicYears: ["2020", "2021"],
+    button_status: "Save changes",
+    request_click: false,
     username: "",
     surname: "",
     othernames: "",
@@ -185,9 +197,7 @@ export default {
     phone: "",
     national_id: "",
   }),
-  beforeMount() {
-    this.display();
-  },
+  beforeMount() {},
   computed: {
     ...mapState({
       user: (state) => state.user,
@@ -225,11 +235,48 @@ export default {
           break;
       }
     },
+
+    async updateThisUser() {
+      this.request_click = true;
+      const response = await Services.updateUser(this.user.id, {
+        username: this.username,
+        surname: this.surname,
+        othernames: this.othernames,
+        email: this.email,
+        phone: this.phone,
+        national_id: this.national_id,
+      });
+
+      console.log(response);
+    },
   },
 };
 </script>
 
 <style scoped>
+.add__btn {
+  justify-content: center;
+  border: none;
+  height: 7vh;
+  width: 100%;
+}
+.add__btn:hover {
+  box-shadow: 6px 5px 6px #574ae257;
+}
+.add__btn:focus {
+  outline: none;
+}
+.add__btn img {
+  width: 5%;
+  text-align: center;
+}
+button {
+  background-color: #574ae2;
+}
+.button_on_loaging {
+  background-color: #1400f3a8;
+}
+
 .profile__img {
   border: 1px solid rgb(224, 224, 224);
   height: 23vh;
