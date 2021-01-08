@@ -75,7 +75,7 @@
                 @focus="labels_focus.label2 = !labels_focus.label2"
                 @blur="labels_focus.label2 = !labels_focus.label2"
                 v-model="userAll.email"
-                @input="change"
+                @input="change('email', userAll.email)"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -93,7 +93,7 @@
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
                   v-model="userAll.surname"
-                  @input="change"
+                  @input="change('surname', userAll.surname)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -110,7 +110,7 @@
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
                   v-model="userAll.othernames"
-                  @input="change"
+                  @input="change('othernames', userAll.othernames)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -129,7 +129,7 @@
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
                   v-model="userAll.phone"
-                  @input="change"
+                  @input="change('phone', userAll.phone)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -147,7 +147,7 @@
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
                   v-model="userAll.national_id"
-                  @input="change"
+                  @input="change('national_id', userAll.national_id)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -198,6 +198,32 @@ export default {
     change(event, ...el) {
       console.log("Clicked event: ", event);
       console.log(el[0]);
+      const currentField = event;
+      console.log(currentField);
+      switch (currentField) {
+        case "username":
+          this.username = el[0];
+          break;
+        case "email":
+          this.email = el[0];
+          break;
+        case "phone":
+          this.phone = el[0];
+          break;
+        case "national_id":
+          this.national_id = el[0];
+          break;
+        case "surname":
+          this.surname = el[0];
+          break;
+        case "othernames":
+          this.othernames = el[0];
+          break;
+
+        default:
+          console.log("Error");
+          break;
+      }
     },
   },
 };
