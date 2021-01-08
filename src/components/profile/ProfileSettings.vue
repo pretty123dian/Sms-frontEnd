@@ -55,9 +55,10 @@
               >
               <br />
               <input
-                :value="user.username"
+                v-model="user.username"
                 @focus="labels_focus.label1 = !labels_focus.label1"
                 @blur="labels_focus.label1 = !labels_focus.label1"
+                @input="change"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -73,7 +74,8 @@
               <input
                 @focus="labels_focus.label2 = !labels_focus.label2"
                 @blur="labels_focus.label2 = !labels_focus.label2"
-                :value="user.email"
+                v-model="email"
+                @input="change"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -90,7 +92,8 @@
                 <input
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="user.surname"
+                  v-model="surname"
+                  @input="change"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -106,7 +109,8 @@
                 <input
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="user.othernames"
+                  v-model="othernames"
+                  @input="change"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -124,7 +128,8 @@
                 <input
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="user.phone"
+                  v-model="phone"
+                  @input="change"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -141,7 +146,8 @@
                 <input
                   @focus="labels_focus.label2 = !labels_focus.label2"
                   @blur="labels_focus.label2 = !labels_focus.label2"
-                  :value="userAll.national_id"
+                  v-model="national_id"
+                  @input="change"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -172,6 +178,12 @@ export default {
       label4: false,
     },
     academicYears: ["2020", "2021"],
+    username: "",
+    surname: "",
+    othernames: "",
+    email: "",
+    phone: "",
+    national_id: "",
   }),
   beforeMount() {
     this.display();
@@ -183,8 +195,8 @@ export default {
     }),
   },
   methods: {
-    display() {
-      console.log("National ID: ", this.user.national_id);
+    change(el) {
+      console.log("Clicked event: ", el.target.value);
     },
   },
 };
