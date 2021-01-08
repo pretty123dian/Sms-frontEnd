@@ -238,6 +238,15 @@ export default {
 
     async updateThisUser() {
       this.request_click = true;
+
+      this.username = this.username == "" ? this.user.username : this.username;
+      this.surname = this.surname == "" ? this.user.surname : this.surname;
+      this.othernames =
+        this.othernames == "" ? this.user.othernames : this.othernames;
+      this.email = this.email == "" ? this.user.email : this.email;
+      this.phone = this.phone == "" ? this.user.phone : this.phone;
+      this.national_id =
+        this.national_id == "" ? this.user.national_id : this.national_id;
       const response = await Services.updateUser(this.user.id, {
         username: this.username,
         surname: this.surname,
