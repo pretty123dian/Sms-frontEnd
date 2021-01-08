@@ -36,20 +36,16 @@
                 <label for="" class="mr-4" v-if="i == 0">Firstname</label>
                 <input
                   type="text"
+                  v-model="firstname"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
-              <div class="col-span-5 lg:col-span-1 md:col-span-5">
-                <label for="" class="mr-4" v-if="i == 0">Middle name</label>
-                <input
-                  type="text"
-                  class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
-                />
-              </div>
+
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Lastname</label>
                 <input
                   type="text"
+                  v-model="lastname"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -125,6 +121,7 @@
 </template>
 
 <script>
+import Services from "@/services/AllServices";
 export default {
   name: "AddStudent",
   data: () => ({
@@ -146,7 +143,6 @@ export default {
         firstname: "",
         lastname: "",
         gender: "",
-        password: "RcaSms@2020",
         birthDate: "",
         year: "",
       };
@@ -162,6 +158,20 @@ export default {
     remove(index) {
       console.log("Removing");
       this.inputs.splice(index, 1);
+    },
+
+    // post the student
+
+    async postStudent() {
+      const response = await Services.addUser({
+        username: this.username,
+        surname: this.lastname,
+        othernames: this.firstname,
+        email: this.email,
+        gender: this.gender,
+      });
+
+      console.log("New student: ", response);
     },
   },
 };

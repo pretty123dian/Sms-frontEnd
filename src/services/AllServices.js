@@ -62,6 +62,10 @@ export default {
         return Api().post(`api/lessons`, body);
     },
 
+    addUser(body) {
+        return Api().post(`api/users`, body);
+    },
+
     // POSTING APIS END HERE
 
 
