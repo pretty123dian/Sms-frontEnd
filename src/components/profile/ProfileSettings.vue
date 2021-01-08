@@ -58,6 +58,7 @@
                 @focus="labels_focus.label1 = !labels_focus.label1"
                 @blur="labels_focus.label1 = !labels_focus.label1"
                 @input="change('username', userAll.username)"
+                type="text"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
               />
@@ -74,6 +75,7 @@
                 @focus="labels_focus.label2 = !labels_focus.label2"
                 @blur="labels_focus.label2 = !labels_focus.label2"
                 v-model="userAll.email"
+                type="email"
                 @input="change('email', userAll.email)"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
@@ -93,6 +95,7 @@
                   @blur="labels_focus.label3 = !labels_focus.label3"
                   v-model="userAll.surname"
                   @input="change('surname', userAll.surname)"
+                  type="text"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
@@ -128,6 +131,7 @@
                   @focus="labels_focus.label5 = !labels_focus.label5"
                   @blur="labels_focus.label5 = !labels_focus.label5"
                   v-model="userAll.phone"
+                  type="number"
                   @input="change('phone', userAll.phone)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
@@ -147,6 +151,7 @@
                   @blur="labels_focus.label6 = !labels_focus.label6"
                   v-model="userAll.national_id"
                   @input="change('national_id', userAll.national_id)"
+                  type="number"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
                 />
