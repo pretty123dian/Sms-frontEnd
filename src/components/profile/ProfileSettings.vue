@@ -84,13 +84,13 @@
                 <label
                   for="name"
                   class="mr-4 name"
-                  :class="[labels_focus.label2 ? 'label-focus' : '']"
+                  :class="[labels_focus.label3 ? 'label-focus' : '']"
                   >Firstname</label
                 >
                 <br />
                 <input
-                  @focus="labels_focus.label2 = !labels_focus.label2"
-                  @blur="labels_focus.label2 = !labels_focus.label2"
+                  @focus="labels_focus.label3 = !labels_focus.label3"
+                  @blur="labels_focus.label3 = !labels_focus.label3"
                   v-model="userAll.surname"
                   @input="change('surname', userAll.surname)"
                   id="name"
