@@ -26,6 +26,7 @@
             <input
               @focus="labels_focus.label1 = !labels_focus.label1"
               @blur="labels_focus.label1 = !labels_focus.label1"
+              v-model="former_password"
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
             />
@@ -42,7 +43,8 @@
               @focus="labels_focus.label2 = !labels_focus.label2"
               @blur="labels_focus.label2 = !labels_focus.label2"
               id="name"
-              class="form-input p-3 mt-2 mr-4 border  md:w-full border-#E1E1E1-600 rounded"
+              v-model="new_password"
+              class="form-input p-3 mt-2 mr-4 border md:w-full border-#E1E1E1-600 rounded"
             />
           </div>
           <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
@@ -56,15 +58,17 @@
             <input
               @focus="labels_focus.label3 = !labels_focus.label3"
               @blur="labels_focus.label3 = !labels_focus.label3"
+              v-model="confirm_password"
               id="name"
-              class="form-input p-3 mt-2 mr-4 border  md:w-full border-#E1E1E1-600 rounded"
+              class="form-input p-3 mt-2 mr-4 border md:w-full border-#E1E1E1-600 rounded"
             />
           </div>
           <br />
           <vs-button
             color="#574AE2"
             class="focus:outline-none lg:w-2/4 sm:w-full"
-            >Save changes</vs-button>
+            >Save changes</vs-button
+          >
         </div>
       </form>
     </div>
@@ -79,9 +83,7 @@ export default {
       label1: false,
       label2: false,
       label3: false,
-      label4: false,
     },
-    academicYears: ["2020", "2021"],
   }),
 };
 </script>
@@ -123,7 +125,6 @@ export default {
   /* border:1px solid black; */
   border-radius: 20px;
 }
-
 
 input:focus,
 select:focus,
