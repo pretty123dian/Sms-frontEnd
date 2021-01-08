@@ -260,6 +260,8 @@ export default {
       });
 
       console.log(response);
+      console.log(this.userAll.category._id);
+      // return response;
     },
   },
 };
