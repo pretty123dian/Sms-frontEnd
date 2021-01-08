@@ -100,19 +100,17 @@
                     : 'col-span-6 lg:col-span-1 md:col-span-6 mt-1'
                 "
               >
-                <router-link to="">
-                  <vs-button
-                    color="#574AE2"
-                    :class="
-                      i == 0
-                        ? 'rounded-full py-3 px-6 add-stud-btn rounded-full w-1/5'
-                        : 'rounded-full py-1 px-6 add-stud-btn rounded-full w-1/5'
-                    "
-                    @click="inputs[i] == '+' ? expand(i) : remove(i)"
-                  >
-                    {{ inputs[i] }}
-                  </vs-button>
-                </router-link>
+                <vs-button
+                  color="#574AE2"
+                  :class="
+                    i == 0
+                      ? 'rounded-full py-3 px-6 add-stud-btn rounded-full w-1/5'
+                      : 'rounded-full py-1 px-6 add-stud-btn rounded-full w-1/5'
+                  "
+                  @click="inputs[i] == '+' ? expand(i) : remove(i)"
+                >
+                  {{ inputs[i] }}
+                </vs-button>
               </div>
             </div>
           </div>
@@ -139,11 +137,11 @@ export default {
     userData: [],
     genderN: "gender",
     gender: ["Male", "Female"],
+    username: "",
     firstname: "",
     lastname: "",
     email: "",
     dob: "",
-    username: "",
   }),
   watch: {
     route() {
