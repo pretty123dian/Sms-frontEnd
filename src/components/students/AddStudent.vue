@@ -33,6 +33,14 @@
           <div class="center">
             <div class="size-example grid grid-cols-5 gap-5">
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
+                <label for="" class="mr-4" v-if="i == 0">Username</label>
+                <input
+                  type="text"
+                  v-model="username"
+                  class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
+                />
+              </div>
+              <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Firstname</label>
                 <input
                   type="text"
@@ -131,6 +139,11 @@ export default {
     userData: [],
     genderN: "gender",
     gender: ["Male", "Female"],
+    firstname: "",
+    lastname: "",
+    email: "",
+    dob: "",
+    username: "",
   }),
   watch: {
     route() {
