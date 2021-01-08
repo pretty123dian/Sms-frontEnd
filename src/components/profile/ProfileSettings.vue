@@ -101,13 +101,13 @@
                 <label
                   for="name"
                   class="mr-4 name"
-                  :class="[labels_focus.label2 ? 'label-focus' : '']"
+                  :class="[labels_focus.label4 ? 'label-focus' : '']"
                   >Lastname</label
                 >
                 <br />
                 <input
-                  @focus="labels_focus.label2 = !labels_focus.label2"
-                  @blur="labels_focus.label2 = !labels_focus.label2"
+                  @focus="labels_focus.label4 = !labels_focus.label4"
+                  @blur="labels_focus.label4 = !labels_focus.label4"
                   v-model="userAll.othernames"
                   @input="change('othernames', userAll.othernames)"
                   id="name"
@@ -120,13 +120,13 @@
                 <label
                   for="name"
                   class="mr-4 name"
-                  :class="[labels_focus.label2 ? 'label-focus' : '']"
+                  :class="[labels_focus.label5 ? 'label-focus' : '']"
                   >Phone number</label
                 >
                 <br />
                 <input
-                  @focus="labels_focus.label2 = !labels_focus.label2"
-                  @blur="labels_focus.label2 = !labels_focus.label2"
+                  @focus="labels_focus.label5 = !labels_focus.label5"
+                  @blur="labels_focus.label5 = !labels_focus.label5"
                   v-model="userAll.phone"
                   @input="change('phone', userAll.phone)"
                   id="name"
@@ -138,13 +138,13 @@
                 <label
                   for="name"
                   class="mr-4 name"
-                  :class="[labels_focus.label2 ? 'label-focus' : '']"
+                  :class="[labels_focus.label6 ? 'label-focus' : '']"
                   >National ID</label
                 >
                 <br />
                 <input
-                  @focus="labels_focus.label2 = !labels_focus.label2"
-                  @blur="labels_focus.label2 = !labels_focus.label2"
+                  @focus="labels_focus.label6 = !labels_focus.label6"
+                  @blur="labels_focus.label6 = !labels_focus.label6"
                   v-model="userAll.national_id"
                   @input="change('national_id', userAll.national_id)"
                   id="name"
@@ -175,7 +175,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapMutations, mapState } from "vuex";
 // accesing the API store
 import Services from "@/services/AllServices";
 export default {
@@ -186,6 +186,8 @@ export default {
       label2: false,
       label3: false,
       label4: false,
+      label5: false,
+      label6: false,
     },
     academicYears: ["2020", "2021"],
     button_status: "Save changes",
@@ -205,6 +207,7 @@ export default {
     }),
   },
   methods: {
+    ...mapMutations(["setUserAllData"]),
     change(event, ...el) {
       console.log("Clicked event: ", event);
       console.log(el[0]);
@@ -261,6 +264,7 @@ export default {
 
       console.log(response);
       console.log(this.userAll.category._id);
+      this.request_click = false;
       // return response;
     },
   },
