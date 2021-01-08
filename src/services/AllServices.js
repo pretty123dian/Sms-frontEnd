@@ -55,11 +55,25 @@ export default {
 
 
     // GETTING APIS END HERE
+
+    //POSTING APIS START HERE
+
     addLesson(body) {
         return Api().post(`api/lessons`, body);
+    },
+
+    // POSTING APIS END HERE
+
+
+
+    // UDPATING APIS START HERE
+
+    updateUser(user_id) {
+        return Api().put(`api/users/${user_id}`);
     }
 
-    // POSTING APIS START HERE
+
+    // UPDATING APIS END HERE
 
 }
 
