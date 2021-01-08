@@ -170,6 +170,7 @@ export default {
         surname: this.lastname,
         othernames: this.firstname,
         email: this.email,
+        birth_date: this.dob,
         gender: this.gender,
       });
 
