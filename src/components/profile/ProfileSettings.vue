@@ -265,7 +265,8 @@ export default {
       console.log(response);
       console.log(this.userAll.category._id);
       this.request_click = false;
-      // return response;
+      this.setUserAllData(response.data.data);
+      console.log(this.userAll);
     },
   },
 };
