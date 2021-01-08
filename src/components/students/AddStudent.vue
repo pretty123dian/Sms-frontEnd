@@ -73,6 +73,7 @@
                 <label for="" class="mr-4" v-if="i == 0">Email</label>
                 <input
                   type="email"
+                  v-model="email"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -80,6 +81,7 @@
                 <label for="" class="mr-4" v-if="i == 0">Date of birth</label>
                 <input
                   type="date"
+                  v-model="dob"
                   class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
                 />
               </div>
