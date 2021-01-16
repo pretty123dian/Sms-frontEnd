@@ -88,7 +88,7 @@ export default {
     },
     name: "",
     year: "",
-    academicYears: ["2020", "2021"],
+    academicYears: [2020,2021,2022,2023,2024,2025],
     add_status: "Add semester",
     request_click: false,
     response_status: "",
