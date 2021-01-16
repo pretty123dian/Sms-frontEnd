@@ -74,7 +74,6 @@ export default {
 
 
     // UDPATING APIS START HERE
-
     updateUser(user_id, body) {
         return Api().put(`api/users/${user_id}`, body);
     },
