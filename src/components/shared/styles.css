@@ -1,0 +1,58 @@
+/* submit button for all starts here */
+
+.add__btn {
+    justify-content: center;
+    border: none;
+    height: 7vh;
+    width: 100%;
+  }
+  .add__btn:hover {
+    box-shadow: 6px 5px 6px #574ae257;
+  }
+  .add__btn:focus {
+    outline: none;
+  }
+  .add__btn img {
+    width: 5%;
+    text-align: center;
+  }
+  button {
+    background-color: #574ae2;
+  }
+  .button_on_loaging {
+    background-color: #1400f3a8;
+  }
+  
+  .add-stud-btn:focus {
+    outline: none;
+  }
+/* submit button styles ends here */
+
+
+
+
+
+
+  /* add semester style here */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border: 2px solid #574ae2 !important;
+    border-radius: 4px !important;
+  }
+  .notes__upload_file:hover {
+    border: 2px solid #574ae2;
+    border-style: dashed;
+    cursor: pointer;
+    border-radius: 3%;
+    background-color: #574ae21c;
+  }
+  .label-focus {
+    color: #574ae2 !important;
+  }
+  .notes__upload_file {
+    height: 25vh;
+    width: 100%;
+  }
+
+  /* add semesters styles end here */

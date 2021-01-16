@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="w-1/2 mt-12 bg-white float-left p-10 mb-5">
-      <form action="" class="">
+      <form @submit.prevent="updatePassword()" class="">
         <div class="title font-bold text-lg mb-5">Password</div>
         <div>
           <div>
@@ -26,6 +26,8 @@
             <input
               @focus="labels_focus.label1 = !labels_focus.label1"
               @blur="labels_focus.label1 = !labels_focus.label1"
+              v-model="former_password"
+              type="password"
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
             />
@@ -42,7 +44,9 @@
               @focus="labels_focus.label2 = !labels_focus.label2"
               @blur="labels_focus.label2 = !labels_focus.label2"
               id="name"
-              class="form-input p-3 mt-2 mr-4 border  md:w-full border-#E1E1E1-600 rounded"
+              type="password"
+              v-model="new_password"
+              class="form-input p-3 mt-2 mr-4 border md:w-full border-#E1E1E1-600 rounded"
             />
           </div>
           <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
@@ -56,15 +60,37 @@
             <input
               @focus="labels_focus.label3 = !labels_focus.label3"
               @blur="labels_focus.label3 = !labels_focus.label3"
+              v-model="confirm_password"
+              type="password"
               id="name"
-              class="form-input p-3 mt-2 mr-4 border  md:w-full border-#E1E1E1-600 rounded"
+              class="form-input p-3 mt-2 mr-4 border md:w-full border-#E1E1E1-600 rounded"
             />
           </div>
+          <div
+            v-if="response_status_block == true"
+            :class="[
+              response_status == true
+                ? 'mt-5 status_success w-full flex'
+                : 'mt-5 status_error w-full flex',
+            ]"
+          >
+            <span class="m-auto"> {{ res_status_title }} </span>
+          </div>
           <br />
-          <vs-button
-            color="#574AE2"
-            class="focus:outline-none lg:w-2/4 sm:w-full"
-            >Save changes</vs-button>
+          <button
+            :class="[
+              request_click === true
+                ? 'button_on_loaging border rounded-md py-3 px-6 mt-4 text-white add__btn flex'
+                : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
+            ]"
+          >
+            <template v-if="request_click == false">
+              {{ button_status }}
+            </template>
+            <template v-else>
+              <img src="@/assets/gif2.gif" />
+            </template>
+          </button>
         </div>
       </form>
     </div>
@@ -72,6 +98,8 @@
 </template>
 
 <script>
+import Services from "@/services/AllServices";
+import {} from "vuex";
 export default {
   name: "UpdatePassword",
   data: () => ({
@@ -79,14 +107,65 @@ export default {
       label1: false,
       label2: false,
       label3: false,
-      label4: false,
     },
-    academicYears: ["2020", "2021"],
+    former_password: "",
+    new_password: "",
+    confirm_password: "",
+    response_status: false,
+    response_status_block: false,
+    res_status_title: "",
+    request_click: false,
+    button_status: "Update password",
   }),
+  computed: {},
+
+  methods: {
+    async updatePassword() {
+      if (this.new_password === this.confirm_password) {
+        this.response_status = true;
+        this.response_status_block = true;
+        this.res_status_title = "Updating...";
+        this.request_click = true;
+        const response = await Services.updatePassword(this.userAll.id, {
+          current_password: this.former_password,
+          new_password: this.new_password,
+        });
+        console.log("Password>>>: ", response);
+        this.response_status = false;
+      } else {
+        this.response_status_block = true;
+        this.response_status = false;
+        this.res_status_title = "Password doesn't match";
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
+.add__btn {
+  justify-content: center;
+  border: none;
+  height: 7vh;
+  width: 100%;
+}
+.add__btn:hover {
+  box-shadow: 6px 5px 6px #574ae257;
+}
+.add__btn:focus {
+  outline: none;
+}
+.add__btn img {
+  width: 5%;
+  text-align: center;
+}
+button {
+  background-color: #574ae2;
+}
+.button_on_loaging {
+  background-color: #1400f3a8;
+}
+
 .profile__img {
   border: 1px solid rgb(224, 224, 224);
   height: 25vh;
@@ -124,7 +203,6 @@ export default {
   border-radius: 20px;
 }
 
-
 input:focus,
 select:focus,
 textarea:focus {
@@ -144,5 +222,14 @@ textarea:focus {
 .notes__upload_file {
   height: 25vh;
   width: 100%;
+}
+
+/* display errors or status ok  */
+
+.status_error {
+  color: #ca0909;
+}
+.status_success {
+  color: #2aa804;
 }
 </style>

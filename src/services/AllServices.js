@@ -62,16 +62,24 @@ export default {
         return Api().post(`api/lessons`, body);
     },
 
+    addUser(body) {
+        return Api().post(`api/users`, body);
+    },
+    addSemester(body) {
+        return Api().post(`api/semester`, body);
+    },
+
     // POSTING APIS END HERE
 
 
 
     // UDPATING APIS START HERE
-
     updateUser(user_id, body) {
         return Api().put(`api/users/${user_id}`, body);
+    },
+    updatePassword(user_id, body) {
+        return Api().post(`api/users/update/password/${user_id}`, body)
     }
-
 
     // UPDATING APIS END HERE
 

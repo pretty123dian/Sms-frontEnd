@@ -33,23 +33,27 @@
           <div class="center">
             <div class="size-example grid grid-cols-5 gap-5">
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
-                <label for="" class="mr-4" v-if="i == 0">Firstname</label>
+                <label for="" class="mr-4" v-if="i == 0">Username</label>
                 <input
                   type="text"
+                  v-model="username"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
-                <label for="" class="mr-4" v-if="i == 0">Middle name</label>
+                <label for="" class="mr-4" v-if="i == 0">Firstname</label>
                 <input
                   type="text"
+                  v-model="firstname"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
+
               <div class="col-span-5 lg:col-span-1 md:col-span-5">
                 <label for="" class="mr-4" v-if="i == 0">Lastname</label>
                 <input
                   type="text"
+                  v-model="lastname"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -77,6 +81,7 @@
                 <label for="" class="mr-4" v-if="i == 0">Email</label>
                 <input
                   type="email"
+                  v-model="email"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -84,6 +89,7 @@
                 <label for="" class="mr-4" v-if="i == 0">Date of birth</label>
                 <input
                   type="date"
+                  v-model="dob"
                   class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
                 />
               </div>
@@ -94,19 +100,17 @@
                     : 'col-span-6 lg:col-span-1 md:col-span-6 mt-1'
                 "
               >
-                <router-link to="">
-                  <vs-button
-                    color="#574AE2"
-                    :class="
-                      i == 0
-                        ? 'rounded-full py-3 px-6 add-stud-btn rounded-full w-1/5'
-                        : 'rounded-full py-1 px-6 add-stud-btn rounded-full w-1/5'
-                    "
-                    @click="inputs[i] == '+' ? expand(i) : remove(i)"
-                  >
-                    {{ inputs[i] }}
-                  </vs-button>
-                </router-link>
+                <vs-button
+                  color="#574AE2"
+                  :class="
+                    i == 0
+                      ? 'rounded-full py-3 px-6 add-stud-btn rounded-full w-1/5'
+                      : 'rounded-full py-1 px-6 add-stud-btn rounded-full w-1/5'
+                  "
+                  @click="inputs[i] == '+' ? expand(i) : remove(i)"
+                >
+                  {{ inputs[i] }}
+                </vs-button>
               </div>
             </div>
           </div>
@@ -125,6 +129,7 @@
 </template>
 
 <script>
+import Services from "@/services/AllServices";
 export default {
   name: "AddStudent",
   data: () => ({
@@ -132,6 +137,11 @@ export default {
     userData: [],
     genderN: "gender",
     gender: ["Male", "Female"],
+    username: "",
+    firstname: "",
+    lastname: "",
+    email: "",
+    dob: "",
   }),
   watch: {
     route() {
@@ -146,7 +156,6 @@ export default {
         firstname: "",
         lastname: "",
         gender: "",
-        password: "RcaSms@2020",
         birthDate: "",
         year: "",
       };
@@ -162,6 +171,21 @@ export default {
     remove(index) {
       console.log("Removing");
       this.inputs.splice(index, 1);
+    },
+
+    // post the student
+
+    async postStudent() {
+      const response = await Services.addUser({
+        username: this.username,
+        surname: this.lastname,
+        othernames: this.firstname,
+        email: this.email,
+        birth_date: this.dob,
+        gender: this.gender,
+      });
+
+      console.log("New student: ", response);
     },
   },
 };
