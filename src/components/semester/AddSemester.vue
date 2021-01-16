@@ -44,7 +44,12 @@
             </select>
           </div>
 
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
+          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
+            <div class="flex w-full">
+              <p class="text-green float-right m-auto">
+                {{ response_status }}
+              </p>
+            </div>
             <button
               @click="validateAllfields()"
               :class="[
@@ -87,6 +92,7 @@ export default {
     academicYears: ["2020", "2021"],
     add_status: "Add semester",
     request_click: false,
+    response_status: "",
   }),
 
   methods: {
@@ -98,6 +104,9 @@ export default {
       });
       console.log(response);
       this.request_click = false;
+      this.response_status = "Semester " + this.name + " is added successfully";
+      this.name = "";
+      this.year = "";
     },
   },
 };
