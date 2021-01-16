@@ -114,6 +114,7 @@ export default {
 
   methods: {
     async createSemester() {
+      this.request_click = true;
       console.log("response");
       const response = await Services.addSemester({
         semester: this.name,
