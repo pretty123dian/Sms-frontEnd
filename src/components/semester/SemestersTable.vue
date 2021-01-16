@@ -120,7 +120,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 label > input[type="checkbox"]:checked + *::before {
   background-color: #574ae2;
 }

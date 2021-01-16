@@ -5,7 +5,7 @@
         <span class="font-bold text-sm">Add new semester</span>
       </div>
       <div class="w-full mt-5">
-        <form @submit.prevent="createSemester()">
+        <form ref="form" @submit.prevent="createSemester()">
           <div class="col-span-5 lg:col-span-1 md:col-span-5">
             <label
               for="name"
@@ -39,7 +39,7 @@
             >
               <option value="">Select academic year</option>
               <template v-for="(year, index) in academicYears">
-                <option value="year" :key="index">{{ year }}</option>
+                <option :value="year" :key="index">{{ year }}</option>
               </template>
             </select>
           </div>
@@ -63,11 +63,27 @@
           </div> -->
 
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
-            <vs-button
+            <!-- <vs-button
               color="#574AE2"
               class="focus:outline-none lg:w-2/4 sm:w-full"
-              >Add semester</vs-button
+              >Add semester</vs-button -->
+
+            <button
+              @click="validateAllfields()"
+              :class="[
+                request_click === true
+                  ? 'button_on_loaging border rounded-md py-3 px-5 mt-8 text-white mt-16 add__btn flex  lg:w-2/4 sm:w-full'
+                  : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-2/4 sm:w-full',
+                username === '' || password === '' ? 'bt__disabled' : '',
+              ]"
             >
+              <template v-if="request_click == false">
+                {{ add_status }}
+              </template>
+              <template v-else>
+                <img src="@/assets/gif2.gif" />
+              </template>
+            </button>
           </div>
         </form>
       </div>
@@ -89,19 +105,27 @@ export default {
       label3: false,
       label4: false,
     },
+    name: "",
+    year: "",
     academicYears: ["2020", "2021"],
+    add_status: "Add semester",
+    request_click: false,
   }),
 
   methods: {
     async createSemester() {
-      const response = await Services.addSemester({});
+      console.log("response");
+      const response = await Services.addSemester({
+        semester: this.name,
+        academic_year: this.year,
+      });
       console.log(response);
     },
   },
 };
 </script>
 
-<style scoped>
+<style src="../shared/styles.css" scoped>
 input:focus,
 select:focus,
 textarea:focus {
