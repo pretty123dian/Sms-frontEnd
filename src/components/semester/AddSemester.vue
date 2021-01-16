@@ -44,7 +44,7 @@
             </select>
           </div>
 
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
+          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
             <div class="flex w-full">
               <p class="text-green float-right m-auto">
                 {{ response_status }}
@@ -104,6 +104,7 @@ export default {
       });
       console.log(response);
       this.request_click = false;
+      this.response_status = "Semester " + this.name + " is added successfully";
       this.name = "";
       this.year = "";
     },
