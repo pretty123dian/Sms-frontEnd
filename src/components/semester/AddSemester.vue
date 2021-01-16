@@ -17,6 +17,7 @@
             <input
               @focus="labels_focus.label1 = !labels_focus.label1"
               @blur="labels_focus.label1 = !labels_focus.label1"
+              v-model="name"
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             />
@@ -32,6 +33,7 @@
             <select
               @focus="labels_focus.label1 = !labels_focus.label1"
               @blur="labels_focus.label1 = !labels_focus.label1"
+              v-model="year"
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             >
@@ -41,7 +43,7 @@
               </template>
             </select>
           </div>
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
+          <!-- <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
             <label
               for=""
               class="mr-4"
@@ -52,13 +54,13 @@
             <textarea
               @focus="labels_focus.label2 = !labels_focus.label2"
               @blur="labels_focus.label2 = !labels_focus.label2"
-              name=""
+              v-model="description"
               id=""
               rows="5"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 sm:w-full border-#E1E1E1-600 rounded"
             >
             </textarea>
-          </div>
+          </div> -->
 
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
             <vs-button
@@ -91,7 +93,10 @@ export default {
   }),
 
   methods: {
-    async createSemester() {},
+    async createSemester() {
+      const response = await Services.addSemester({});
+      console.log(response);
+    },
   },
 };
 </script>
