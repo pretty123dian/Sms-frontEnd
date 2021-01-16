@@ -20,7 +20,6 @@
         <div class="row flex gap-4">
           <select
             class="form-input p-2 border rounded"
-            @change="filterSimilar()"
             v-model="filter"
             border
           >
@@ -42,7 +41,7 @@
           <span><b>Total: </b>{{ rowCounter }}</span>
         </div>
         <!-- row counter ends here -->
-        <table stripe :data="categories" class="w-full">
+        <table stripe class="w-full">
           <template>
             <vs-tr>
               <vs-th sort>Semester</vs-th>
@@ -53,7 +52,7 @@
           </template>
 
           <template>
-            <vs-tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
+            <vs-tr :key="i" v-for="(tr, i) in filterSimilar" :data="tr">
               <vs-td class="w-1/6">
                 {{ tr.name }}
               </vs-td>
@@ -84,6 +83,7 @@ export default {
     semesters: [],
     academic_years: [2019, 2020, 2021, 2022, 2023],
     filter: "",
+    rowCounter:""
   }),
 
   computed: {
@@ -92,11 +92,15 @@ export default {
       let foundText = this.semesters.filter((el) => el.status.match(filter));
       return foundText;
     },
-    // filterSimilar() {
-    //   if (this.semesters.year == r) {
-    //     return this.semesters;
-    //   } else return [];
-    // },
+     filterSimilar() {
+      //  alert(this.filter.year)
+       let foundItems = this.semesters.filter((el)=> el.year == this.filter.year);
+      //  console.log(foundItems)
+      //  alert(foundItems)
+        return foundItems;
+        
+    },  
+   
   },
 
   beforeMount() {
@@ -104,8 +108,9 @@ export default {
     this.getRows();
   },
   methods: {
+    
     async getRows() {
-      const response = await Services.getSemesters(1, 10);
+      const response = await Services.getSemesters(1, 20);
       response.data.data.docs.forEach((semester) => {
         const semesterObj = {};
         semesterObj.name = semester.semester;
