@@ -29,6 +29,12 @@
   .text-green{
     color: #2aa804;
   }
+  .text-red{
+    color:#ee0004;
+  }
+  .error {
+    border: 2px solid #ee0004;
+  }
 /* submit button styles ends here */
 
 

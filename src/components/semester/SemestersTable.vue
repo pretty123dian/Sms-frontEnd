@@ -20,31 +20,34 @@
         <div class="row flex gap-4">
           <select
             class="form-input p-2 border rounded"
-            @change="filterSimilar()"
             v-model="filter"
             border
           >
-            <option value="">Select year</option>
+          <template v-if="filter ==''">
+             <option value="">Select academic year</option>
+            </template>
+            
             <template v-for="(year, index) in academic_years">
               <option :value="{ year }" :key="index">{{ year }}</option>
             </template>
           </select>
-          <input
+          <!-- <input
             class="form-input p-2 border rounded"
             v-model="search"
             border
             placeholder="Search semester"
-          />
+          /> -->
         </div>
         <!-- filter and search end here -->
         <!-- row counter here -->
-        <div class="flex mt-5">
+        <div class="flex my-5">
           <span><b>Total: </b>{{ rowCounter }}</span>
         </div>
         <!-- row counter ends here -->
-        <table stripe :data="categories" class="w-full">
+        <table stripe class="w-full">
           <template>
             <vs-tr>
+              <vs-th>#</vs-th>
               <vs-th sort>Semester</vs-th>
               <vs-th sort-key="description">Academic year</vs-th>
               <vs-th>Status</vs-th>
@@ -53,9 +56,10 @@
           </template>
 
           <template>
-            <vs-tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
+            <vs-tr :key="i" v-for="(tr, i) in filterSimilar" :data="tr">
+              <vs-td>{{i+1}}</vs-td>
               <vs-td class="w-1/6">
-                {{ tr.name }}
+               Term {{ tr.name }}
               </vs-td>
               <vs-td>
                 {{ tr.year }}
@@ -84,6 +88,7 @@ export default {
     semesters: [],
     academic_years: [2019, 2020, 2021, 2022, 2023],
     filter: "",
+    rowCounter:""
   }),
 
   computed: {
@@ -92,11 +97,20 @@ export default {
       let foundText = this.semesters.filter((el) => el.status.match(filter));
       return foundText;
     },
-    // filterSimilar() {
-    //   if (this.semesters.year == r) {
-    //     return this.semesters;
-    //   } else return [];
-    // },
+     filterSimilar() {
+       let foundItems = this.semesters;
+       let currentYear = new Date().getYear()+1900;
+       if(this.filter!=""){
+          foundItems = this.semesters.filter((el)=> el.year == this.filter.year);
+       }
+       else{
+         
+           foundItems = this.semesters.filter((el)=> el.year == currentYear);
+       }
+        return foundItems;
+        
+    },  
+   
   },
 
   beforeMount() {
@@ -104,8 +118,9 @@ export default {
     this.getRows();
   },
   methods: {
+    
     async getRows() {
-      const response = await Services.getSemesters(1, 10);
+      const response = await Services.getSemesters(1, 100);
       response.data.data.docs.forEach((semester) => {
         const semesterObj = {};
         semesterObj.name = semester.semester;
@@ -139,7 +154,7 @@ label > input[type="checkbox"]:checked + * {
   /* background-color: #E9E8FF;
   border: 1px solid black; */
 }
-input:focus {
+input:focus, select:focus {
   border: 1px solid #574ae2;
 }
 tr {
