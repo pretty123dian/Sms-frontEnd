@@ -72,8 +72,8 @@
               @click="validateAllfields()"
               :class="[
                 request_click === true
-                  ? 'button_on_loaging border rounded-md py-3 px-5 mt-8 text-white mt-16 add__btn flex  lg:w-2/4 sm:w-full'
-                  : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-2/4 sm:w-full',
+                  ? 'button_on_loaging border rounded-md py-3 px-5 mt-8 text-white mt-16 add__btn flex  lg:w-1/4 sm:w-full'
+                  : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-1/4 sm:w-full',
                 username === '' || password === '' ? 'bt__disabled' : '',
               ]"
             >
@@ -115,12 +115,12 @@ export default {
   methods: {
     async createSemester() {
       this.request_click = true;
-      console.log("response");
       const response = await Services.addSemester({
         semester: this.name,
         academic_year: this.year,
       });
       console.log(response);
+      this.request_click = false;
     },
   },
 };
