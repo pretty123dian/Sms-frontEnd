@@ -46,7 +46,7 @@
 
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4">
             <div class="flex w-full">
-              <p class="text-green float-right m-auto">
+              <p :class="[ error_response==true?'text-red float-right m-auto':'text-green float-right m-auto']">
                 {{ response_status }}
               </p>
             </div>
@@ -93,6 +93,7 @@ export default {
     add_status: "Add semester",
     request_click: false,
     response_status: "",
+    error_response:false
   }),
 
   methods: {
@@ -102,9 +103,18 @@ export default {
         semester: this.name,
         academic_year: this.year,
       });
-      console.log(response);
+      console.log(response.data.status);
       this.request_click = false;
+      if(response.data.status==201){
       this.response_status = "Semester " + this.name + " is added successfully";
+      this.error_response = false;
+      }
+      else{
+      this.response_status = "Semester " + this.name + " exists";
+      this.error_response = true;
+      }
+      
+      
       this.name = "";
       this.year = "";
     },
