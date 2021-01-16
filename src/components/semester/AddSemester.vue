@@ -55,8 +55,7 @@
               :class="[
                 request_click === true
                   ? 'button_on_loaging border rounded-md py-3 px-5 mt-8 text-white mt-16 add__btn flex  lg:w-1/4 sm:w-full'
-                  : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-1/4 sm:w-full',
-                username === '' || password === '' ? 'bt__disabled' : '',
+                  : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-1/4 sm:w-full'
               ]"
             >
               <template v-if="request_click == false">
@@ -108,15 +107,15 @@ export default {
       if(response.data.status==201){
       this.response_status = "Semester " + this.name + " is added successfully";
       this.error_response = false;
+      
+      this.name = "";
+      this.year = "";
       }
       else{
       this.response_status = "Semester " + this.name + " exists";
       this.error_response = true;
       }
       
-      
-      this.name = "";
-      this.year = "";
     },
   },
 };
