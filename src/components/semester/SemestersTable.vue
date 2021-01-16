@@ -23,17 +23,20 @@
             v-model="filter"
             border
           >
-            <option value="">Select year</option>
+          <template v-if="filter ==''">
+             <option value="">Select academic year</option>
+            </template>
+            
             <template v-for="(year, index) in academic_years">
               <option :value="{ year }" :key="index">{{ year }}</option>
             </template>
           </select>
-          <input
+          <!-- <input
             class="form-input p-2 border rounded"
             v-model="search"
             border
             placeholder="Search semester"
-          />
+          /> -->
         </div>
         <!-- filter and search end here -->
         <!-- row counter here -->
@@ -44,6 +47,7 @@
         <table stripe class="w-full">
           <template>
             <vs-tr>
+              <vs-th>#</vs-th>
               <vs-th sort>Semester</vs-th>
               <vs-th sort-key="description">Academic year</vs-th>
               <vs-th>Status</vs-th>
@@ -53,8 +57,9 @@
 
           <template>
             <vs-tr :key="i" v-for="(tr, i) in filterSimilar" :data="tr">
+              <vs-td>{{i+1}}</vs-td>
               <vs-td class="w-1/6">
-                {{ tr.name }}
+               Term {{ tr.name }}
               </vs-td>
               <vs-td>
                 {{ tr.year }}
@@ -149,7 +154,7 @@ label > input[type="checkbox"]:checked + * {
   /* background-color: #E9E8FF;
   border: 1px solid black; */
 }
-input:focus {
+input:focus, select:focus {
   border: 1px solid #574ae2;
 }
 tr {
