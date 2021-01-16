@@ -26,13 +26,13 @@
             <label
               for="name"
               class="mr-4 name"
-              :class="[labels_focus.label1 ? 'label-focus' : '']"
+              :class="[labels_focus.label2 ? 'label-focus' : '']"
               >Academic year</label
             >
             <br />
             <select
-              @focus="labels_focus.label1 = !labels_focus.label1"
-              @blur="labels_focus.label1 = !labels_focus.label1"
+              @focus="labels_focus.label2 = !labels_focus.label2"
+              @blur="labels_focus.label2 = !labels_focus.label2"
               v-model="year"
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
