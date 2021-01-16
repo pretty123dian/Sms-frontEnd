@@ -37,7 +37,7 @@
         </div>
         <!-- filter and search end here -->
         <!-- row counter here -->
-        <div class="flex mt-5">
+        <div class="flex my-5">
           <span><b>Total: </b>{{ rowCounter }}</span>
         </div>
         <!-- row counter ends here -->
@@ -115,7 +115,7 @@ export default {
   methods: {
     
     async getRows() {
-      const response = await Services.getSemesters(1, 20);
+      const response = await Services.getSemesters(1, 100);
       response.data.data.docs.forEach((semester) => {
         const semesterObj = {};
         semesterObj.name = semester.semester;
