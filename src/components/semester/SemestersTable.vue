@@ -93,10 +93,15 @@ export default {
       return foundText;
     },
      filterSimilar() {
-      //  alert(this.filter.year)
-       let foundItems = this.semesters.filter((el)=> el.year == this.filter.year);
-      //  console.log(foundItems)
-      //  alert(foundItems)
+       let foundItems = this.semesters;
+       let currentYear = new Date().getYear()+1900;
+       if(this.filter!=""){
+          foundItems = this.semesters.filter((el)=> el.year == this.filter.year);
+       }
+       else{
+         
+           foundItems = this.semesters.filter((el)=> el.year == currentYear);
+       }
         return foundItems;
         
     },  
