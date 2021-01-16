@@ -65,6 +65,9 @@ export default {
     addUser(body) {
         return Api().post(`api/users`, body);
     },
+    addSemester(body) {
+        return Api().post(`api/semester`, body);
+    },
 
     // POSTING APIS END HERE
 
