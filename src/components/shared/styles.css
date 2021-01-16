@@ -26,7 +26,11 @@
   .add-stud-btn:focus {
     outline: none;
   }
+  .text-green{
+    color: #2aa804;
+  }
 /* submit button styles ends here */
+
 
 
 
