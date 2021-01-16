@@ -1,3 +1,5 @@
+/* submit button for all starts here */
+
 .add__btn {
     justify-content: center;
     border: none;
@@ -24,3 +26,33 @@
   .add-stud-btn:focus {
     outline: none;
   }
+/* submit button styles ends here */
+
+
+
+
+
+
+  /* add semester style here */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border: 2px solid #574ae2 !important;
+    border-radius: 4px !important;
+  }
+  .notes__upload_file:hover {
+    border: 2px solid #574ae2;
+    border-style: dashed;
+    cursor: pointer;
+    border-radius: 3%;
+    background-color: #574ae21c;
+  }
+  .label-focus {
+    color: #574ae2 !important;
+  }
+  .notes__upload_file {
+    height: 25vh;
+    width: 100%;
+  }
+
+  /* add semesters styles end here */

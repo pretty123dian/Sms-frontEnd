@@ -104,24 +104,4 @@ export default {
 </script>
 
 <style src="../shared/styles.css" scoped>
-input:focus,
-select:focus,
-textarea:focus {
-  border: 2px solid #574ae2;
-  border-radius: 4px !important;
-}
-.notes__upload_file:hover {
-  border: 2px solid #574ae2;
-  border-style: dashed;
-  cursor: pointer;
-  border-radius: 3%;
-  background-color: #574ae21c;
-}
-.label-focus {
-  color: #574ae2 !important;
-}
-.notes__upload_file {
-  height: 25vh;
-  width: 100%;
-}
 </style>
