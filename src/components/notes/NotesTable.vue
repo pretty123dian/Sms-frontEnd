@@ -43,7 +43,7 @@
           </template>
           <template class="bg-white">
             <tr>
-              <th>#</th>
+              <!-- <th>#</th> -->
               <th>Notes</th>
               <th>Description</th>
               <th>Lesson</th>
@@ -55,17 +55,19 @@
 
           <template>
             <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
-              <td>{{ i + 1 }}</td>
-              <td>
-                {{ tr.name }}
+              <!-- <td>{{ i + 1 }}</td> -->
+              <td class="flex">
+                <img src="../../assets/pdf.png" class="icon" alt="pdf logo" />
+                <span class="file"> {{ tr.name }}</span>
               </td>
+
               <td>
                 {{ tr.description }}
               </td>
               <td>
                 {{ tr.lesson_promo }}
               </td>
-              <td class="w-5/6">
+              <td>
                 {{ tr.publishedAt }}
               </td>
               <td>
@@ -218,6 +220,15 @@ select:focus {
 .file {
   fill: #574ae2;
   margin-right: 1%;
+}
+
+td .icon {
+  width: 12%;
+}
+
+td .file:hover {
+  cursor: pointer;
+  color: #574ae2;
 }
 </style>
 
