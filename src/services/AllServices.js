@@ -40,6 +40,10 @@ export default {
         return Api().get(`api/lessons/?page=${pages}&limit=${limit}`);
     },
 
+    getLessonById(lesson_id) {
+        return Api().get(`api/lessons/${lesson_id}`);
+    },
+
     getLessonPromotionById(promotion_id) {
         return Api().get(`api/lessons-promotion/${promotion_id}`);
     },
