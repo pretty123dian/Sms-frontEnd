@@ -61,13 +61,13 @@
                 <span class="file"> {{ tr.name }}</span>
               </td>
 
-              <td>
+              <td class="w-1/6">
                 {{ tr.description }}
               </td>
-              <td>
+              <td class="w-1/6">
                 {{ tr.lesson_promo }}
               </td>
-              <td>
+              <td class="w-1/6">
                 {{ tr.publishedAt }}
               </td>
               <td>
@@ -175,7 +175,8 @@ export default {
         notesObj.name = note.file_name;
         notesObj.description = note.file_description;
         notesObj.link = note.link;
-        notesObj.publishedAt = note.registered_at;
+        notesObj.publishedAt = note.registered_at.split("T");
+        notesObj.publishedAt = notesObj.publishedAt[0];
 
         const lessonId = await Services.getLessonById(
           note.lesson_promotion.lesson
