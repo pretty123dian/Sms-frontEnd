@@ -157,6 +157,7 @@ export default {
     popupActivo2: false,
     lessons: [],
     filter: "",
+    rowCounter: 0,
     // popupActivo3: false,
   }),
   computed: {
@@ -167,7 +168,7 @@ export default {
     // },
     filterSimilar() {
       let foundText;
-      if (foundText != "") {
+      if (this.filter != "") {
         foundText = this.notes.filter((el) => el.lesson_id == this.filter);
       } else {
         foundText = this.notes;
@@ -187,6 +188,7 @@ export default {
     async getRows() {
       const response = await Services.getNotes();
       response.data.data.docs.forEach(async (note) => {
+        this.rowCounter++;
         const notesObj = {};
         notesObj.name = note.file_name;
         notesObj.description = note.file_description;
