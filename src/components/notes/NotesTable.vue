@@ -22,9 +22,13 @@
             <div class="row flex gap-4">
               <select
                 class="form-select mt-1 p-2 block rounded border border-#E1E1E1-700 bg-white"
+                v-model="filter"
               >
-                <template v-for="(course, index) in courses">
-                  <option :value="course" :key="index">{{ course }}</option>
+                <option value="">All lessons</option>
+                <template v-for="(lesson, index) in lessons">
+                  <option :value="lesson._id" :key="index">
+                    {{ lesson.name }}
+                  </option>
                 </template>
               </select>
               <input
@@ -54,7 +58,7 @@
           </template>
 
           <template>
-            <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
+            <tr :key="i" v-for="(tr, i) in filterSimilar" :data="tr">
               <!-- <td>{{ i + 1 }}</td> -->
               <td class="flex items-center">
                 <img src="../../assets/pdf.png" class="icon" alt="pdf logo" />
@@ -149,15 +153,27 @@ export default {
   name: "Notestable",
   data: () => ({
     search: "",
-    courses: ["Mathematics", "Java", "DSA", "SAD"],
     notes: [],
     popupActivo2: false,
+    lessons: [],
+    filter: "",
     // popupActivo3: false,
   }),
   computed: {
-    searchSimilar() {
-      let filter = new RegExp(this.search, "i");
-      let foundText = this.notes.filter((el) => el.name.match(filter));
+    // searchSimilar() {
+    //   let filter = new RegExp(this.search, "i");
+    //   let foundText = this.notes.filter((el) => el.name.match(filter));
+    //   return foundText;
+    // },
+    filterSimilar() {
+      let foundText;
+      if (foundText != "") {
+        foundText = this.notes.filter((el) => el.lesson_id == this.filter);
+      } else {
+        foundText = this.notes;
+      }
+
+      // console.log(this.filter);
       return foundText;
     },
   },
@@ -182,13 +198,24 @@ export default {
           note.lesson_promotion.lesson
         );
         console.log(note.lesson_promotion);
+        notesObj.lesson_id = note.lesson_promotion.lesson;
         notesObj.lesson_promo = note.lesson_promotion;
         notesObj.lesson_promo = lessonId.data.data.name;
 
         notesObj.action = "view";
         this.notes.push(notesObj);
       });
-      console.log("Notes: ", this.notes);
+      // console.log("Notes: ", this.notes);
+
+      const lessons = await Services.getLessons(1, 100);
+      console.log("lessons: ", lessons);
+      lessons.data.data.docs.forEach((lesson) => {
+        const lessonObj = {};
+        lessonObj._id = lesson._id;
+        lessonObj.name = lesson.name;
+
+        this.lessons.push(lessonObj);
+      });
     },
   },
 };
