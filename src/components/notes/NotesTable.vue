@@ -55,9 +55,7 @@
 
           <template>
             <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
-              <td class="w-1/6">
-                {{ i + 1 }}
-              </td>
+              <td>{{ i + 1 }}</td>
               <td>
                 {{ tr.name }}
               </td>
@@ -67,7 +65,7 @@
               <td>
                 {{ tr.lesson_promo }}
               </td>
-              <td>
+              <td class="w-5/6">
                 {{ tr.publishedAt }}
               </td>
               <td>
@@ -177,10 +175,12 @@ export default {
         notesObj.link = note.link;
         notesObj.publishedAt = note.registered_at;
 
-        // const lessonId = await Services.getLessonPromotionById(note.lesson_promotion);
-        // console.log(note.lesson_promotion);
-        // notesObj.lesson_promo = note.lesson_promotion;
-        // notesObj.lesson_promo = lessonId.data.data.name;
+        const lessonId = await Services.getLessonById(
+          note.lesson_promotion.lesson
+        );
+        console.log(note.lesson_promotion);
+        notesObj.lesson_promo = note.lesson_promotion;
+        notesObj.lesson_promo = lessonId.data.data.name;
 
         notesObj.action = "view";
         this.notes.push(notesObj);
