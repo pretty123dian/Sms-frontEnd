@@ -56,7 +56,7 @@
           <template>
             <tr :key="i" v-for="(tr, i) in searchSimilar" :data="tr">
               <!-- <td>{{ i + 1 }}</td> -->
-              <td class="flex">
+              <td class="flex items-center">
                 <img src="../../assets/pdf.png" class="icon" alt="pdf logo" />
                 <span class="file"> {{ tr.name }}</span>
               </td>
@@ -223,7 +223,7 @@ select:focus {
 }
 
 td .icon {
-  width: 12%;
+  width: 10%;
 }
 
 td .file:hover {
