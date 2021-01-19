@@ -65,7 +65,8 @@
                 </span>
               </div>
             </label>
-            <input type="file" name="notes__file" id="notes__file" hidden />
+          
+            <input type="file" name="notes__file" id="notes__file" hidden   @change="onFileChange" />
           </div>
 
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
@@ -97,10 +98,14 @@ export default {
     promotions: ["Year 1", "Year 2", "Year 3"],
     timetableName: "",
     selectedProm: "",
+    fileName:''
   }),
-  updated: () => {
-    console.log(this.selectedProm);
-  },
+ methods:{
+   onFileChange(event){
+   var fileData =  event.target.files[0];
+   this.fileName=fileData.name;
+}
+ }
 };
 </script>
 
