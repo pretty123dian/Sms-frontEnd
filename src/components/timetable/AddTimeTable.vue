@@ -30,7 +30,9 @@
               >Class promotion</label
             >
             <br />
+            {{ selectedProm }}
             <select
+              v-model="selectedProm"
               @focus="labels_focus.label2 = !labels_focus.label2"
               @blur="labels_focus.label2 = !labels_focus.label2"
               id="name"
