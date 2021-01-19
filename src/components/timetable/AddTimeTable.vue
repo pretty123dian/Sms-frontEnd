@@ -98,6 +98,9 @@ export default {
     timetableName: "",
     selectedProm: "",
   }),
+  updated: () => {
+    console.log(this.selectedProm);
+  },
 };
 </script>
 
