@@ -104,7 +104,8 @@ export default {
    onFileChange(event){
    var fileData =  event.target.files[0];
    this.fileName=fileData.name;
-}
+},
+
  }
 };
 </script>
