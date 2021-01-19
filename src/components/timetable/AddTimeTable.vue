@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import Services from "@/services/AllServices";
+
 export default {
   name: "AddAssignment",
   data: () => ({
@@ -84,9 +84,7 @@ export default {
     },
     promotions: ["Year 1", "Year 2", "Year 3"]
   }),
-  created:()=>{
-
-  }
+ 
 };
 </script>
 
