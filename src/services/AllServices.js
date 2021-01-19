@@ -14,8 +14,7 @@ export default{
 
     },
     postTImeTable(promotion_id){
-        return Api.post(`api/time-table/{promotion_id}`)
-
+        return Api.post(`api/time-table/${promotion_id}`)
     },
     getPromotion(promotion_id){
         return Api().get(`api/school-promotions/${promotion_id}`);
