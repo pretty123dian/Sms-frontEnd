@@ -83,6 +83,9 @@ export default {
     },
     promotions: ["Year 1", "Year 2", "Year 3"]
   }),
+  created:()=>{
+    
+  }
 };
 </script>
 
