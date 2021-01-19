@@ -30,7 +30,7 @@
               >Class promotion</label
             >
             <br />
-            {{ selectedProm }}
+            
             <select
               v-model="selectedProm"
               @focus="labels_focus.label2 = !labels_focus.label2"
@@ -43,6 +43,7 @@
                 <option value="year" :key="index">{{ promotion }}</option>
               </template>
             </select>
+            {{ selectedProm }}
           </div>
           <div
             class="col-span-5 lg:col-span-1 md:col-span-5 mt-4 lg:w-3/4 sm:w-full"
