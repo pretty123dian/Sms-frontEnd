@@ -5,7 +5,7 @@ export default{
     },
     getTimeTablebyId(timetable_id){
 
-        return Api().get(`/time-table/${timetable_id}`);
+        return Api().get(`api/time-table/${timetable_id}`);
 
     },
     getTimeTableByPromotion(promotion_id,filename){
@@ -13,8 +13,10 @@ export default{
         return Api.get(`/time-table/download/${promotion_id}/${filename}`);
 
     },
+    postTImeTable(promotion_id){
+        return Api.post(`/time-table/{promotion_id}`)
 
-
+    },
     getPromotion(promotion_id){
         return Api().get(`api/school-promotions/${promotion_id}`);
     },
