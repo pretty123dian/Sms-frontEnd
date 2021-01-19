@@ -18,13 +18,14 @@
               @focus="labels_focus.label1 = !labels_focus.label1"
               @blur="labels_focus.label1 = !labels_focus.label1"
               id="name"
+              v-model="timetableName"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             />
           </div>
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-3">
             <label
               for="name"
-                  class="mr-4 name"
+              class="mr-4 name"
               :class="[labels_focus.label2 ? 'label-focus' : '']"
               >Class promotion</label
             >
@@ -35,14 +36,15 @@
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             >
-            <option value="">Select promotion</option> 
-            <template v-for="(promotion,index) in promotions">
-            <option value="year" :key="index">{{promotion}}</option>
-            </template>
+              <option value="">Select promotion</option>
+              <template v-for="(promotion, index) in promotions">
+                <option value="year" :key="index">{{ promotion }}</option>
+              </template>
             </select>
           </div>
-          <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-4  lg:w-3/4  sm:w-full ">
-              
+          <div
+            class="col-span-5 lg:col-span-1 md:col-span-5 mt-4 lg:w-3/4 sm:w-full"
+          >
             <label
               for=""
               class="mr-4"
@@ -50,15 +52,23 @@
               >Timetable file</label
             >
             <label for="notes__file">
-             <div class="lg:w-3/4  sm:w-full  border-dashed border-2 bg-white flex items-center notes__upload_file mt-3 text-center">
-              <span class="m-auto">Drop file here or <a href="#" class="text-purple underline">browse </a> to upload </span>
-            </div>
+              <div
+                class="lg:w-3/4 sm:w-full border-dashed border-2 bg-white flex items-center notes__upload_file mt-3 text-center"
+              >
+                <span class="m-auto"
+                  >Drop file here or
+                  <a href="#" class="text-purple underline">browse </a> to
+                  upload
+                </span>
+              </div>
             </label>
-                <input type="file" name="notes__file" id="notes__file" hidden>
+            <input type="file" name="notes__file" id="notes__file" hidden />
           </div>
-         
+
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
-            <vs-button color="#574AE2" class="focus:outline-none lg:w-2/4 sm:w-full"
+            <vs-button
+              color="#574AE2"
+              class="focus:outline-none lg:w-2/4 sm:w-full"
               >Add notes</vs-button
             >
           </div>
@@ -72,9 +82,8 @@
 </template>
 
 <script>
-
 export default {
-  name: "AddAssignment", 
+  name: "AddAssignment",
   data: () => ({
     labels_focus: {
       label1: false,
@@ -82,32 +91,32 @@ export default {
       label3: false,
       label4: false,
     },
-    promotions: ["Year 1", "Year 2", "Year 3"]
+    promotions: ["Year 1", "Year 2", "Year 3"],
+    timetableName: "",
+    selectedProm: "",
   }),
- 
 };
 </script>
 
 <style scoped>
 input:focus,
 select:focus,
-textarea:focus
- {
+textarea:focus {
   border: 2px solid #574ae2;
   border-radius: 4px !important;
 }
-.notes__upload_file:hover{
-     border: 2px solid #574ae2;
-     border-style: dashed;
-     cursor: pointer;
-     border-radius: 3%;
-     background-color: #574ae21c;
+.notes__upload_file:hover {
+  border: 2px solid #574ae2;
+  border-style: dashed;
+  cursor: pointer;
+  border-radius: 3%;
+  background-color: #574ae21c;
 }
 .label-focus {
   color: #574ae2 !important;
 }
-.notes__upload_file{
-    height: 25vh;
-    width: 100%;
+.notes__upload_file {
+  height: 25vh;
+  width: 100%;
 }
 </style>
