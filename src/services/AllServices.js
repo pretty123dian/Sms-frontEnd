@@ -10,11 +10,11 @@ export default{
     },
     getTimeTableByPromotion(promotion_id,filename){
 
-        return Api.get(`/time-table/download/${promotion_id}/${filename}`);
+        return Api.get(`api/time-table/download/${promotion_id}/${filename}`);
 
     },
     postTImeTable(promotion_id){
-        return Api.post(`/time-table/{promotion_id}`)
+        return Api.post(`api/time-table/{promotion_id}`)
 
     },
     getPromotion(promotion_id){
