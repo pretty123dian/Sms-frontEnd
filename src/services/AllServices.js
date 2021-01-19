@@ -8,6 +8,12 @@ export default{
         return Api().get(`/time-table/${timetable_id}`);
 
     },
+    deleteTimeTable(timetable_id){
+
+        return Api().get(`/time-table/${timetable_id}`);
+
+    },
+
 
     getPromotion(promotion_id){
         return Api().get(`api/school-promotions/${promotion_id}`);
