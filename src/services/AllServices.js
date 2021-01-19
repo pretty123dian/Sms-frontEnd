@@ -8,6 +8,11 @@ export default{
         return Api().get(`/time-table/${timetable_id}`);
 
     },
+    getTimeTableByPromotion(promotion_id,filename){
+
+        return Api.get(`/time-table/download/${promotion_id}/${filename}`);
+
+    },
     deleteTimeTable(timetable_id){
 
         return Api().get(`/time-table/${timetable_id}`);
