@@ -40,9 +40,6 @@ export default{
         return Api().get(`api/lessons/${lesson_id}`)
     },
 
-
-
-
     login(body){
         return Api().post(`api/users/auth`,body)
     }
