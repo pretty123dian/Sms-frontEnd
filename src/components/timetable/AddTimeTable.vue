@@ -40,7 +40,9 @@
             >
               <option value="">Select promotion</option>
               <template v-for="(promotion, index) in promotions">
-                <option value="year" :key="index">{{ promotion }}</option>
+                <option value="" :key="index">
+                  {{ promotion }}
+                </option>
               </template>
             </select>
             {{ selectedProm }}
@@ -48,19 +50,6 @@
           <div
             class="col-span-5 lg:col-span-1 md:col-span-5 mt-4 lg:w-3/4 sm:w-full"
           >
-            <label
-              for="name"
-              class="mr-4 name"
-              :class="[labels_focus.label1 ? 'label-focus' : '']"
-              >File Name</label
-            >
-            <br />
-            <input
-              @focus="labels_focus.label1 = !labels_focus.label1"
-              @blur="labels_focus.label1 = !labels_focus.label1"
-              id="name"
-              class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
-            />
             <label
               for=""
               class="mr-4"
@@ -114,7 +103,7 @@ export default {
       label3: false,
       label4: false,
     },
-    promotions: ["Year1", "Year 2", "Year 3"],
+    promotions: ["Year 1", "Year 2", "Year 3"],
     timetableName: "",
     selectedProm: "",
     fileName: "",
