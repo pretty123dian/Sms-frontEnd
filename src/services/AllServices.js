@@ -3,6 +3,11 @@ export default{
     getTimeTable(){
         return Api().get(`api/time-table`);
     },
+    getTimeTablebyId(timetable_id){
+
+        return Api().get(`/time-table/${timetable_id}`);
+
+    },
 
     getPromotion(promotion_id){
         return Api().get(`api/school-promotions/${promotion_id}`);
@@ -40,6 +45,7 @@ export default{
         return Api().get(`api/lessons/${lesson_id}`)
     },
 
+   
     login(body){
         return Api().post(`api/users/auth`,body)
     }
