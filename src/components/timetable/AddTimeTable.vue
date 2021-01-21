@@ -30,7 +30,6 @@
               >Class promotion</label
             >
             <br />
-            {{ selectedProm }}
             <select
               @focus="labels_focus.label2 = !labels_focus.label2"
               @blur="labels_focus.label2 = !labels_focus.label2"
@@ -93,6 +92,7 @@
 </template>
 
 <script>
+import Services from "@/services/AllServices";
 export default {
   name: "AddAssignment",
   data: () => ({
@@ -114,6 +114,7 @@ export default {
       this.fileName = fileData.name;
     },
   },
+  computed: {},
 };
 </script>
 
