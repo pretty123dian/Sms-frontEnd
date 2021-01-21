@@ -13,8 +13,15 @@ export default{
         return Api.get(`api/time-table/download/${promotion_id}/${filename}`);
 
     },
-    postTImeTable(promotion_id){
-        return Api.post(`api/time-table/${promotion_id}`)
+    postTimeTable(promotion_id,mytitle,myfile_name,mystatus,mypromotion){
+        return Api.post(`api/time-table/${promotion_id}`,{
+        title:mytitle,
+        file_name:myfile_name,
+        status:mystatus,
+        promotion:mypromotion
+        }).then(response=>{
+           console.log(response);
+        })
     },
     getPromotion(promotion_id){
         return Api().get(`api/school-promotions/${promotion_id}`);

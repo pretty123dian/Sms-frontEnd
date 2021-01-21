@@ -113,6 +113,15 @@ export default {
       var fileData = event.target.files[0];
       this.fileName = fileData.name;
     },
+
+    async postData() {
+      const response = await Services.postTimeTble(
+        this.timetableName,
+        this.fileName,
+        this.myStatus,
+        this.selectedProm
+      );
+    },
   },
   computed: {},
 };
