@@ -30,22 +30,21 @@
               >Class promotion</label
             >
             <br />
-
+            {{ selectedProm }}
             <select
-              v-model="selectedProm"
               @focus="labels_focus.label2 = !labels_focus.label2"
               @blur="labels_focus.label2 = !labels_focus.label2"
               id="name"
+              v-model="selectedProm"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             >
               <option value="">Select promotion</option>
               <template v-for="(promotion, index) in promotions">
-                <option value="" :key="index">
+                <option v-bind:value="promotion" :key="index">
                   {{ promotion }}
                 </option>
               </template>
             </select>
-            {{ selectedProm }}
           </div>
           <div
             class="col-span-5 lg:col-span-1 md:col-span-5 mt-4 lg:w-3/4 sm:w-full"
