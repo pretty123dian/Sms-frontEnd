@@ -74,12 +74,12 @@
               @change="onFileChange"
             />
           </div>
-          {{ filename }}
 
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
             <vs-button
               color="#574AE2"
               class="focus:outline-none lg:w-2/4 sm:w-full"
+              @click="postData"
               >Add notes</vs-button
             >
           </div>
@@ -115,18 +115,46 @@ export default {
       this.fileName = fileData.name;
     },
 
+    async getRows() {
+      const response = await Services.getTimeTable();
+      // if(responses.status===200){
+      response.data.data.docs.forEach(async (timetable) => {
+        const timetableStore = {};
+        const schoolPromotion = await Services.getPromotion(
+          timetable.promotion
+        );
+        timetableStore.title = timetable.title;
+
+        if (schoolPromotion.data.data.name) {
+          timetableStore.promotion = schoolPromotion.data.data.name;
+        } else timetableStore.promotion = "No promotion";
+
+        timetableStore.filename = timetable.file_name;
+        timetableStore.status = timetable.status;
+        timetableStore.action = "ok";
+        this.timetables.push(timetableStore);
+      });
+
+      console.log("timetable:", this.timetables);
+    },
+
     async postData() {
-      await Services.postTimeTable(
+      await console.log(
         this.timetableName,
         this.fileName,
         this.myStatus,
         this.selectedProm
-      ).then((resp) => {
-        console.log(resp);
-      });
+      );
+      //   await Services.postTimeTable(
+      //     this.timetableName,
+      //     this.fileName,
+      //     this.myStatus,
+      //     this.selectedProm
+      //   ).then((resp) => {
+      //     console.log(resp);
+      //   });
     },
   },
-  computed: {},
 };
 </script>
 
