@@ -11,7 +11,7 @@ export default{
     getTimeTableByPromotion(promotion_id,filename){
 
         return Api.get(`api/time-table/download/${promotion_id}/${filename}`);
-
+        
     },
     postTimeTable(promotion_id,mytitle,myfile_name,mystatus,mypromotion){
         return Api.post(`api/time-table/${promotion_id}`,{
