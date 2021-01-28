@@ -83,6 +83,7 @@
               >Add notes</vs-button
             >
           </div>
+          <button @click="getRows">print</button>
         </form>
       </div>
     </div>
@@ -103,7 +104,7 @@ export default {
       label3: false,
       label4: false,
     },
-    promotions: ["Year 1", "Year 2", "Year 3"],
+    promotions: [],
     timetableName: "",
     selectedProm: "",
     fileName: "",
@@ -116,26 +117,17 @@ export default {
     },
 
     async getRows() {
-      const response = await Services.getTimeTable();
-      // if(responses.status===200){
-      response.data.data.docs.forEach(async (timetable) => {
-        const timetableStore = {};
-        const schoolPromotion = await Services.getPromotion(
-          timetable.promotion
-        );
-        timetableStore.title = timetable.title;
-
-        if (schoolPromotion.data.data.name) {
-          timetableStore.promotion = schoolPromotion.data.data.name;
-        } else timetableStore.promotion = "No promotion";
-
-        timetableStore.filename = timetable.file_name;
-        timetableStore.status = timetable.status;
-        timetableStore.action = "ok";
-        this.timetables.push(timetableStore);
+      const response = await Services.getClasses();
+      // // if(responses.status===200){
+      // response.data.data.docs.forEach(async (timetable) => {
+      //   const timetableStore = { hey: "hello word" };
+      //   await Services.getPromotion(timetable.promotion);
+      //   timetableStore.title = timetable.title;
+      // });
+      response.data.data.docs.forEach((element) => {
+        this.promotions.push(element.name);
+        console.log(this.promotions);
       });
-
-      console.log("timetable:", this.timetables);
     },
 
     async postData() {
