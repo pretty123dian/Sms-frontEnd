@@ -74,6 +74,7 @@
               @change="onFileChange"
             />
           </div>
+          {{ filename }}
 
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
             <vs-button
@@ -115,12 +116,14 @@ export default {
     },
 
     async postData() {
-      const response = await Services.postTimeTble(
+      await Services.postTimeTable(
         this.timetableName,
         this.fileName,
         this.myStatus,
         this.selectedProm
-      );
+      ).then((resp) => {
+        console.log(resp);
+      });
     },
   },
   computed: {},

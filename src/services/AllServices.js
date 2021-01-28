@@ -19,8 +19,6 @@ export default{
         file_name:myfile_name,
         status:mystatus,
         promotion:mypromotion
-        }).then(response=>{
-           console.log(response);
         })
     },
     getPromotion(promotion_id){
