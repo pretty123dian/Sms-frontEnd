@@ -74,6 +74,7 @@
               @change="onFileChange"
             />
           </div>
+          {{ selectedProm }}
 
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
             <vs-button
@@ -83,7 +84,6 @@
               >Add notes</vs-button
             >
           </div>
-          <button @click="getRows">print</button>
         </form>
       </div>
     </div>
@@ -118,25 +118,13 @@ export default {
 
     async getRows() {
       const response = await Services.getClasses();
-      // // if(responses.status===200){
-      // response.data.data.docs.forEach(async (timetable) => {
-      //   const timetableStore = { hey: "hello word" };
-      //   await Services.getPromotion(timetable.promotion);
-      //   timetableStore.title = timetable.title;
-      // });
       response.data.data.docs.forEach((element) => {
         this.promotions.push(element.name);
-        console.log(this.promotions);
       });
+      console.log(JSON.stringify(this.promotions));
     },
-
     async postData() {
-      await console.log(
-        this.timetableName,
-        this.fileName,
-        this.myStatus,
-        this.selectedProm
-      );
+      await console.log();
       //   await Services.postTimeTable(
       //     this.timetableName,
       //     this.fileName,
@@ -146,6 +134,9 @@ export default {
       //     console.log(resp);
       //   });
     },
+  },
+  beforeMount() {
+    this.getRows();
   },
 };
 </script>
