@@ -80,7 +80,7 @@
             <vs-button
               color="#574AE2"
               class="focus:outline-none lg:w-2/4 sm:w-full"
-              @click="postData"
+              @click="checker"
               >Add notes</vs-button
             >
           </div>
@@ -136,6 +136,17 @@ export default {
     },
     async findId(promo) {
       this.selected_Id = promo.id;
+    },
+    checker() {
+      if (this.timetableName == "") {
+        alert("Time table name is needed");
+      } else if (this.fileName == "") {
+        alert("Time table file is needed");
+      } else if (this.selectedProm == "") {
+        alert("Select the prom");
+      } else {
+        this.postData();
+      }
     },
   },
 

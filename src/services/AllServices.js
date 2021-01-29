@@ -25,9 +25,7 @@ export default{
         data.append('file_name',myfile_name);
         data.append('status',mystatus);
         data.append('promotion',mypromotion);
-        return Api().post(`api/time-table/${promotion_id}`,{
-       data,config
-        })
+        return Api().post(`api/time-table/${promotion_id}`,data,config)
     },
     getPromotion(promotion_id){
         return Api().get(`api/school-promotions/${promotion_id}`);
