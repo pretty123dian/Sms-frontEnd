@@ -74,7 +74,6 @@
               @change="onFileChange"
             />
           </div>
-          {{ selectedProm }}
 
           <div class="col-span-5 lg:col-span-1 md:col-span-5 mt-12">
             <vs-button
@@ -87,9 +86,7 @@
         </form>
       </div>
     </div>
-    <div class="w-2/3">
-      <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, tempora? Porro consectetur voluptas explicabo! Nam, quas sapiente molestiae pariatur cumque animi repudiandae perferendis, dolores libero quasi, et harum quos cum. -->
-    </div>
+    <div class="w-2/3"></div>
   </div>
 </template>
 
@@ -120,19 +117,18 @@ export default {
       const response = await Services.getClasses();
       response.data.data.docs.forEach((element) => {
         this.promotions.push(element.name);
+        console.log(element._id);
       });
-      console.log(JSON.stringify(this.promotions));
     },
     async postData() {
-      await console.log();
-      //   await Services.postTimeTable(
-      //     this.timetableName,
-      //     this.fileName,
-      //     this.myStatus,
-      //     this.selectedProm
-      //   ).then((resp) => {
-      //     console.log(resp);
-      //   });
+      await Services.postTimeTable(
+        this.timetableName,
+        this.fileName,
+        this.myStatus,
+        this.selectedProm
+      ).then((resp) => {
+        console.log(resp);
+      });
     },
   },
   beforeMount() {

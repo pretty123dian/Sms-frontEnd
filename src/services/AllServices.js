@@ -14,7 +14,7 @@ export default{
         
     },
     postTimeTable(promotion_id,mytitle,myfile_name,mystatus,mypromotion){
-        return Api.post(`api/time-table/${promotion_id}`,{
+        return Api().post(`api/time-table/${promotion_id}`,{
         title:mytitle,
         file_name:myfile_name,
         status:mystatus,
