@@ -14,11 +14,19 @@ export default{
         
     },
     postTimeTable(promotion_id,mytitle,myfile_name,mystatus,mypromotion){
+        let data= new FormData();
+        let config = {
+            header : {
+             'Content-Type' : 'multipart/form-data'
+           }
+          }
+
+        data.append('title',mytitle);
+        data.append('file_name',myfile_name);
+        data.append('status',mystatus);
+        data.append('promotion',mypromotion);
         return Api().post(`api/time-table/${promotion_id}`,{
-        title:mytitle,
-        file_name:myfile_name,
-        status:mystatus,
-        promotion:mypromotion
+       data,config
         })
     },
     getPromotion(promotion_id){

@@ -34,13 +34,14 @@
               @focus="labels_focus.label2 = !labels_focus.label2"
               @blur="labels_focus.label2 = !labels_focus.label2"
               id="name"
+              @change="findId(selectedProm)"
               v-model="selectedProm"
               class="form-input p-3 mt-2 mr-4 border lg:w-3/4 md:w-full border-#E1E1E1-600 rounded"
             >
               <option value="">Select promotion</option>
               <template v-for="(promotion, index) in promotions">
                 <option v-bind:value="promotion" :key="index">
-                  {{ promotion }}
+                  {{ promotion.name }}
                 </option>
               </template>
             </select>
@@ -106,22 +107,24 @@ export default {
     selectedProm: "",
     fileName: "",
     myStatus: "ACTIVE",
+    selected_Id: "",
   }),
   methods: {
     onFileChange(event) {
       var fileData = event.target.files[0];
-      this.fileName = fileData.name;
+      this.fileName = fileData;
     },
 
     async getRows() {
       const response = await Services.getClasses();
       response.data.data.docs.forEach((element) => {
-        this.promotions.push(element.name);
-        console.log(element._id);
+        this.promotions.push({ name: element.name, id: element._id });
       });
+      console.log(JSON.stringify(this.promotions));
     },
     async postData() {
-      await Services.postTimeTable(
+      const response = await Services.postTimeTable(
+        this.selected_Id,
         this.timetableName,
         this.fileName,
         this.myStatus,
@@ -129,8 +132,13 @@ export default {
       ).then((resp) => {
         console.log(resp);
       });
+      console.log(JSON.stringify(response));
+    },
+    async findId(promo) {
+      this.selected_Id = promo.id;
     },
   },
+
   beforeMount() {
     this.getRows();
   },
