@@ -61,6 +61,7 @@ export default {
     // console.log("USER >>>", this.user);
     const response = await Services.getUserData(this.user.id);
     this.setUserAllData(response.data.data);
+    this.$session.set("user",response.data.data);
     console.log("USER>>>: ", this.userAll);
   },
 };

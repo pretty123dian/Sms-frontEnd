@@ -212,7 +212,7 @@ export default {
     }),
   },
   methods: {
-    ...mapMutations(["setUserAllData"]),
+    ...mapMutations(["setUserAllData,setUser"]),
     change(event, ...el) {
       console.log("Clicked event: ", event);
       console.log(el[0]);
@@ -256,6 +256,7 @@ export default {
       this.phone = this.phone == "" ? this.user.phone : this.phone;
       this.national_id =
         this.national_id == "" ? this.user.national_id : this.national_id;
+      try{
       const response = await Services.updateUser(this.user.id, {
         username: this.username,
         surname: this.surname,
@@ -267,11 +268,15 @@ export default {
         category: this.userAll.category._id,
       });
 
-      console.log(response);
-      console.log(this.userAll.category._id);
+      // console.log(response);
+      // console.log(this.userAll.category._id);
       this.request_click = false;
-      this.setUserAllData(response.data.data);
+      await this.setUserAllData(response.data.data);
+        await this.setUser(response.data.data);
       console.log(this.userAll);
+      }catch(e){
+        console.log(e.response.data.data);
+        }
     },
   },
 };
