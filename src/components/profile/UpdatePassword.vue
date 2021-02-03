@@ -216,6 +216,10 @@ button {
   /* border:1px solid black; */
   border-radius: 20px;
 }
+input {
+  background-color: #eae8ff;
+  /* color:#ffffff; */
+}
 
 input:focus,
 select:focus,

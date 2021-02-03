@@ -61,6 +61,7 @@
                 type="text"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+                required
               />
             </div>
             <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
@@ -79,6 +80,7 @@
                 @input="change('email', userAll.email)"
                 id="name"
                 class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+                required
               />
             </div>
             <div class="row lg:grid lg:grid-cols-2 gap-4">
@@ -98,6 +100,7 @@
                   type="text"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+                  required
                 />
               </div>
               <div class="lg:w-50 md:w-full mt-5">
@@ -115,6 +118,7 @@
                   @input="change('othernames', userAll.othernames)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+                  required
                 />
               </div>
             </div>
@@ -135,6 +139,7 @@
                   @input="change('phone', userAll.phone)"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+                  required
                 />
               </div>
 
@@ -154,10 +159,17 @@
                   type="number"
                   id="name"
                   class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+                  required
                 />
               </div>
             </div>
             <br />
+                <div
+            v-if="response_status_block == true"
+            class="mt-5 status_success w-full flex"
+          >
+            <span class="m-auto"> {{ res_status_title }} </span>
+          </div>
             <button
               :class="[
                 request_click === true
@@ -196,6 +208,8 @@ export default {
     },
     academicYears: ["2020", "2021"],
     button_status: "Save changes",
+     response_status_block: true,
+    res_status_title:"",
     request_click: false,
     username: "",
     surname: "",
@@ -246,7 +260,8 @@ export default {
 
     async updateThisUser() {
       this.request_click = true;
-
+      this.response_status_block = true;
+         this.res_status_title = "Updating ...";
       // checking if the fields are assigned twith certain new values
       this.username = this.username == "" ? this.user.username : this.username;
       this.surname = this.surname == "" ? this.user.surname : this.surname;
@@ -271,11 +286,18 @@ export default {
       // console.log(response);
       // console.log(this.userAll.category._id);
       this.request_click = false;
+        this.res_status_title = "Profile account updated successfully"
+      setTimeout(()=>{
+        this.res_status_title = "";
+        },1500)
       await this.setUserAllData(response.data.data);
         await this.setUser(response.data.data);
-      console.log(this.userAll);
+      // console.log(this.userAll);
+     
+          
       }catch(e){
-        console.log(e.response.data.data);
+        // console.log(e.response.data.data);
+          this.res_status_title = e.response.data.data;
         }
     },
   },
@@ -376,5 +398,8 @@ textarea:focus {
 .notes__upload_file {
   height: 25vh;
   width: 100%;
+}
+.status_success {
+  color: #2aa804;
 }
 </style>
