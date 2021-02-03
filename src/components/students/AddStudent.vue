@@ -10,6 +10,7 @@
                   <span class="text-dark-700 font-bold" v-if="i == 0"
                     >Register students</span
                   >
+                  
                   <select
                     class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
                   >
