@@ -53,6 +53,7 @@
             class="form-input p-2 border rounded"
             @change="getRows(filter)"
             v-model="filter"
+           
             border
           >
             <option value="10">Showing {{ filter }} rows</option>
@@ -135,6 +136,7 @@
                   @blur="labels_focus.label1 = !labels_focus.label1"
                   class="outline-none border my-3 px-5 py-6 w-full h-10 rounded"
                   v-model="lesson__name"
+                   required
                 />
               </div>
 
@@ -149,6 +151,7 @@
                   @blur="labels_focus.label2 = !labels_focus.label2"
                   class="w-full my-3 h-32 p-5 border resize-none outline-none rounded leading-loose"
                   v-model="lesson__description"
+                   required
                 ></textarea>
               </div>
 

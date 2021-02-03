@@ -7,7 +7,7 @@
       <div class="w-full mt-5 profile_links">
         <router-link to="/profile-settings">Personal Info</router-link>
         <router-link to="/profile-settings/updatepassword" class="active"
-          >Change password</router-link
+          >Password</router-link
         >
       </div>
     </div>
@@ -30,6 +30,7 @@
               type="password"
               id="name"
               class="form-input p-3 mt-2 mr-4 border lg:w-4/4 md:w-full border-#E1E1E1-600 rounded"
+              required
             />
           </div>
           <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
@@ -47,6 +48,7 @@
               type="password"
               v-model="new_password"
               class="form-input p-3 mt-2 mr-4 border md:w-full border-#E1E1E1-600 rounded"
+              required
             />
           </div>
           <div class="col-span-5 mt-5 lg:col-span-1 md:col-span-5">
@@ -64,6 +66,7 @@
               type="password"
               id="name"
               class="form-input p-3 mt-2 mr-4 border md:w-full border-#E1E1E1-600 rounded"
+              required
             />
           </div>
           <div
@@ -98,8 +101,8 @@
 </template>
 
 <script>
+import {mapMutations,mapState} from "vuex";
 import Services from "@/services/AllServices";
-import {} from "vuex";
 export default {
   name: "UpdatePassword",
   data: () => ({
@@ -117,21 +120,32 @@ export default {
     request_click: false,
     button_status: "Update password",
   }),
-  computed: {},
+  computed: {
+    ...mapState({
+      userAll:(state) =>state.userAll
+    })
+  },
 
   methods: {
+  ...mapMutations(["setUserAllData"]),
     async updatePassword() {
       if (this.new_password === this.confirm_password) {
         this.response_status = true;
         this.response_status_block = true;
         this.res_status_title = "Updating...";
         this.request_click = true;
-        const response = await Services.updatePassword(this.userAll.id, {
+        // console.log("The user",this.userAll._id)
+        try{
+        const response = await Services.updatePassword(this.userAll._id, {
           current_password: this.former_password,
           new_password: this.new_password,
         });
         console.log("Password>>>: ", response);
         this.response_status = false;
+        }catch(e){
+          console.log(e.response.data.data);
+           this.res_status_title = e.response.data.data;
+        }
       } else {
         this.response_status_block = true;
         this.response_status = false;
@@ -201,6 +215,10 @@ button {
   color: #574ae2;
   /* border:1px solid black; */
   border-radius: 20px;
+}
+input {
+  background-color: #eae8ff;
+  /* color:#ffffff; */
 }
 
 input:focus,
