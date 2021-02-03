@@ -105,8 +105,8 @@
                   color="#574AE2"
                   :class="
                     i == 0
-                      ? 'rounded p-3 add-stud-btn rounded-full w-1/5'
-                      : 'rounded p-3 add-stud-btn rounded-full w-1/5'
+                      ? 'rounded-sm p-3 add-stud-btn rounded-full w-1/5'
+                      : 'rounded-sm p-3 add-stud-btn rounded-full w-1/5'
                   "
                   @click="inputs[i] == '+' ? expand(i) : remove(i)"
                 >
