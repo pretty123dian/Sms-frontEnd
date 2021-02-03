@@ -10,7 +10,7 @@
                   <span class="text-dark-700 font-bold" v-if="i == 0"
                     >Register students</span
                   >
-                  
+
                   <select
                     class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
                   >
@@ -105,8 +105,8 @@
                   color="#574AE2"
                   :class="
                     i == 0
-                      ? 'rounded-full py-3 px-6 add-stud-btn rounded-full w-1/5'
-                      : 'rounded-full py-1 px-6 add-stud-btn rounded-full w-1/5'
+                      ? 'rounded p-3 add-stud-btn rounded-full w-1/5'
+                      : 'rounded p-3 add-stud-btn rounded-full w-1/5'
                   "
                   @click="inputs[i] == '+' ? expand(i) : remove(i)"
                 >
