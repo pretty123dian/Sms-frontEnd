@@ -7,7 +7,7 @@
       <div class="w-full mt-5 profile_links">
         <router-link to="/profile-settings">Personal Info</router-link>
         <router-link to="/profile-settings/updatepassword" class="active"
-          >Change password</router-link
+          >Password</router-link
         >
       </div>
     </div>

@@ -9,7 +9,7 @@
           >Personal Info</router-link
         >
         <router-link to="/profile-settings/updatepassword"
-          >Change password</router-link
+          >Password</router-link
         >
       </div>
     </div>
