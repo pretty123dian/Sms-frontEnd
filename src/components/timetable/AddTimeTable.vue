@@ -120,7 +120,6 @@ export default {
       response.data.data.docs.forEach((element) => {
         this.promotions.push({ name: element.name, id: element._id });
       });
-      console.log(JSON.stringify(this.promotions));
     },
     async postData() {
       const response = await Services.postTimeTable(
