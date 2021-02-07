@@ -145,11 +145,23 @@ export default {
       
         setTimeout(()=>{
        this.response_status_block = false;
-        },2000);
+        },4000);
         if(response.data.status == 201){
-              this.response_status = true;
-        } else this.response_status = false;
-         this.res_status_title = response.data.message;
+              this.response_status = true; 
+               this.res_status_title = "Password "+(response.data.message).toLowerCase();
+        }
+        else if(response.status ==400){
+            this.response_status = true; 
+             this.res_status_title = response.data.message;
+        }
+        else {this.response_status = false;
+        //  this.res_status_title = response.data; 
+        /*
+"new_password" with value "123" fails to match the required pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+
+        */
+       this.res_status_title = "Capital letter/ Special character/ Digital / Small letter missing ... "
+        }
           this.request_click = false;
         }catch(e){
         alert(e.response.data.data);
