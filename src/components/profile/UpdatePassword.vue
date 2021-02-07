@@ -150,8 +150,8 @@ export default {
               this.response_status = true; 
                this.res_status_title = "Password "+(response.data.message).toLowerCase();
         }
-        else if(response.status ==400){
-            this.response_status = true; 
+        else if(response.data.status == 400){
+            this.response_status = false; 
              this.res_status_title = response.data.message;
         }
         else {this.response_status = false;
