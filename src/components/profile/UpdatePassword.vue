@@ -141,14 +141,23 @@ export default {
           new_password: this.new_password,
         });
         console.log("Password>>>: ", response);
-        this.response_status = false;
+        this.response_status = true;
+      
+        setTimeout(()=>{
+  this.response_status_block = false;
+        },2000);
+         this.res_status_title = response.data.message;
+          this.request_click = false;
         }catch(e){
-          console.log(e.response.data.data);
+        alert(e.response.data.data);
            this.res_status_title = e.response.data.data;
+            this.request_click = false;
         }
+        
       } else {
         this.response_status_block = true;
         this.response_status = false;
+         this.request_click = false;
         this.res_status_title = "Password doesn't match";
       }
     },
