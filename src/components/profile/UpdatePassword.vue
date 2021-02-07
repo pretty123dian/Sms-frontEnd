@@ -141,11 +141,14 @@ export default {
           new_password: this.new_password,
         });
         console.log("Password>>>: ", response);
-        this.response_status = true;
+        
       
         setTimeout(()=>{
-  this.response_status_block = false;
+       this.response_status_block = false;
         },2000);
+        if(response.data.status == 201){
+              this.response_status = true;
+        } else this.response_status = false;
          this.res_status_title = response.data.message;
           this.request_click = false;
         }catch(e){
