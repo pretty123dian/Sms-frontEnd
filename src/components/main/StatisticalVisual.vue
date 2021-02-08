@@ -47,12 +47,12 @@
         //     }
             
         //   ]
-           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September','October', 'November','December'],
       datasets: [
         {
           label: 'Data One',
           backgroundColor: '#574ae2',
-          data: [40, 39, 10, 40, 39, 80, 40]
+          data: [10, 39, 10, 20, 39, 80, 40,52,22,34,79,2]
         }
       ]
     }, {responsive: true, maintainAspectRatio: false}
