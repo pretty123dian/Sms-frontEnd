@@ -1,5 +1,6 @@
 <template>
   <div class="mb-10 bg-white mt-5">
+    <form @submit.prevent="postStudent()">
     <div class="mb-10">
       <div v-for="(input, i) in inputs" :key="i">
         <div class="lg:ml-4 ml-4">
@@ -37,7 +38,9 @@
                 <label for="" class="mr-4" v-if="i == 0">Username</label>
                 <input
                   type="text"
-                  v-model="username"
+                  v-model="username[i]"
+                  :placeholder="i!=0?'Username':''"
+                    :key="i"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -45,7 +48,9 @@
                 <label for="" class="mr-4" v-if="i == 0">Firstname</label>
                 <input
                   type="text"
-                  v-model="firstname"
+                  v-model="firstname[i]"
+                    :placeholder="i!=0?'Firstname':''"
+                      :key="i"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -54,7 +59,9 @@
                 <label for="" class="mr-4" v-if="i == 0">Lastname</label>
                 <input
                   type="text"
-                  v-model="lastname"
+                  v-model="lastname[i]"
+                    :placeholder="i!=0?'Lastname':''"
+                      :key="i"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -82,7 +89,9 @@
                 <label for="" class="mr-4" v-if="i == 0">Email</label>
                 <input
                   type="email"
-                  v-model="email"
+                  v-model="email[i]"
+                    :placeholder="i!=0?'Email':''"
+                      :key="i"
                   class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
                 />
               </div>
@@ -90,7 +99,9 @@
                 <label for="" class="mr-4" v-if="i == 0">Date of birth</label>
                 <input
                   type="date"
-                  v-model="dob"
+                  v-model="dob[i]"
+                    :placeholder="i!=0?'Dob':''"
+                      :key="i"
                   class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
                 />
               </div>
@@ -110,6 +121,7 @@
                   "
                   @click="inputs[i] == '+' ? expand(i) : remove(i)"
                 >
+
                   {{ inputs[i] }}
                 </vs-button>
               </div>
@@ -120,12 +132,24 @@
         <hr />
       </div>
     </div>
-    <vs-button
-      color="#574AE2"
-      class="rounded-full py-3 px-10 save-stud-btn rounded-full focus:outline-none"
-    >
-      Save
-    </vs-button>
+
+<div class="lg:w-1/6 mb-5 pl-4">
+     <button
+              :class="[
+                request_click === true
+                  ? 'button_on_loaging border rounded-md py-3 px-5 mt-8 text-white mt-16 add__btn flex  lg:w-1/6 sm:w-1/4'
+                  : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-1/4 sm:w-1/4'
+              ]"
+            >
+              <template v-if="request_click == false">
+                {{ add_status }}
+              </template>
+              <template v-else>
+                <img src="@/assets/gif2.gif" />
+              </template>
+            </button>
+            </div>
+    </form>
   </div>
 </template>
 
@@ -134,15 +158,24 @@ import Services from "@/services/AllServices";
 export default {
   name: "AddStudent",
   data: () => ({
+    stuData:[
+     
+    ],
+    add_status:"Save",
+     request_click: false,
+    response_status: "",
+     
+ genderN: "gender",
+    gender: ["Male", "Female"],
+    username: [],
+    firstname: [],
+    lastname: [],
+    email: [],
+    dob: [],
+    
     inputs: ["+"],
     userData: [],
-    genderN: "gender",
-    gender: ["Male", "Female"],
-    username: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    dob: "",
+   
   }),
   watch: {
     route() {
@@ -167,24 +200,41 @@ export default {
       console.log("expanding");
       if (index > -1) {
         this.inputs[index] = "-";
+        
+        this.stuData.push({
+          username:(this.username)[index],
+          firstname:(this.firstname)[index],
+          lastname:(this.lastname)[index],
+          gender: (this.gender)[index],
+          email:(this.email)[index],
+          category:"5ff6a85631267c00177e5ef2",
+          dob:(this.dob)[index]
+
+        });
+
+
       }
     },
     remove(index) {
       console.log("Removing");
       this.inputs.splice(index, 1);
+      // (this.username)[index] = "";
+      // (this.firstname)[index] ="";
+      // (this.lastname)[index] ="";
+      // (this.gender)[index]="";
+      // (this.email)[index]="";
+      //  (this.dob)[index]=""; 
+          this.stuData.splice(index,1);
     },
 
     // post the student
 
     async postStudent() {
-      const response = await Services.addUser({
-        username: this.username,
-        surname: this.lastname,
-        othernames: this.firstname,
-        email: this.email,
-        birth_date: this.dob,
-        gender: this.gender,
-      });
+      //  alert("hi")
+     console.log(this.stuData);
+      const response = await Services.addUser(
+        this.stuData
+      );
 
       console.log("New student: ", response);
     },
@@ -192,18 +242,6 @@ export default {
 };
 </script>
 
-<style scoped>
-.form-select {
-  width: 30%;
-}
-option {
-  padding: 5% !important;
-}
-input:focus {
-  background-color: #f8f8f8;
-}
-.save-stud-btn {
-  width: 15%;
-  margin-left: 40% !important;
-}
+<style src="../shared/styles.css" scoped>
 </style>
+
