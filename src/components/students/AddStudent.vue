@@ -140,21 +140,27 @@
         </div>
       </div>
 
-      <div class="lg:w-1/6 mb-5 pl-4">
+      <div class="lg:w-1/2 mb-5 pl-4 flex gap-5 items-center">
+      <div class="w-1/3">
         <button
           :class="[
             request_click === true
-              ? 'button_on_loaging border rounded-md py-3 px-5 mt-8 text-white mt-16 add__btn flex  lg:w-1/6 sm:w-1/4'
-              : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-1/4 sm:w-1/4',
+              ? 'button_on_loaging border rounded-md py-3 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
+              : 'border rounded-md py-3 px-5  text-white  add__btn flex  lg:w-full sm:w-1/4',
           ]"
         >
           <template v-if="request_click == false">
             {{ add_status }}
           </template>
           <template v-else>
-            <img src="@/assets/gif2.gif" />
+            <!-- <img src="@/assets/gif2.gif" width="40" /> -->
+            Regestering ...
           </template>
         </button>
+        </div>
+        <div class="text-red w-2/3">
+          {{error_response}}
+        </div> 
       </div>
     </form>
   </div>
@@ -173,6 +179,7 @@ export default {
     genderN: "gender",
     gender: ["MALE", "FEMALE"],
     inputs: ["+"],
+    error_response:""
   }),
   watch: {
     route() {
@@ -214,10 +221,27 @@ export default {
     // post the student
 
     async postStudent() {
+       this.request_click = true,
       console.log(this.stuData);
       const response = await Services.addUser({ users: this.stuData });
 
       console.log("New student: ", response);
+      this.request_click = false;
+
+      
+      if(response.data.status ==403){
+        this.add_status="Save"
+        this.error_response= response.data.message
+      }
+      else{
+        this.error_response=""
+        setTimeout(()=>{
+        this.add_status = "Save"
+      },3000);
+
+      this.add_status = "Registration done"
+      }
+
     },
   },
 };
