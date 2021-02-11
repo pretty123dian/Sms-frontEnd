@@ -160,12 +160,17 @@ export default {
     async getRows() {
        this.rowCounter = 0;
         this.students = [];
-      const response = await Services.getUsers(1,this.filter);
+        let studCatId = "5ff6a85631267c00177e5ef2";
+      
+      const response = await Services.getUsersByCat(studCatId,this.filter);
       console.log("Users: ", response);
       response.data.data.docs.forEach((user) => {
-        if (user.category && user.category.name == "CATEGORY 1") {
+        if (user.category) {
           // category 1 -- students
-          const userObj = {};
+         
+            //  if (this.filter > this.rowCounter){
+                 this.rowCounter++;
+                      const userObj = {};
           userObj.lastname = user.othernames;
           userObj.firstname = user.surname;
           userObj.full_names = userObj.lastname + " " + userObj.firstname;
@@ -176,7 +181,9 @@ export default {
           userObj.national_id = user.national_id;
           userObj.action = this.action;
           this.students.push(userObj);
-           this.rowCounter++;
+            //  }
+          
+          
         }
       });
     },

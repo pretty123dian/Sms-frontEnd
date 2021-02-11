@@ -168,10 +168,11 @@ export default {
     async getRows() {
        this.rowCounter = 0;
         this.instructors = [];
-      const response = await Services.getUsers(1,200);
+        let instrCatId = "5fc7bf13166c8224c866ea36";
+      const response = await Services.getUsersByCat(instrCatId,this.filter);
       console.log("Users: ", response);
       response.data.data.docs.forEach((user) => {
-        if (user.category && user.category.name == "CATEGORY2") {
+        if (user.category) {
           // category 1 -- instructors
           const userObj = {};
           userObj.lastname = user.othernames;

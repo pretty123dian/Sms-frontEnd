@@ -49,6 +49,9 @@ export default {
     getUsers(page,limit) {
         return Api().get(`api/users?page=${page}&limit=${limit}`);
     },
+    getUsersByCat(cat_id,limit){
+        return Api().get(`api/users/get/category/${cat_id}?limit=${limit}`);
+    },
     getUserData(user_id) {
         return Api().get(`api/users/${user_id}`)
     },
