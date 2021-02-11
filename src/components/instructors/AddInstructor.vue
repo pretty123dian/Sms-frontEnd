@@ -245,7 +245,7 @@ export default {
       this.request_click = false;
 
       
-      if(response.data.status ==403){
+     if(response.data.status == 403 || response.data.status == 400){
         this.add_status="Save"
         this.error_response= response.data.message
       }
@@ -255,7 +255,18 @@ export default {
         this.add_status = "Save"
       },2000);
 
-      this.add_status = "Registration done"
+      this.add_status = "Registration done";
+
+      this.instrData.map((data)=>{
+        data.username="";
+        data.othernames="";
+        data.email = "";
+        data.phone="";
+        data.national_id="";
+        data.surname="";
+        data.gender=""
+      });
+     
       }
 
     },
