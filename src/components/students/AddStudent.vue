@@ -42,6 +42,7 @@
                     :placeholder="i != 0 ? 'Username' : ''"
                     :key="i"
                     class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
+                    required
                   />
                 </div>
                 <div class="col-span-5 lg:col-span-1 md:col-span-5">
@@ -52,6 +53,7 @@
                     :placeholder="i != 0 ? 'Firstname' : ''"
                     :key="i"
                     class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
+                     required
                   />
                 </div>
 
@@ -63,6 +65,7 @@
                     :placeholder="i != 0 ? 'Lastname' : ''"
                     :key="i"
                     class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
+                     required
                   />
                 </div>
                 <div class="col-span-5 lg:col-span-1 md:col-span-5">
@@ -77,6 +80,7 @@
                         :key="index"
                         :id="sex + index + i"
                         @click="setGender(i, sex)"
+                         required
                       />
                       <label
                         :for="sex + index + i"
@@ -94,6 +98,7 @@
                     :placeholder="i != 0 ? 'Email' : ''"
                     :key="i"
                     class="form-input p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm"
+                     required
                   />
                 </div>
                 <div class="col-span-6 lg:col-span-1 md:col-span-6">
@@ -104,6 +109,7 @@
                     :placeholder="i != 0 ? 'Dob' : ''"
                     :key="i"
                     class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
+                     required
                   />
                 </div>
 
