@@ -171,6 +171,7 @@ import Services from "@/services/AllServices";
 export default {
   name: "AddStudent",
   data: () => ({
+    filter:"",
     stuData: [],
     add_status: "Save",
     request_click: false,
