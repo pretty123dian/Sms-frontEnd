@@ -63,7 +63,7 @@ export default {
     },
 
     addUser(body) {
-        return Api().post(`api/users`, body);
+        return Api().post(`api/users/bulk`, body);
     },
     addSemester(body) {
         return Api().post(`api/semester`, body);
