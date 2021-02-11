@@ -154,7 +154,7 @@
           </template>
           <template v-else>
             <!-- <img src="@/assets/gif2.gif" width="40" /> -->
-            Regestering ...
+            Registering ...
           </template>
         </button>
         </div>
