@@ -165,8 +165,8 @@ export default {
      request_click: false,
     response_status: "",
      
- genderN: "gender",
-    gender: ["Male", "Female"],
+    genderN: "gender",
+    gender: ["MALE", "FEMALE"],
     username: [],
     firstname: [],
     lastname: [],
@@ -203,12 +203,12 @@ export default {
         
         this.stuData.push({
           username:(this.username)[index],
-          firstname:(this.firstname)[index],
-          lastname:(this.lastname)[index],
+          surname:(this.firstname)[index],
+          othernames:(this.lastname)[index],
           gender: (this.gender)[index],
           email:(this.email)[index],
           category:"5ff6a85631267c00177e5ef2",
-          dob:(this.dob)[index]
+          birth_date:(this.dob)[index]
 
         });
 
@@ -232,9 +232,16 @@ export default {
     async postStudent() {
       //  alert("hi")
      console.log(this.stuData);
-      const response = await Services.addUser(
-        this.stuData
-      );
+    //  let response = "";
+    //  let resObj = [];
+    //  (this.stuData)?.map(async(student)=>{
+    //    console.log(student);
+    //      response = await Services.addUser(student);
+    //      resObj.push(response);
+    //  })
+    console.log(this.stuData);
+const response= await Services.addUser({"users":(this.stuData)});
+
 
       console.log("New student: ", response);
     },

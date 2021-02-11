@@ -54,8 +54,8 @@
               @click="validateAllfields()"
               :class="[
                 request_click === true
-                  ? 'button_on_loaging border rounded-md py-3 px-5 mt-8 text-white mt-16 add__btn flex  lg:w-1/4 sm:w-1/4'
-                  : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-1/4 sm:w-1/4'
+                  ? 'button_on_loaging border rounded-md py-3 px-5 mt-8 text-white mt-16 add__btn flex  lg:w-1/4 sm:w-full'
+                  : 'border rounded-md py-3 px-5 mt-8 text-white  mt-16 add__btn flex  lg:w-1/4 sm:w-full'
               ]"
             >
               <template v-if="request_click == false">
