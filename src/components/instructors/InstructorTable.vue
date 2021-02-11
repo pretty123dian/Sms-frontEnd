@@ -45,22 +45,43 @@
         </div>
       </div>
       <div class="center bg-white p-5">
-        <table stripe :data="instructors" class="w-full">
-          <template>
+        
+         
+              <div class="row flex gap-4">
+               <select
+            class="form-input p-2 border rounded"
+            @change="getRows(filter)"
+            v-model="filter"
+           
+            border
+          >
+            <option value="10">Showing {{ filter }} rows</option>
+            <option v-if="filter != 10" value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
             <input
               class="form-input p-2 border rounded"
               v-model="search"
               border
               placeholder="Search instructor"
             />
-          </template>
+              </div> 
+               <div class="flex my-5">
+          <span><b>Total: </b>{{ rowCounter }}</span>
+        </div>
+              <table stripe :data="instructors" class="w-full">
+        
+
           <template>
             <tr>
               <th>#</th>
               <th>Names</th>
               <th>Gender</th>
               <th>Email</th>
-              <th>Phone N</th>
+                 <th>Contact N.</th>
+                 <!-- <th>National ID</th> -->
 
               <th>Status</th>
               <th colspan="3">Action</th>
@@ -84,7 +105,10 @@
               <td>
                 {{ tr.phone }}
               </td>
-
+              <!-- <td>
+                {{ tr.national_id }}
+              </td> -->
+    
               <td>
                 {{ tr.status }}
               </td>
@@ -103,8 +127,10 @@
 <script>
 import Services from "@/services/AllServices";
 export default {
-  name: "InstructorsTable",
+  name: "instructorsTable",
   data: () => ({
+    filter:10,
+    rowCounter:0,
     search: "",
     instructors: [],
     action: [
@@ -128,9 +154,7 @@ export default {
   computed: {
     searchSimilar() {
       let filter = new RegExp(this.search, "i");
-      let foundText = this.instructors.filter((el) =>
-        el.full_names.match(filter)
-      );
+      let foundText = this.instructors.filter((el) => el.full_names.match(filter));
       return foundText;
     },
   },
@@ -142,11 +166,14 @@ export default {
 
   methods: {
     async getRows() {
-      const response = await Services.getUsers();
+       this.rowCounter = 0;
+        this.instructors = [];
+        let instrCatId = "5fc7bf13166c8224c866ea36";
+      const response = await Services.getUsersByCat(instrCatId,this.filter);
       console.log("Users: ", response);
       response.data.data.docs.forEach((user) => {
-        if (user.category && user.category.name == "CATEGORY2") {
-          // category 2 --- instuctors
+        if (user.category) {
+          // category 1 -- instructors
           const userObj = {};
           userObj.lastname = user.othernames;
           userObj.firstname = user.surname;
@@ -155,9 +182,10 @@ export default {
           userObj.gender = user.gender;
           userObj.phone = user.phone;
           userObj.status = user.status;
-          // userObj.national_id = user.national_id;
+          userObj.national_id = user.national_id;
           userObj.action = this.action;
           this.instructors.push(userObj);
+           this.rowCounter++;
         }
       });
     },

@@ -45,15 +45,35 @@
         </div>
       </div>
       <div class="center bg-white p-5">
-        <table stripe :data="students" class="w-full">
-          <template>
+        
+         
+              <div class="row flex gap-4">
+               <select
+            class="form-input p-2 border rounded"
+            @change="getRows(filter)"
+            v-model="filter"
+           
+            border
+          >
+            <option value="10">Showing {{ filter }} rows</option>
+            <option v-if="filter != 10" value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
             <input
               class="form-input p-2 border rounded"
               v-model="search"
               border
               placeholder="Search student"
             />
-          </template>
+              </div> 
+               <div class="flex my-5">
+          <span><b>Total: </b>{{ rowCounter }}</span>
+        </div>
+              <table stripe :data="students" class="w-full">
+        
+
           <template>
             <tr>
               <th>#</th>
@@ -101,6 +121,8 @@ import Services from "@/services/AllServices";
 export default {
   name: "studentsTable",
   data: () => ({
+    filter:10,
+    rowCounter:0,
     search: "",
     students: [],
     action: [
@@ -136,12 +158,19 @@ export default {
 
   methods: {
     async getRows() {
-      const response = await Services.getUsers(1,200);
+       this.rowCounter = 0;
+        this.students = [];
+        let studCatId = "5ff6a85631267c00177e5ef2";
+      
+      const response = await Services.getUsersByCat(studCatId,this.filter);
       console.log("Users: ", response);
       response.data.data.docs.forEach((user) => {
-        if (user.category && user.category.name == "CATEGORY 1") {
+        if (user.category) {
           // category 1 -- students
-          const userObj = {};
+         
+            //  if (this.filter > this.rowCounter){
+                 this.rowCounter++;
+                      const userObj = {};
           userObj.lastname = user.othernames;
           userObj.firstname = user.surname;
           userObj.full_names = userObj.lastname + " " + userObj.firstname;
@@ -152,6 +181,9 @@ export default {
           userObj.national_id = user.national_id;
           userObj.action = this.action;
           this.students.push(userObj);
+            //  }
+          
+          
         }
       });
     },
