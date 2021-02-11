@@ -237,7 +237,7 @@ export default {
         this.error_response=""
         setTimeout(()=>{
         this.add_status = "Save"
-      },3000);
+      },2000);
 
       this.add_status = "Registration done"
       }

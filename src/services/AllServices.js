@@ -46,8 +46,8 @@ export default {
     getLessonById(lesson_id) {
         return Api().get(`api/lessons/${lesson_id}`)
     },
-    getUsers() {
-        return Api().get(`api/users`);
+    getUsers(page,limit) {
+        return Api().get(`api/users?page=${page}&limit=${limit}`);
     },
     getUserData(user_id) {
         return Api().get(`api/users/${user_id}`)
