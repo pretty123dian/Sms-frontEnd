@@ -46,8 +46,8 @@ export default {
     getLessonById(lesson_id) {
         return Api().get(`api/lessons/${lesson_id}`)
     },
-    getUsers() {
-        return Api().get(`api/users`);
+    getUsers(page,limit) {
+        return Api().get(`api/users?page=${page}&limit=${limit}`);
     },
     getUserData(user_id) {
         return Api().get(`api/users/${user_id}`)
@@ -63,7 +63,7 @@ export default {
     },
 
     addUser(body) {
-        return Api().post(`api/users`, body);
+        return Api().post(`api/users/bulk`, body);
     },
     addSemester(body) {
         return Api().post(`api/semester`, body);

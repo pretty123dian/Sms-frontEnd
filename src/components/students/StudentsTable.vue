@@ -60,8 +60,6 @@
               <th>Names</th>
               <th>Gender</th>
               <th>Email</th>
-              <th>Phone N</th>
-              <th>National ID</th>
 
               <th>Status</th>
               <th colspan="3">Action</th>
@@ -82,12 +80,7 @@
               <td>
                 {{ tr.email }}
               </td>
-              <td>
-                {{ tr.phone }}
-              </td>
-              <td>
-                {{ tr.national_id }}
-              </td>
+    
               <td>
                 {{ tr.status }}
               </td>
@@ -143,7 +136,7 @@ export default {
 
   methods: {
     async getRows() {
-      const response = await Services.getUsers();
+      const response = await Services.getUsers(1,200);
       console.log("Users: ", response);
       response.data.data.docs.forEach((user) => {
         if (user.category && user.category.name == "CATEGORY 1") {
