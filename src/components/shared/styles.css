@@ -115,3 +115,31 @@
   /* border:1px solid black; */
   border-radius: 20px;
 }
+
+.profile__btn {
+  background-color: #ffffff;
+  color: #574ae2;
+  border: 1px solid #574ae2;
+  font-size: 12px;
+}
+.profile_remove_btn {
+  background-color: #ffffff;
+  color: #ee0004;
+  border: 1px solid #ee0004;
+  font-size: 12px;
+}
+.profile_remove_btn:hover {
+  background-color: #ee0004;
+  color: #ffffff;
+}
+.profile__btn:hover {
+  background-color: #574ae2;
+  color: #ffffff;
+}
+
+input{
+  padding: 11px 10px;
+}
+
+
+/* profile settings ends here */
