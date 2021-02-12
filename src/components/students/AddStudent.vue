@@ -8,9 +8,11 @@
               <div class="col-start-1 col-end-6 lg:col-start-1 lg:col-end-2">
                 <div class="block">
                   <label class="block">
+                    <div class="my-5">
                     <span class="text-dark-700 font-bold" v-if="i == 0"
-                      >Register students</span
+                      >REGISTER STUDENTS</span
                     >
+                    </div>
 
                     <select
                       class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
@@ -109,7 +111,7 @@
                     :placeholder="i != 0 ? 'Dob' : ''"
                     :key="i"
                     class="p-2 mt-2 mr-4 border border-#E1E1E1-600 rounded-sm bg-white"
-                     required
+                       required
                   />
                 </div>
 
@@ -145,7 +147,7 @@
         <button
           :class="[
             request_click === true
-              ? 'button_on_loaging border rounded-md py-3 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
+              ? 'button_on_loaging border rounded-md py-2 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
               : 'border rounded-md py-3 px-5  text-white  add__btn flex  lg:w-full sm:w-1/4',
           ]"
         >
@@ -154,7 +156,9 @@
           </template>
           <template v-else>
             <!-- <img src="@/assets/gif2.gif" width="40" /> -->
-            Registering ...
+         <!-- <span class="">   Registering  </span> -->
+            <ClipLoader
+             color="white"/>
           </template>
         </button>
         </div>
@@ -168,12 +172,16 @@
 
 <script>
 import Services from "@/services/AllServices";
+import ClipLoader from 'vue-spinner/src/ClipLoader'
 export default {
   name: "AddStudent",
+  components:{
+ClipLoader
+  },
   data: () => ({
     filter:"",
     stuData: [],
-    add_status: "Save",
+    add_status: "Register",
     request_click: false,
     response_status: "",
 
@@ -231,13 +239,13 @@ export default {
 
       
       if(response.data.status == 403 || response.data.status == 400){
-        this.add_status="Save"
+        this.add_status="Register"
         this.error_response= response.data.message
       }
       else{
         this.error_response=""
         setTimeout(()=>{
-        this.add_status = "Save"
+        this.add_status = "Register"
       },2000);
 
       this.add_status = "Registration done";

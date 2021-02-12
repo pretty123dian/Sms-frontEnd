@@ -164,6 +164,7 @@
               </div>
             </div>
             <br />
+            
                 <div
             v-if="response_status_block == true"
             class="mt-5 status_success w-full flex"
@@ -173,7 +174,7 @@
             <button
               :class="[
                 request_click === true
-                  ? 'button_on_loaging border rounded-md py-3 px-6 mt-4 text-white add__btn flex'
+                  ? 'button_on_loaging border rounded-md py-2 px-6 mt-4 text-white add__btn flex'
                   : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
               ]"
             >
@@ -181,7 +182,8 @@
                 {{ button_status }}
               </template>
               <template v-else>
-                <img src="@/assets/gif2.gif" />
+                <!-- <img src="@/assets/gif2.gif" /> -->
+                <ClipLoader color="white" />
               </template>
             </button>
           </div>
@@ -193,10 +195,14 @@
 
 <script>
 import { mapMutations, mapState } from "vuex";
+import ClipLoader  from "vue-spinner/src/ClipLoader";
 // accesing the API store
 import Services from "@/services/AllServices";
 export default {
   name: "ProfileSettings",
+  components:{
+    ClipLoader
+  },
   data: () => ({
     labels_focus: {
       label1: false,
