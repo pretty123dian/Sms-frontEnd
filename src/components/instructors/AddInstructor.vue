@@ -8,9 +8,11 @@
               <div class="col-start-1 col-end-6 lg:col-start-1 lg:col-end-2">
                 <div class="block">
                   <label class="block">
+                  <div class="my-5">
                     <span class="text-dark-700 font-bold" v-if="i == 0"
-                      >Register instructors</span
+                      >REGISTER INSTRUCTORS</span
                     >
+                    </div>
 
                     <select
                       class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
