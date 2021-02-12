@@ -156,3 +156,8 @@ input{
 .add-stud-btn:focus {
   outline: none;
 }
+
+.button_on_loading .v-spinner .v-clip{
+  height: 30px !important;
+  width: 30px !important;
+}

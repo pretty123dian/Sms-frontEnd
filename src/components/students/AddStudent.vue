@@ -147,7 +147,7 @@
         <button
           :class="[
             request_click === true
-              ? 'button_on_loading border rounded-md py-2 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
+              ? 'button_on_loading border rounded-md py-3 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
               : 'border rounded-md py-3 px-5  text-white  add__btn flex  lg:w-full sm:w-1/4',
           ]"
         >
@@ -158,6 +158,7 @@
             <!-- <img src="@/assets/gif2.gif" width="40" /> -->
          <!-- <span class="">   Registering  </span> -->
             <ClipLoader
+            size="27px"
              color="white"/>
           </template>
         </button>
