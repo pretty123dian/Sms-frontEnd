@@ -171,7 +171,9 @@
           </template>
           <template v-else>
             <!-- <img src="@/assets/gif2.gif" width="40" /> -->
-            Registering ...
+            <!-- Registering ... -->
+              <PulseLoader
+             color="white"/>
           </template>
         </button>
         </div>
@@ -185,8 +187,12 @@
 
 <script>
 import Services from "@/services/AllServices";
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 export default {
   name: "AddInstructor",
+    components:{
+PulseLoader
+  },
   data: () => ({
     filter:"",
     instrData: [],

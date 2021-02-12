@@ -154,9 +154,11 @@
           <template v-if="request_click == false">
             {{ add_status }}
           </template>
-          <template v-else>
+          <template v-else >
             <!-- <img src="@/assets/gif2.gif" width="40" /> -->
-            Registering ...
+            <!-- Registering  -->
+            <PulseLoader
+             color="white"/>
           </template>
         </button>
         </div>
@@ -170,8 +172,12 @@
 
 <script>
 import Services from "@/services/AllServices";
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 export default {
   name: "AddStudent",
+  components:{
+PulseLoader
+  },
   data: () => ({
     filter:"",
     stuData: [],

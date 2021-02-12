@@ -66,3 +66,11 @@
   }
 
   /* add semesters styles end here */
+
+
+
+  /* LOADER HERE */
+  .v-spinner>div{
+    width: 10px;
+    height: 3px;
+  }
