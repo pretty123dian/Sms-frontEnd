@@ -174,7 +174,7 @@
           <template v-else>
             <!-- <img src="@/assets/gif2.gif" width="40" /> -->
             <!-- Registering ... -->
-              <ClipLoader
+              <ClipLoader 
              color="white"/>
           </template>
         </button>
