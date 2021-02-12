@@ -83,7 +83,7 @@
           <button
             :class="[
               request_click === true
-                ? 'button_on_loading border rounded-md py-2 px-6 mt-4 text-white add__btn flex'
+                ? 'button_on_loading border rounded-md py-3 px-6 mt-4 text-white add__btn flex'
                 : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
             ]"
           >
@@ -92,7 +92,7 @@
             </template>
             <template v-else>
               <!-- <img src="@/assets/gif2.gif" /> -->
-               <ClipLoader color="white" height="5"/>
+               <ClipLoader color="white" size="27px"/>
             </template>
           </button>
         </div>
