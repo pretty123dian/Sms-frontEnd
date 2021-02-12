@@ -110,7 +110,7 @@
       <!-- add lesson popup here -->
       <vs-popup
         classContent="popup-example"
-        title="Add new lesson"
+        title="Register new lesson"
         button-close-hidden="false"
         :active.sync="popupActivo2"
         class="assignment__popup"
@@ -157,22 +157,23 @@
 
               <div class="my-2 w-full row">
                 <div class="flex w-full">
-                  <p class="lesson__add_success float-right m-auto">
+                  <p class="status_success float-right m-auto">
                     {{ response_status }}
                   </p>
                 </div>
                 <button
                   :class="[
                     request_click === true
-                      ? 'button_on_loaging border rounded-md py-3 px-6 mt-4 text-white addlesson__btn flex'
-                      : 'border rounded-md py-3 px-6 mt-4 text-white addlesson__btn flex w-full',
+                      ? 'button_on_loading border rounded-md py-2 px-6 mt-4 text-white add__btn flex'
+                      : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
                   ]"
                 >
                   <template v-if="request_click == false">
                     {{ button_status }}
                   </template>
                   <template v-else>
-                    <img src="@/assets/gif2.gif" />
+                    <!-- <img src="@/assets/gif2.gif" /> -->
+                    <ClipLoader color="white" />
                   </template>
                 </button>
               </div>
@@ -188,11 +189,14 @@
 
 <script>
 import Services from "@/services/AllServices";
+import ClipLoader from 'vue-spinner/src/ClipLoader'
 
 export default {
   name: "LessonsTable",
 
-  components: {},
+  components: {
+    ClipLoader
+  },
   data: () => ({
     labels_focus: {
       label1: false,
@@ -202,7 +206,7 @@ export default {
     lesson__description: "",
     popupActivo2: false,
     request_click: false,
-    button_status: "Add lesson",
+    button_status: "Register lesson",
     response_status: "",
     rowCounter: 0,
     filter: 10,
@@ -286,81 +290,7 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.lesson__form input:focus,
-.lesson__form textarea:focus {
-  border: 2px solid #574ae2;
-}
-label > input[type="checkbox"]:checked + *::before {
-  background-color: #574ae2;
-}
-label > input[type="checkbox"]:checked + * {
-  color: #574ae2;
-}
-.label-focus {
-  color: #574ae2 !important;
-}
-
-.addlesson__btn {
-  justify-content: center;
-  border: none;
-  height: 7vh;
-  width: 100%;
-}
-.addlesson__btn:hover {
-  box-shadow: 6px 5px 6px #574ae257;
-}
-.addlesson__btn:focus {
-  outline: none;
-}
-.addlesson__btn img {
-  width: 5%;
-  text-align: center;
-}
-button {
-  background-color: #574ae2;
-}
-.button_on_loaging {
-  background-color: #1400f3a8;
-}
-
-.add-stud-btn:focus {
-  outline: none;
-}
-
-div .lesson__add_success {
-  color: #2aa804;
-  text-align: center;
-  font-size: 13px;
-}
-.table__thead .table__th {
-  background: #fff !important;
-}
-
-.table__tr:hover {
-  /* background-color: #E9E8FF;
-  border: 1px solid black; */
-}
-tr {
-  border-bottom: 1px solid #dfdfdf !important;
-}
-
-input:focus,
-select:focus {
-  border: 1px solid #574ae2;
-}
-svg:hover {
-  cursor: pointer;
-  fill: indigo;
-}
-
-.popup {
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-</style>
-
+<style src="../shared/styles.css" scoped></style>
 
 
 
