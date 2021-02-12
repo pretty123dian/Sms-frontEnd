@@ -167,7 +167,11 @@
 
                 <div
             v-if="response_status_block == true"
-            class="mt-5 status_success w-full flex"
+             :class="[
+              response_status == false
+                ? 'mt-5 status_success w-full flex'
+                : 'mt-5 status_error w-full flex',
+            ]"
           >
             <span class="m-auto"> {{ res_status_title }} </span>
           </div>
@@ -215,6 +219,7 @@ export default {
     academicYears: ["2020", "2021"],
     button_status: "Save changes",
      response_status_block: true,
+     response_status:false,
     res_status_title:"",
     request_click: false,
     username: "",
@@ -266,8 +271,6 @@ export default {
 
     async updateThisUser() {
       this.request_click = true;
-      this.response_status_block = true;
-         this.res_status_title = "Updating ...";
       // checking if the fields are assigned twith certain new values
       this.username = this.username == "" ? this.user.username : this.username;
       this.surname = this.surname == "" ? this.user.surname : this.surname;
@@ -277,7 +280,7 @@ export default {
       this.phone = this.phone == "" ? this.user.phone : this.phone;
       this.national_id =
         this.national_id == "" ? this.user.national_id : this.national_id;
-      try{
+ 
       const response = await Services.updateUser(this.user.id, {
         username: this.username,
         surname: this.surname,
@@ -289,22 +292,32 @@ export default {
         category: this.userAll.category._id,
       });
 
+      if(response.data.status == 400){
+         this.response_status = true;
+           this.res_status_title = response.data.message;
+            this.request_click = false;
+      this.button_status = "Save changes"
+     
+        }
+
+else{
       // console.log(response);
       // console.log(this.userAll.category._id);
-      this.request_click = false;
-        this.res_status_title = "Profile account updated successfully"
-      setTimeout(()=>{
         this.res_status_title = "";
+      this.request_click = false;
+      this.button_status = "PROFILE UPDATED"
+      setTimeout(()=>{
+      
+          this.button_status = "Save changes"
         },1500)
       await this.setUserAllData(response.data.data);
         await this.setUser(response.data.data);
+
+        
       // console.log(this.userAll);
      
-          
-      }catch(e){
-        // console.log(e.response.data.data);
-          this.res_status_title = e.response.data.data;
-        }
+}
+  
     },
   },
 };
