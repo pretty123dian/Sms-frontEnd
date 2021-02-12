@@ -14,6 +14,8 @@
                     >
                     </div>
 
+                    <b>Instructor: {{i+1}}</b>
+
                     <select
                       class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
                     >
