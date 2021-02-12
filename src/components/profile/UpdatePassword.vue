@@ -123,7 +123,7 @@ ClipLoader
     response_status_block: false,
     res_status_title: "",
     request_click: false,
-    button_status: "Update password",
+    button_status: "Update",
   }),
   computed: {
     ...mapState({
@@ -151,8 +151,11 @@ ClipLoader
       //  this.response_status_block = false;
       //   },4000);
         if(response.data.status == 201){
-              this.response_status = true; 
-               this.res_status_title = "Password "+(response.data.message).toLowerCase();
+          setTimeout(() => {
+            this.button_status = "Update";
+          }, 2000);
+               this.res_status_title ="";
+               this.button_status = "PASSWORD "+(response.data.message).toUpperCase();
         }
         else if(response.data.status == 400){
           
