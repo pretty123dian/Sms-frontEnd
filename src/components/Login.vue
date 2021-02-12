@@ -85,7 +85,7 @@
         @click="validateAllfields()"
         :class="[
           request_click === true
-            ? 'button_on_loaging border rounded-md py-2 px-6 mt-8 text-white mt-16 login__button flex'
+            ? 'button__loading border rounded-md py-2 px-6 mt-8 text-white mt-16 login__button flex'
             : 'border rounded-md py-3 px-6 mt-8 text-white  mt-16 login__button flex',
           username === '' || password === '' ? 'bt__disabled' : '',
         ]"
@@ -255,8 +255,9 @@ button {
 button {
   background-color: #574ae2;
 }
-.button_on_loaging {
-  background-color: #1400f3a8;
+.button__loading {
+  background-color: #574ae2;
+  opacity: 0.7;
 }
 *:focus {
   outline: 0 !important;

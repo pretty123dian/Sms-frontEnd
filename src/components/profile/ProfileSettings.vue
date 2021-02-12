@@ -164,7 +164,7 @@
               </div>
             </div>
             <br />
-            
+
                 <div
             v-if="response_status_block == true"
             class="mt-5 status_success w-full flex"
@@ -174,7 +174,7 @@
             <button
               :class="[
                 request_click === true
-                  ? 'button_on_loaging border rounded-md py-2 px-6 mt-4 text-white add__btn flex'
+                  ? 'button_on_loading border rounded-md py-2 px-6 mt-4 text-white add__btn flex'
                   : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
               ]"
             >
