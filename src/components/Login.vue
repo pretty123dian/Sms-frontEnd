@@ -85,7 +85,7 @@
         @click="validateAllfields()"
         :class="[
           request_click === true
-            ? 'button__loading border rounded-md py-2 px-6 mt-8 text-white mt-16 login__button flex'
+            ? 'button__loading border rounded-md py-3 px-6 mt-8 text-white mt-16 login__button flex'
             : 'border rounded-md py-3 px-6 mt-8 text-white  mt-16 login__button flex',
           username === '' || password === '' ? 'bt__disabled' : '',
         ]"
@@ -95,7 +95,7 @@
         </template>
         <template v-else >
           <!-- <img src="../assets/gif2.gif" /> -->
-          <ClipLoader color="white" height="5"/>
+          <ClipLoader color="white"   size="27px"/>
         </template>
       </button>
       <!-- </router-link> -->

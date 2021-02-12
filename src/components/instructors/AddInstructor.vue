@@ -14,6 +14,8 @@
                     >
                     </div>
 
+                    <b>Instructor: {{i+1}}</b>
+
                     <select
                       class="form-select mt-1 p-2 block rounded-sm focus:outline-none border border-#E1E1E1-700 bg-white"
                     >
@@ -162,7 +164,7 @@
         <button
           :class="[
             request_click === true
-              ? 'button_on_loading border rounded-md py-2 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
+              ? 'button_on_loading border rounded-md py-3 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
               : 'border rounded-md py-3 px-5  text-white  add__btn flex  lg:w-full sm:w-1/4',
           ]"
         >
@@ -172,7 +174,7 @@
           <template v-else>
             <!-- <img src="@/assets/gif2.gif" width="40" /> -->
             <!-- Registering ... -->
-              <ClipLoader
+              <ClipLoader   size="27px"
              color="white"/>
           </template>
         </button>

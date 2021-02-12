@@ -143,3 +143,21 @@ input{
 
 
 /* profile settings ends here */
+
+
+/* lessons component */
+.addlesson__btn {
+  justify-content: center;
+  border: none;
+  height: 7vh;
+  width: 100%;
+}
+
+.add-stud-btn:focus {
+  outline: none;
+}
+
+.button_on_loading .v-spinner .v-clip{
+  height: 30px !important;
+  width: 30px !important;
+}
