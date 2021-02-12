@@ -83,7 +83,7 @@
           <button
             :class="[
               request_click === true
-                ? 'button_on_loaging border rounded-md py-3 px-6 mt-4 text-white add__btn flex'
+                ? 'button_on_loaging border rounded-md py-2 px-6 mt-4 text-white add__btn flex'
                 : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
             ]"
           >
@@ -91,7 +91,8 @@
               {{ button_status }}
             </template>
             <template v-else>
-              <img src="@/assets/gif2.gif" />
+              <!-- <img src="@/assets/gif2.gif" /> -->
+               <ClipLoader color="white" height="5"/>
             </template>
           </button>
         </div>
@@ -103,8 +104,12 @@
 <script>
 import {mapMutations,mapState} from "vuex";
 import Services from "@/services/AllServices";
+import ClipLoader from "vue-spinner/src/ClipLoader"
 export default {
   name: "UpdatePassword",
+  components:{
+ClipLoader
+  },
   data: () => ({
     labels_focus: {
       label1: false,

@@ -85,7 +85,7 @@
         @click="validateAllfields()"
         :class="[
           request_click === true
-            ? 'button_on_loaging border rounded-md py-3 px-6 mt-8 text-white mt-16 login__button flex'
+            ? 'button_on_loaging border rounded-md py-2 px-6 mt-8 text-white mt-16 login__button flex'
             : 'border rounded-md py-3 px-6 mt-8 text-white  mt-16 login__button flex',
           username === '' || password === '' ? 'bt__disabled' : '',
         ]"
@@ -93,8 +93,9 @@
         <template v-if="request_click == false">
           {{ login_status }}
         </template>
-        <template v-else>
-          <img src="../assets/gif2.gif" />
+        <template v-else >
+          <!-- <img src="../assets/gif2.gif" /> -->
+          <ClipLoader color="white" height="5"/>
         </template>
       </button>
       <!-- </router-link> -->
@@ -105,10 +106,14 @@
 <script>
 // import axios from 'axios'
 import Services from "@/services/AllServices";
+import ClipLoader from 'vue-spinner/src/ClipLoader';
 export default {
   name: "Login",
   props: {
     msg: String,
+  },
+  components:{
+  ClipLoader
   },
   data: () => ({
     labels_focus: {

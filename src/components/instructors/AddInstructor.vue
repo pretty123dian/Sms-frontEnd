@@ -162,7 +162,7 @@
         <button
           :class="[
             request_click === true
-              ? 'button_on_loaging border rounded-md py-3 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
+              ? 'button_on_loaging border rounded-md py-2 px-5 text-white add__btn flex  lg:w-6/6 sm:w-1/4'
               : 'border rounded-md py-3 px-5  text-white  add__btn flex  lg:w-full sm:w-1/4',
           ]"
         >
@@ -172,7 +172,7 @@
           <template v-else>
             <!-- <img src="@/assets/gif2.gif" width="40" /> -->
             <!-- Registering ... -->
-              <PulseLoader
+              <ClipLoader
              color="white"/>
           </template>
         </button>
@@ -187,16 +187,16 @@
 
 <script>
 import Services from "@/services/AllServices";
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import ClipLoader from 'vue-spinner/src/ClipLoader'
 export default {
   name: "AddInstructor",
     components:{
-PulseLoader
+ClipLoader
   },
   data: () => ({
     filter:"",
     instrData: [],
-    add_status: "Save",
+    add_status: "Register",
     request_click: false,
     response_status: "",
 
@@ -254,13 +254,13 @@ PulseLoader
 
       
      if(response.data.status == 403 || response.data.status == 400){
-        this.add_status="Save"
+        this.add_status="Register"
         this.error_response= response.data.message
       }
       else{
         this.error_response=""
         setTimeout(()=>{
-        this.add_status = "Save"
+        this.add_status = "Register"
       },2000);
 
       this.add_status = "Registration done";
