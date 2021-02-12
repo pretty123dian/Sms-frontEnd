@@ -135,9 +135,8 @@ ClipLoader
   ...mapMutations(["setUserAllData"]),
     async updatePassword() {
       if (this.new_password === this.confirm_password) {
-        this.response_status = true;
-        this.response_status_block = true;
-        this.res_status_title = "Updating...";
+      
+        // this.res_status_title = "Updating...";
         this.request_click = true;
         // console.log("The user",this.userAll._id)
         try{
@@ -148,18 +147,23 @@ ClipLoader
         console.log("Password>>>: ", response);
         
       
-        setTimeout(()=>{
-       this.response_status_block = false;
-        },4000);
+      //   setTimeout(()=>{
+      //  this.response_status_block = false;
+      //   },4000);
         if(response.data.status == 201){
               this.response_status = true; 
                this.res_status_title = "Password "+(response.data.message).toLowerCase();
         }
         else if(response.data.status == 400){
+          
+        this.response_status_block = true;
             this.response_status = false; 
              this.res_status_title = response.data.message;
         }
-        else {this.response_status = false;
+        else {
+          
+        this.response_status_block = true;
+          this.response_status = false;
         //  this.res_status_title = response.data; 
         /*
 "new_password" with value "123" fails to match the required pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
@@ -186,3 +190,9 @@ ClipLoader
 </script>
 <style src="../shared/styles.css" scoped></style>
 
+<style scoped>
+
+input {
+  background-color: #eae8ff;
+  }
+</style>
