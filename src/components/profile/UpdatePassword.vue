@@ -83,7 +83,7 @@
           <button
             :class="[
               request_click === true
-                ? 'button_on_loaging border rounded-md py-2 px-6 mt-4 text-white add__btn flex'
+                ? 'button_on_loading border rounded-md py-2 px-6 mt-4 text-white add__btn flex'
                 : 'border rounded-md py-3 px-6 mt-4 text-white add__btn flex w-full',
             ]"
           >
@@ -184,99 +184,5 @@ ClipLoader
   },
 };
 </script>
+<style src="../shared/styles.css" scoped></style>
 
-<style scoped>
-.add__btn {
-  justify-content: center;
-  border: none;
-  height: 7vh;
-  width: 100%;
-}
-.add__btn:hover {
-  box-shadow: 6px 5px 6px #574ae257;
-}
-.add__btn:focus {
-  outline: none;
-}
-.add__btn img {
-  width: 5%;
-  text-align: center;
-}
-button {
-  background-color: #574ae2;
-}
-.button_on_loaging {
-  background-color: #1400f3a8;
-}
-
-.profile__img {
-  border: 1px solid rgb(224, 224, 224);
-  height: 25vh;
-  border-radius: 50%;
-}
-.profile_links {
-  align-items: center;
-  text-align: center;
-}
-.profile__btn {
-  background-color: #ffffff;
-  color: #574ae2;
-  border: 2px solid #574ae2;
-}
-.profile__btn:hover {
-  background-color: #574ae2;
-  color: #ffffff;
-}
-.profile_links a:hover {
-  background-color: #e9e8ff;
-  color: #574ae2;
-}
-.profile_links a {
-  display: flex;
-
-  margin-top: 5%;
-  padding: 5% 0% 5% 10%;
-  border-radius: 20px;
-}
-.profile_links > .active {
-  padding: 5% 0% 5% 10%;
-  background-color: #e9e8ff;
-  color: #574ae2;
-  /* border:1px solid black; */
-  border-radius: 20px;
-}
-input {
-  background-color: #eae8ff;
-  /* color:#ffffff; */
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border: 2px solid #574ae2;
-  border-radius: 4px !important;
-}
-.notes__upload_file:hover {
-  border: 2px solid #574ae2;
-  border-style: dashed;
-  cursor: pointer;
-  border-radius: 3%;
-  background-color: #574ae21c;
-}
-.label-focus {
-  color: #574ae2 !important;
-}
-.notes__upload_file {
-  height: 25vh;
-  width: 100%;
-}
-
-/* display errors or status ok  */
-
-.status_error {
-  color: #ca0909;
-}
-.status_success {
-  color: #2aa804;
-}
-</style>

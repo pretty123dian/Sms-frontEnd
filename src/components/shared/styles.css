@@ -19,10 +19,10 @@
   button {
     background-color: #574ae2;
   }
-  .button_on_loaging {
-    background-color: #1400f3a8;
+  .button_on_loading {
+    background-color: #574ae2;
+    opacity: 0.7;
   }
-  
   .add-stud-btn:focus {
     outline: none;
   }
@@ -68,3 +68,78 @@
   /* add semesters styles end here */
 
 
+/* display errors or status ok  */
+
+.status_error {
+  color: #ca0909;
+}
+.status_success {
+  color: #2aa804;
+}
+
+/* profile starting */
+
+.profile__img {
+  border: 1px solid rgb(224, 224, 224);
+  height: 25vh;
+  border-radius: 50%;
+}
+.profile_links {
+  align-items: center;
+  text-align: center;
+}
+.profile__btn {
+  background-color: #ffffff;
+  color: #574ae2;
+  border: 2px solid #574ae2;
+}
+.profile__btn:hover {
+  background-color: #574ae2;
+  color: #ffffff;
+}
+.profile_links a:hover {
+  background-color: #e9e8ff;
+  color: #574ae2;
+}
+.profile_links a {
+  display: flex;
+
+  margin-top: 5%;
+  padding: 5% 0% 5% 10%;
+  border-radius: 20px;
+}
+.profile_links > .active {
+  padding: 5% 0% 5% 10%;
+  background-color: #e9e8ff;
+  color: #574ae2;
+  /* border:1px solid black; */
+  border-radius: 20px;
+}
+
+.profile__btn {
+  background-color: #ffffff;
+  color: #574ae2;
+  border: 1px solid #574ae2;
+  font-size: 12px;
+}
+.profile_remove_btn {
+  background-color: #ffffff;
+  color: #ee0004;
+  border: 1px solid #ee0004;
+  font-size: 12px;
+}
+.profile_remove_btn:hover {
+  background-color: #ee0004;
+  color: #ffffff;
+}
+.profile__btn:hover {
+  background-color: #574ae2;
+  color: #ffffff;
+}
+
+input{
+  padding: 11px 10px;
+}
+
+
+/* profile settings ends here */
